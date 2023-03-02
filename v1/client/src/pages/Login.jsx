@@ -61,7 +61,6 @@ const Login = () => {
       </div>
         
         <button onClick={handleSubmit}>Login</button>
-        {err && <p class="text-danger">{err}</p>}
         <span>
           Don't you have an account? <Link to="/register">Register</Link>
         </span>

@@ -190,7 +190,7 @@ const Register = () => {
       <div class="form-group row">
         <div class="col-sm-10">
           <button class="btn btn-primary" onClick={handleSubmit}>Register</button>
-          {err && <p class="text-danger">{err}</p>}
+          
           <span>
             Do you have an account? <Link to="/login">Login</Link>
           </span>

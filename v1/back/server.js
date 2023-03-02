@@ -2,6 +2,7 @@ import express from "express";
 import authRoutes from "./routes/auth.js";
 import cookieParser from "cookie-parser";
 
+
 const puerto=8800;
 
 const app = express()

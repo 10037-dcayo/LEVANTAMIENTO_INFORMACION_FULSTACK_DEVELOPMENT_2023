@@ -14,7 +14,7 @@ export const register = (req, res) => {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.contraseña, salt);
 
-    const q = "INSERT INTO student(`nombres`,`usuario`,`contraseña`,`uid`,`cedula`,`carrera`,`sede`,`fecha_ingreso`,`correo`,`telefono`,`img`) VALUES (?)";
+    const q = "INSERT INTO student(`nombres`,`usuario`,`contrasena`,`uid`,`cedula`,`carrera`,`sede`,`fecha_ingreso`,`correo`,`telefono`,`img`) VALUES (?)";
     const values = [req.body.nombres, req.body.usuario, hash, req.body.uid, req.body.cedula, req.body.carrera, req.body.sede, req.body.fecha_ingreso, req.body.correo, req.body.telefono, req.body.img];
 
     db.query(q, [values], (err, data) => {
