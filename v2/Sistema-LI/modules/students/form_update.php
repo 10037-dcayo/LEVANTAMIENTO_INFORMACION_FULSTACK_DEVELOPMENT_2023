@@ -37,44 +37,44 @@ if ($result = $conexion->query($sql)) {
 					<input id="txtusersurnames" class="text" type="text" name="txtsurnames" value="<?php echo $_SESSION['student_surnames']; ?>" placeholder="Apellidos" maxlength="60" required />
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
 					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['student_date_of_birth']; ?>" pattern="\d{4}-\d{2}-\d{2}" placeholder="aaaa-mm-dd" maxlength="10" required />
-					<label for="selectgender" class="label">Género</label>
+					<label for="selectgender" class="label">Sede</label>
 					<select id="selectgender" class="select" name="selectGender" required>
 						<?php
 						if ($_SESSION['student_gender'] == '') {
 							echo '
-								<option value="">Seleccioné</option>
-								<option value="mujer">Mujer</option>
-								<option value="hombre">Hombre</option>
-								<option value="otro">Otro</option>
-								<option value="nodecirlo">Prefiero no decirlo</option>
+								<option value="">Seleccione</option>
+								<option value="mujer">Matriz</option>
+								<option value="hombre">Latacunga</option>
+								
+								<option value="nodecirlo">Sto. Domingo</option>
 							';
 						} elseif ($_SESSION['student_gender'] == 'mujer') {
 							echo '
-								<option value="mujer">Mujer</option>
-								<option value="hombre">Hombre</option>
-								<option value="otro">Otro</option>
-								<option value="nodecirlo">Prefiero no decirlo</option>
+								<option value="mujer">Matriz</option>
+								<option value="hombre">Latacunga</option>
+								
+								<option value="nodecirlo">Sto. Domingo</option>
 							';
 						} elseif ($_SESSION['student_gender'] == 'hombre') {
 							echo '
-								<option value="hombre">Hombre</option>
-								<option value="mujer">Mujer</option>
-								<option value="otro">Otro</option>
-								<option value="nodecirlo">Prefiero no decirlo</option>
+								<option value="hombre">Latacunga</option>
+								<option value="mujer">Matriz</option>
+								
+								<option value="nodecirlo">Sto. Domingo</option>
 							';
 						} elseif ($_SESSION['student_gender'] == 'otro') {
 							echo '
-								<option value="otro">Otro</option>
-								<option value="mujer">Mujer</option>
-								<option value="hombre">Hombre</option>
-								<option value="nodecirlo">Prefiero no decirlo</option>
+								
+								<option value="mujer">Matriz</option>
+								<option value="hombre">Latacunga</option>
+								<option value="nodecirlo">Sto. Domingo</option>
 							';
 						} elseif ($_SESSION['student_gender'] == 'nodecirlo') {
 							echo '
-								<option value="nodecirlo">Prefiero no decirlo</option>
-								<option value="otro">Otro</option>
-								<option value="mujer">Mujer</option>
-								<option value="hombre">Hombre</option>
+								<option value="nodecirlo">Sto. Domingo</option>
+								
+								<option value="mujer">Matriz</option>
+								<option value="hombre">Latacunga</option>
 							';
 						}
 						?>
@@ -105,12 +105,12 @@ if ($result = $conexion->query($sql)) {
 					</select>
 				</div>
 				<div class="last">
-					<label for="txtusercurp" class="label">CURP</label>
-					<input id="txtusercurp" class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['student_curp']; ?>" placeholder="Clave Única de Registro de Población" pattern="[A-Za-z0-9]{18}" maxlength="18" onkeyup="this.value = this.value.toUpperCase()" required />
-					<label for="txtuserrfc" class="label">RFC</label>
-					<input id="txtuserrfc" class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['student_rfc']; ?>" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
+					<label for="txtusercurp" class="label">Cédula</label>
+					<input id="txtusercurp" class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['student_curp']; ?>" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
+					<label for="txtuserrfc" class="label">ID</label>
+					<input id="txtuserrfc" class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['student_rfc']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{13}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
-					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="9998887766" maxlength="10" required />
+					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />
 					<label for="txtuseraddress" class="label">Domicilio</label>
 					<input id="txtuseraddress" class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['student_address']; ?>" placeholder="Domicilio" maxlength="200" required />
 					<label for="selectusercareers" class="label">Carrera</label>
@@ -121,7 +121,7 @@ if ($result = $conexion->query($sql)) {
 						if ($career == '') {
 							echo
 							'
-								<option value="">Seleccioné</option>
+								<option value="">Seleccione</option>
 							';
 						}
 
