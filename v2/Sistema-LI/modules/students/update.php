@@ -12,7 +12,7 @@ if (empty($_POST['txtuserid'])) {
 	exit();
 }
 if ($_POST['txtuserid'] == '') {
-	Error('Ingrese un ID correcto.');
+	Error('Ingrese un ID correcto!!');
 	header('Location: /modules/students');
 	exit();
 }
