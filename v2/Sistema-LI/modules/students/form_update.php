@@ -108,7 +108,7 @@ if ($result = $conexion->query($sql)) {
 					<label for="txtusercurp" class="label">Cédula</label>
 					<input id="txtusercurp" class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['student_curp']; ?>" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
 					<label for="txtuserrfc" class="label">ID</label>
-					<input id="txtuserrfc" class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['student_rfc']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{13}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
+					<input id="txtuserrfc" class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['student_rfc']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />
 					<label for="txtuseraddress" class="label">Domicilio</label>
