@@ -9,7 +9,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 					<tr>
 						<th>Usuario</th>
 						<th>Nombre</th>
-						<th>CURP</th>
+						<th>Cedula</th>
 						<th>Teléfono</th>
 						<th class="center"><a class="icon">visibility</a></th>
 						<th class="center"><a class="icon">edit</a></th>

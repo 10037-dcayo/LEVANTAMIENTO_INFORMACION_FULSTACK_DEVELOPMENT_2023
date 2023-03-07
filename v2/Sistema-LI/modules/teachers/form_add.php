@@ -35,7 +35,7 @@ $id_generate = 'tchr-' . unique_id(5);
                     </select>
                 </div>
                 <div class="last">
-                    <label for="txtusercurp" class="label">CURP</label>
+                    <label for="txtusercurp" class="label">Cedula</label>
                     <input id="txtusercurp" class="text" type="text" name="txtcurp" value="" placeholder="Clave Única de Registro de Población" pattern="[A-Za-z0-9]{18}" maxlength="18" onkeyup="this.value = this.value.toUpperCase()" required />
                     <label for="txtuserrfc" class="label">RFC</label>
                     <input id="txtuserrfc" class="text" type="text" name="txtrfc" value="" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />

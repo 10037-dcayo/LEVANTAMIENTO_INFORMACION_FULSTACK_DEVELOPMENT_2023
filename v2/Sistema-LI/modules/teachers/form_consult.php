@@ -81,7 +81,7 @@ if ($result = $conexion->query($sql)) {
 					</select>
 				</div>
 				<div class="last">
-					<label class="label">CURP</label>
+					<label class="label">Cedula</label>
 					<input class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['teacher_curp']; ?>" disabled />
 					<label class="label">RFC</label>
 					<input class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['teacher_rfc']; ?>" disabled />
