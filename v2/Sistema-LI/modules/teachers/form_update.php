@@ -82,7 +82,7 @@ if ($result = $conexion->query($sql)) {
 				</div>
 				<div class="last">
 					<label for="txtusercurp" class="label">Cedula</label>
-					<input id="txtusercurp" class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['teacher_curp']; ?>" placeholder="Clave Única de Registro de Población" pattern="[A-Za-z0-9]{18}" maxlength="18" onkeyup="this.value = this.value.toUpperCase()" required />
+					<input id="txtusercurp" class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['teacher_curp']; ?>" placeholder="Documento de Identificacion" pattern="[0-9]{10}" maxlength="10" required />
 					<label for="txtuserrfc" class="label">RFC</label>
 					<input id="txtuserrfc" class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['teacher_rfc']; ?>" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
