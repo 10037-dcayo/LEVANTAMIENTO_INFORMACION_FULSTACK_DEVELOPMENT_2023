@@ -42,7 +42,7 @@ include_once 'load_data.php';
 	<meta name="google" value="notranslate">
 	<link rel="icon" type="image/png" href="/images/icon.png" />
 	<title>Alumnos | Levantamiento Información</title>
-	<meta name="description" content="Sistema Escolar, gestión de asistencias." />
+	<meta name="description" content="Prowess ec | Levantamiento de Información." />
 	<link rel="stylesheet" href="/css/style.css?v=<?php echo (rand()); ?>" media="screen, projection" type="text/css" />
 	<link rel="stylesheet" href="/css/select2.css" media="screen, projection" type="text/css" />
 	<link rel="stylesheet" href="/css/litepicker.css" media="screen, projection" type="text/css" />
