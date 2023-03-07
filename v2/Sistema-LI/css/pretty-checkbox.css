@@ -731,7 +731,7 @@
 }
 
 .pretty.p-switch.p-slim input:checked~.state.p-primary:before {
-    border-color: #245682;
+    border-color: #022B3B;
     background-color: #245682 !important;
 }
 

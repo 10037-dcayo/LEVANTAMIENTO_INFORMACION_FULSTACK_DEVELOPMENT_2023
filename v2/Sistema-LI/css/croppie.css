@@ -180,7 +180,7 @@
 
 .cr-slider::-webkit-slider-thumb:hover,
 .cr-slider::-webkit-slider-thumb:focus {
-    background: #4a567c;
+    background: #022B3B;
     box-shadow: 0 0 0 2.5pt #929cb9 !important;
     color: #aebbd3;
     transition: all 200ms ease-in;
