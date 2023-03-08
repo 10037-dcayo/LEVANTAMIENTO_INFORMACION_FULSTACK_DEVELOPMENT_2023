@@ -292,6 +292,7 @@ CREATE TABLE `users` (
 --
 -- Volcado de datos para la tabla `users`
 --
+-- Commit
 
 INSERT INTO `users` (`user`, `email`, `pass`, `permissions`, `image`, `image_updated_at`, `created_at`, `updated_at`) VALUES
 ('admin', 'carmonabernaldiego@gmail.com', 'root', 'admin', 'admin221.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
