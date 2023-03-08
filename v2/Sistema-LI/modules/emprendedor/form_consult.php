@@ -43,10 +43,9 @@ if ($result = $conexion->query($sql)) {
 						if ($_SESSION['student_gender'] == '') {
 							echo '
 						<option value="">Seleccione</option>
-						<option value="mujer">Matriz</option>
-						<option value="hombre">Latacunga</option>
-						
-						<option value="nodecirlo">Sto. Domingo</option>
+						<option value="mujer">Femenino</option>
+						<option value="hombre">Masculino</option>						
+						<option value="nodecirlo">Otro</option>
 						';
 						} elseif ($_SESSION['student_gender'] == 'mujer') {
 							echo '
