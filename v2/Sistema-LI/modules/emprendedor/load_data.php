@@ -12,7 +12,7 @@ if ($result = $conexion->query($sql)) {
 			header('Location: /modules/careers');
 			exit();
 		} else {
-			$sql = "SELECT COUNT(user) AS total FROM students";
+			$sql = "SELECT COUNT(user) AS total FROM emprendedor";
 
 			if ($result = $conexion->query($sql)) {
 				if ($row = mysqli_fetch_array($result)) {
@@ -31,7 +31,7 @@ if ($result = $conexion->query($sql)) {
 
 				$i = 0;
 
-				$sql = "SELECT * FROM students WHERE user LIKE '%" . $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR curp LIKE '%" . $_POST['search'] . "%' OR admission_date LIKE '%" . $_POST['search'] . "%' ORDER BY name";
+				$sql = "SELECT * FROM emprendedor WHERE user LIKE '%" . $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR curp LIKE '%" . $_POST['search'] . "%' OR admission_date LIKE '%" . $_POST['search'] . "%' ORDER BY name";
 
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
@@ -52,7 +52,7 @@ if ($result = $conexion->query($sql)) {
 
 				$i = 0;
 
-				$sql = "SELECT * FROM students ORDER BY created_at DESC, user, name LIMIT $inicio, $max";
+				$sql = "SELECT * FROM emprendedor ORDER BY created_at DESC, user, name LIMIT $inicio, $max";
 
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
