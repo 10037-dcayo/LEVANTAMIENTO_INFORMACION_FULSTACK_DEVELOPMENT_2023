@@ -18,8 +18,7 @@ $id_generate = 'stdt-' . unique_id(5);
             <div class="wrap">
                 <div class="first">
                     <label for="txtuserid" class="label">Usuario</label>
-                    <input id="txtuserid" class="text" style=" display: none;" type="text" name="txtuserid" value="<?php echo $id_generate; ?>" maxlength="50" required />
-                    <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />
+                    <input id="txtuserid" class="text" type="text" name="txtuserid" value="" placeholder="Usuario"maxlength="50" required />                    
                     <label for="txtusername" class="label">Nombre</label>
                     <input id="txtusername" class="text" type="text" name="txtname" value="" placeholder="Nombre" maxlength="30" required autofocus />
                     <label for="txtusersurnames" class="label">Apellidos</label>
@@ -29,8 +28,8 @@ $id_generate = 'stdt-' . unique_id(5);
                     <label for="selectgender" class="label">Género</label>
                     <select id="selectgender" class="select" name="selectgender" required>
                         <option value="">Seleccione</option>
-                        <option value="mujer">Masculino</option>
-                        <option value="hombre">Femenino</option>
+                        <option value="mujer">Femenino</option>
+                        <option value="hombre">Masculino</option>
                         <option value="otro">Otro</option>                        
                     </select>
 

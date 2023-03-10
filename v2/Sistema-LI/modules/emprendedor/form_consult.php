@@ -1,7 +1,7 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-$sql = "SELECT * FROM students WHERE user = '" . $_POST['txtuserid'] . "'";
+$sql = "SELECT * FROM emprendedor WHERE user = '" . $_POST['txtuserid'] . "'";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
@@ -18,7 +18,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_documentation'] = $row['documentation'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
 	}
-}
+} 
 ?>
 <div class="form-data">
 	<div class="head">
@@ -146,4 +146,4 @@ if ($result = $conexion->query($sql)) {
 <div class="content-aside">
 	<?php include_once "../sections/options-disabled.php"; ?>
 </div>
-<script src="/js/modules/students.js" type="text/javascript"></script>
+<script src="/js/modules/emprendedor.js" type="text/javascript"></script>

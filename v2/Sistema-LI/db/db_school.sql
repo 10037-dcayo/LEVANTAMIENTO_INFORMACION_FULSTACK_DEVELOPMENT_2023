@@ -316,20 +316,16 @@ CREATE TABLE `emprendedor` (
 	`surname` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`date_of_birth` DATE NULL DEFAULT NULL,
 	`gender` VARCHAR(30) NULL DEFAULT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`curp` VARCHAR(18) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`rfc` VARCHAR(13) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`phone` VARCHAR(10) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
+	`curp` INT(10) NOT NULL,
+	`phone` INT(10) NOT NULL,
 	`address` VARCHAR(200) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`career` VARCHAR(20) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`documentation` INT(10) NOT NULL,
-	`admission_date` DATE NOT NULL,
-	`created_at` TIMESTAMP NULL DEFAULT NULL,
-	`update_at` TIMESTAMP NULL DEFAULT NULL,
+	`documentation` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	PRIMARY KEY (`user`) USING BTREE
 )
 COLLATE='utf8mb4_spanish2_ci'
 ENGINE=InnoDB
 ;
+
 
 
 
@@ -392,4 +388,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-db_schooldb_school
+db_schooldb_schoolemprendedoremprendedorcareersemprendedor

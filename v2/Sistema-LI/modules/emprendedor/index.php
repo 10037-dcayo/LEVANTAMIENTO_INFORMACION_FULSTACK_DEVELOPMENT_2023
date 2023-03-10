@@ -29,7 +29,7 @@ if (!empty($_POST['page'])) {
 $max = 50;
 $inicio = ($page - 1) * $max;
 
-// Cargar datos de Alumnos
+// Cargar datos de Emmprendedores
 include_once 'load_data.php';
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ include_once 'load_data.php';
 	<meta name="robots" content="noindex">
 	<meta name="google" value="notranslate">
 	<link rel="icon" type="image/png" href="/images/icon.png" />
-	<title>Alumnos | Sistema Escolar</title>
+	<title>Emprendedores | Sistema Escolar</title>
 	<meta name="description" content="Sistema Escolar, gestión de asistencias." />
 	<link rel="stylesheet" href="/css/style.css?v=<?php echo (rand()); ?>" media="screen, projection" type="text/css" />
 	<link rel="stylesheet" href="/css/select2.css" media="screen, projection" type="text/css" />

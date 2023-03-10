@@ -5,7 +5,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 	<table class="default">
 		<?php
 		if ($_SESSION['total_users'] != 0) {
-			echo '
+			echo ' 
 					<tr>
 						<th>Usuario</th>
 						<th>Nombre</th>

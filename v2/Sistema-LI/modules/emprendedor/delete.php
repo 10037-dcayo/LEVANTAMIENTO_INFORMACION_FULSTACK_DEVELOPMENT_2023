@@ -8,12 +8,13 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 if (empty($_POST['txtuserid'])) {
 	header('Location: /');
 	exit();
+	
 }
 
 $sql_delete = "DELETE FROM users WHERE user = '" . $_POST['txtuserid'] . "'";
 
 if (mysqli_query($conexion, $sql_delete)) {
-	$sql_delete = "DELETE FROM students WHERE user = '" . $_POST['txtuserid'] . "'";
+	$sql_delete = "DELETE FROM emprendedor WHERE user = '" . $_POST['txtuserid'] . "'";
 
 	if (mysqli_query($conexion, $sql_delete)) {
 		Error('Emprendedor eliminado.');

@@ -38,7 +38,7 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['user_id'][$i] = $row['user'];
 						$_SESSION['student_curp'][$i] = $row['curp'];
 						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
-						$_SESSION['student_date'][$i] = $row['admission_date'];
+						$_SESSION['student_date'][$i] = $row['documentation'];
 
 						$i += 1;
 					}
@@ -52,14 +52,14 @@ if ($result = $conexion->query($sql)) {
 
 				$i = 0;
 
-				$sql = "SELECT * FROM emprendedor ORDER BY created_at DESC, user, name LIMIT $inicio, $max";
+				$sql = "SELECT * FROM emprendedor ORDER BY date_of_birth DESC, user, name LIMIT $inicio, $max";
 
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
 						$_SESSION['student_curp'][$i] = $row['curp'];
-						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
-						$_SESSION['student_date'][$i] = $row['admission_date'];
+						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surname'];
+						$_SESSION['student_date'][$i] = $row['documentation'];
 
 						$i += 1;
 					}
