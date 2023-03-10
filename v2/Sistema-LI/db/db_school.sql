@@ -317,7 +317,7 @@ CREATE TABLE `emprendedor` (
 	`date_of_birth` DATE NULL DEFAULT NULL,
 	`gender` VARCHAR(30) NULL DEFAULT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`curp` INT(10) NOT NULL,
-	`phone` INT(10) NOT NULL,
+	`phone` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_spanish2_ci',
 	`address` VARCHAR(200) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`documentation` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	PRIMARY KEY (`user`) USING BTREE
@@ -388,4 +388,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-db_schooldb_schoolemprendedoremprendedorcareersemprendedor
+db_schooldb_schoolemprendedoremprendedorcareersemprendedoremprendedor

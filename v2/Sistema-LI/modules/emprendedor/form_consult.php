@@ -7,16 +7,13 @@ if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
 		$_SESSION['user_id'] = $row['user'];
 		$_SESSION['student_name'] = $row['name'];
-		$_SESSION['student_surnames'] = $row['surnames'];
+		$_SESSION['student_surnames'] = $row['surname'];
 		$_SESSION['student_gender'] = $row['gender'];
 		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
-		$_SESSION['student_curp'] = $row['curp'];
-		$_SESSION['student_rfc'] = $row['rfc'];
+		$_SESSION['student_curp'] = $row['curp'];	
 		$_SESSION['student_phone'] = $row['phone'];
-		$_SESSION['student_address'] = $row['address'];
-		$_SESSION['student_career'] = $row['career'];
-		$_SESSION['student_documentation'] = $row['documentation'];
-		$_SESSION['student_admission_date'] = $row['admission_date'];
+		$_SESSION['student_address'] = $row['address'];		
+		$_SESSION['student_documentation'] = $row['documentation'];		
 	}
 } 
 ?>
@@ -25,7 +22,7 @@ if ($result = $conexion->query($sql)) {
 		<h1 class="titulo">Consultar</h1>
 	</div>
 	<div class="body">
-		<form name="form-consult-students" action="#" method="POST">
+		<form name="form-consult-emprendedor" action="#" method="POST">
 			<div class="wrap">
 				<div class="first">
 					<label class="label">Usuario</label>
@@ -37,7 +34,7 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtsurnames" value="<?php echo $_SESSION['student_surnames']; ?>" disabled />
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
 					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['student_date_of_birth']; ?>" disabled />
-					<label for="selectgender" class="label">Sede</label>
+					<label for="selectgender" class="label">Género</label>
 					<select id="selectgender" class="select" name="selectgender" disabled>
 						<?php
 						if ($_SESSION['student_gender'] == '') {
@@ -49,8 +46,8 @@ if ($result = $conexion->query($sql)) {
 						';
 						} elseif ($_SESSION['student_gender'] == 'mujer') {
 							echo '
-						<option value="mujer">Masculino</option>
-						<option value="hombre">Femenino</option>						
+						<option value="mujer">Femenino</option>
+						<option value="hombre">Masculino</option>						
 						<option value="nodecirlo">Otro</option>
 						';
 						} elseif ($_SESSION['student_gender'] == 'hombre') {
@@ -63,82 +60,23 @@ if ($result = $conexion->query($sql)) {
 							echo '
 						<option value="nodecirlo">Otro</option>						 
 						<option value="mujer">Femenino</option>
-						<option value="hombre">MAsculino</option>
+						<option value="hombre">Masculino</option>
 						';
 						}
 						?>
-					</select>
-					<label for="selectuserdocumentation" class="label">Documentación</label>
-					<select id="selectuserdocumentation" class="select" name="selectDocumentation" disabled>
-						<?php
-						if ($_SESSION['student_documentation'] == '') {
-							echo '
-								<option value="">Seleccioné</option>
-								<option value="1">Sí</option>
-								<option value="0">No</option>
-							';
-						} else if ($_SESSION['student_documentation'][0] == 1) {
-							echo
-							'
-								<option value="1">Sí</option>
-								<option value="0">No</option>
-							';
-						} elseif ($_SESSION['student_documentation'][0] == 0) {
-							echo
-							'
-								<option value="0">No</option>
-								<option value="1">Sí</option>
-							';
-						}
-						?>
-					</select>
+					</select>				
 				</div>
 				<div class="last">
 					<label class="label">Cédula</label>
 					<input class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['student_curp']; ?>" disabled />
-					<label class="label">ID</label>
-					<input class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['student_rfc']; ?>" disabled />
+					<label class="label">Nacionalidad</label>
+					<input class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['student_address']; ?>" disabled />
 					<label class="label">Número de teléfono</label>
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" disabled />
-					<label class="label">Domicilio</label>
-					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['student_address']; ?>" disabled />
-					<label for="selectusercareers" class="label">Carrera</label>
-					<select id="selectusercareers" class="select" name="selectCareer" disabled>
-						<?php
-						$career = $_SESSION['student_career'];
-
-						if ($career == '') {
-							echo
-							'
-								<option value="">Seleccione</option>
-							';
-						}
-
-						$sql = "SELECT career, name FROM careers";
-
-						if ($result = $conexion->query($sql)) {
-							while ($row = mysqli_fetch_array($result)) {
-								if ($row['career'] == $career) {
-									echo
-									'
-										<option value="' . $row['career'] . '" selected>' . $row['name'] . '</option>
-									';
-								} else {
-									echo
-									'
-										<option value="' . $row['career'] . '">' . $row['name'] . '</option>
-									';
-								}
-							}
-						}
-						?>
-					</select>
-					<label for="dateuseradmission" class="label">Fecha de admisión</label>
-					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" disabled />
+					<label class="label">Correo electrónico</label>
+					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['student_documentation']; ?>" disabled />					
 				</div>
 			</div>
-			<button id="btnBack" class="btn back icon" type="button">arrow_back</button>
-			<button id="btnNext" class="btn icon" type="button">arrow_forward</button>
 			<button id="btnSave" class="btn icon" type="submit" autofocus>done</button>
 		</form>
 	</div>

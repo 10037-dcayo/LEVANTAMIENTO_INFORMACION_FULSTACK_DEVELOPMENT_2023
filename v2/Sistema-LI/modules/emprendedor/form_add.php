@@ -14,7 +14,7 @@ $id_generate = 'stdt-' . unique_id(5);
         <h1 class="titulo">Agregar Emprendedor</h1>
     </div>
     <div class="body">
-        <form name="form-add-students" action="insert.php" method="POST" autocomplete="off" autocapitalize="on">
+        <form name="form-add-emprendedor" action="insert.php" method="POST" autocomplete="off" autocapitalize="on">
             <div class="wrap">
                 <div class="first">
                     <label for="txtuserid" class="label">Usuario</label>
@@ -42,7 +42,7 @@ $id_generate = 'stdt-' . unique_id(5);
                     <label for="txtuserphone" class="label">Número de teléfono</label>
                     <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="09999XXXXX" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
                     <label for="txtuseraddress" class="label">Correo Electrónico</label>
-                    <input id="txtuseraddress" class="text" type="text" name="txtaddress" value="" placeholder="Correo" maxlength="200" required />
+                    <input id="txtuseraddress" class="text" type="email" name="txtaddress" value="" placeholder="Correo" maxlength="200" required />
                 </div>
             </div>
             

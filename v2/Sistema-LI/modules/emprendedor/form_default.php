@@ -9,8 +9,8 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 					<tr>
 						<th>Usuario</th>
 						<th>Nombre</th>
-						<th>CURP</th>
-						<th class="center" style="width: 80px;">Admisión</th>
+						<th>Cédula</th>
+						<th class="center" style="width: 80px;">Correo electrónico</th>
 						<th class="center"><a class="icon">visibility</a></th>
 						<th class="center"><a class="icon">edit</a></th>
 			';

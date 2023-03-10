@@ -90,7 +90,7 @@ if (strpos($url_actual, 'modules')) {
 
         <li><a class="<?php if ($output[1] == 'emprendedor') {
                             echo 'active';
-                        } ?>" href="/modules/emprendedor"><span class="icon">recent_actors</span>Emprendedor</a>
+                        } ?>" href="/modules/emprendedor"><span class="icon">attach_money</span>Emprendedor</a>
         </li>
 
         <li><a class="<?php if ($output[1] == 'careers') {
@@ -146,6 +146,13 @@ if (strpos($url_actual, 'modules')) {
                                     echo 'active-menu';
                                 } ?>" href="/modules/students"><span class="icon">recent_actors</span><span class="text">Alumnos</span></a>
                 </li>
+
+                <li>
+                    <a class="<?php if ($output[1] == 'emprendedor') {
+                                    echo 'active-menu';
+                                } ?>" href="/modules/emprendedor"><span class="icon">attach_money</span><span class="text">Emprendedor</span></a>
+                </li>
+
                 <li>
                     <a class="<?php if ($output[1] == 'careers') {
                                     echo 'active-menu';
