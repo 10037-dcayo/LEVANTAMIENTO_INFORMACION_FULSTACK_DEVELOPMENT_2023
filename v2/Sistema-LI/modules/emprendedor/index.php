@@ -32,6 +32,7 @@ $inicio = ($page - 1) * $max;
 // Cargar datos de Emmprendedores
 include_once 'load_data.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 

@@ -316,7 +316,7 @@ CREATE TABLE `emprendedor` (
 	`surname` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`date_of_birth` DATE NULL DEFAULT NULL,
 	`gender` VARCHAR(30) NULL DEFAULT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`curp` INT(10) NOT NULL,
+	`curp` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_spanish2_ci',
 	`phone` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_spanish2_ci',
 	`address` VARCHAR(200) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`documentation` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
@@ -325,6 +325,7 @@ CREATE TABLE `emprendedor` (
 COLLATE='utf8mb4_spanish2_ci'
 ENGINE=InnoDB
 ;
+
 
 
 

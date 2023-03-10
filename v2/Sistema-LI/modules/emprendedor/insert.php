@@ -50,3 +50,4 @@ if ($result = $conexion->query($sql)) {
 		exit();
 	}
 }
+?>

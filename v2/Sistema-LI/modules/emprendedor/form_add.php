@@ -6,7 +6,6 @@ function unique_id($l = 10)
     return substr(md5(uniqid(mt_rand(), true)), 0, $l);
 }
 
-
 $id_generate = 'stdt-' . unique_id(5);
 ?>
 <div class="form-data">
@@ -24,7 +23,10 @@ $id_generate = 'stdt-' . unique_id(5);
                     <label for="txtusersurnames" class="label">Apellidos</label>
                     <input id="txtusersurnames" class="text" type="text" name="txtsurnames" placeholder="Apellidos" value="" maxlength="60" required />
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
-                    <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="" placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
+                    <input id="dateuseradmission" class="date" type="date" name="dateofbirth" value="<?php echo date('Y-m-d'); ?>" required />
+
+                
+
                     <label for="selectgender" class="label">Género</label>
                     <select id="selectgender" class="select" name="selectgender" required>
                         <option value="">Seleccione</option>
