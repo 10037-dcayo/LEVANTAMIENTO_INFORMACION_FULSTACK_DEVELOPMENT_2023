@@ -26,12 +26,12 @@ $id_generate = 'stdt-' . unique_id(5);
                     <input id="txtusersurnames" class="text" type="text" name="txtsurnames" placeholder="Apellidos" value="" maxlength="60" required />
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
                     <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="" placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
-                    <label for="selectgender" class="label">Sede</label>
-                    <select id="selectgender" class="select" name="selectgender" required>
+                    <label for="selectsede" class="label">Sede</label>
+                    <select id="selectsede" class="select" name="selectsede" required>     
                         <option value="">Seleccione</option>
-                        <option value="mujer">Matriz</option>
-                        <option value="hombre">Latacunga</option>
-                        <option value="nodecirlo">Sto. Domingo</option>
+                        <option value="Matriz">Matriz</option>
+                        <option value="Latacunga">Latacunga</option>
+                        <option value="Sto. Domingo">Sto. Domingo</option>
                     </select>
                     <label for="selectuserdocumentation" class="label">Documentación</label>
                     <select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
@@ -41,14 +41,19 @@ $id_generate = 'stdt-' . unique_id(5);
                     </select>
                 </div>
                 <div class="last">
-                    <label for="txtusercurp" class="label">Cédula</label>
+                    <label for="txtusercedula" class="label">Cédula</label>
 
-                    <input id="txtusercurp" class="text" type="text" name="txtcurp" value="" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10"  required />
+                    <input id="txtusercedula" class="text" type="text" name="txtcedula" value="" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10"  required />
 
 
 
-                    <label for="txtuserrfc" class="label">ID</label>
-                    <input id="txtuserrfc" class="text" type="text" name="txtrfc" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
+                    <label for="txtuserpass" class="label">Contraseña</label>
+                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" required />
+
+
+
+                    <label for="txtuserid" class="label">ID</label>
+                    <input id="txtuserid" class="text" type="text" name="txtid" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
                     <label for="txtuserphone" class="label">Número de teléfono</label>
                     <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="09999XXXXX" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
                     <label for="txtuseraddress" class="label">Domicilio</label>

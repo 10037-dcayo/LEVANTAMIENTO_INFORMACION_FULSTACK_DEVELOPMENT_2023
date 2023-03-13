@@ -188,9 +188,10 @@ CREATE TABLE `students` (
   `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `date_of_birth` date DEFAULT NULL,
-  `gender` varchar(30) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `curp` varchar(18) COLLATE utf8_spanish2_ci NOT NULL,
-  `rfc` varchar(13) COLLATE utf8_spanish2_ci NOT NULL,
+  `sede` varchar(30) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `cedula` varchar(18) COLLATE utf8_spanish2_ci NOT NULL,
+  `pass` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
+  `id` varchar(13) COLLATE utf8_spanish2_ci NOT NULL,
   `phone` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
   `address` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `career` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
@@ -204,11 +205,9 @@ CREATE TABLE `students` (
 -- Volcado de datos para la tabla `students`
 --
 
-INSERT INTO `students` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `curp`, `rfc`, `phone`, `address`, `career`, `documentation`, `admission_date`, `created_at`, `updated_at`) VALUES
-('stdt8ef8ba', 'Carlos Esteban', 'Robles Flores', NULL, NULL, 'CSJJSSIKJSKLSKOSKJ', 'JNDKJHJDLKJSL', '9651251012', 'Conocido', 'IEM', 0, '2021-10-08', '2022-04-03 17:52:52', NULL),
-('student_0beb9', 'Jesus', 'Ruiz Ruiz', NULL, NULL, 'PIJA0SKKS000022236', 'CONOCIDO', '2737283838', 'Conocido', 'IEM', 1, '2021-08-02', '2022-04-03 17:53:02', NULL),
-('student_28e64', 'María Juana', 'Pompeya Corzo', NULL, NULL, 'L02LSLSJLJKJ89994P', 'CONOCIDO', '9828782828', 'Conocido', 'IEM', 0, '2021-08-02', '2022-04-03 17:53:06', NULL),
-('student_f0404', 'Ricardo', 'Flores Magon', NULL, NULL, 'KKSKK99991P9199191', 'CONOCIDO', '272878328', 'Conocido', 'IEM', 1, '2021-08-02', '2022-04-03 17:53:11', NULL);
+-- INSERT INTO `students` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `cedula`, `pass`, `id`, `phone`, `address`, `career`, `documentation`, `admission_date`, `created_at`, `updated_at`) 
+
+SELECT * FROM students
 
 -- --------------------------------------------------------
 

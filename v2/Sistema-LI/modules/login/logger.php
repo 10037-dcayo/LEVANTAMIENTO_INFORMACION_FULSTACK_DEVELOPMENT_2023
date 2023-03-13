@@ -99,10 +99,10 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
             error_user:
             echo '
                     <label class="label error">usuario y/o contraseña incorrectos</label>
-					<input type="text" class="text" name="txtuser" placeholder="Correo electrónico o matrícula" autofocus required />
+					<input type="text" class="text" name="txtuser" placeholder="Cédula" autofocus required />
 					<input type="password" class="textcontrasena" name="txtpass" placeholder="Contraseña" autocomplete="off" required />
 					<div class="forgot-pass">
-                        <a class="un" href="#">¿Olvidaste la contraseña?</a>
+                        <a class="un" href="about:blank">¿Olvidaste la contraseña?</a>
                     </div>
                     <div class="pretty p-svg p-curve p-smooth">
                         <input type="checkbox" name="remember_session" placeholder="Recordar" value="1" />
@@ -120,10 +120,12 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
 } else {
     echo '
 			<label class="label">Inicia sesión</label>
-			<input type="text" class="text" name="txtuser" placeholder="Correo electrónico o matrícula" autofocus required />
+			<input type="text" class="text" name="txtuser" placeholder="Cédula" autofocus required />
 			<input type="password" class="textcontrasena" name="txtpass" placeholder="Contraseña" autocomplete="off" required />
             <div class="forgot-pass">
-                <a class="un" href="http://sistema-escolar-main.test/">Registrarse</a>
+
+                <a class="un" href="https://help.loyverse.com/sites/default/files/u187/help/2-esp_0.jpg" target="_blank" >¿Olvidaste la contraseña?</a>
+        
             </div>           
             <div class="pretty p-svg p-curve p-smooth">
                 <input type="checkbox" name="remember_session" placeholder="Recordar" value="1" />

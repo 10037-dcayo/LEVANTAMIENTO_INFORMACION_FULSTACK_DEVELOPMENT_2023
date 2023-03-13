@@ -8,10 +8,10 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['user_id'] = $row['user'];
 		$_SESSION['student_name'] = $row['name'];
 		$_SESSION['student_surnames'] = $row['surnames'];
-		$_SESSION['student_gender'] = $row['gender'];
+		$_SESSION['student_sede'] = $row['sede'];
 		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
-		$_SESSION['student_curp'] = $row['curp'];
-		$_SESSION['student_rfc'] = $row['rfc'];
+		$_SESSION['student_cedula'] = $row['cedula'];
+		$_SESSION['student_id'] = $row['id'];
 		$_SESSION['student_phone'] = $row['phone'];
 		$_SESSION['student_address'] = $row['address'];
 		$_SESSION['student_career'] = $row['career'];
@@ -37,37 +37,37 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtsurnames" value="<?php echo $_SESSION['student_surnames']; ?>" disabled />
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
 					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['student_date_of_birth']; ?>" disabled />
-					<label for="selectgender" class="label">Sede</label>
-					<select id="selectgender" class="select" name="selectgender" disabled>
+					<label for="selectsede" class="label">Sede</label>
+					<select id="selectsede" class="select" name="selectsede" disabled>
 						<?php
-						if ($_SESSION['student_gender'] == '') {
+						if ($_SESSION['student_sede'] == '') {
 							echo '
 						<option value="">Seleccione</option>
-						<option value="mujer">Matriz</option>
-						<option value="hombre">Latacunga</option>
+						<option value="matriz">Matriz</option>
+						<option value="latacunga">Latacunga</option>
 						
-						<option value="nodecirlo">Sto. Domingo</option>
+						<option value="stodomingo">Sto. Domingo</option>
 						';
-						} elseif ($_SESSION['student_gender'] == 'mujer') {
+						} elseif ($_SESSION['student_sede'] == 'matriz') {
 							echo '
-						<option value="mujer">Matriz</option>
-						<option value="hombre">Latacunga</option>
+						<option value="matriz">Matriz</option>
+						<option value="latacunga">Latacunga</option>
 						
-						<option value="nodecirlo">Sto. Domingo</option>
+						<option value="stodomingo">Sto. Domingo</option>
 						';
-						} elseif ($_SESSION['student_gender'] == 'hombre') {
+						} elseif ($_SESSION['student_sede'] == 'latacunga') {
 							echo '
-						<option value="hombre">Latacunga</option>
-						<option value="mujer">Matriz</option>
+						<option value="latacunga">Latacunga</option>
+						<option value="matriz">Matriz</option>
 						
-						<option value="nodecirlo">Sto. Domingo</option>
+						<option value="stodomingo">Sto. Domingo</option>
 						';
-						} elseif ($_SESSION['student_gender'] == 'nodecirlo') {
+						} elseif ($_SESSION['student_sede'] == 'Sto. Domingo') {
 							echo '
-						<option value="nodecirlo">Sto. Domingo</option>
+						<option value="stodomingo">Sto. Domingo</option>
 						 
-						<option value="mujer">Matriz</option>
-						<option value="hombre">Latacunga</option>
+						<option value="matriz">Matriz</option>
+						<option value="latacunga">Latacunga</option>
 						';
 						}
 						?>
@@ -99,9 +99,20 @@ if ($result = $conexion->query($sql)) {
 				</div>
 				<div class="last">
 					<label class="label">Cédula</label>
-					<input class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['student_curp']; ?>" disabled />
+					<input class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['student_cedula']; ?>" disabled />
+
+
+
+					<label class="label">Contraseña</label>
+					<input class="text" type="text" name="txtpass" value="<?php echo $_SESSION['student_pass']; ?>" disabled />
+
+
 					<label class="label">ID</label>
-					<input class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['student_rfc']; ?>" disabled />
+					<input class="text" type="text" name="txtid" value="<?php echo $_SESSION['student_id']; ?>" disabled />
+
+
+
+
 					<label class="label">Número de teléfono</label>
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" disabled />
 					<label class="label">Domicilio</label>
@@ -114,7 +125,7 @@ if ($result = $conexion->query($sql)) {
 						if ($career == '') {
 							echo
 							'
-								<option value="">Seleccioné</option>
+								<option value="">Seleccione</option>
 							';
 						}
 
