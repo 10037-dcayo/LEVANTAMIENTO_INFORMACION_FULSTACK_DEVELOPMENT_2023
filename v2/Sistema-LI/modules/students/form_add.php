@@ -29,9 +29,9 @@ $id_generate = 'stdt-' . unique_id(5);
                     <label for="selectsede" class="label">Sede</label>
                     <select id="selectsede" class="select" name="selectsede" required>     
                         <option value="">Seleccione</option>
-                        <option value="Matriz">Matriz</option>
-                        <option value="Latacunga">Latacunga</option>
-                        <option value="Sto. Domingo">Sto. Domingo</option>
+                        <option value="matriz">Matriz</option>
+                        <option value="latacunga">Latacunga</option>
+                        <option value="stodomingo">Sto. Domingo</option>
                     </select>
                     <label for="selectuserdocumentation" class="label">Documentación</label>
                     <select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
