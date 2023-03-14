@@ -96,7 +96,6 @@ button:focus {
 
 body {
     font-family: Helvetica Neue”, Helvetica, Arial, sans-serif;
-    background: #022B3B;
     color: #4a567c;
 }
 
@@ -220,7 +219,7 @@ body.login {
     width: 22%;
     top: 0;
     bottom: 0;
-    background: #383a59;
+    background: #022B3B;
     box-shadow: 2px 0 2px rgba(73, 80, 104, 0.4);
     overflow-x: hidden;
     overflow-y: auto;

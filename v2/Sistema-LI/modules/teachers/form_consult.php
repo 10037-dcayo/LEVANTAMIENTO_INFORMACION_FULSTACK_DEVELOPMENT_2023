@@ -10,7 +10,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['teacher_surnames'] = $row['surnames'];
 		$_SESSION['teacher_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['teacher_gender'] = $row['gender'];
-		$_SESSION['teacher_curp'] = $row['curp'];
+		$_SESSION['teacher_cedula'] = $row['cedula'];
 		$_SESSION['teacher_rfc'] = $row['rfc'];
 		$_SESSION['teacher_phone'] = $row['phone'];
 		$_SESSION['teacher_address'] = $row['address'];
@@ -82,7 +82,7 @@ if ($result = $conexion->query($sql)) {
 				</div>
 				<div class="last">
 					<label class="label">Cedula</label>
-					<input class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['teacher_curp']; ?>" disabled />
+					<input class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" disabled />
 					<label class="label">RFC</label>
 					<input class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['teacher_rfc']; ?>" disabled />
 					<label class="label">Número de teléfono</label>

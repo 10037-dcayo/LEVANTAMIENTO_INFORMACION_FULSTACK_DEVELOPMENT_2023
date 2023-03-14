@@ -33,30 +33,6 @@ $id_generate = 'tchr-' . unique_id(5);
                         <option value="otro">Otro</option>
                         <option value="nodecirlo">Prefiero no decirlo</option>
                     </select>
-                </div>
-                <div class="last">
-                    <label for="txtusercurp" class="label">Cedula</label>
-                    <input id="txtusercurp" class="text" type="text" name="txtcurp" value="" placeholder="Documento de Identificacion" pattern="[0-9]{10}" maxlength="10" required />
-                    <label for="txtuserrfc" class="label">RFC</label>
-                    <input id="txtuserrfc" class="text" type="text" name="txtrfc" value="" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
-                    <label for="txtuserphone" class="label">Número de teléfono</label>
-                    <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="9998887766" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
-                    <label for="txtuseraddress" class="label">Domicilio</label>
-                    <input id="txtuseraddress" class="text" type="text" name="txtaddress" value="" placeholder="Domicilio" maxlength="200" required />
-                    <label for="txtuserspecialty" class="label">Especialidad</label>
-                    <input id="txtuserspecialty" class="text" type="text" name="txtspecialty" value="" placeholder="Especialidad" maxlength="100" required />
-                </div>
-                <div class="content-full">
-                    <label for="selectuserlevelstudies" class="label">Nivel de estudios</label>
-                    <select id="selectuserlevelstudies" class="select" name="selectlevelstudies" required>
-                        <option value="">Seleccioné</option>
-                        <option value="Licenciatura">Licenciatura</option>
-                        <option value="Ingenieria">Ingenieria</option>
-                        <option value="Maestria">Maestria</option>
-                        <option value="Doctorado">Doctorado</option>
-                    </select>
-                </div>
-                <div class="content-full">
                     <label for="selectusercareers" class="label">Carrera</label>
                     <select id="selectusercareers" class="select-user-careers" name="selectCareers[]" multiple="multiple" placeholder="holi" required>
                         <?php
@@ -72,6 +48,30 @@ $id_generate = 'tchr-' . unique_id(5);
                         }
                         ?>
                     </select>
+                </div>
+                <div class="last">
+                    <label for="txtusercedula" class="label">Cedula</label>
+                    <input id="txtusercedula" class="text" type="text" name="txtcedula" value="" placeholder="Documento de Identificacion" pattern="[0-9]{10}" maxlength="10" required />
+                    <label for="txtuserrfc" class="label">RFC</label>
+                    <input id="txtuserrfc" class="text" type="text" name="txtrfc" value="" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
+                    <label for="txtuserphone" class="label">Número de teléfono</label>
+                    <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="9998887766" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
+                    <label for="txtuseraddress" class="label">Domicilio</label>
+                    <input id="txtuseraddress" class="text" type="text" name="txtaddress" value="" placeholder="Domicilio" maxlength="200" required />
+                    <label for="txtuserspecialty" class="label">Especialidad</label>
+                    <input id="txtuserspecialty" class="text" type="text" name="txtspecialty" value="" placeholder="Especialidad" maxlength="100" required />
+                    <label for="selectuserlevelstudies" class="label">Nivel de estudios</label>
+                    <select id="selectuserlevelstudies" class="select" name="selectlevelstudies" required>
+                        <option value="">Seleccioné</option>
+                        <option value="Licenciatura">Licenciatura</option>
+                        <option value="Ingenieria">Ingenieria</option>
+                        <option value="Maestria">Maestria</option>
+                        <option value="Doctorado">Doctorado</option>
+                    </select>
+                </div>
+                <div class="content-full">
+                    <label for="txtuserpass" class="label">Contraseña</label>
+                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" required />
                 </div>
             </div>
             <button id="btnBack" class="btn back icon" type="button">arrow_back</button>
