@@ -42,15 +42,10 @@ $id_generate = 'stdt-' . unique_id(5);
                 </div>
                 <div class="last">
                     <label for="txtusercedula" class="label">Cédula</label>
-
                     <input id="txtusercedula" class="text" type="text" name="txtcedula" value="" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10"  required />
-
-
 
                     <label for="txtuserpass" class="label">Contraseña</label>
                     <input id="txtuserpass" class="text" type="text" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" required />
-
-
 
                     <label for="txtuserid" class="label">ID</label>
                     <input id="txtuserid" class="text" type="text" name="txtid" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
