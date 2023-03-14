@@ -26,17 +26,17 @@ if ($result = $conexion->query($sql)) {
 
 				$_SESSION['user_id'] = array();
 				$_SESSION['teacher_name'] = array();
-				$_SESSION['teacher_curp'] = array();
+				$_SESSION['teacher_cedula'] = array();
 				$_SESSION['teacher_phone'] = array();
 
 				$i = 0;
 
-				$sql = "SELECT * FROM teachers WHERE user LIKE '%" . $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR curp LIKE '%" . $_POST['search'] . "%' OR phone LIKE '%" . $_POST['search'] . "%' ORDER BY name";
+				$sql = "SELECT * FROM teachers WHERE user LIKE '%" . $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR cedula LIKE '%" . $_POST['search'] . "%' OR phone LIKE '%" . $_POST['search'] . "%' ORDER BY name";
 
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
-						$_SESSION['teacher_curp'][$i] = $row['curp'];
+						$_SESSION['teacher_cedula'][$i] = $row['cedula'];
 						$_SESSION['teacher_name'][$i] = $row['name'] . ' ' . $row['surnames'];
 						$_SESSION['teacher_phone'][$i] = $row['phone'];
 
@@ -47,7 +47,7 @@ if ($result = $conexion->query($sql)) {
 			} else {
 				$_SESSION['user_id'] = array();
 				$_SESSION['teacher_name'] = array();
-				$_SESSION['teacher_curp'] = array();
+				$_SESSION['teacher_cedula'] = array();
 				$_SESSION['teacher_phone'] = array();
 
 				$i = 0;
@@ -57,7 +57,7 @@ if ($result = $conexion->query($sql)) {
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
-						$_SESSION['teacher_curp'][$i] = $row['curp'];
+						$_SESSION['teacher_cedula'][$i] = $row['cedula'];
 						$_SESSION['teacher_name'][$i] = $row['name'] . ' ' . $row['surnames'];
 						$_SESSION['teacher_phone'][$i] = $row['phone'];
 

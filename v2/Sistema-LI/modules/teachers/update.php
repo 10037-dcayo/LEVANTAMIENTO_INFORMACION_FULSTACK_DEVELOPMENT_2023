@@ -30,7 +30,7 @@ if ($result = $conexion->query($sql)) {
 
 		$careers = trim($careers, ',');
 
-		$sql_update = "UPDATE teachers SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', curp = '" . trim($_POST['txtcurp']) . "', rfc = '" . trim($_POST['txtrfc']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "', gender = '" . trim($_POST['selectgender']) . "', phone = '" . trim($_POST['txtphone']) . "', address = '" . trim($_POST['txtaddress']) . "', level_studies = '" . trim($_POST['selectlevelstudies']) . "', specialty = '" . trim($_POST['txtspecialty']) . "', career = '" . $careers . "', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+		$sql_update = "UPDATE teachers SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', cedula = '" . trim($_POST['txtcedula']) . "', rfc = '" . trim($_POST['txtrfc']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "', gender = '" . trim($_POST['selectgender']) . "', phone = '" . trim($_POST['txtphone']) . "', address = '" . trim($_POST['txtaddress']) . "', level_studies = '" . trim($_POST['selectlevelstudies']) . "', specialty = '" . trim($_POST['txtspecialty']) . "', career = '" . $careers . "', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
 
 		if (mysqli_query($conexion, $sql_update)) {
 			Info('Docente actualizado.');
