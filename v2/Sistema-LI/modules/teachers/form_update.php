@@ -11,7 +11,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['teacher_gender'] = $row['gender'];
 		$_SESSION['teacher_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['teacher_cedula'] = $row['cedula'];
-		$_SESSION['teacher_rfc'] = $row['rfc'];
+		$_SESSION['teacher_idt'] = $row['idt'];
 		$_SESSION['teacher_phone'] = $row['phone'];
 		$_SESSION['teacher_address'] = $row['address'];
 		$_SESSION['teacher_level_studies'] = $row['level_studies'];
@@ -83,8 +83,8 @@ if ($result = $conexion->query($sql)) {
 				<div class="last">
 					<label for="txtusercedula" class="label">Cedula</label>
 					<input id="txtusercedula" class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" placeholder="Documento de Identificacion" pattern="[0-9]{10}" maxlength="10" required />
-					<label for="txtuserrfc" class="label">RFC</label>
-					<input id="txtuserrfc" class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['teacher_rfc']; ?>" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
+					<label for="txtuseridt" class="label">ID</label>
+					<input id="txtuseridt" class="text" type="text" name="txtidt" value="<?php echo $_SESSION['teacher_idt']; ?>" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="9998887766" maxlength="10" required />
 					<label for="txtuseraddress" class="label">Domicilio</label>

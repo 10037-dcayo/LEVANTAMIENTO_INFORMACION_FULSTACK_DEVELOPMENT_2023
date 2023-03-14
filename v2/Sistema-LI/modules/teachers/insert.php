@@ -37,7 +37,7 @@ if ($result = $conexion->query($sql)) {
 		$sql_insert_user = "INSERT INTO users(user, pass, permissions, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtuserid']) . "', 'teacher', 'user.png','" . $date . "')";
 
 		if (mysqli_query($conexion, $sql_insert_user)) {
-			$sql_insert_teacher = "INSERT INTO teachers(user, name, surnames, cedula, rfc, gender, date_of_birth, phone, address, level_studies, specialty, career, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtcedula']) . "', '" . trim($_POST['txtrfc']) . "', '" . trim($_POST['selectgender']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "', '" . trim($_POST['selectlevelstudies']) . "', '" . trim($_POST['txtspecialty']) . "', '" . $careers . "', '" . $date . "')";
+			$sql_insert_teacher = "INSERT INTO teachers(user, name, surnames, cedula, pass, id, gender, date_of_birth, phone, address, level_studies, specialty, career, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtcedula']) . "', '" . trim($_POST['txtidt']) . "', '" . trim($_POST['txtpass']) . "', '" . trim($_POST['selectgender']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "', '" . trim($_POST['selectlevelstudies']) . "', '" . trim($_POST['txtspecialty']) . "', '" . $careers . "', '" . $date . "')";
 
 			if (mysqli_query($conexion, $sql_insert_teacher)) {
 				Info('Personal docente agregado.');
