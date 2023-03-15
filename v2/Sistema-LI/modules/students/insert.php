@@ -27,7 +27,7 @@ if ($result = $conexion->query($sql)) {
 	} else {
 		$date = date('Y-m-d H:i:s');
 
-		$sql_insert_user = "INSERT INTO users(user, pass, permissions, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtuserid']) . "', 'student', 'user.png','" . $date . "')";
+		$sql_insert_user = "INSERT INTO users(user, pass, permissions, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtpass']) . "', 'student', 'user.png','" . $date . "')";
 
 		if (mysqli_query($conexion, $sql_insert_user)) {
 			$sql_insert_teacher = "INSERT INTO students(user, name, surnames, cedula, pass, id, sede, date_of_birth, phone, address, career, documentation, admission_date, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtcedula']) . "', '" . trim($_POST['txtpass']) . "', '" . trim($_POST['txtid']) . "', '" . trim($_POST['selectSede']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "', '" . trim($_POST['selectCareer']) . "', '" . trim($_POST['selectDocumentation']) . "', '" . trim($_POST['dateadmission']) . "', '" . $date . "')";

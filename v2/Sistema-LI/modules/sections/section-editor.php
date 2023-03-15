@@ -74,10 +74,7 @@ if (strpos($url_actual, 'modules')) {
         <li><a class="<?php if ($output[1] == 'subjects') {
                             echo 'active';
                         } ?>" href="/modules/subjects"><span class="icon">library_books</span>Asignaturas</a></li>
-        <li><a class="<?php if ($output[1] == 'groups') {
-                            echo 'active';
-                        } ?>" href="/modules/groups"><span class="icon">groups</span>Grupos</a></li>
-    </ul>
+        
 </div>
 <div class="menu-mobile">
     <header>
@@ -109,11 +106,7 @@ if (strpos($url_actual, 'modules')) {
                                     echo 'active';
                                 } ?>" href="/modules/subjects" title="Asignaturas"><span class="icon">library_books</span></a>
                 </li>
-                <li>
-                    <a class="<?php if ($output[1] == 'groups') {
-                                    echo 'active';
-                                } ?>" href="/modules/groups" title="Grupos"><span class="icon">groups</span></a>
-                </li>
+                
             </ul>
         </nav>
     </header>

@@ -1,10 +1,3 @@
-/*-------------------------------------------
-  unsetnotif.js
-  By Diego Carmona Bernal - CBDX
-  www.diegocarmonabernal.com
-  www.mysoftup.com
--------------------------------------------*/
-
 function closeNotif() {
     if ($('.form-config-user').length) {
         $('.box-notification-ok').fadeOut('slow');

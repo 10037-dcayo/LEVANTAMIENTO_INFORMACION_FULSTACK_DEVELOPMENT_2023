@@ -1,10 +1,3 @@
-/*-------------------------------------------
-  user.js
-  By Diego Carmona Bernal - CBDX
-  www.diegocarmonabernal.com
-  www.mysoftup.com
--------------------------------------------*/
-
 function confirmPass() {
     pass1 = document.getElementById('pass1');
     pass2 = document.getElementById('pass2');
