@@ -22,7 +22,7 @@ if ($result = $conexion->query($sql)) {
 		<h1 class="titulo">Consultar</h1>
 	</div>
 	<div class="body">
-		<form name="form-consult-emprendedor" action="#" method="POST">
+		<form name="form-consult-administratives" action="#" method="POST">
 			<div class="wrap">
 				<div class="first">
 					<label class="label">Usuario</label>

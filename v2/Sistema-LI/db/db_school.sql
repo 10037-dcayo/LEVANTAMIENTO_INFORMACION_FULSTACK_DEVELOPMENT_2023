@@ -205,9 +205,17 @@ CREATE TABLE `students` (
 -- Volcado de datos para la tabla `students`
 --
 
--- INSERT INTO `students` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `cedula`, `pass`, `id`, `phone`, `address`, `career`, `documentation`, `admission_date`, `created_at`, `updated_at`) 
+INSERT INTO `students` (`user`, `name`, `surnames`, `date_of_birth`, `sede`, `cedula`, `pass`, `id`, `phone`, `address`, `career`, `documentation`, `admission_date`, `created_at`, `updated_at`) values
+
+('stdt-9a13f','Luis Juan','Perez Poteiro','1999-01-01','matriz','1730456776','abcd1234','L00391331','0982244691', 'Los tulipanes', 'IDS', '1' ,'2023-03-13','2022-12-04 00:57:04', '2023-02-04 06:15:56'),
+('stdt-8b9a5','Simon Antonio','Chevrolet Corsa Zambrano','1999-03-23','stodomingo','1712345678','qwerty12','L00391334','0981122567','Los Caifanes y Cafe tacuba','INGPLRA','1','2023-03-15','2023-03-14 15:07:56','2023-03-14 15:08:41'),
+('stdt-c9fe9','Michael Andres','Espinosa Caicedo','2000-12-23','latacunga','1743567889','abcd1234','L00039499','0981122345','la quebrada del centro','INGPLRA','1','2023-03-14','2023-03-13 16:15:26','2023-03-13 16:16:05'),
+('stdt-e71e0','Juan Carlos','Duty Salcedo','1999-03-23','matriz','1713457602','abcd1234','L00982331','0987234567','Los Naranjos y Amazonas','IDS','1','2023-03-14','2023-03-13 16:09:08','2023-03-13 16:10:31'),
+('stdt-aceb0','Ricardo Alejandro','Jaramillo Salgado','1999-03-23','matriz','1750245779','abc12345','L00391334','0983594593','las conchas y cerezos','INGPLRA','1','2023-03-13','2023-03-13 16:01:02','2023-03-13 16:11:01');
 
 SELECT * FROM students
+
+
 
 -- --------------------------------------------------------
 
@@ -248,7 +256,8 @@ CREATE TABLE `teachers` (
   `date_of_birth` date DEFAULT NULL,
   `gender` varchar(30) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `cedula` varchar(18) COLLATE utf8_spanish2_ci NOT NULL,
-  `rfc` varchar(13) COLLATE utf8_spanish2_ci NOT NULL,
+  `pass` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
+  `id` varchar(13) COLLATE utf8_spanish2_ci NOT NULL,
   `phone` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
   `address` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `level_studies` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
@@ -262,14 +271,14 @@ CREATE TABLE `teachers` (
 -- Volcado de datos para la tabla `teachers`
 --
 
---INSERT INTO `teachers` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `curp`, `rfc`, `phone`, `address`, `level_studies`, `specialty`, `career`, `created_at`, `updated_at`) VALUES
---('tchr-0daed', 'jdjjd', 'kkk', '2022-04-20', 'nodecirlo', 'UJJJJJJJJJJJJJJJJJ', 'JJJJJJJJJJJJJ', '2222222222', 'av', 'Ingenieria', 'j', 'IEM', '2022-04-03 17:35:39', NULL),
---('tchra80e12', 'Pamela', 'Sánchez', '2022-02-08', 'mujer', 'ATME980215KMN32221', 'ATME980215KMN', '9991020394', 'Av. Siempre Viva', 'Licenciatura', 'Negocios', 'IDS,INGBIO,MATBASICAS,MTABIOTEC', '2022-02-02 00:47:13', '2022-02-07 12:45:38'),
---('teacher_5c1ca', 'Moisés', 'Gómez Meléndez', '1996-02-02', 'hombre', 'KSK92992292KSA0000', 'CCCCCCONOCIDO', '9716278838', 'CONOCIDO', 'Ingenieria', 'Cálculo Diferencial', 'IDS,INGPLRA', '2022-02-06 20:37:47', '2022-02-06 20:34:37'),
---('teacher_617af', 'Rigoberto', 'Nanguluru Conde', '2022-02-18', 'hombre', 'CLLLS9202JS8KS90SS', 'CCCCCCONOCIDO', '9881877732', 'CONOCIDO', 'Doctorado', 'Maestría en Computación', 'IDS,MATBASICAS', '2022-02-06 20:37:53', '2022-04-03 05:57:35'),
---('teacher_e9408', 'Juanita de la Cruz', 'Nepomuceno', '2022-02-08', 'mujer', 'KSKKS020020219100S', 'JJJJJCONOCIDO', '9672282646', 'CONOCIDO', 'Maestria', 'Enseñanza del Español', 'INGBIO,MATBASICAS', '2022-02-06 20:37:59', '2022-02-06 20:38:44'),
---('teacher_e9423', 'Carlos Alberto', 'Marín Roblero', '1987-04-15', 'hombre', 'KSKKS020020219100S', 'KKKKKCONOCIDO', '9613334538', 'CONOCIDO', 'Ingenieria', 'Automatas', 'IDS,IEM,INGBIO,INGPLRA,MATBASICAS,MTABIOTEC', '2022-02-06 20:38:03', '2022-04-03 06:16:28'),
---('teacher_e9443', 'Jaime', 'Ponce Torres', '2022-02-08', 'hombre', 'KSKKS020020219100S', 'XAXX010101000', '9653649801', 'CONOCIDO', 'Ingenieria', 'Máquinas', 'INGBIO,MATBASICAS', '2022-02-06 20:38:07', '2022-04-03 06:16:36');
+-- INSERT INTO `teachers` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `curp`, `rfc`, `phone`, `address`, `level_studies`, `specialty`, `career`, `created_at`, `updated_at`) VALUES
+-- ('tchr-0daed', 'jdjjd', 'kkk', '2022-04-20', 'nodecirlo', 'UJJJJJJJJJJJJJJJJJ', 'JJJJJJJJJJJJJ', '2222222222', 'av', 'Ingenieria', 'j', 'IEM', '2022-04-03 17:35:39', NULL),
+-- ('tchra80e12', 'Pamela', 'Sánchez', '2022-02-08', 'mujer', 'ATME980215KMN32221', 'ATME980215KMN', '9991020394', 'Av. Siempre Viva', 'Licenciatura', 'Negocios', 'IDS,INGBIO,MATBASICAS,MTABIOTEC', '2022-02-02 00:47:13', '2022-02-07 12:45:38'),
+-- ('teacher_5c1ca', 'Moisés', 'Gómez Meléndez', '1996-02-02', 'hombre', 'KSK92992292KSA0000', 'CCCCCCONOCIDO', '9716278838', 'CONOCIDO', 'Ingenieria', 'Cálculo Diferencial', 'IDS,INGPLRA', '2022-02-06 20:37:47', '2022-02-06 20:34:37'),
+-- ('teacher_617af', 'Rigoberto', 'Nanguluru Conde', '2022-02-18', 'hombre', 'CLLLS9202JS8KS90SS', 'CCCCCCONOCIDO', '9881877732', 'CONOCIDO', 'Doctorado', 'Maestría en Computación', 'IDS,MATBASICAS', '2022-02-06 20:37:53', '2022-04-03 05:57:35'),
+-- ('teacher_e9408', 'Juanita de la Cruz', 'Nepomuceno', '2022-02-08', 'mujer', 'KSKKS020020219100S', 'JJJJJCONOCIDO', '9672282646', 'CONOCIDO', 'Maestria', 'Enseñanza del Español', 'INGBIO,MATBASICAS', '2022-02-06 20:37:59', '2022-02-06 20:38:44'),
+-- ('teacher_e9423', 'Carlos Alberto', 'Marín Roblero', '1987-04-15', 'hombre', 'KSKKS020020219100S', 'KKKKKCONOCIDO', '9613334538', 'CONOCIDO', 'Ingenieria', 'Automatas', 'IDS,IEM,INGBIO,INGPLRA,MATBASICAS,MTABIOTEC', '2022-02-06 20:38:03', '2022-04-03 06:16:28'),
+-- ('teacher_e9443', 'Jaime', 'Ponce Torres', '2022-02-08', 'hombre', 'KSKKS020020219100S', 'XAXX010101000', '9653649801', 'CONOCIDO', 'Ingenieria', 'Máquinas', 'INGBIO,MATBASICAS', '2022-02-06 20:38:07', '2022-04-03 06:16:36');
 
 -- --------------------------------------------------------
 
@@ -315,8 +324,8 @@ CREATE TABLE `emprendedor` (
 	`surname` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`date_of_birth` DATE NULL DEFAULT NULL,
 	`gender` VARCHAR(30) NULL DEFAULT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`curp` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_spanish2_ci',
-	`phone` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_spanish2_ci',
+	`curp` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
+	`phone` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`address` VARCHAR(200) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`documentation` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	PRIMARY KEY (`user`) USING BTREE
@@ -388,4 +397,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-db_schooldb_schoolemprendedoremprendedorcareersemprendedoremprendedor
+db_schooldb_schoolemprendedoremprendedorcareersemprendedoremprendedorusersusers

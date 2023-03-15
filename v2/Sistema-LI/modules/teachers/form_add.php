@@ -52,8 +52,8 @@ $id_generate = 'tchr-' . unique_id(5);
                 <div class="last">
                     <label for="txtusercedula" class="label">Cedula</label>
                     <input id="txtusercedula" class="text" type="text" name="txtcedula" value="" placeholder="Documento de Identificacion" pattern="[0-9]{10}" maxlength="10" required />
-                    <label for="txtuserrfc" class="label">RFC</label>
-                    <input id="txtuserrfc" class="text" type="text" name="txtrfc" value="" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
+                    <label for="txtuseridt" class="label">ID</label>
+                    <input id="txtuseridt" class="text" type="text" name="txtidt" value="" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
                     <label for="txtuserphone" class="label">Número de teléfono</label>
                     <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="9998887766" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
                     <label for="txtuseraddress" class="label">Domicilio</label>

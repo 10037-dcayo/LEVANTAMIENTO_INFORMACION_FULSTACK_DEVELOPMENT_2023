@@ -22,7 +22,7 @@ if ($result = $conexion->query($sql)) {
 		<h1 class="titulo">Actualizar</h1>
 	</div>
 	<div class="body">
-		<form name="form-update-emprendedor" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
+		<form name="form-update-administratives" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
 			<div class="wrap">
 				<div class="first">
 					<label for="txtuserid" class="label">Usuario</label>

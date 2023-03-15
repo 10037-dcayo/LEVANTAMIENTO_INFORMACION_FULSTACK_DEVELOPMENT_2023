@@ -27,14 +27,18 @@ if ($result = $conexion->query($sql)) {
 	} else {
 		$date = date('Y-m-d H:i:s');
 
-		$sql_insert_user = "INSERT INTO users(user, pass, permissions, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtuserid']) . "', 'student', 'user.png','" . $date . "')";
+		$sql_insert_user = "INSERT INTO users(user, pass, email, permissions, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtaddress']) . "', 'empre', 'user.png','" . $date . "')";
 
+
+		$sql_insert_administrative = "INSERT INTO emprendedor(user, name, surname, date_of_birth, gender, curp, phone, address, documentation) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['selectgender']) . "', '" . trim($_POST['txtcurp']) . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "')";
+
+			
 		if (mysqli_query($conexion, $sql_insert_user)) {
+			$sql_insert_administrative = "INSERT INTO administratives(user, name, surnames, date_of_birth, gender, curp, rfc, phone, address, level_studies, occupation, observations, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['selectgender']) . "', '" . trim($_POST['txtcurp']) . "','" . trim($_POST['txtrfc']) . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "', 'Ingenieria', 'emprendedor', 'Ninguna', '" . $date . "')";
 
+			
 
-			$sql_insert_teacher = "INSERT INTO emprendedor(user, name, surname, date_of_birth, gender, curp, address, phone, documentation) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['selectgender']) . "', '" . trim($_POST['txtcurp']) . "', '" . trim($_POST['txtrfc']) . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "')";
-
-			if (mysqli_query($conexion, $sql_insert_teacher)) {
+			if (mysqli_query($conexion, $sql_insert_administrative)) {
 				Info('Emprendedor agregado.');
 			} else {
 				$sql_delete_users = "DELETE FROM users WHERE user = '" . trim($_POST['txtuserid']) . "'";
@@ -51,3 +55,4 @@ if ($result = $conexion->query($sql)) {
 	}
 }
 ?>
+

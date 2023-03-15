@@ -13,6 +13,9 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_cedula'] = $row['cedula'];
 
 
+		$_SESSION['student_pass'] = $row ['pass'];
+
+
 		$_SESSION['student_id'] = $row['id'];
 		$_SESSION['student_phone'] = $row['phone'];
 		$_SESSION['student_address'] = $row['address'];
@@ -109,7 +112,17 @@ if ($result = $conexion->query($sql)) {
 				<div class="last">
 					<label for="txtusercedula" class="label">Cédula</label>
 					<input id="txtusercedula" class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['student_cedula']; ?>" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
+
+                    <label for="txtuserpass" class="label">Contraseña</label>
+                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" required />
+
+
 					<label for="txtuserid" class="label">ID</label>
+
+
+
+
+
 					<input id="txtuserid" class="text" type="text" name="txtid" value="<?php echo $_SESSION['student_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />

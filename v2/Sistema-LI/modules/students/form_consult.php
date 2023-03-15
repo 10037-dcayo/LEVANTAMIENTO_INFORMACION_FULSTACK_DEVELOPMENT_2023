@@ -11,6 +11,10 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_sede'] = $row['sede'];
 		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['student_cedula'] = $row['cedula'];
+
+		$_SESSION['student_pass'] = $row ['pass'];
+
+		
 		$_SESSION['student_id'] = $row['id'];
 		$_SESSION['student_phone'] = $row['phone'];
 		$_SESSION['student_address'] = $row['address'];

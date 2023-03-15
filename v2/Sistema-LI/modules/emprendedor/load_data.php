@@ -26,7 +26,7 @@ if ($result = $conexion->query($sql)) {
 
 				$_SESSION['user_id'] = array();
 				$_SESSION['student_name'] = array();
-				$_SESSION['student_curp'] = array();
+				$_SESSION['student_surname'] = array();
 				$_SESSION['student_date'] = array();
 
 				$i = 0;
@@ -36,8 +36,8 @@ if ($result = $conexion->query($sql)) {
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
-						$_SESSION['student_curp'][$i] = $row['curp'];
-						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surname'];
+						$_SESSION['student_name'][$i] = $row['name'];
+						$_SESSION['student_surname'][$i] =$row['surname'];
 						$_SESSION['student_date'][$i] = $row['documentation'];
 
 						$i += 1;
@@ -47,18 +47,18 @@ if ($result = $conexion->query($sql)) {
 			} else {
 				$_SESSION['user_id'] = array();
 				$_SESSION['student_name'] = array();
-				$_SESSION['student_curp'] = array();
+				$_SESSION['student_surname'] = array();
 				$_SESSION['student_date'] = array();
 
 				$i = 0;
 
-				$sql = "SELECT * FROM emprendedor ORDER BY date_of_birth DESC, user, name LIMIT $inicio, $max";
+				$sql = "SELECT * FROM emprendedor ORDER BY user DESC, user, name LIMIT $inicio, $max";
 
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
-						$_SESSION['student_curp'][$i] = $row['curp'];
-						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surname'];
+						$_SESSION['student_name'][$i] = $row['name'];
+						$_SESSION['student_surname'][$i] = $row['surname'];
 						$_SESSION['student_date'][$i] = $row['documentation'];
 
 						$i += 1;

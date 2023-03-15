@@ -6,18 +6,19 @@ function unique_id($l = 10)
     return substr(md5(uniqid(mt_rand(), true)), 0, $l);
 }
 
-$id_generate = 'stdt-' . unique_id(5);
+$id_generate = 'empre-' . unique_id(5);
 ?>
 <div class="form-data">
     <div class="head">
         <h1 class="titulo">Agregar Emprendedor</h1>
     </div>
     <div class="body">
-        <form name="form-add-emprendedor" action="insert.php" method="POST" autocomplete="off" autocapitalize="on">
+        <form name="form-add-administratives" action="insert.php" method="POST" autocomplete="off" autocapitalize="on">
             <div class="wrap">
                 <div class="first">
                     <label for="txtuserid" class="label">Usuario</label>
-                    <input id="txtuserid" class="text" type="text" name="txtuserid" value="" placeholder="Usuario"maxlength="50" required />                    
+                    <input id="txtuserid" class="text" style=" display: none;" type="text" name="txtuserid" value="<?php echo $id_generate; ?>" maxlength="50" required />
+                    <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />          
                     <label for="txtusername" class="label">Nombre</label>
                     <input id="txtusername" class="text" type="text" name="txtname" value="" placeholder="Nombre" maxlength="30" required autofocus />
                     <label for="txtusersurnames" class="label">Apellidos</label>
