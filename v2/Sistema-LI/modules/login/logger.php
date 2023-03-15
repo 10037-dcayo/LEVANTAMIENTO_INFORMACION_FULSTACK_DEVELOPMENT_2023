@@ -70,6 +70,35 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
                         $_SESSION['section-editor'] = 'section-editor-' . $user;
                     }
                 }
+            }elseif ($row['permissions'] == 'empre') {
+                $user = $row['user'];
+                $permissions = $row['permissions'];
+                $image = $row['image'];
+
+                $sql = "SELECT name, surnames FROM administratives WHERE user = '$user' LIMIT 1";
+
+                if ($result = $conexion->query($sql)) {
+                    if ($row = mysqli_fetch_array($result)) {
+                        $name = $row['name'];
+                        $surnames = $row['surnames'];
+
+                        $sql = "SELECT school_period FROM school_periods WHERE active = 1 AND current = 1 LIMIT 1";
+
+                        if ($result = $conexion->query($sql)) {
+                            if ($row = mysqli_fetch_array($result)) {
+                                $school_period = $row['school_period'];
+                            }
+                        }
+                    } else {
+                        goto error_user;
+                    }
+
+                    if (!empty($_POST['remember_session'])) {
+                        $_SESSION['section-empre'] = setcookie('section-empre', 'section-empre-' . $user, time() + 365 * 24 * 60 * 60);
+                    } else {
+                        $_SESSION['section-empre'] = 'section-empre-' . $user;
+                    }
+                }
             }
 
             //Cargar datos sesión usuario COOKIE

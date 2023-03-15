@@ -20,6 +20,7 @@ $id_generate = 'stdt-' . unique_id(5);
                     <label for="txtuserid" class="label">Usuario</label>
                     <input id="txtuserid" class="text" style=" display: none;" type="text" name="txtuserid" value="<?php echo $id_generate; ?>" maxlength="50" required />
                     <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />
+                    
                     <label for="txtusername" class="label">Nombre</label>
                     <input id="txtusername" class="text" type="text" name="txtname" value="" placeholder="Nombre" maxlength="30" required autofocus />
                     <label for="txtusersurnames" class="label">Apellidos</label>
