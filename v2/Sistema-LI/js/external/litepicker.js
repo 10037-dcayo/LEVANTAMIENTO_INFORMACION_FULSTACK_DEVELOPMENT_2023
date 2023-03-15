@@ -1,9 +1,4 @@
-/*!
- * 
- * litepicker.js
- * Litepicker v2.0.11 (https://github.com/wakirin/Litepicker)
- * Package: litepicker (https://www.npmjs.com/package/litepicker)
- * License: MIT (https://github.com/wakirin/Litepicker/blob/master/LICENCE.md)
+/*
  * Copyright 2019-2021 Rinat G.
  *     
  * Hash: 339a4d0206c05127153e

@@ -1,10 +1,3 @@
-/*-------------------------------------------
-  options.js
-  By Diego Carmona Bernal - CBDX
-  www.diegocarmonabernal.com
-  www.mysoftup.com
--------------------------------------------*/
-
 let btnSearchMobile = $('#btnSearchMobile');
 let btnSearch = $('#btnSearch');
 

@@ -12,67 +12,49 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
     if ($result = $conexion->query($sql)) {
         if ($row = mysqli_fetch_array($result)) {
             //Cargar Usuario
-            if ($row['permissions'] == 'admin') {
-                $user = $row['user'];
-                $permissions = $row['permissions'];
-                $image = $row['image'];
+    
+    if ($row['permissions'] == 'admin') {
+        $table = 'administratives';
+        $section = 'admin';
+    } elseif ($row['permissions'] == 'editor') {
+        $table = 'administratives';
+        $section = 'editor';
+    } elseif ($row['permissions'] == 'student') {
+        $table = 'students';
+        $section = 'student';
+    }
 
-                $sql = "SELECT name, surnames FROM administratives WHERE user = '$user' LIMIT 1";
+         $user = $row['user'];
+         $permissions = $row['permissions'];
+         $image = $row['image'];
 
-                if ($result = $conexion->query($sql)) {
-                    if ($row = mysqli_fetch_array($result)) {
-                        $name = $row['name'];
-                        $surnames = $row['surnames'];
+   $sql = "SELECT name, surnames FROM $table WHERE user = '$user' LIMIT 1";
 
-                        $sql = "SELECT school_period FROM school_periods WHERE active = 1 AND current = 1 LIMIT 1";
+   if ($result = $conexion->query($sql)) {
+       if ($row = mysqli_fetch_array($result)) {
+        $name = $row['name'];
+        $surnames = $row['surnames'];
 
-                        if ($result = $conexion->query($sql)) {
-                            if ($row = mysqli_fetch_array($result)) {
-                                $school_period = $row['school_period'];
-                            }
-                        }
-                    } else {
-                        goto error_user;
-                    }
+        $sql = "SELECT school_period FROM school_periods WHERE active = 1 AND current = 1 LIMIT 1";
 
-                    if (!empty($_POST['remember_session'])) {
-                        $_SESSION['section-admin'] = setcookie('section-admin', 'section-admin-' . $user, time() + 365 * 24 * 60 * 60);
-                    } else {
-                        $_SESSION['section-admin'] = 'section-admin-' . $user;
-                    }
-                }
-            } elseif ($row['permissions'] == 'editor') {
-                $user = $row['user'];
-                $permissions = $row['permissions'];
-                $image = $row['image'];
-
-                $sql = "SELECT name, surnames FROM administratives WHERE user = '$user' LIMIT 1";
-
-                if ($result = $conexion->query($sql)) {
-                    if ($row = mysqli_fetch_array($result)) {
-                        $name = $row['name'];
-                        $surnames = $row['surnames'];
-
-                        $sql = "SELECT school_period FROM school_periods WHERE active = 1 AND current = 1 LIMIT 1";
-
-                        if ($result = $conexion->query($sql)) {
-                            if ($row = mysqli_fetch_array($result)) {
-                                $school_period = $row['school_period'];
-                            }
-                        }
-                    } else {
-                        goto error_user;
-                    }
-
-                    if (!empty($_POST['remember_session'])) {
-                        $_SESSION['section-editor'] = setcookie('section-editor', 'section-editor-' . $user, time() + 365 * 24 * 60 * 60);
-                    } else {
-                        $_SESSION['section-editor'] = 'section-editor-' . $user;
-                    }
-                }
+        if ($result = $conexion->query($sql)) {
+            if ($row = mysqli_fetch_array($result)) {
+                $school_period = $row['school_period'];
             }
+         }
+        } else {
+              goto error_user;
+        }
 
-            //Cargar datos sesión usuario COOKIE
+        if (!empty($_POST['remember_session'])) {
+            $_SESSION["section-$section"] = setcookie("section-$section", "section-$section-$user", time() + 365 * 24 * 60 * 60);
+        } else {
+            $_SESSION["section-$section"] = "section-$section-$user";
+       }
+    }
+    
+    //Cargar datos sesión usuario COOKIE
+    
             if (!empty($_POST['remember_session'])) {
                 setcookie('remember', 'si', time() + 15 * 24 * 60 * 60);
                 setcookie('user', $user, time() + 15 * 24 * 60 * 60);
@@ -99,9 +81,9 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
             error_user:
             echo '
                     <label class="label error">usuario y/o contraseña incorrectos</label>
-					<input type="text" class="text" name="txtuser" placeholder="Cédula" autofocus required />
-					<input type="password" class="textcontrasena" name="txtpass" placeholder="Contraseña" autocomplete="off" required />
-					<div class="forgot-pass">
+                    <input type="text" class="text" name="txtuser" placeholder="Cédula" autofocus required />
+                    <input type="password" class="textcontrasena" name="txtpass" placeholder="Contraseña" autocomplete="off" required />
+                    <div class="forgot-pass">
                         <a class="un" href="about:blank">¿Olvidaste la contraseña?</a>
                     </div>
                     <div class="pretty p-svg p-curve p-smooth">
@@ -113,17 +95,16 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
                             <label class="remember">Recuérdame</label>
                         </div>
                     </div>
-					<button class="button" type="submit">Entrar</button>
+                    <button class="button" type="submit">Entrar</button>
                 ';
         }
     }
 } else {
     echo '
-			<label class="label">Inicia sesión</label>
-			<input type="text" class="text" name="txtuser" placeholder="Cédula" autofocus required />
-			<input type="password" class="textcontrasena" name="txtpass" placeholder="Contraseña" autocomplete="off" required />
+            <label class="label">Inicia sesión</label>
+            <input type="text" class="text" name="txtuser" placeholder="Cédula" autofocus required />
+            <input type="password" class="textcontrasena" name="txtpass" placeholder="Contraseña" autocomplete="off" required />
             <div class="forgot-pass">
-
                 <a class="un" href="https://help.loyverse.com/sites/default/files/u187/help/2-esp_0.jpg" target="_blank" >¿Olvidaste la contraseña?</a>
         
             </div>           
@@ -136,6 +117,6 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
                     <label class="remember">Recuérdame</label>
                 </div>
             </div>
-			<button class="button" type="submit">Entrar</button>
-		';
+            <button class="button" type="submit">Entrar</button>
+        ';
 }

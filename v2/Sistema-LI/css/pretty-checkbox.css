@@ -1,14 +1,3 @@
-/**
- * pretty-checkbox.css
- *
- * A pure CSS library to beautify checkbox and radio buttons
- *
- * Source: https://github.com/lokesh-coder/pretty-checkbox
- * Demo: https://lokesh-coder.github.io/pretty-checkbox
- *
- * Copyright (c) 2017 Lokesh rajendran
- */
-
 .pretty * {
     line-height: 1;
     box-sizing: border-box;

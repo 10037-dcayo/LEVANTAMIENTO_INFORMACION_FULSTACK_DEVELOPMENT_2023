@@ -41,6 +41,8 @@ include_once 'modules/notif_info_unset.php';
             include_once 'modules/sections/section-admin.php';
         } elseif (!empty($_SESSION['section-editor']) == 'go-' . $_SESSION['user']) {
             include_once 'modules/sections/section-editor.php';
+        } elseif (!empty($_SESSION['section-empre']) == 'go-' . $_SESSION['user']) {
+            include_once 'modules/sections/section-empre.php';
         }
         ?>
     </aside>
