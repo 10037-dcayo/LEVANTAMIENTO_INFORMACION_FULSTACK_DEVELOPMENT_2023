@@ -42,10 +42,44 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
             if ($row = mysqli_fetch_array($result)) {
                 $school_period = $row['school_period'];
             }
+<<<<<<< Updated upstream
          }
         } else {
               goto error_user;
         }
+=======
+// permiso de profesor
+            elseif ($row['permissions'] == 'teacher') {
+                $user = $row['user'];
+                $permissions = $row['permissions'];
+                $image = $row['image'];
+
+                $sql = "SELECT name, surnames FROM teachers WHERE user = '$user' LIMIT 1";
+
+                if ($result = $conexion->query($sql)) {
+                    if ($row = mysqli_fetch_array($result)) {
+                        $name = $row['name'];
+                        $surnames = $row['surnames'];
+
+                        $sql = "SELECT school_period FROM school_periods WHERE active = 1 AND current = 1 LIMIT 1";
+
+                        if ($result = $conexion->query($sql)) {
+                            if ($row = mysqli_fetch_array($result)) {
+                                $school_period = $row['school_period'];
+                            }
+                        }
+                    } else {
+                        goto error_user;
+                    }
+
+                    if (!empty($_POST['remember_session'])) {
+                        $_SESSION['section-editor'] = setcookie('section-editor', 'section-editor-' . $user, time() + 365 * 24 * 60 * 60);
+                    } else {
+                        $_SESSION['section-editor'] = 'section-editor-' . $user;
+                    }
+                }
+            }
+>>>>>>> Stashed changes
 
         if (!empty($_POST['remember_session'])) {
             $_SESSION["section-$section"] = setcookie("section-$section", "section-$section-$user", time() + 365 * 24 * 60 * 60);

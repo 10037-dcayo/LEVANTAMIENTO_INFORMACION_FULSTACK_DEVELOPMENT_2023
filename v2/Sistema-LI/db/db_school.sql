@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `administratives` (
-  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL UNIQUE,
   `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `date_of_birth` date DEFAULT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE `attendance_details` (
 --
 
 CREATE TABLE `careers` (
-  `career` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
+  `career` varchar(20) COLLATE utf8_spanish2_ci NOT NULL UNIQUE,
   `name` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `description` text COLLATE utf8_spanish2_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci ROW_FORMAT=DYNAMIC;
@@ -184,7 +184,7 @@ INSERT INTO `school_periods` (`school_period`, `name`, `start_date`, `end_date`,
 --
 
 CREATE TABLE `students` (
-  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL UNIQUE,
   `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `date_of_birth` date DEFAULT NULL,
@@ -251,7 +251,7 @@ INSERT INTO `subjects` (`subject`, `career`, `name`, `semester`, `description`, 
 --
 
 CREATE TABLE `teachers` (
-  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL UNIQUE,
   `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `date_of_birth` date DEFAULT NULL,
@@ -288,10 +288,15 @@ CREATE TABLE `teachers` (
 --
 
 CREATE TABLE `users` (
+<<<<<<< Updated upstream
   `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,  
   `email` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
+=======
+  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL UNIQUE,
+  `email` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL UNIQUE,
+>>>>>>> Stashed changes
   `pass` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `permissions` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `image` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
@@ -321,7 +326,7 @@ INSERT INTO `users` (`user`, `name`,`surnames`,`email`, `pass`, `permissions`, `
 --
 
 CREATE TABLE `emprendedor` (
-	`user` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
+	`user` VARCHAR(50) NOT NULL COLLATE UNIQUE 'utf8mb3_spanish2_ci',
 	`name` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`surname` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
 	`date_of_birth` DATE NULL DEFAULT NULL,
