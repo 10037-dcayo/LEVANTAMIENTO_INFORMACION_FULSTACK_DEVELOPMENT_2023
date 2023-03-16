@@ -44,9 +44,7 @@ if ($result = $conexion->query($sql)) {
 					<input id="txtusersurnames" class="text" type="text" name="txtsurnames" value="<?php echo $_SESSION['student_surnames']; ?>" placeholder="Apellidos" maxlength="60" required />
 
 					<label for="txtuseremail" class="label">Correo</label>
-                    <input id="txtuseremail" class="text" type="email" name="txtemailupdate" value="<?php echo $_SESSION['email']; ?> "placeholder="ejemplo@email.com" maxlength="200" required/>
-
-
+                    <input id="txtuseremail" class="text" type="email" name="txtemailupdate" value="<?php echo $_SESSION['email']; ?>" placeholder="ejemplo@email.com" maxlength="200" autofocus/>
 
 
 

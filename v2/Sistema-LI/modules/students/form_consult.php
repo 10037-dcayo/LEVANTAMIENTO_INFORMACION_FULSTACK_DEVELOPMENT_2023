@@ -14,7 +14,8 @@ if ($result = $conexion->query($sql)) {
 
 		$_SESSION['student_pass'] = $row ['pass'];
 
-		$_SESSION['user_email'][$i] = $row['email'];
+		$_SESSION['email'] = $row['email'];
+
 		
 		$_SESSION['student_id'] = $row['id'];
 		$_SESSION['student_phone'] = $row['phone'];
@@ -43,8 +44,7 @@ if ($result = $conexion->query($sql)) {
 
 
 					<label class="label">Correo</label>
-                    <input class="text" type="email" name="txtuseremail" value="<?php echo $_SESSION['email']; ?>" disabled />
-
+                    <input class="text" type="text" name="txtuseremail" value="<?php echo $_SESSION['email']; ?>" disabled />
 
 
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
