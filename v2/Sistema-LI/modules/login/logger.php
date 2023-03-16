@@ -53,6 +53,8 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
             $_SESSION["section-$section"] = "section-$section-$user";
        }
     }
+
+    
     
     //Cargar datos sesión usuario COOKIE
     

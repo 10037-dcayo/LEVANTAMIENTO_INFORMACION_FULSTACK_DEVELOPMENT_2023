@@ -114,7 +114,7 @@ if ($result = $conexion->query($sql)) {
 					<input id="txtusercedula" class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['student_cedula']; ?>" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
 
                     <label for="txtuserpass" class="label">Contraseña</label>
-                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" required />
+                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
 
 
 					<label for="txtuserid" class="label">ID</label>
