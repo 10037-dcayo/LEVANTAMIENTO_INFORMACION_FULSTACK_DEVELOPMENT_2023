@@ -30,7 +30,7 @@ $id_generate = 'stdt-' . unique_id(5);
                        
                 
 					<label for="txtuseremail" class="label">Correo</label>
-                    <input id="txtuseremail" class="text" type="email" name="txtuseremail" value="" placeholder="ejemplo@email.com" maxlength="200" required/>
+                    <input id="txtuseremail" class="text" type="text" name="txtuseremail" value="" placeholder="ejemplo@email.com" maxlength="200" required/>
 
 
                     

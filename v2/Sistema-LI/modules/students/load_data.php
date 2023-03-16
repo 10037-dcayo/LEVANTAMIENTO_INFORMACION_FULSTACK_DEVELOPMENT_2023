@@ -27,7 +27,7 @@ if ($result = $conexion->query($sql)) {
 				$_SESSION['user_id'] = array();
 
 
-				$_SESSION['user_email'] = array();
+				$_SESSION['student_email'] = array();
 
 
 				$_SESSION['student_name'] = array();
@@ -44,7 +44,7 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_cedula'][$i] = $row['cedula'];
 						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
 						$_SESSION['student_date'][$i] = $row['admission_date'];
-						$_SESSION['user_email'][$i] = $row['email'];
+						$_SESSION['student_email'][$i] = $row['email'];
 
 
 						$i += 1;
@@ -55,7 +55,7 @@ if ($result = $conexion->query($sql)) {
 				$_SESSION['user_id'] = array();
 				$_SESSION['student_name'] = array();
 				$_SESSION['student_cedula'] = array();
-				$_SESSION['user_email'] = array();
+				$_SESSION['email'] = array();
 
 				$_SESSION['student_date'] = array();
 
@@ -68,7 +68,7 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['user_id'][$i] = $row['user'];
 						$_SESSION['student_cedula'][$i] = $row['cedula'];
 						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
-						$_SESSION['user_email'][$i] = $row['email'];
+						$_SESSION['email'][$i] = $row['email'];
 
 						$_SESSION['student_date'][$i] = $row['admission_date'];
 
