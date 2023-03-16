@@ -1,24 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Servidor: localhost:3306
--- Tiempo de generación: 03-04-2022 a las 17:54:14
--- Versión del servidor: 5.7.33
--- Versión de PHP: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
---
--- Base de datos: `db_school`
+-- Base de datos: `db_li`
 --
 
 -- --------------------------------------------------------
@@ -126,32 +113,6 @@ INSERT INTO `careers` (`career`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `groups`
---
-
-CREATE TABLE `groups` (
-  `id_group` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `school_period` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `name` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
-  `semester` int(2) NOT NULL,
-  `subjects` varchar(500) COLLATE utf8_spanish2_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `groups_students`
---
-
-CREATE TABLE `groups_students` (
-  `id_group` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `school_period` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `user_student` varchar(50) COLLATE utf8_spanish2_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `school_periods`
 --
 
@@ -200,7 +161,7 @@ CREATE TABLE `students` (
   `admission_date` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;students
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `students`
@@ -299,7 +260,7 @@ CREATE TABLE `users` (
   `image_updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=UTF8_SPANISH2_CI;
 
 --
 -- Volcado de datos para la tabla `users`
@@ -309,11 +270,11 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user`, `name`,`surnames`,`email`, `pass`, `permissions`, `image`, `image_updated_at`, `created_at`, `updated_at`) VALUES
 ('admin', 'admin', 'admin', 'carmonabernaldiego@gmail.com', 'root', 'admin', 'admin221.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
 ('admineb405',  'admineb405', 'admineb405','magnoliamontejogomez@gmail.com', 'admineb405', 'editor', 'user.png', NULL, '2021-12-04 02:13:36', '2022-03-13 02:59:59'),
-('admineb405', 'admineb405', 'admineb405','rosalindamendoza@gmail.com', 'adminec4e9', 'admin', 'user.png', NULL, '2021-08-27 03:41:36', NULL),
+('admineb408', 'admineb405', 'admineb405','rosalindamendoza@gmail.com', 'adminec4e9', 'admin', 'user.png', NULL, '2021-08-27 03:41:36', NULL),
 ('student', 'student', 'student', 'test@gmail.com', 'student', 'student', 'user.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
 ( 'editor', 'editor', 'editor', 'editor@gmail.com', 'editor', 'editor', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
-( 'teacher', 'editor', 'editor', 'editor@gmail.com', 'teacher', 'teacher', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
-( 'empre', 'editor', 'editor', 'editor@gmail.com', 'empre', 'empre', 'user.png', NULL, '2021-05-01 00:00:00', NULL);
+( 'teacher', 'editor', 'editor', 'edit@gmail.com', 'teacher', 'teacher', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
+( 'empre', 'editor', 'editor', 'edor@gmail.com', 'empre', 'empre', 'user.png', NULL, '2021-05-01 00:00:00', NULL);
 
 
 
@@ -326,22 +287,20 @@ INSERT INTO `users` (`user`, `name`,`surnames`,`email`, `pass`, `permissions`, `
 --
 -- Creacion de Tabla Emprendedores
 --
-
 CREATE TABLE `emprendedor` (
-	`user` VARCHAR(50) NOT NULL COLLATE UNIQUE 'utf8mb3_spanish2_ci',
-	`name` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`surname` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`date_of_birth` DATE NULL DEFAULT NULL,
-	`gender` VARCHAR(30) NULL DEFAULT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`curp` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_spanish2_ci',
-	`phone` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_spanish2_ci',
-	`address` VARCHAR(200) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
-	`documentation` VARCHAR(50) NOT NULL COLLATE 'utf8mb3_spanish2_ci',
-	PRIMARY KEY (`user`) USING BTREE
-)
-COLLATE='utf8mb4_spanish2_ci'
-ENGINE=InnoDB
-;
+  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL UNIQUE,
+  `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
+  `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `gender` varchar(30) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `cedula` varchar(18) COLLATE utf8_spanish2_ci NOT NULL,
+  `pass` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
+  `address` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `email` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 
 
@@ -393,6 +352,12 @@ ALTER TABLE `subjects`
 -- Indices de la tabla `teachers`
 --
 ALTER TABLE `teachers`
+  ADD PRIMARY KEY (`user`);
+--
+-- Indices de la tabla `emprendedor`
+--
+  
+ALTER TABLE `emprendedor`
   ADD PRIMARY KEY (`user`);
 
 --
