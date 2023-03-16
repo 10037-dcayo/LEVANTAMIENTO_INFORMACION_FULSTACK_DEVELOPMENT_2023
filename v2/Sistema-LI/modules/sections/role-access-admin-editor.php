@@ -1,5 +1,5 @@
 <?php
-if ($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] == 'editor' || $_SESSION['permissions'] == 'teacher') {
+if ($_SESSION['permissions'] == 'admin' || $_SESSION['permissions'] == 'editor') {
 } else {
     header('Location: /');
     exit();

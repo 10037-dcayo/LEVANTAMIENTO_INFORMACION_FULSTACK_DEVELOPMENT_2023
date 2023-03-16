@@ -311,7 +311,10 @@ INSERT INTO `users` (`user`, `name`,`surnames`,`email`, `pass`, `permissions`, `
 ('admineb405',  'admineb405', 'admineb405','magnoliamontejogomez@gmail.com', 'admineb405', 'editor', 'user.png', NULL, '2021-12-04 02:13:36', '2022-03-13 02:59:59'),
 ('admineb405', 'admineb405', 'admineb405','rosalindamendoza@gmail.com', 'adminec4e9', 'admin', 'user.png', NULL, '2021-08-27 03:41:36', NULL),
 ('student', 'student', 'student', 'test@gmail.com', 'student', 'student', 'user.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
-( 'editor', 'editor', 'editor', 'editor@gmail.com', 'editor', 'editor', 'user.png', NULL, '2021-05-01 00:00:00', NULL);
+( 'editor', 'editor', 'editor', 'editor@gmail.com', 'editor', 'editor', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
+( 'teacher', 'editor', 'editor', 'editor@gmail.com', 'teacher', 'teacher', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
+( 'empre', 'editor', 'editor', 'editor@gmail.com', 'empre', 'empre', 'user.png', NULL, '2021-05-01 00:00:00', NULL);
+
 
 
 -- db_schoolusers

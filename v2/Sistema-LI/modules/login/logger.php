@@ -13,26 +13,29 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
         if ($row = mysqli_fetch_array($result)) {
     
     //Cargar Usuario
-    
-    if ($row['permissions'] == 'admin') {
-        $table = 'users';
-        $section = 'admin';
+    if ($row['permissions'] == 'admin') {       
+    $section = 'admin';
     } elseif ($row['permissions'] == 'editor') {
-        $table = 'users';
-        $section = 'editor';
-    } elseif ($row['permissions'] == 'student') {
-        $table = 'users';
-        $section = 'student';
+    $section = 'editor';
+    } elseif ($row['permissions'] == 'student') {        
+    header("Location: ../student.php");
+    exit();
+    } elseif ($row['permissions'] == 'teacher') {        
+    header("Location: ../teacher.php");
+    exit();
+    } elseif ($row['permissions'] == 'empre') {        
+    header("Location: ../emprendedor.php");
+    exit();
     }
 
-         $user = $row['user'];
-         $permissions = $row['permissions'];
-         $image = $row['image'];
+    $user = $row['user'];
+    $permissions = $row['permissions'];
+    $image = $row['image'];
 
-   $sql = "SELECT name, surnames FROM $table WHERE user = '$user' LIMIT 1";
+    $sql = "SELECT name, surnames FROM users WHERE user = '$user' LIMIT 1";
 
-   if ($result = $conexion->query($sql)) {
-       if ($row = mysqli_fetch_array($result)) {
+    if ($result = $conexion->query($sql)) {
+        if ($row = mysqli_fetch_array($result)) {
         $name = $row['name'];
         $surnames = $row['surnames'];
 
@@ -54,7 +57,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
        }
     }
 
-    
+
     
     //Cargar datos sesión usuario COOKIE
     
