@@ -14,6 +14,8 @@ if (!empty($_POST['search'])) {
 	$_POST['search'] = mysqli_real_escape_string($conexion, $_POST['search']);
 
 	$_SESSION['user_id'] = array();
+	$_SESSION['user_name'] = array();
+	$_SESSION['user_surnames'] = array();
 	$_SESSION['user_email'] = array();
 	$_SESSION['user_type'] = array();
 
@@ -24,6 +26,8 @@ if (!empty($_POST['search'])) {
 	if ($result = $conexion->query($sql)) {
 		while ($row = mysqli_fetch_array($result)) {
 			$_SESSION['user_id'][$i] = $row['user'];
+			$_SESSION['user_name'][$i] = $row['name'];
+	        $_SESSION['user_surnames'][$i] = $row['surnames'];
 			$_SESSION['user_email'][$i] = $row['email'];
 			$_SESSION['user_type'][$i] = $row['permissions'];
 
@@ -33,6 +37,8 @@ if (!empty($_POST['search'])) {
 	$_SESSION['total_users'] = count($_SESSION['user_id']);
 } else {
 	$_SESSION['user_id'] = array();
+	$_SESSION['user_name'] = array();
+	$_SESSION['user_surnames'] = array();
 	$_SESSION['user_email'] = array();
 	$_SESSION['user_type'] = array();
 
@@ -43,6 +49,8 @@ if (!empty($_POST['search'])) {
 	if ($result = $conexion->query($sql)) {
 		while ($row = mysqli_fetch_array($result)) {
 			$_SESSION['user_id'][$i] = $row['user'];
+			$_SESSION['user_name'][$i] = $row['name'];
+	        $_SESSION['user_surnames'][$i] = $row['surnames'];
 			$_SESSION['user_email'][$i] = $row['email'];
 			$_SESSION['user_type'][$i] = $row['permissions'];
 

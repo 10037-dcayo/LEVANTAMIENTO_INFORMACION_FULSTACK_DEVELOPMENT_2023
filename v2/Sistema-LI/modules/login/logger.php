@@ -11,16 +11,17 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
 
     if ($result = $conexion->query($sql)) {
         if ($row = mysqli_fetch_array($result)) {
-            //Cargar Usuario
+    
+    //Cargar Usuario
     
     if ($row['permissions'] == 'admin') {
-        $table = 'administratives';
+        $table = 'users';
         $section = 'admin';
     } elseif ($row['permissions'] == 'editor') {
-        $table = 'administratives';
+        $table = 'users';
         $section = 'editor';
     } elseif ($row['permissions'] == 'student') {
-        $table = 'students';
+        $table = 'users';
         $section = 'student';
     }
 

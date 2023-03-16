@@ -8,6 +8,8 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 			echo '
 					<tr>
 						<th>Usuario</th>
+						<th>Name</th>
+						<th>Surname</th>
 						<th>Correo</th>
 						<th>Permisos</th>
 						<th class="center"><a class="icon">edit</a></th>
@@ -18,6 +20,8 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 			echo '
 		    		<tr>
 						<td>' . $_SESSION["user_id"][$i] . '</td>
+						<td>' . $_SESSION["user_name"][$i] . '</td>
+						<td>' . $_SESSION["user_surnames"][$i] . '</td>
 						<td class="tdbreak">' . $_SESSION["user_email"][$i] . '</td>
 						<td>' . $_SESSION["user_type"][$i] . '</td>
 						<td>

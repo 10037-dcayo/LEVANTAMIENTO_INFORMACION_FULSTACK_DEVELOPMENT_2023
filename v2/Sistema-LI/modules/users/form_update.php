@@ -10,6 +10,8 @@ $sql = "SELECT user, email, permissions, image FROM users WHERE user = '" . $_SE
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
 		$_SESSION['user_id'] = $row['user'];
+		$_SESSION['user_name'][$i] = $row['name'];
+	    $_SESSION['user_surnames'][$i] = $row['surnames'];
 		$_SESSION['email'] = $row['email'];
 		$_SESSION['user_type'] = $row['permissions'];
 		$_SESSION['user_image'] = $row['image'];
@@ -19,7 +21,7 @@ if ($result = $conexion->query($sql)) {
 		}
 
 		if ($_SESSION['user_type'] == 'admin' || $_SESSION['user_type'] == 'editor') {
-			$sql = "SELECT name, surnames FROM administratives WHERE user = '" . $_SESSION['user_id'] . "'";
+			$sql = "SELECT name, surnames FROM users WHERE user = '" . $_SESSION['user_id'] . "'";
 
 			if ($result = $conexion->query($sql)) {
 				if ($row = mysqli_fetch_array($result)) {
