@@ -187,12 +187,12 @@ CREATE TABLE `students` (
   `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,
   `sede` varchar(30) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `cedula` varchar(18) COLLATE utf8_spanish2_ci NOT NULL,
   `pass` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
   `id` varchar(13) COLLATE utf8_spanish2_ci NOT NULL,
-  `email` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `phone` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
   `address` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `career` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
@@ -206,13 +206,13 @@ CREATE TABLE `students` (
 -- Volcado de datos para la tabla `students`
 --
 
-INSERT INTO `students` (`user`, `name`, `surnames`, `date_of_birth`, `sede`, `cedula`, `pass`, `id`, `phone`, `address`, `career`, `documentation`, `admission_date`, `created_at`, `updated_at`) values
+INSERT INTO `students` (`user`, `name`, `surnames`, `email`,`date_of_birth`, `sede`, `cedula`, `pass`, `id`, `phone`, `address`, `career`, `documentation`, `admission_date`, `created_at`, `updated_at`) values
 
-('stdt-9a13f','Luis Juan','Perez Poteiro','1999-01-01','matriz','1730456776','abcd1234','L00391331','0982244691', 'Los tulipanes', 'IDS', '1' ,'2023-03-13','2022-12-04 00:57:04', '2023-02-04 06:15:56'),
-('stdt-8b9a5','Simon Antonio','Chevrolet Corsa Zambrano','1999-03-23','stodomingo','1712345678','qwerty12','L00391334','0981122567','Los Caifanes y Cafe tacuba','INGPLRA','1','2023-03-15','2023-03-14 15:07:56','2023-03-14 15:08:41'),
-('stdt-c9fe9','Michael Andres','Espinosa Caicedo','2000-12-23','latacunga','1743567889','abcd1234','L00039499','0981122345','la quebrada del centro','INGPLRA','1','2023-03-14','2023-03-13 16:15:26','2023-03-13 16:16:05'),
-('stdt-e71e0','Juan Carlos','Duty Salcedo','1999-03-23','matriz','1713457602','abcd1234','L00982331','0987234567','Los Naranjos y Amazonas','IDS','1','2023-03-14','2023-03-13 16:09:08','2023-03-13 16:10:31'),
-('stdt-aceb0','Ricardo Alejandro','Jaramillo Salgado','1999-03-23','matriz','1750245779','abc12345','L00391334','0983594593','las conchas y cerezos','INGPLRA','1','2023-03-13','2023-03-13 16:01:02','2023-03-13 16:11:01');
+('stdt-9a13f','Luis Juan','Perez Poteiro','test@gmail.com','1999-01-01','matriz','1730456776','abcd1234','L00391331','0982244691', 'Los tulipanes', 'IDS', '1' ,'2023-03-13','2022-12-04 00:57:04', '2023-02-04 06:15:56'),
+('stdt-8b9a5','Simon Antonio','Chevrolet Corsa Zambrano','test2@gmail.com','1999-03-23','stodomingo','1712345678','qwerty12','L00391334','0981122567','Los Caifanes y Cafe tacuba','INGPLRA','1','2023-03-15','2023-03-14 15:07:56','2023-03-14 15:08:41'),
+('stdt-c9fe9','Michael Andres','Espinosa Caicedo','test3@gmail.com','2000-12-23','latacunga','1743567889','abcd1234','L00039499','0981122345','la quebrada del centro','INGPLRA','1','2023-03-14','2023-03-13 16:15:26','2023-03-13 16:16:05'),
+('stdt-e71e0','Juan Carlos','Duty Salcedo','test4@gmail.com','1999-03-23','matriz','1713457602','abcd1234','L00982331','0987234567','Los Naranjos y Amazonas','IDS','1','2023-03-14','2023-03-13 16:09:08','2023-03-13 16:10:31'),
+('stdt-aceb0','Ricardo Alejandro','Jaramillo Salgado','donrichard@gmail.com','1999-03-23','matriz','1750245779','abc12345','L00391334','0983594593','las conchas y cerezos','INGPLRA','1','2023-03-13','2023-03-13 16:01:02','2023-03-13 16:11:01');
 
 SELECT * FROM students
 
@@ -310,9 +310,12 @@ INSERT INTO `users` (`user`, `name`,`surnames`,`email`, `pass`, `permissions`, `
 ('admineb405',  'admineb405', 'admineb405','magnoliamontejogomez@gmail.com', 'admineb405', 'editor', 'user.png', NULL, '2021-12-04 02:13:36', '2022-03-13 02:59:59'),
 ('admineb405', 'admineb405', 'admineb405','rosalindamendoza@gmail.com', 'adminec4e9', 'admin', 'user.png', NULL, '2021-08-27 03:41:36', NULL),
 ('student', 'student', 'student', 'test@gmail.com', 'student', 'student', 'user.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
-( 'editor', 'editor', 'editor', 'editor@gmail.com', 'editor', 'editor', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
-('tchr-0daed', 'tchr-0daed', 'tchr-0daed', NULL, 'tchr-0daed', 'teacher', 'user.png', NULL, '2022-04-03 17:35:39', NULL);
---
+( 'editor', 'editor', 'editor', 'editor@gmail.com', 'editor', 'editor', 'user.png', NULL, '2021-05-01 00:00:00', NULL);
+
+
+-- db_schoolusers
+
+
 -- Índices para tablas volcadas
 --
 

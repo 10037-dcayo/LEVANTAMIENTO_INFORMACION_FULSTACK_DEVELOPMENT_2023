@@ -10,7 +10,8 @@ function UpdateUserDB($conex, $user, $email, $permissions)
 	$date = date('Y-m-d H:i:s');
 
 	if ($email == '') {
-		$sql_update = "UPDATE users SET email = null, permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
+		$sql_update = "UPDATE users SET e
+		 = null, permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
 	} else {
 		$sql_update = "UPDATE users SET email = '" . $email . "', permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
 	}

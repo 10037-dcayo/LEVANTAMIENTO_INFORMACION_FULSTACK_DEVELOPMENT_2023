@@ -72,8 +72,8 @@ echo '
 					<input id="fileuploadimage" style="display: none;" type="file" name="fileuploadimage" accept=".jpg, .jpeg, .png" />
 				</div>
 				<div class="section-user-info">
-					<span class="user-name">' . $_SESSION['user_name'] . ' ' . $_SESSION['user_surnames'] . '</span>
-					<span class="user-id">' . $_SESSION['user_id'] . '</span>
+					<span class="user_name">' . $_SESSION['user_name'] . ' ' . $_SESSION['user_surnames'] . '</span>
+					<span class="user_id">' . $_SESSION['user_id'] . '</span>
 				</div>
 				<div class="first">
 					<label for="txtuseremail" class="label">Email</label>
@@ -86,7 +86,7 @@ echo '
 if ($_SESSION['user_type'] == '') {
 	echo
 	'
-								<option value="">Seleccioné</option>
+								<option value="">Seleccione</option>
 								<option value="admin">Administrador</option>
 								<option value="capturist">Capturista</option>
 								<option value="editor">Editor</option>	
