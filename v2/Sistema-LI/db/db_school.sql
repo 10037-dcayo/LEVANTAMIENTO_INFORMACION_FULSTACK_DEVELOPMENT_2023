@@ -200,7 +200,7 @@ CREATE TABLE `students` (
   `admission_date` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;students
 
 --
 -- Volcado de datos para la tabla `students`
@@ -288,15 +288,11 @@ CREATE TABLE `teachers` (
 --
 
 CREATE TABLE `users` (
-<<<<<<< Updated upstream
+
   `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,  
   `email` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
-=======
-  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL UNIQUE,
-  `email` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL UNIQUE,
->>>>>>> Stashed changes
   `pass` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `permissions` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `image` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
