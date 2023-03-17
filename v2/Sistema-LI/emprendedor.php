@@ -17,13 +17,15 @@
 <div class="descrip"></div>
 </div>
 <div id="page">
-<h1>Bienvenido al Modulo Emprendedor</h1>
-<div class="intro">
-Descripción del Modulo Emprendedor.
+<h1><center>Bienvenido al Modulo Emprendedor</center></h1>
+<div class="intro" >
+<center>Descripción del Modulo Emprendedor.</center>
 </div>
-Esta es la página principal o de inicio de mi sitio web.<br>
-Es la primera que ven los que entran al sitio por primera vez y en todas las páginas restantes hay un enlace que conduce a ella.<br>
-En ella puedo poner enlaces a las otras páginas, imágenes sugestivas, videos o cualquier otro elemento.<br>
+<b>Información de Datos Personales</b><br>
+Aquí se podrá vizualizar los datos del emprendedor registrado.<br>
+<img src="https://storage.googleapis.com/el-auditor-assets/602e971c9252bf03fc7ca716/720.jpeg">
+
+<b>Otra información relevante del emprendedor</b><br>
 <img src="./images/background_m_emprendedor.jpg" width="620" height="400" alt="Imagen para el intro" title="Mi sitio web, actualidad y tecnologia"><br>
 
 <h2>ENLACES A LOS CAMPUS VIRTUALES ESPE</h2>
