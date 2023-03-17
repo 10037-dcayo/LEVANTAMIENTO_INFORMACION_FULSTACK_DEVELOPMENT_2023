@@ -43,7 +43,7 @@ if ($result = $conexion->query($sql)) {
 						<?php
 						if ($_SESSION['teacher_gender'] == '') {
 							echo '
-						<option value="">Seleccioné</option>
+						<option value="">Seleccione</option>
 						<option value="mujer">Mujer</option>
 						<option value="hombre">Hombre</option>
 						<option value="otro">Otro</option>
