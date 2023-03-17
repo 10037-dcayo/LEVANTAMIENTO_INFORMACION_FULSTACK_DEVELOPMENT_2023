@@ -16,6 +16,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
     if ($row['permissions'] == 'admin') {       
     $section = 'admin';
     } elseif ($row['permissions'] == 'editor') {
+<<<<<<< Updated upstream
     $section = 'editor';
     } elseif ($row['permissions'] == 'student') {        
     header("Location: ../student.php");
@@ -27,6 +28,17 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
     header("Location: ../emprendedor.php");
     exit();
     }
+=======
+        $table = 'users';
+        $section = 'editor';
+    } elseif ($row['permissions'] == 'student') {
+        $table = 'users';
+        $section = 'student';
+    } elseif ($row['permissions'] == 'empre') {
+        $table = 'users';
+        $section = 'empre';
+    } 
+>>>>>>> Stashed changes
 
     $user = $row['user'];
     $permissions = $row['permissions'];
