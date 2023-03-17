@@ -31,7 +31,6 @@ $id_generate = 'tchr-' . unique_id(5);
                         <option value="mujer">Mujer</option>
                         <option value="hombre">Hombre</option>
                         <option value="otro">Otro</option>
-                        <option value="nodecirlo">Prefiero no decirlo</option>
                     </select>
                     <label for="selectusercareers" class="label">Carrera</label>
                     <select id="selectusercareers" class="select-user-careers" name="selectCareers[]" multiple="multiple" placeholder="holi" required>
