@@ -123,6 +123,7 @@ if ($result = $conexion->query($sql)) {
 
 
 			
+					
 
 
 					<label for="txtuserphone" class="label">Número de teléfono</label>

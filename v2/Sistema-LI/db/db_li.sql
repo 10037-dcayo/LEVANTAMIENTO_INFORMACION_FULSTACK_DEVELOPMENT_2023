@@ -169,11 +169,11 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`user`, `name`, `surnames`, `email`,`date_of_birth`, `sede`, `cedula`, `pass`, `id`, `phone`, `address`, `career`, `documentation`, `admission_date`, `created_at`, `updated_at`) values
 
-('stdt-9a13f','Luis Juan','Perez Poteiro','test@gmail.com','1999-01-01','matriz','1730456776','abcd1234','L00391331','0982244691', 'Los tulipanes', 'IDS', '1' ,'2023-03-13','2022-12-04 00:57:04', '2023-02-04 06:15:56'),
-('stdt-8b9a5','Simon Antonio','Chevrolet Corsa Zambrano','test2@gmail.com','1999-03-23','stodomingo','1712345678','qwerty12','L00391334','0981122567','Los Caifanes y Cafe tacuba','INGPLRA','1','2023-03-15','2023-03-14 15:07:56','2023-03-14 15:08:41'),
-('stdt-c9fe9','Michael Andres','Espinosa Caicedo','test3@gmail.com','2000-12-23','latacunga','1743567889','abcd1234','L00039499','0981122345','la quebrada del centro','INGPLRA','1','2023-03-14','2023-03-13 16:15:26','2023-03-13 16:16:05'),
-('stdt-e71e0','Juan Carlos','Duty Salcedo','test4@gmail.com','1999-03-23','matriz','1713457602','abcd1234','L00982331','0987234567','Los Naranjos y Amazonas','IDS','1','2023-03-14','2023-03-13 16:09:08','2023-03-13 16:10:31'),
-('stdt-aceb0','Ricardo Alejandro','Jaramillo Salgado','donrichard@gmail.com','1999-03-23','matriz','1750245779','abc12345','L00391334','0983594593','las conchas y cerezos','INGPLRA','1','2023-03-13','2023-03-13 16:01:02','2023-03-13 16:11:01');
+('stdt-9a13f','Luis Juan','Perez Poteiro','test@espe.edu.ec','1999-01-01','matriz','1730456776','abcd1234','L00391331','0982244691', 'Los tulipanes', 'IDS', '1' ,'2023-03-13','2022-12-04 00:57:04', '2023-02-04 06:15:56'),
+('stdt-8b9a5','Simon Antonio','Chevrolet Corsa Zambrano','test2@espe.edu.ec','1999-03-23','stodomingo','1712345678','qwerty12','L00391334','0981122567','Los Caifanes y Cafe tacuba','INGPLRA','1','2023-03-15','2023-03-14 15:07:56','2023-03-14 15:08:41'),
+('stdt-c9fe9','Michael Andres','Espinosa Caicedo','test3@espe.edu.ec','2000-12-23','latacunga','1743567889','abcd1234','L00039499','0981122345','la quebrada del centro','INGPLRA','1','2023-03-14','2023-03-13 16:15:26','2023-03-13 16:16:05'),
+('stdt-e71e0','Juan Carlos','Duty Salcedo','test4@espe.edu.ec','1999-03-23','matriz','1713457602','abcd1234','L00982331','0987234567','Los Naranjos y Amazonas','IDS','1','2023-03-14','2023-03-13 16:09:08','2023-03-13 16:10:31'),
+('stdt-aceb0','Ricardo Alejandro','Jaramillo Salgado','donrichard@espe.edu.ec','1999-03-23','matriz','1750245779','abc12345','L00391334','0983594593','las conchas y cerezos','INGPLRA','1','2023-03-13','2023-03-13 16:01:02','2023-03-13 16:11:01');
 
 SELECT * FROM students
 
@@ -300,7 +300,12 @@ CREATE TABLE `emprendedor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 
+INSERT INTO `emprendedor` (`user`,`name`,`surnames`,`date_of_birth`,`gender`,`cedula`,`pass`,`phone`,`address`,`email`,`created_at`,`updated_at`) VALUES
+('empre-fa051','Kia Picanto','Salcedo Velez','2000-03-17','mujer','1713905213','qwerty15','0987345672','Ecuatoriana','elpicante@gmail.com','2023-03-17 16:22:33','2023-03-18 16:22:33'),
+('empre-fa050','Pedro Alexander','Dominguez Sanchez','2000-04-10','hombre','1713905211','qwerty12','0987345671','Ecuatoriana','metegolgana@gmail.com','2023-03-16 16:22:33','2023-03-18 16:22:33');
 
+
+SELECT * FROM emprendedor
 
 
 --

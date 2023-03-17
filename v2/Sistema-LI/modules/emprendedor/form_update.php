@@ -30,7 +30,7 @@ if ($result = $conexion->query($sql)) {
 					<input id="txtuserid" class="text" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">			
 
 					<label for="txtcontra" class="label">Contraseña</label>
-					<input id="txtcontra" class="text" type="text" name="txtcontra" value="<?php echo $_SESSION['student_contra']; ?>" placeholder="Contraseña" autofocus maxlength="30" required />
+					<input id="txtcontra" class="text" type="text" name="txtcontra" value="<?php echo $_SESSION['student_contra']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
 
 					<label for="txtusername" class="label">Nombre</label>
 					<input id="txtusername" class="text" type="text" name="txtname" value="<?php echo $_SESSION['student_name']; ?>" placeholder="Nombre" autofocus maxlength="30" required />
@@ -91,4 +91,3 @@ if ($result = $conexion->query($sql)) {
 </div>
 <script src="/js/modules/emprendedor.js" type="text/javascript"></script>
 
-Alumnos
