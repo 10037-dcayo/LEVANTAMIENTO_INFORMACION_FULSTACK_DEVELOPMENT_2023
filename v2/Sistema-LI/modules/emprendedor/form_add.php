@@ -45,7 +45,7 @@ $id_generate = 'empre-' . unique_id(5);
                     <label for="txtuserphone" class="label">Número de teléfono</label>
                     <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="09999XXXXX" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
                     <label for="txtuseraddress" class="label">Correo Electrónico</label>
-                    <input id="txtuseraddress" class="text" type="email" name="txtaddress" value="" placeholder="Correo" maxlength="200" required />
+                    <input id="txtuseraddress" class="text" type="email" name="txtaddress" value="" placeholder="ejemplo@email.com" maxlength="200" required />
                 </div>
             </div>
             
