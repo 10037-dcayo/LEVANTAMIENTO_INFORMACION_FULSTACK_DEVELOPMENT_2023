@@ -249,7 +249,6 @@ CREATE TABLE `teachers` (
 --
 
 CREATE TABLE `users` (
-
   `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
   `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,  
