@@ -16,7 +16,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['teacher_phone'] = $row['phone'];
 		$_SESSION['teacher_address'] = $row['address'];
 		$_SESSION['teacher_level_studies'] = $row['level_studies'];
-		$_SESSION['teacher_specialty'] = $row['specialty'];
+		$_SESSION['teacher_email'] = $row['email'];
 		$_SESSION['teacher_career'] = $row['career'];
 	}
 }
@@ -90,8 +90,8 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" disabled />
 					<label class="label">Domicilio</label>
 					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['teacher_address']; ?>" disabled />
-					<label class="label">Especialidad</label>
-					<input class="text" type="text" name="txtspecialty" value="<?php echo $_SESSION['teacher_specialty']; ?>" disabled />
+					<label class="label">Correo</label>
+					<input class="text" type="email" name="txtemail" value="<?php echo $_SESSION['teacher_email']; ?>" disabled />
 				</div>
 				<div class="content-full">
 					<label class="label">Nivel de estudios</label>

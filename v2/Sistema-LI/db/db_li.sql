@@ -223,7 +223,7 @@ CREATE TABLE `teachers` (
   `phone` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
   `address` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `level_studies` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
-  `specialty` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `career` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -370,4 +370,5 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-db_schooldb_schoolemprendedoremprendedorcareersemprendedoremprendedor
+
+/*db_schooldb_schoolemprendedoremprendedorcareersemprendedoremprendedor*/
