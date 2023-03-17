@@ -31,14 +31,14 @@ if ($result = $conexion->query($sql)) {
 
 				$i = 0;
 
-				$sql = "SELECT * FROM emprendedor WHERE user LIKE '%" . $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surname LIKE '%" . $_POST['search'] . "%' OR curp LIKE '%" . $_POST['search'] . "%' ORDER BY name";
+				$sql = "SELECT * FROM emprendedor WHERE user LIKE '%" . $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR cedula LIKE '%" . $_POST['search'] . "%' ORDER BY name";
 
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
 						$_SESSION['student_name'][$i] = $row['name'];
-						$_SESSION['student_surname'][$i] =$row['surname'];
-						$_SESSION['student_date'][$i] = $row['documentation'];
+						$_SESSION['student_surname'][$i] = $row['surnames'];
+						$_SESSION['student_date'][$i] = $row['email'];
 
 						$i += 1;
 					}
@@ -58,8 +58,8 @@ if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
 						$_SESSION['student_name'][$i] = $row['name'];
-						$_SESSION['student_surname'][$i] = $row['surname'];
-						$_SESSION['student_date'][$i] = $row['documentation'];
+						$_SESSION['student_surname'][$i] = $row['surnames'];
+						$_SESSION['student_date'][$i] = $row['email'];
 
 						$i += 1;
 					}

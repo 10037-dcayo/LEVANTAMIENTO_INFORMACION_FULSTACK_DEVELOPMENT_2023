@@ -28,6 +28,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
     exit();
     }
 
+
     $user = $row['user'];
     $permissions = $row['permissions'];
     $image = $row['image'];
@@ -87,7 +88,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
             error_user:
             echo '
                     <label class="label error">usuario y/o contraseña incorrectos</label>
-                    <input type="text" class="text" name="txtuser" placeholder="Cédula" autofocus required />
+                    <input type="text" class="text" name="txtuser" placeholder="Usuario o Correo" autofocus required />
                     <input type="password" class="textcontrasena" name="txtpass" placeholder="Contraseña" autocomplete="off" required />
                     <div class="forgot-pass">
                         <a class="un" href="about:blank">¿Olvidaste la contraseña?</a>
@@ -108,7 +109,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
 } else {
     echo '
             <label class="label">Inicia sesión</label>
-            <input type="text" class="text" name="txtuser" placeholder="Cédula" autofocus required />
+            <input type="text" class="text" name="txtuser" placeholder="Usuario o Correo" autofocus required />
             <input type="password" class="textcontrasena" name="txtpass" placeholder="Contraseña" autocomplete="off" required />
             <div class="forgot-pass">
                 <a class="un" href="https://help.loyverse.com/sites/default/files/u187/help/2-esp_0.jpg" target="_blank" >¿Olvidaste la contraseña?</a>
