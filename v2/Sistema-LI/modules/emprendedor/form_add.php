@@ -18,16 +18,20 @@ $id_generate = 'empre-' . unique_id(5);
                 <div class="first">
                     <label for="txtuserid" class="label">Usuario</label>
                     <input id="txtuserid" class="text" style=" display: none;" type="text" name="txtuserid" value="<?php echo $id_generate; ?>" maxlength="50" required />
-                    <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />          
+                    <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />     
+
+                    <label for="txtcontra" class="label">Contraseña</label>
+                    <input id="txtcontra" class="text" type="password" name="txtcontra" value="" placeholder="XXXXXXXXX" attern="[A-Za-z0-9]{8}" maxlength="8" required/>
+
                     <label for="txtusername" class="label">Nombre</label>
                     <input id="txtusername" class="text" type="text" name="txtname" value="" placeholder="Nombre" maxlength="30" required autofocus />
                     <label for="txtusersurnames" class="label">Apellidos</label>
                     <input id="txtusersurnames" class="text" type="text" name="txtsurnames" placeholder="Apellidos" value="" maxlength="60" required />
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
-                    <input id="dateuseradmission" class="date" type="date" name="dateofbirth" value="<?php echo date('Y-m-d'); ?>" required />
+                    <input id="dateuseradmission" class="date" type="date" name="dateofbirth" value="<?php echo date('Y-m-d'); ?>" required />                    
+                </div>
 
-                
-
+                <div class="last">
                     <label for="selectgender" class="label">Género</label>
                     <select id="selectgender" class="select" name="selectgender" required>
                         <option value="">Seleccione</option>
@@ -35,9 +39,6 @@ $id_generate = 'empre-' . unique_id(5);
                         <option value="hombre">Masculino</option>
                         <option value="otro">Otro</option>                        
                     </select>
-
-                </div>
-                <div class="last">
                     <label for="txtusercurp" class="label">Cédula</label>
                     <input id="txtusercurp" class="text" type="text" name="txtcurp" value="" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10"  required />
                     <label for="txtuserrfc" class="label">Nacionalidad</label>

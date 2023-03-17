@@ -7,13 +7,13 @@ if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
 		$_SESSION['user_id'] = $row['user'];
 		$_SESSION['student_name'] = $row['name'];
-		$_SESSION['student_surnames'] = $row['surname'];
+		$_SESSION['student_surnames'] = $row['surnames'];
 		$_SESSION['student_gender'] = $row['gender'];
 		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
-		$_SESSION['student_curp'] = $row['curp'];	
+		$_SESSION['student_curp'] = $row['cedula'];	
 		$_SESSION['student_phone'] = $row['phone'];
 		$_SESSION['student_address'] = $row['address'];		
-		$_SESSION['student_documentation'] = $row['documentation'];		
+		$_SESSION['student_documentation'] = $row['email'];		
 	}
 } 
 ?>
@@ -42,23 +42,23 @@ if ($result = $conexion->query($sql)) {
 						<option value="">Seleccione</option>
 						<option value="mujer">Femenino</option>
 						<option value="hombre">Masculino</option>						
-						<option value="nodecirlo">Otro</option>
+						<option value="otro">Otro</option>
 						';
 						} elseif ($_SESSION['student_gender'] == 'mujer') {
 							echo '
 						<option value="mujer">Femenino</option>
 						<option value="hombre">Masculino</option>						
-						<option value="nodecirlo">Otro</option>
+						<option value="otro">Otro</option>
 						';
 						} elseif ($_SESSION['student_gender'] == 'hombre') {
 							echo '
 						<option value="hombre">Masculino</option>
 						<option value="mujer">Femenino</option>						
-						<option value="nodecirlo">Otro</option>
+						<option value="otro">Otro</option>
 						';
-						} elseif ($_SESSION['student_gender'] == 'nodecirlo') {
+						} elseif ($_SESSION['student_gender'] == 'otro') {
 							echo '
-						<option value="nodecirlo">Otro</option>						 
+						<option value="otro">Otro</option>						 
 						<option value="mujer">Femenino</option>
 						<option value="hombre">Masculino</option>
 						';
