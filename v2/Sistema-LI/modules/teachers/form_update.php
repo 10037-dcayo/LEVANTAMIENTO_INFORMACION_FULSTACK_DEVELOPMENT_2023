@@ -11,7 +11,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['teacher_gender'] = $row['gender'];
 		$_SESSION['teacher_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['teacher_cedula'] = $row['cedula'];
-		$_SESSION['teacher_idt'] = $row['idt'];
+		$_SESSION['teacher_id'] = $row['id'];
 		$_SESSION['teacher_phone'] = $row['phone'];
 		$_SESSION['teacher_address'] = $row['address'];
 		$_SESSION['teacher_level_studies'] = $row['level_studies'];
@@ -42,7 +42,7 @@ if ($result = $conexion->query($sql)) {
 						<?php
 						if ($_SESSION['teacher_gender'] == '') {
 							echo '
-								<option value="">Seleccioné</option>
+								<option value="">SeleccionE</option>
 								<option value="mujer">Mujer</option>
 								<option value="hombre">Hombre</option>
 								<option value="otro">Otro</option>
@@ -82,15 +82,15 @@ if ($result = $conexion->query($sql)) {
 				</div>
 				<div class="last">
 					<label for="txtusercedula" class="label">Cedula</label>
-					<input id="txtusercedula" class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" placeholder="Documento de Identificacion" pattern="[0-9]{10}" maxlength="10" required />
+					<input id="txtusercedula" class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
 					<label for="txtuseridt" class="label">ID</label>
-					<input id="txtuseridt" class="text" type="text" name="txtidt" value="<?php echo $_SESSION['teacher_idt']; ?>" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
+					<input id="txtuseridt" class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
-					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="9998887766" maxlength="10" required />
+					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />
 					<label for="txtuseraddress" class="label">Domicilio</label>
 					<input id="txtuseraddress" class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['teacher_address']; ?>" placeholder="Domicilio" maxlength="200" required />
 					<label for="txtuseremail" class="label">Correo</label>
-					<input id="txtuseremail" class="text" type="email" name="txtemail" value="<?php echo $_SESSION['teacher_email']; ?>" placeholder="Especialidad" maxlength="100" required />
+					<input id="txtuseremail" class="text" type="email" name="txtemail" value="<?php echo $_SESSION['teacher_email']; ?>" placeholder="ejemplo@email.com" maxlength="100" required />
 				</div>
 				<div class="content-full">
 					<label for="selectuserlevelstudies" class="label">Nivel de estudios</label>

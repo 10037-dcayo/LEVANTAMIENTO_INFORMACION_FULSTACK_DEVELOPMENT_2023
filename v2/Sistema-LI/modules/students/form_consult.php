@@ -49,6 +49,7 @@ if ($result = $conexion->query($sql)) {
 
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
 					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['student_date_of_birth']; ?>" disabled />
+					
 					<label for="selectsede" class="label">Sede</label>
 					<select id="selectsede" class="select" name="selectsede" disabled>
 						<?php
@@ -57,7 +58,6 @@ if ($result = $conexion->query($sql)) {
 						<option value="">Seleccione</option>
 						<option value="matriz">Matriz</option>
 						<option value="latacunga">Latacunga</option>
-						
 						<option value="stodomingo">Sto. Domingo</option>
 						';
 						} elseif ($_SESSION['student_sede'] == 'matriz') {

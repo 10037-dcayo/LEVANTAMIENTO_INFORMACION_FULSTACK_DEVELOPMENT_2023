@@ -20,8 +20,8 @@ $id_generate = 'empre-' . unique_id(5);
                     <input id="txtuserid" class="text" style=" display: none;" type="text" name="txtuserid" value="<?php echo $id_generate; ?>" maxlength="50" required />
                     <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />     
 
-                    <label for="txtcontra" class="label">Contraseña</label>
-                    <input id="txtcontra" class="text" type="password" name="txtcontra" value="" placeholder="XXXXXXXXX" attern="[A-Za-z0-9]{8}" maxlength="8" required/>
+                    <label for="txtpass" class="label">Contraseña</label>
+                    <input id="txtpass" class="text" type="password" name="txtpass" value="" placeholder="XXXXXXXXX" attern="[A-Za-z0-9]{8}" maxlength="8" required/>
 
                     <label for="txtusername" class="label">Nombre</label>
                     <input id="txtusername" class="text" type="text" name="txtname" value="" placeholder="Nombre" maxlength="30" required autofocus />
@@ -30,7 +30,6 @@ $id_generate = 'empre-' . unique_id(5);
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
                     <input id="dateuseradmission" class="date" type="date" name="dateofbirth" value="<?php echo date('Y-m-d'); ?>" required />                    
                 </div>
-
                 <div class="last">
                     <label for="selectgender" class="label">Género</label>
                     <select id="selectgender" class="select" name="selectgender" required>
@@ -46,7 +45,7 @@ $id_generate = 'empre-' . unique_id(5);
                     <label for="txtuserphone" class="label">Número de teléfono</label>
                     <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="09999XXXXX" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
                     <label for="txtuseraddress" class="label">Correo Electrónico</label>
-                    <input id="txtuseraddress" class="text" type="email" name="txtaddress" value="" placeholder="Correo" maxlength="200" required />
+                    <input id="txtuseraddress" class="text" type="email" name="txtaddress" value="" placeholder="ejemplo@email.com" maxlength="200" required />
                 </div>
             </div>
             
