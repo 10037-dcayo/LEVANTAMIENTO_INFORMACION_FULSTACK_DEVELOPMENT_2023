@@ -14,6 +14,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_rfc'] = $row['address'];
 		$_SESSION['student_phone'] = $row['phone'];
 		$_SESSION['student_documentation'] = $row['email'];
+		$_SESSION['student_contra'] = $row['pass'];
 	}
 }
 ?>
@@ -29,7 +30,7 @@ if ($result = $conexion->query($sql)) {
 					<input id="txtuserid" class="text" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">			
 
 					<label for="txtcontra" class="label">Contraseña</label>
-					<input id="txtcontra" class="text" type="password" name="txtcontra" value="" placeholder="XXXXXXXXX" attern="[A-Za-z0-9]{8}" maxlength="8" required/>
+					<input id="txtcontra" class="text" type="text" name="txtcontra" value="<?php echo $_SESSION['student_contra']; ?>" placeholder="Contraseña" autofocus maxlength="30" required />
 
 					<label for="txtusername" class="label">Nombre</label>
 					<input id="txtusername" class="text" type="text" name="txtname" value="<?php echo $_SESSION['student_name']; ?>" placeholder="Nombre" autofocus maxlength="30" required />
@@ -72,7 +73,6 @@ if ($result = $conexion->query($sql)) {
 					</select>	
 					<label for="txtusercurp" class="label">Cédula</label>
 					<input id="txtusercurp" class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['student_curp']; ?>" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
-
 					<label for="txtuserrfc" class="label">Nacionalidad</label>
 					<input id="txtuserrfc" class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['student_rfc']; ?>" placeholder="Nacionalidad" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>

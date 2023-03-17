@@ -125,5 +125,5 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
                 </div>
             </div>
             <button class="button" type="submit">Entrar</button>
-        ';
+        ';
 }
