@@ -11,7 +11,11 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['teacher_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['teacher_gender'] = $row['gender'];
 		$_SESSION['teacher_cedula'] = $row['cedula'];
-		$_SESSION['teacher_idt'] = $row['idt'];
+
+		$_SESSION['teacher_id'] = $row['id'];
+
+
+
 		$_SESSION['student_pass'] = $row['pass'];
 		$_SESSION['teacher_phone'] = $row['phone'];
 		$_SESSION['teacher_address'] = $row['address'];
@@ -84,8 +88,8 @@ if ($result = $conexion->query($sql)) {
 				<div class="last">
 					<label class="label">Cedula</label>
 					<input class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" disabled />
-					<label class="label">ID</label>
-					<input class="text" type="text" name="txtidt" value="<?php echo $_SESSION['teacher_idt']; ?>" disabled />
+					<label class="label">Contraseña</label>
+					<input class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" disabled />
 					<label class="label">Número de teléfono</label>
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" disabled />
 					<label class="label">Domicilio</label>
@@ -158,7 +162,7 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
-					<label class="label">Contraseña</label>
+					<label class="label">ID</label>
 					<input class="text" type="text" name="txtpass" value="<?php echo $_SESSION['student_pass']; ?>" disabled />
 				</div>
 			</div>
