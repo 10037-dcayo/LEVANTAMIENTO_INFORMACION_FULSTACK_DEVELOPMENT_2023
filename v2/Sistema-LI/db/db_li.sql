@@ -16,17 +16,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `administratives` (
   `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL UNIQUE,
-  `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
+  `name` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,
   `date_of_birth` date DEFAULT NULL,
-  `gender` varchar(30) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `curp` varchar(18) COLLATE utf8_spanish2_ci NOT NULL,
-  `rfc` varchar(13) COLLATE utf8_spanish2_ci NOT NULL,
-  `phone` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
-  `address` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  `level_studies` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
-  `occupation` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
-  `observations` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `cedula` varchar(30) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `id` varchar(18) COLLATE utf8_spanish2_ci NOT NULL,
+  `carrera` varchar(80) COLLATE utf8_spanish2_ci NOT NULL,
+  `sede` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `celular` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
+  `pass` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -35,11 +34,8 @@ CREATE TABLE `administratives` (
 -- Volcado de datos para la tabla `administratives`
 --
 
-INSERT INTO `administratives` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `curp`, `rfc`, `phone`, `address`, `level_studies`, `occupation`, `observations`, `created_at`, `updated_at`) VALUES
-('admin', 'Diego', 'Carmona Bernal', '1997-04-05', 'hombre', 'CABD970405HCSRRG03', 'CABD9704052K5', '9614044227', 'Av. Aquiles Serdán 915, Bienestar Social, 29077, Tuxtla Gutiérrez, Chiapas.', 'Ingenieria', 'Programador', '', '2021-12-05 18:33:37', '2022-04-03 06:06:33'),
-('admineb405', 'Magnolia', 'Montejo Gómez', '1985-03-16', 'mujer', 'MMGO160385MCSRRG01', 'MMGO160385MCS', '9613459810', 'Av. Tulipanes #132, Bienestar Social, Tuxtla Gutiérrez, Chiapas', 'Licenciatura', 'Administrativo', '', '2021-12-04 02:13:36', '2022-02-05 23:24:23'),
-('adminec4e9', 'Rosalinda', 'Pascacio Mendoza', '1997-09-16', 'mujer', 'PMRO970916MCSLLS09', 'PMRO970916MCS', '9654392021', 'Conocido', 'Maestria', 'Recurso Humanos', '', '2021-08-27 03:41:36', '2022-02-03 07:52:57'),
-('editor', 'Jesús Antonio', 'Olvera Gálvez', '1989-10-14', 'hombre', 'OGJA891014HCSRRG02', 'OGJA8910142V9', '9614044227', '9 Av. Sur. Ote #2167', 'Maestria', 'Recursos Humanos', '', '2020-12-01 18:33:52', '2021-12-07 22:07:34');
+INSERT INTO `administratives` (`user`, `name`, `surnames`, `date_of_birth`, `cedula`, `id`, `carrera`, `sede`, `email`, `celular`, `pass`, `created_at`, `updated_at`) VALUES
+('admin', 'Diego Carpas', 'Carmona Bernal', '1997-04-05', '1600943241', 'L0012312', 'Tecnologias de la Informacion', 'Sangolquí', 'cabernal@espe.edu.ec', '0983525002', 'chiapas123', '2021-12-05 18:33:37', '2022-04-03 06:06:33');
 
 -- --------------------------------------------------------
 

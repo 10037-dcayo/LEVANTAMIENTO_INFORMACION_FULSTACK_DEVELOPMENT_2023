@@ -9,8 +9,8 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 					<tr>
 						<th>Usuario</th>
 						<th>Nombre</th>
-						<th>CURP</th>
-						<th>Teléfono</th>
+						<th>Sede</th>
+						<th>ID</th>
 						<th class="center"><a class="icon">visibility</a></th>
 						<th class="center"><a class="icon">edit</a></th>
 						<th class="center"><a class="icon">delete</a></th>
@@ -22,8 +22,8 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 		    		<tr>
 		    			<td>' . $_SESSION["user_id"][$i] . '</td>
 						<td>' . $_SESSION["administrative_name"][$i] . '</td>
-						<td class="tdbreakw">' . $_SESSION["administrative_curp"][$i] . '</td>
-						<td>' . $_SESSION["administrative_phone"][$i] . '</td>
+						<td class="tdbreakw">' . $_SESSION["administrative_sede"][$i] . '</td>
+						<td class="tdbreakw"> ' . $_SESSION["administrative_id"][$i] . '</td>
 						<td>
 							<form action="" method="POST">
 								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
