@@ -297,7 +297,7 @@ CREATE TABLE `emprendedor` (
 
 
 INSERT INTO `emprendedor` (`user`,`name`,`surnames`,`date_of_birth`,`gender`,`cedula`,`pass`,`phone`,`address`,`email`,`created_at`,`updated_at`) VALUES
-('empre-fa051','Kia Picanto','Salcedo Velez','2000-03-17','mujer','1713905213','qwerty15','0987345672','Ecuatoriana','elpicante@gmail.com','2023-03-17 16:22:33','2023-03-18 16:22:33'),
+('empre-fa051','Alberta Suzuki','Salcedo Velez','2000-03-17','mujer','1713905213','qwerty15','0987345672','Ecuatoriana','lazanahoria@gmail.com','2023-03-17 16:22:33','2023-03-18 16:22:33'),
 ('empre-fa050','Pedro Alexander','Dominguez Sanchez','2000-04-10','hombre','1713905211','qwerty12','0987345671','Ecuatoriana','metegolgana@gmail.com','2023-03-16 16:22:33','2023-03-18 16:22:33');
 
 
