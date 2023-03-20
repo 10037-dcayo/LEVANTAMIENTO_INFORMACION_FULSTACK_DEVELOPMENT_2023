@@ -64,20 +64,17 @@ if ($result = $conexion->query($sql)) {
 							echo '
 						<option value="matriz">Matriz</option>
 						<option value="latacunga">Latacunga</option>
-						
 						<option value="stodomingo">Sto. Domingo</option>
 						';
 						} elseif ($_SESSION['student_sede'] == 'latacunga') {
 							echo '
 						<option value="latacunga">Latacunga</option>
-						<option value="matriz">Matriz</option>
-						
+						<option value="matriz">Matriz</option>	
 						<option value="stodomingo">Sto. Domingo</option>
 						';
-						} elseif ($_SESSION['student_sede'] == 'Sto. Domingo') {
+						} elseif ($_SESSION['student_sede'] == 'stodomingo') {
 							echo '
-						<option value="stodomingo">Sto. Domingo</option>
-						 
+						<option value="stodomingo">Sto. Domingo</option> 
 						<option value="matriz">Matriz</option>
 						<option value="latacunga">Latacunga</option>
 						';
