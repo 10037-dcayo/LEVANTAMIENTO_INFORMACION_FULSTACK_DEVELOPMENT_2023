@@ -16,6 +16,10 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['user_type'] = $row['permissions'];
 		$_SESSION['user_image'] = $row['image'];
 
+	//	$_SESSION['student_pass'] = $row ['pass'];
+	//	$_SESSION['emprendedor_contra'] = $row ['pass'];
+
+
 		if($_SESSION['user_image'] == null) {
 			$_SESSION['user_image'] = 'user.png';
 		}
