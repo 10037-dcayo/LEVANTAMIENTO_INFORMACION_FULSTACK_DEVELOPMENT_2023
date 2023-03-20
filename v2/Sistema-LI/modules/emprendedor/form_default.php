@@ -25,9 +25,9 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 			echo '
 		    		<tr>
 		    			<td>' . $_SESSION["user_id"][$i] . '</td>
-						<td>' . $_SESSION["student_name"][$i] . '</td>
-						<td class="tdbreakw">' . $_SESSION["student_surname"][$i] . '</td>
-						<td class="center">' . $_SESSION["student_date"][$i] . '</td>
+						<td>' . $_SESSION["empre_name"][$i] . '</td>
+						<td class="tdbreakw">' . $_SESSION["empre_surname"][$i] . '</td>
+						<td class="center">' . $_SESSION["empre_date"][$i] . '</td>
 						<td>
 							<form action="" method="POST">
 								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>

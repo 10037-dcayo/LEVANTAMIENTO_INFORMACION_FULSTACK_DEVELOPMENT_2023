@@ -25,9 +25,9 @@ if ($result = $conexion->query($sql)) {
 				$_POST['search'] = mysqli_real_escape_string($conexion, $_POST['search']);
 
 				$_SESSION['user_id'] = array();
-				$_SESSION['student_name'] = array();
-				$_SESSION['student_surname'] = array();
-				$_SESSION['student_date'] = array();
+				$_SESSION['empre_name'] = array();
+				$_SESSION['empre_surname'] = array();
+				$_SESSION['empre_date'] = array();
 
 				$i = 0;
 
@@ -36,9 +36,9 @@ if ($result = $conexion->query($sql)) {
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
-						$_SESSION['student_name'][$i] = $row['name'];
-						$_SESSION['student_surname'][$i] = $row['surnames'];
-						$_SESSION['student_date'][$i] = $row['email'];
+						$_SESSION['empre_name'][$i] = $row['name'];
+						$_SESSION['empre_surname'][$i] = $row['surnames'];
+						$_SESSION['empre_date'][$i] = $row['email'];
 
 						$i += 1;
 					}
@@ -46,9 +46,9 @@ if ($result = $conexion->query($sql)) {
 				$_SESSION['total_users'] = count($_SESSION['user_id']);
 			} else {
 				$_SESSION['user_id'] = array();
-				$_SESSION['student_name'] = array();
-				$_SESSION['student_surname'] = array();
-				$_SESSION['student_date'] = array();
+				$_SESSION['empre_name'] = array();
+				$_SESSION['empre_surname'] = array();
+				$_SESSION['empre_date'] = array();
 
 				$i = 0;
 
@@ -57,9 +57,9 @@ if ($result = $conexion->query($sql)) {
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
-						$_SESSION['student_name'][$i] = $row['name'];
-						$_SESSION['student_surname'][$i] = $row['surnames'];
-						$_SESSION['student_date'][$i] = $row['email'];
+						$_SESSION['empre_name'][$i] = $row['name'];
+						$_SESSION['empre_surname'][$i] = $row['surnames'];
+						$_SESSION['empre_date'][$i] = $row['email'];
 
 						$i += 1;
 					}
