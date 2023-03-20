@@ -25,7 +25,7 @@ function UpdateUserDB($conex, $user, $email, $permissions)
 	exit();
 }
 
-if (!empty($_SESSION['user_id']) && !empty($_POST['txtusertype'] == 'admin' || $_POST['txtusertype'] == 'editor') || $_POST['txtusertype'] == 'teacher' || $_POST['txtusertype'] == 'student') {
+if (!empty($_SESSION['user_id']) && !empty($_POST['txtusertype'] == 'admin' || $_POST['txtusertype'] == 'editor') || $_POST['txtusertype'] == 'teacher' || $_POST['txtusertype'] == 'student'|| $_POST['txtusertype'] == 'empre') {
 	$sql = "SELECT user FROM users WHERE email = '" . trim($_POST['txtemailupdate']) . "' AND user != '" . trim($_SESSION['user_id']) . "' LIMIT 1";
 
 	if ($result = $conexion->query($sql)) {

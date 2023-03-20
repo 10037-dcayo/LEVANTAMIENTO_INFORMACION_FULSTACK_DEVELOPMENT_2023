@@ -1753,12 +1753,15 @@ body.login {
 .form-config-user .body .section-user-info {
     display: block;
     width: 100%;
+    text-align: center;
+    color: #f5f0f3;
+    font-size: 2em;
 }
 
 .form-config-user .body .section-user-info span.user-name,
 .form-config-user .body .section-user-info span.user-id {
     display: block;
-    color: #eef4ff;
+    color: #f5f0f3;
     text-shadow: 0 1px 5px rgba(142, 136, 192, 0.2);
     text-align: center;
     font-size: 1em;
@@ -1934,12 +1937,15 @@ input[type="range"]:active {
     display: block;
     width: 100%;
     margin: 13px 0 10px;
+    text-align: center;
+    color: #f5f0f3;
+    font-size: 2em;
 }
 
 .form-users .body .section-user-info span.user-id,
 .form-users .body .section-user-info span.user-name {
     display: block;
-    color: #eef4ff;
+    color: #f5f0f3;
     text-shadow: 0 1px 5px rgba(142, 136, 192, 0.2);
     text-align: center;
     font-size: 1em;
