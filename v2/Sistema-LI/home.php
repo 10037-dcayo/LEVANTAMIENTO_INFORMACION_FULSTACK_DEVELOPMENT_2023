@@ -7,6 +7,8 @@ if (include_once 'modules/security.php') {
 include_once 'modules/conexion.php';
 include_once 'modules/notif_info_unset.php';
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 

@@ -264,9 +264,9 @@ INSERT INTO `users` (`user`, `name`,`surnames`,`email`, `pass`, `permissions`, `
 ('admineb405',  'Angela', 'Champ','magomez@gmail.com', 'editor', 'editor', 'user.png', NULL, '2021-12-04 02:13:36', '2022-03-13 02:59:59'),
 ('student22', 'Ricardo', 'Jaramillo', 'test@gmail.com', 'student', 'student', 'user.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
 ('teacher33', 'Steven', '	Cardenas', 'edit@gmail.com', 'teacher', 'teacher', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
-('empre55', 'Luis', 'LLumiq', 'edor@gmail.com', 'empre', 'empre', 'user.png', NULL, '2021-05-01 00:00:00', NULL);
-db_li
-
+('empre55', 'Luis', 'LLumiq', 'edor@gmail.com', 'empre', 'empre', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
+('empre-fa051','Alberta Suzuki','Salcedo Velez','lazanahoria@gmail.com','qwerty15', 'empre','user.png', NULL,'2023-03-17 16:22:33',NULL),
+('empre-fa050','Pedro Alexander','Dominguez Sanchez','metegolgana@gmail.com','qwerty12','empre','user.png', NULL, '2023-03-16 16:22:33', NULL);
 
 -- db_schoolusers
 
@@ -299,6 +299,8 @@ INSERT INTO `emprendedor` (`user`,`name`,`surnames`,`date_of_birth`,`gender`,`ce
 
 
 SELECT * FROM emprendedor
+
+SELECT name, surnames, gender FROM emprendedor
 
 
 --

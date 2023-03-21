@@ -24,19 +24,21 @@ if ($result = $conexion->query($sql)) {
 		<h1 class="titulo">Actualizar</h1>
 	</div>
 	<div class="body">
-		<form name="form-update-administratives" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
+		<form name="form-update-emprendedor" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
 			<div class="wrap">
 				<div class="first">
-					<label for="txtuserid" class="label">Usuario</label>
-					<input id="txtuserid" class="text" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">	
+					<label class="label">Usuario</label>	
+					<input id="txtuserid" style="display: none;" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">				
+					<input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" disabled />
 					<label for="txtuserpass" class="label">Contraseña</label>
 					<input id="txtuserpass" class="text" type="text" name="txtpass" value="<?php echo $_SESSION['empre_pass']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
 					<label for="txtusername" class="label">Nombre</label>
 					<input id="txtusername" class="text" type="text" name="txtname" value="<?php echo $_SESSION['empre_name']; ?>" placeholder="Nombre" autofocus maxlength="30" required />
 					<label for="txtusersurnames" class="label">Apellidos</label>
 					<input id="txtusersurnames" class="text" type="text" name="txtsurnames" value="<?php echo $_SESSION['empre_surnames']; ?>" placeholder="Apellidos" maxlength="60" required />
+
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
-					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['empre_date_of_birth']; ?>" pattern="\d{4}-\d{2}-\d{2}" placeholder="aaaa-mm-dd" maxlength="10" required />				
+					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['empre_date_of_birth']; ?>" pattern="\d{4}-\d{2}-\d{2}" placeholder="aaaa-mm-dd" maxlength="10" required />		
 				</div>
 				<div class="last">
 					<label for="selectgender" class="label">Género</label>

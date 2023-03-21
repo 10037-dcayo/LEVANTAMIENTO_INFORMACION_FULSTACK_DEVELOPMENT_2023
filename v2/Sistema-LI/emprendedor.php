@@ -20,6 +20,23 @@
 <h1><center>Bienvenido al Modulo Emprendedor</center></h1>
 <div class="intro" >
 <center>Descripción del Modulo Emprendedor.</center>
+
+<?php
+// Establecer conexion
+$conn = mysqli_connect("localhost", "root", "4189", "db_li");
+
+// Check conexion
+if (!$conn) {
+  die("Conexion fallida: " . mysqli_connect_error());
+}
+
+// Realizar consulta
+$sql = "SELECT * FROM emprendedor WHERE user = '" . $_SESSION['user'] . "'";
+
+// Cerrar conexión
+mysqli_close($conn);
+?>
+
 </div>
 <b>Información de Datos Personales</b><br>
 Aquí se podrá vizualizar los datos del emprendedor registrado.<br>

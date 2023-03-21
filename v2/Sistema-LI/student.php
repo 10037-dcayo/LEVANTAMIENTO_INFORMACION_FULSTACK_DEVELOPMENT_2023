@@ -2,6 +2,10 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
+
+
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
@@ -10,16 +14,23 @@
 <link rel="canonical" href="https://misitio/index.php">
 <meta name="Robots" content="index, follow">
 <link href="./css/estilo.css" rel="stylesheet" type="text/css" media="screen">
+
+
 </head> 
+
+
 <body>
 <div id="inicio"></div>
 <div id="header">
 <div id="bar">
-<a href="https://misitio/index.php"><title>Modulo Estudiante</title></a>
+<a href="https://misitio/index.php"><title>Módulo Estudiante</title></a>
 <div class="descrip"></div>
 </div>
 <div id="page">
-<h1>Bienvenido al Modulo Estudiante</h1>
+<h1>Bienvenido/a al Modulo Estudiante</h1>
+
+
+
 <div class="intro">
 Descripción del Modulo Estudiante.
 </div>
@@ -53,3 +64,4 @@ Universidad de las Fuerzas Armadas ESPE &copy; 2023 <a href="https://prowessec.c
 </div></div>
 </body> 
 </html>
+

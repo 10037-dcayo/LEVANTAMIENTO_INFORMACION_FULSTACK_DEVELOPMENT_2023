@@ -75,11 +75,15 @@ echo '
 					<a href="#" class="file"><span class="icon">add_a_photo</span></a>
 					<input id="fileuploadimage" style="display: none;" type="file" name="fileuploadimage" accept=".jpg, .jpeg, .png" />
 				</div>
+
+				
 				<div class="section-user-info">
 					<span class="user_name">' . $_SESSION['user_name'] . ' ' . $_SESSION['user_surnames'] . '</span>
 					<br>
 					<span class="user_id">' . $_SESSION['user_id'] . '</span>
 				</div>
+
+
 				<div class="first">
 					<label for="txtuseremail" class="label">Email</label>
 					<input id="txtuseremail" class="text" type="email" name="txtemailupdate" value="' . $_SESSION['email'] . '" placeholder="example@email.com" maxlength="200" autofocus/>
