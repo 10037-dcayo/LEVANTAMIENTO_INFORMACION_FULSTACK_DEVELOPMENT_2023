@@ -33,7 +33,7 @@ $id_generate = 'tchr-' . unique_id(5);
                         <option value="otro">Otro</option>
                     </select>
                     <label for="selectusercareers" class="label">Carrera</label>
-                    <select id="selectusercareers" class="select-user-careers" name="selectCareers[]" multiple="multiple" placeholder="holi" required>
+                    <select id="selectusercareers" class="select-user-careers" name="selectCareers[]" multiple="multiple" placeholder="carrera" required>
                         <?php
                         $sql = "SELECT career, name FROM careers";
 

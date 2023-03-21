@@ -23,7 +23,7 @@ if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
 		$date = date('Y-m-d H:i:s');
 
-		$sql_update = "UPDATE administratives SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', curp = '" . trim($_POST['txtcurp']) . "', rfc = '" . trim($_POST['txtrfc']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "', gender = '" . trim($_POST['selectgender']) . "', phone = '" . trim($_POST['txtphone']) . "', address = '" . trim($_POST['txtaddress']) . "', level_studies = '" . trim($_POST['selectlevelstudies']) . "', occupation = '" . trim($_POST['txtoccupation']) . "', observations = '" . trim($_POST['txtobservation']) . "', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+		$sql_update = "UPDATE administratives SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', id = '" . trim($_POST['txtid']) . "', sede = '" . trim($_POST['selectSede']) . "', cedula = '" . trim($_POST['txtcedula']) . "', celular = '" . trim($_POST['txtcelular']) . "', pass = '" . trim($_POST['txtpass']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "',carrera = '" . trim($_POST['selectCareer']) . "', email = '" . trim($_POST['txtemail']) . "', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
 
 		if (mysqli_query($conexion, $sql_update)) {
 			Info('Personal administrativo actualizado.');

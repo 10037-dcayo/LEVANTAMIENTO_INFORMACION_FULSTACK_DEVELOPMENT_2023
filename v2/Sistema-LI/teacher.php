@@ -1,4 +1,18 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+
+header('Content-Type: text/html; charset=UTF-8');
+
+include_once 'modules/conexion.php';
+include_once 'modules/cookie.php';
+
+
+if (!empty($_SESSION['authenticate']) == 'go-' . !empty($_SESSION['teacher'])) {
+	header('Location: index');
+	exit();
+}
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">

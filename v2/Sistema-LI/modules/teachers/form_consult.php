@@ -11,12 +11,8 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['teacher_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['teacher_gender'] = $row['gender'];
 		$_SESSION['teacher_cedula'] = $row['cedula'];
-
 		$_SESSION['teacher_id'] = $row['id'];
-
-
-
-		$_SESSION['student_pass'] = $row['pass'];
+		$_SESSION['teacher_pass'] = $row['pass'];
 		$_SESSION['teacher_phone'] = $row['phone'];
 		$_SESSION['teacher_address'] = $row['address'];
 		$_SESSION['teacher_level_studies'] = $row['level_studies'];
@@ -84,20 +80,6 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
-				</div>
-				<div class="last">
-					<label class="label">Cedula</label>
-					<input class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" disabled />
-					<label class="label">Contraseña</label>
-					<input class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" disabled />
-					<label class="label">Número de teléfono</label>
-					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" disabled />
-					<label class="label">Domicilio</label>
-					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['teacher_address']; ?>" disabled />
-					<label class="label">Correo</label>
-					<input class="text" type="email" name="txtemail" value="<?php echo $_SESSION['teacher_email']; ?>" disabled />
-				</div>
-				<div class="content-full">
 					<label class="label">Nivel de estudios</label>
 					<select class="select" name="selectnivelestudios" disabled>
 						<?php
@@ -135,9 +117,23 @@ if ($result = $conexion->query($sql)) {
 							';
 						}
 						?>
-					</select>
+					</select>				
 				</div>
-				<div class="content-full">
+				<div class="last">
+					<label class="label">Cedula</label>
+					<input class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" disabled />
+					<label class="label">ID</label>
+					<input class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" disabled />
+					<label class="label">Contraseña</label>
+					<input class="text" type="text" name="txtpass" value="<?php echo $_SESSION['teacher_pass']; ?>" disabled />
+					<label class="label">Número de teléfono</label>
+					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" disabled />
+					<label class="label">Domicilio</label>
+					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['teacher_address']; ?>" disabled />
+					<label class="label">Correo</label>
+					<input class="text" type="email" name="txtemail" value="<?php echo $_SESSION['teacher_email']; ?>" disabled />
+				</div>
+				<div class="last">
 					<label class="label">Carrera</label>
 					<select class="select-user-careers disabled" name="selectCareers[]" multiple="multiple" disabled>
 						<?php
@@ -162,8 +158,6 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
-					<label class="label">ID</label>
-					<input class="text" type="text" name="txtpass" value="<?php echo $_SESSION['student_pass']; ?>" disabled />
 				</div>
 			</div>
 			<button id="btnBack" class="btn back icon" type="button">arrow_back</button>

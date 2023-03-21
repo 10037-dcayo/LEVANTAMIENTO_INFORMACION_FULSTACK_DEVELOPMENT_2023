@@ -69,7 +69,6 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_cedula'][$i] = $row['cedula'];
 						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
 						$_SESSION['email'][$i] = $row['email'];
-
 						$_SESSION['student_date'][$i] = $row['admission_date'];
 
 						$i += 1;

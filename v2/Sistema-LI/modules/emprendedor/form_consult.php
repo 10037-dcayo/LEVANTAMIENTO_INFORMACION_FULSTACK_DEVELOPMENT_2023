@@ -37,6 +37,17 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtsurnames" value="<?php echo $_SESSION['empre_surnames']; ?>" disabled />
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
 					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['empre_date_of_birth']; ?>" disabled />
+								
+				</div>
+				<div class="last">
+					<label class="label">Cédula</label>
+					<input class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['empre_curp']; ?>" disabled />
+					<label class="label">Nacionalidad</label>
+					<input class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['empre_address']; ?>" disabled />
+					<label class="label">Número de teléfono</label>
+					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['empre_phone']; ?>" disabled />
+					<label class="label">Correo electrónico</label>
+					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['empre_documentation']; ?>" disabled />	
 					<label for="selectgender" class="label">Género</label>
 					<select id="selectgender" class="select" name="selectgender" disabled>
 						<?php
@@ -67,17 +78,7 @@ if ($result = $conexion->query($sql)) {
 						';
 						}
 						?>
-					</select>				
-				</div>
-				<div class="last">
-					<label class="label">Cédula</label>
-					<input class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['empre_curp']; ?>" disabled />
-					<label class="label">Nacionalidad</label>
-					<input class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['empre_address']; ?>" disabled />
-					<label class="label">Número de teléfono</label>
-					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['empre_phone']; ?>" disabled />
-					<label class="label">Correo electrónico</label>
-					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['empre_documentation']; ?>" disabled />					
+					</select>					
 				</div>
 			</div>
 			<button id="btnSave" class="btn icon" type="submit" autofocus>done</button>

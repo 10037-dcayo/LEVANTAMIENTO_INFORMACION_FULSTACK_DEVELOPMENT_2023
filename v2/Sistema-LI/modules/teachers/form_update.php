@@ -12,6 +12,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['teacher_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['teacher_cedula'] = $row['cedula'];
 		$_SESSION['teacher_id'] = $row['id'];
+		$_SESSION['teacher_pass'] = $row['pass'];
 		$_SESSION['teacher_phone'] = $row['phone'];
 		$_SESSION['teacher_address'] = $row['address'];
 		$_SESSION['teacher_level_studies'] = $row['level_studies'];
@@ -79,20 +80,21 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
+					<label for="txtuseremail" class="label">Correo</label>
+					<input id="txtuseremail" class="text" type="email" name="txtemail" value="<?php echo $_SESSION['teacher_email']; ?>" placeholder="ejemplo@email.com" maxlength="100" required />
 				</div>
 				<div class="last">
 					<label for="txtusercedula" class="label">Cedula</label>
 					<input id="txtusercedula" class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
 					<label for="txtuseridt" class="label">ID</label>
 					<input id="txtuseridt" class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
+					<label for="txtuserpass" class="label">Contraseña</label>
+                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="<?php echo $_SESSION['teacher_pass']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />
 					<label for="txtuseraddress" class="label">Domicilio</label>
 					<input id="txtuseraddress" class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['teacher_address']; ?>" placeholder="Domicilio" maxlength="200" required />
-					<label for="txtuseremail" class="label">Correo</label>
-					<input id="txtuseremail" class="text" type="email" name="txtemail" value="<?php echo $_SESSION['teacher_email']; ?>" placeholder="ejemplo@email.com" maxlength="100" required />
-				</div>
-				<div class="content-full">
+					
 					<label for="selectuserlevelstudies" class="label">Nivel de estudios</label>
 					<select id="selectuserlevelstudies" class="select" name="selectlevelstudies" required>
 						<?php
@@ -132,7 +134,7 @@ if ($result = $conexion->query($sql)) {
 						?>
 					</select>
 				</div>
-				<div class="content-full">
+				<div class="last">
 					<label for="selectusercareers" class="label">Carrera</label>
 					<select id="selectusercareers" class="select-user-careers" name="selectCareers[]" multiple="multiple" required>
 						<?php

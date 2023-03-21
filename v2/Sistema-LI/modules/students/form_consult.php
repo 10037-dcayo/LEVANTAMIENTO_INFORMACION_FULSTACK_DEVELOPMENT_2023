@@ -11,12 +11,8 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_sede'] = $row['sede'];
 		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['student_cedula'] = $row['cedula'];
-
 		$_SESSION['student_pass'] = $row ['pass'];
-
-		$_SESSION['email'] = $row['email'];
-
-		
+		$_SESSION['email'] = $row['email'];		
 		$_SESSION['student_id'] = $row['id'];
 		$_SESSION['student_phone'] = $row['phone'];
 		$_SESSION['student_address'] = $row['address'];
@@ -41,15 +37,10 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtname" value="<?php echo $_SESSION['student_name']; ?>" disabled />
 					<label class="label">Apellidos</label>
 					<input class="text" type="text" name="txtsurnames" value="<?php echo $_SESSION['student_surnames']; ?>" disabled />
-
-
 					<label class="label">Correo</label>
                     <input class="text" type="text" name="txtuseremail" value="<?php echo $_SESSION['email']; ?>" disabled />
-
-
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
-					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['student_date_of_birth']; ?>" disabled />
-					
+					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['student_date_of_birth']; ?>" disabled />				
 					<label for="selectsede" class="label">Sede</label>
 					<select id="selectsede" class="select" name="selectsede" disabled>
 						<?php
@@ -109,20 +100,10 @@ if ($result = $conexion->query($sql)) {
 				<div class="last">
 					<label class="label">Cédula</label>
 					<input class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['student_cedula']; ?>" disabled />
-
-
-
 					<label class="label">Contraseña</label>
 					<input class="text" type="text" name="txtpass" value="<?php echo $_SESSION['student_pass']; ?>" disabled />
-
-
 					<label class="label">ID</label>
 					<input class="text" type="text" name="txtid" value="<?php echo $_SESSION['student_id']; ?>" disabled />
-
-
-
-
-
 					<label class="label">Número de teléfono</label>
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" disabled />
 					<label class="label">Domicilio</label>

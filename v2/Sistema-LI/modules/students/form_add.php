@@ -24,18 +24,9 @@ $id_generate = 'stdt-' . unique_id(5);
                     <label for="txtusername" class="label">Nombre</label>
                     <input id="txtusername" class="text" type="text" name="txtname" value="" placeholder="Nombre" maxlength="30" required autofocus />
                     <label for="txtusersurnames" class="label">Apellidos</label>
-                    <input id="txtusersurnames" class="text" type="text" name="txtsurnames" placeholder="Apellidos" value="" maxlength="60" required />
-                    
-                    
-                       
-                
+                    <input id="txtusersurnames" class="text" type="text" name="txtsurnames" placeholder="Apellidos" value="" maxlength="60" required />   
 					<label for="txtuseremail" class="label">Correo</label>
                     <input id="txtuseremail" class="text" type="text" name="txtuseremail" value="" placeholder="ejemplo@email.com" maxlength="200" required/>
-
-
-                    
-                    
-                    
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
                     <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="" placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
                     <label for="selectsede" class="label">Sede</label>
@@ -55,16 +46,10 @@ $id_generate = 'stdt-' . unique_id(5);
                 <div class="last">
                     <label for="txtusercedula" class="label">Cédula</label>
                     <input id="txtusercedula" class="text" type="text" name="txtcedula" value="" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10"  required />
-
                     <label for="txtuserpass" class="label">Contraseña</label>
                     <input id="txtuserpass" class="text" type="password" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
-
                     <label for="txtuserid" class="label">ID</label>
                     <input id="txtuserid" class="text" type="text" name="txtid" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
-
-     
-
-
                     <label for="txtuserphone" class="label">Número de teléfono</label>
                     <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="09999XXXXX" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
                     <label for="txtuseraddress" class="label">Domicilio</label>

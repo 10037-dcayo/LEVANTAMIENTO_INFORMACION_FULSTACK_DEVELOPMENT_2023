@@ -30,9 +30,9 @@ if ($result = $conexion->query($sql)) {
 		$sql_insert_user = "INSERT INTO users(user, name, surnames, email, pass, permissions, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "','" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtemail']) . "', '" . trim($_POST['txtpass']) . "', 'admin', 'user.png','" . $date . "')";
 
 		if (mysqli_query($conexion, $sql_insert_user)) {
-			$sql_insert_administrative = "INSERT INTO administratives(user, name, surnames, date_of_birth, cedula, id, carrera, sede, email, celular, pass, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['txtcedula']) . "', '" . trim($_POST['txtid']) . "', '" . trim($_POST['txtcarrera']) . "', '" . trim($_POST['txtsede']) . "', '" . trim($_POST['txtemail']) . "', '" . trim($_POST['txtcelular']) . "', '" . trim($_POST['txtpass']) . "', '" . $date . "')";
+			$sql_insert_administratives = "INSERT INTO administratives(user, name, surnames, date_of_birth, cedula, id, carrera, sede, email, celular, pass, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['txtcedula']) . "', '" . trim($_POST['txtid']) . "', '" . trim($_POST['txtcarrera']) . "', '" . trim($_POST['selectSede']) . "', '" . trim($_POST['txtemail']) . "', '" . trim($_POST['txtcelular']) . "', '" . trim($_POST['txtpass']) . "', '" . $date . "')";
 
-			if (mysqli_query($conexion, $sql_insert_administrative)) {
+			if (mysqli_query($conexion, $sql_insert_administratives)) {
 				Info('Administrador agregado correctamente.');
 			} else {
 				$sql_delete_users = "DELETE FROM users WHERE user = '" . $_POST['txtuserid'] . "'";
