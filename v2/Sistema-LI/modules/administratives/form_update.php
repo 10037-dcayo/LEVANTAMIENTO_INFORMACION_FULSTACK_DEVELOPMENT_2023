@@ -79,11 +79,11 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
-					<label for="txtusercurp" class="label">CURP</label>
+					<label for="txtusercurp" class="label">Cédula</label>
 					<input id="txtusercurp" class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['administrative_curp']; ?>" placeholder="Clave Única de Registro de Población" pattern="[A-Za-z0-9]{18}" maxlength="18" onkeyup="this.value = this.value.toUpperCase()" required />
 				</div>
 				<div class="last">
-					<label for="txtuserrfc" class="label">RFC</label>
+					<label for="txtuserrfc" class="label">ID</label>
 					<input id="txtuserrfc" class="text" type="text" name="txtrfc" value="<?php echo $_SESSION['administrative_rfc']; ?>" placeholder="XAXX010101000" pattern="[A-Za-z0-9]{13}" maxlength="13" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['administrative_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="9998887766" maxlength="10" required />
