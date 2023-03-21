@@ -36,7 +36,9 @@ if ($result = $conexion->query($sql)) {
 					<label class="label">Apellidos</label>
 					<input class="text" type="text" name="txtsurnames" value="<?php echo $_SESSION['empre_surnames']; ?>" disabled />
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
-					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['empre_date_of_birth']; ?>" disabled />
+					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['empre_date_of_birth']; ?>" disabled />													
+				</div>
+				<div class="last">
 					<label for="selectgender" class="label">Género</label>
 					<select id="selectgender" class="select" name="selectgender" disabled>
 						<?php
@@ -67,9 +69,7 @@ if ($result = $conexion->query($sql)) {
 						';
 						}
 						?>
-					</select>				
-				</div>
-				<div class="last">
+					</select>
 					<label class="label">Cédula</label>
 					<input class="text" type="text" name="txtcurp" value="<?php echo $_SESSION['empre_curp']; ?>" disabled />
 					<label class="label">Nacionalidad</label>

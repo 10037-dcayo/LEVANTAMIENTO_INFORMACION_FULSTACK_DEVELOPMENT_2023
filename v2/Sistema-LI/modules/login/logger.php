@@ -73,7 +73,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
                 setcookie('authenticate', 'go-' . $user, time() + 15 * 24 * 60 * 60);
 
                 header('Location: home');
-            } else {
+            } else {                
                 $_SESSION['user'] = $user;
                 $_SESSION['name'] = $name;
                 $_SESSION['surnames'] = $surnames;
