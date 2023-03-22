@@ -1,5 +1,7 @@
 ﻿
 
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,6 +30,9 @@
 </div>
 <div id="page">
 <h1>Bienvenido/a al Modulo Estudiante</h1>
+
+
+
 
 
 
