@@ -8,7 +8,7 @@ include_once 'modules/cookie.php';
 
 
 if (!empty($_SESSION['authenticate']) == 'go-' . !empty($_SESSION['teacher'])) {
-	header('Location: index');
+	header('Location: index.php');
 	exit();
 }
 ?>

@@ -45,6 +45,10 @@ include_once 'modules/notif_info_unset.php';
             include_once 'modules/sections/section-editor.php';
         } elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
             include_once 'modules/sections/section-student.php';
+        } elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
+            include_once 'modules/sections/section-teacher.php';
+        }elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
+            include_once 'modules/sections/section-empre.php';
         }
         ?>
     </aside>
