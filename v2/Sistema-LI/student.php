@@ -11,11 +11,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
-<title>Modulo Estudiante</title>
+<title>Módulo Estudiante</title>
 <meta name="Description" content="Paginas donde encontrar contenido interesante">
 <link rel="canonical" href="https://misitio/index.php">
 <meta name="Robots" content="index, follow">
 <link href="./css/estilo.css" rel="stylesheet" type="text/css" media="screen">
+
+
+<link rel="stylesheet" type="text/css" href="./css/student_style.css">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
 
 </head> 
@@ -30,6 +37,62 @@
 </div>
 <div id="page">
 <h1>Bienvenido/a al Modulo Estudiante</h1>
+
+<body>
+	<header>
+		<h1>Dashboard</h1>
+	</header>
+
+	<aside>
+		<ul>
+			<li><a href="#">Página principal</a></li>
+			<li><a href="#">Estadísticas</a></li>
+			<li><a href="#">Configuración</a></li>
+		</ul>
+	</aside>
+
+    <nav>
+  <ul>
+    <li><a href="#">Inicio</a></li>
+    <li>
+      <a href="#">Productos</a>
+      <ul>
+        <li><a href="www.google.com">Producto 1</a></li>
+        <li><a href="www.hotmail.com">Producto 2</a></li>
+        <li><a href="./user/">Producto 3</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+</nav>
+
+
+
+
+    <aside>
+	<ul>
+		<a href="#"><i class="fas fa-home"></i> Inicio</a>
+        <br>
+		<a href="#"><i class="fas fa-cog"></i> Configuración</a>
+        <br>
+		<a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+	</ul>
+</aside>
+
+
+	<main>
+		<h2>Bienvenido</h2>
+		<h2>Información del perfil</h2>
+		<p>Nombre: Juan Pérez</p>
+		<p>Correo electrónico: juan.perez@example.com</p>
+		<p>País: Venezuela</p>
+	</main>
+
+	<footer>
+		<p>Universidad de las Fuerzas Armadas ESPE © 2023 PROWESSEC.EC
+</p>
+	</footer>
+</body>
 
 
 
