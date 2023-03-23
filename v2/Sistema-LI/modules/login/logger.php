@@ -25,7 +25,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
         } elseif ($row['rol'] == 'empre') {
             $section = 'empre';
         } else {
-            $section = 'empre';
+            $section = 'editor';
         }
         break;
     default:

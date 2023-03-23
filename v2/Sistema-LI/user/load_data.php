@@ -6,11 +6,33 @@ $sql = "SELECT * FROM users WHERE user = '" . $_SESSION['user'] . "'";
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
 		$_SESSION['user_id'] = $row['user'];
-		$_SESSION['email'] = $row['email'];
+		$_SESSION['user_name'] = $row['name'];
+		$_SESSION['user_surnames'] = $row['surnames'];
+		$_SESSION['user_email'] = $row['email'];
+		$_SESSION['user_pass'] = $row['pass'];		
 		$_SESSION['user_type'] = $row['permissions'];
 		$_SESSION['user_rol'] = $row['rol'];
 		$_SESSION['user_image'] = $row['image'];
 		$_SESSION['image_updated_at'] = $row['image_updated_at'];
+	}
+}
+
+$sql = "SELECT * FROM administratives WHERE user = '" . $_SESSION['user'] . "'";
+
+if ($result = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($result)) {
+		$_SESSION['user_id'] = $row['user'];
+		$_SESSION['administratives_name'] = $row['name'];
+		$_SESSION['administratives_surnames'] = $row['surnames'];
+		$_SESSION['administratives_id'] = $row['id'];
+		$_SESSION['administratives_sede'] = $row['sede'];
+		$_SESSION['administratives_email'] = $row['email'];
+		$_SESSION['administratives_cedula'] = $row['cedula'];
+		$_SESSION['administratives_celular'] = $row['celular'];
+		$_SESSION['administratives_pass'] = $row['pass'];
+		$_SESSION['administratives_date_of_birth'] = $row['date_of_birth'];
+		$_SESSION['administratives_carrera'] = $row['carrera'];
+		
 	}
 }
 

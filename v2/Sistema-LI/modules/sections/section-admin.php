@@ -177,7 +177,7 @@ if (strpos($url_actual, 'modules')) {
                 <li class="first-item">
                     <a class="<?php if ($output[1] == 'user') {
                                     echo 'active-user';
-                                } ?>" href="/user"><span class="icon">settings</span><span class="text">Configuración</span></a>
+                                } ?>" href="/users"><span class="icon">settings</span><span class="text">Configuración</span></a>
                 </li>
                 <li>
                     <a href="/modules/logout"><span class="icon">logout</span><span class="text">Cerrar sesión</span></a>

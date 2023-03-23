@@ -49,10 +49,10 @@ if (strpos($url_actual, 'modules')) {
             <?php print $_SESSION['name'] . ' ' . $_SESSION['surnames']; ?>
         </span>
         <span class="logout_user">
-            <a class="icon" href="/modules/teachers">expand_more</a>
+            <a class="icon" href="#">expand_more</a>
             <ul>
                 <li>
-                    <a style="border-bottom: 3px solid #6272a4;" href="/modules/teachers"><span class="icon">settings</span>Configuración</a>
+                    <a style="border-bottom: 3px solid #6272a4;" href="/user"><span class="icon">settings</span>Configuración</a>
                     <a href="/modules/logout"><span class="icon">logout</span>Cerrar Sesión</a>
                 </li>
             </ul>

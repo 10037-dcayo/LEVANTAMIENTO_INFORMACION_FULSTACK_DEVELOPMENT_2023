@@ -47,7 +47,7 @@ CREATE TABLE `administratives` (
 --
 
 INSERT INTO `administratives` (`user`, `name`, `surnames`, `date_of_birth`, `cedula`, `id`, `carrera`, `sede`, `email`, `celular`, `pass`, `created_at`, `updated_at`) VALUES
-('admin', 'Andres', 'Carrera', '1997-04-05', '1600943241', 'L0012312', 'Tecnologias de la Informacion', 'Sangolquí', 'nandy@gmail.com', '0983525002', 'root', '2021-12-05 18:27:39', '2022-04-03 06:10:34');
+('admin', 'Andres', 'Carrera', '1997-04-05', '1600943241', 'L0012312', 'Tecnologias de la Informacion', 'matriz', 'nandy@gmail.com', '0983525002', 'root', '2021-12-05 18:27:39', '2022-04-03 06:10:34');
  
 -- --------------------------------------------------------
 

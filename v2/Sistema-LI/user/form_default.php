@@ -52,6 +52,8 @@ include_once 'load_data.php';
 				<div class="last">
 					
   <div class="body">
+
+
     <?php if ($_SESSION['user_rol'] === 'student') { ?>
      <form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on">			
 			<div class="wrap">
@@ -172,7 +174,7 @@ include_once 'load_data.php';
 						?>
 					</select>
 					<label for="dateuseradmission" class="label">Fecha de admisión</label>
-					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['user_admission_date']; ?>" required />
+					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" required />
 				</div>
 			</div>			
 		</form>
@@ -331,14 +333,6 @@ include_once 'load_data.php';
 
 
 
-
-
-
-
-
-
-
-
      <?php } else if ($_SESSION['user_rol'] === 'empre') { ?>
       <form name="form-update-emprendedor" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
 			<div class="wrap">
@@ -403,6 +397,132 @@ include_once 'load_data.php';
 				</div>
 			</div>
 		</form>
+
+<?php } else if ($_SESSION['user_rol'] === 'admin') { ?>
+      <form name="form-update-administratives" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
+			<div class="wrap">
+				<div class="section-user-info">
+							<h1 class="titulo">Perfil</h1>
+						</div>
+				<div class="first">
+                    <label for="txtuserid" class="label">Usuario</label>
+					<input id="txtuserid" style="display: none;" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
+					<input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
+                    <label for="txtusername" class="label">Nombre</label>
+                    <input id="txtusername" class="text" type="text" name="txtname" value="<?php echo $_SESSION['administratives_name']; ?>" placeholder="Nombre" maxlength="30" required autofocus />
+                    <label for="txtusersurnames" class="label">Apellidos</label>
+                    <input id="txtusersurnames" class="text" type="text" name="txtsurnames" placeholder="Apellidos" value="<?php echo $_SESSION['administratives_surnames']; ?>" maxlength="60" required />
+                    <label for="txtid" class="label">ID</label>
+                    <input id="txtid" class="text" type="text" name="txtid" value="<?php echo $_SESSION['administratives_id']; ?>" placeholder="L00124281" maxlength="16" required />
+                    <label for="selectsede" class="label">Sede</label>
+					<select id="selectsede" class="select" name="selectSede" required>
+						<?php
+						if ($_SESSION['administratives_sede'] == '') {
+							echo '
+								<option value="">Seleccione</option>
+								<option value="matriz">Matriz</option>
+								<option value="latacunga">Latacunga</option>
+								
+								<option value="stodomingo">Sto. Domingo</option>
+							';
+						} elseif ($_SESSION['administratives_sede'] == 'matriz') {
+							echo '
+								<option value="matriz">Matriz</option>
+								<option value="latacunga">Latacunga</option>
+								
+								<option value="stodomingo">Sto. Domingo</option>
+							';
+						} elseif ($_SESSION['administratives_sede'] == 'latacunga') {
+							echo '
+								<option value="latacunga">Latacunga</option>
+								<option value="matriz">Matriz</option>
+								
+								<option value="stodomingo">Sto. Domingo</option>
+							';
+						}  elseif ($_SESSION['administratives_sede'] == 'stodomingo') {
+							echo '
+								<option value="stodomingo">Sto. Domingo</option>								
+								<option value="matriz">Matriz</option>
+								<option value="latacunga">Latacunga</option>
+							';
+						}
+						?>
+					</select>    
+                </div>
+                <div class="first">
+                    <label for="txtcedula" class="label">Cédula</label>
+                    <input id="txtcedula" class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['administratives_cedula']; ?>" placeholder="1600894560" pattern="[0-9]{10}" maxlength="10" onkeyup="this.value = this.value.toUpperCase()" required />
+                    <label for="txtcelular" class="label">Celular</label>
+                    <input id="txtcelular" class="text" type="text" name="txtcelular" value="<?php echo $_SESSION['administratives_celular']; ?>" placeholder="0979304658" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
+                    <label for="txtuserpass" class="label">Contraseña</label>
+                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="<?php echo $_SESSION ['administratives_pass']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
+                    <label for="dateofbirth" class="label">Fecha de nacimiento</label>
+                    <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['administratives_date_of_birth']; ?>"  placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
+                    <label for="selectusercareers" class="label">Carrera</label>
+					<select id="selectusercareers" class="select" name="selectCareer" required>
+						<?php
+						$career = $_SESSION['administratives_carrera'];
+
+						if ($career == '') {
+							echo
+							'
+								<option value="">Seleccione</option>
+							';
+						}
+
+						$sql = "SELECT career, name FROM careers";
+
+						if ($result = $conexion->query($sql)) {
+							while ($row = mysqli_fetch_array($result)) {
+								if ($row['career'] == $career) {
+									echo
+									'
+										<option value="' . $row['career'] . '" selected>' . $row['name'] . '</option>
+									';
+								} else {
+									echo
+									'
+										<option value="' . $row['career'] . '">' . $row['name'] . '</option>
+									';
+								}
+							}
+						}
+						?>
+					</select>
+                </div>
+                <div class="first">
+                    <label for="txtemail" class="label">Email</label>
+                    <input id="txtemail" class="text" type="text" name="txtemail" value="<?php echo $_SESSION['administratives_email']; ?>" placeholder="Correo electrónico" maxlength="60" required />
+                </div>
+			</div>			
+		</form>
+
+<?php } else if ($_SESSION['user_rol'] === 'editor') { ?>
+      <form name="form-update-users" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
+			<div class="wrap">
+				<div class="section-user-info">
+							<h1 class="titulo">Perfil</h1>
+						</div>
+				<div class="first">
+                    <label for="txtuserid" class="label">Usuario</label>
+					<input id="txtuserid" style="display: none;" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
+					<input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
+                    <label for="txtusername" class="label">Nombre</label>
+                    <input id="txtusername" class="text" type="text" name="txtname" value="<?php echo $_SESSION['user_name']; ?>" placeholder="Nombre" maxlength="30" required autofocus />                    
+                   </div>
+                <div class="first">                    
+                    <label for="txtuserpass" class="label">Contraseña</label>
+                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="<?php echo $_SESSION ['user_pass']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
+                    <label for="txtusersurnames" class="label">Apellidos</label>
+                    <input id="txtusersurnames" class="text" type="text" name="txtsurnames" placeholder="Apellidos" value="<?php echo $_SESSION['user_surnames']; ?>" maxlength="60" required />
+                </div>
+                <div class="first">                    
+                    <label for="txtemail" class="label">Email</label>
+                    <input id="txtemail" class="text" type="text" name="txtemail" value="<?php echo $_SESSION['user_email']; ?>" placeholder="Correo electrónico" maxlength="60" required />
+                </div>
+            </div>			
+		</form>
+
       <?php } ?>						
 						<button id="btnSave" class="btn icon" type="submit" autofocus>save</button>
 					</div>
