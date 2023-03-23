@@ -3,6 +3,7 @@ include_once 'security.php';
 
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
+
 $url_actual = $_SERVER["REQUEST_URI"];
 
 if (strpos($url_actual, 'modules')) {
@@ -59,8 +60,17 @@ if (strpos($url_actual, 'modules')) {
     </span>
 </div>
 <div class="info-school-period">
-    <span class="school-period">
-        Periodo Escolar /
-        <a id="schoolPeriod" href="/modules/school_period"><?php print $_SESSION['school_period']; ?></a>
+    <span class="school-period">        
+        <a  href="https://prowessec.com/" target="_blank">PROWESS.EC</a>
     </span>
+</div>
+
+<div >
+    <div style="text-align:center; margin: 120px 0;">             
+        <h1>Bienvenido a la plataforma de</h1>
+        <h1>Levantamiento de Información</h1>
+        <br>
+        <img src="../images/acnur_logo.png" style="align-content: center;" />
+    </div>
+
 </div>

@@ -7,30 +7,36 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
     $pass = mysqli_real_escape_string($conexion, $_POST['txtpass']);
 
     //Buscar Usuario
-    $sql = "SELECT user, permissions, image FROM users WHERE BINARY user = '$user' and BINARY pass = '$pass' or BINARY email = '$user' and BINARY pass = '$pass' LIMIT 1";
+    $sql = "SELECT user, permissions, rol, image FROM users WHERE BINARY user = '$user' and BINARY pass = '$pass' or BINARY email = '$user' and BINARY pass = '$pass' LIMIT 1";
 
     if ($result = $conexion->query($sql)) {
         if ($row = mysqli_fetch_array($result)) {
     
-    //Cargar Usuario
-    if ($row['permissions'] == 'admin') {       
-    $section = 'admin';
-    } elseif ($row['permissions'] == 'editor') {
-    $section = 'editor';
-    } elseif ($row['permissions'] == 'student') {        
-    header("Location: ../student.php");
-    exit();
-    } elseif ($row['permissions'] == 'teacher') {        
-    header("Location: ../teacher.php");
-    exit();
-    } elseif ($row['permissions'] == 'empre') {        
-    header("Location: ../emprendedor.php");
-    exit();
-    }
-
+    switch ($row['permissions']) {
+    case 'admin':
+        $section = 'admin';
+        break;
+    case 'editor':
+        // Dividir el permiso "editor" en tres roles
+        if ($row['rol'] == 'student') {
+            $section = 'student';
+        } elseif ($row['rol'] == 'teacher') {
+            $section = 'teacher';
+        } elseif ($row['rol'] == 'empre') {
+            $section = 'empre';
+        } else {
+            $section = 'empre';
+        }
+        break;
+    default:
+        // Manejar otros valores de permisos que no se reconocen
+        $section = 'unknown';
+        break;
+}
 
     $user = $row['user'];
     $permissions = $row['permissions'];
+    $rol = $row['rol'];
     $image = $row['image'];
 
     $sql = "SELECT name, surnames FROM users WHERE user = '$user' LIMIT 1";
@@ -40,24 +46,15 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
         $name = $row['name'];
         $surnames = $row['surnames'];
 
-        $sql = "SELECT school_period FROM school_periods WHERE active = 1 AND current = 1 LIMIT 1";
-
-        if ($result = $conexion->query($sql)) {
-            if ($row = mysqli_fetch_array($result)) {
-                $school_period = $row['school_period'];
-            }
-         }
-        } else {
-              goto error_user;
-        }
-
         if (!empty($_POST['remember_session'])) {
             $_SESSION["section-$section"] = setcookie("section-$section", "section-$section-$user", time() + 365 * 24 * 60 * 60);
         } else {
             $_SESSION["section-$section"] = "section-$section-$user";
-       }
+        }
+    } else {
+          goto error_user;
     }
-
+}
 
     
     //Cargar datos sesión usuario COOKIE
@@ -69,6 +66,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
                 setcookie('surnames', $surnames, time() + 15 * 24 * 60 * 60);
                 setcookie('image', $image, time() + 15 * 24 * 60 * 60);
                 setcookie('permissions', $permissions, time() + 15 * 24 * 60 * 60);
+                setcookie('rol', $rol, time() + 15 * 24 * 60 * 60);
                 setcookie('school_period', $school_period, time() + 15 * 24 * 60 * 60);
                 setcookie('authenticate', 'go-' . $user, time() + 15 * 24 * 60 * 60);
 
@@ -77,13 +75,15 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
                 $_SESSION['user'] = $user;
                 $_SESSION['name'] = $name;
                 $_SESSION['surnames'] = $surnames;
-                $_SESSION['image'] = $image;
+                $_SESSION['image'] = $image;                
                 $_SESSION['permissions'] = $permissions;
+                $_SESSION['rol'] = $rol;
                 $_SESSION['school_period'] = $school_period;
                 $_SESSION['authenticate'] = 'go-' . $user;
 
                 header('Location: /home');
             }
+            
         } else {
             error_user:
             echo '

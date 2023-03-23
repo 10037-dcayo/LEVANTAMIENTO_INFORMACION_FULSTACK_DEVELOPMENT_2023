@@ -55,6 +55,9 @@ include_once 'load_data.php';
 						</p>
 						<a class="btn-edit-info-user" href="#"><span class="icon">edit_note</span>Información Personal</a>
 						<a class="btn-change-pass" href="#"><span class="icon">lock_open</span>Cambiar Contraseña</a>
+						<br>
+						<br>
+						<button id="btnSave" class="btn icon" type="submit" autofocus>done</button>
 					</div>
 				</div>
 				<div class="footer">

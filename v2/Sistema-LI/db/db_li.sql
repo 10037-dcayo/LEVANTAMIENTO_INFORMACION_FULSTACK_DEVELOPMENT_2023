@@ -1,10 +1,22 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost:3306
+-- Tiempo de generación: 03-04-2022 a las 17:54:14
+-- Versión del servidor: 5.7.33
+-- Versión de PHP: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-
+--
 -- Base de datos: `db_li`
 --
 
@@ -35,8 +47,8 @@ CREATE TABLE `administratives` (
 --
 
 INSERT INTO `administratives` (`user`, `name`, `surnames`, `date_of_birth`, `cedula`, `id`, `carrera`, `sede`, `email`, `celular`, `pass`, `created_at`, `updated_at`) VALUES
-('admin', 'Diego Carpas', 'Carmona Bernal', '1997-04-05', '1600943241', 'L0012312', 'Tecnologias de la Informacion', 'Sangolquí', 'cabernal@espe.edu.ec', '0983525002', 'chiapas123', '2021-12-05 18:33:37', '2022-04-03 06:06:33');
-
+('admin', 'Andres', 'Carrera', '1997-04-05', '1600943241', 'L0012312', 'Tecnologias de la Informacion', 'Sangolquí', 'nandy@gmail.com', '0983525002', 'root', '2021-12-05 18:27:39', '2022-04-03 06:10:34');
+ 
 -- --------------------------------------------------------
 
 --
@@ -59,7 +71,7 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`id_attendance`, `id_group`, `school_period`, `semester`, `subject`, `user_teacher`, `registered`, `update_registered`) VALUES
-('xfs980s', 'ADMIN_1205', '2021-1', 1, 'CAL_DIF_01', 'teacher_e94ac', '2021-03-09', NULL);
+('xfs980s', 'ADMIN_1205', '2021-1', 1, 'CAL_DIF_01', 'teacher', '2021-03-09', NULL);
 
 -- --------------------------------------------------------
 
@@ -164,16 +176,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`user`, `name`, `surnames`, `email`,`date_of_birth`, `sede`, `cedula`, `pass`, `id`, `phone`, `address`, `career`, `documentation`, `admission_date`, `created_at`, `updated_at`) values
-
-('stdt-9a13f','Luis Juan','Perez Poteiro','test@espe.edu.ec','1999-01-01','matriz','1730456776','abcd1234','L00391331','0982244691', 'Los tulipanes', 'IDS', '1' ,'2023-03-13','2022-12-04 00:57:04', '2023-02-04 06:15:56'),
-('stdt-8b9a5','Simon Antonio','Chevrolet Corsa Zambrano','test2@espe.edu.ec','1999-03-23','stodomingo','1712345678','qwerty12','L00391334','0981122567','Los Caifanes y Cafe tacuba','INGPLRA','1','2023-03-15','2023-03-14 15:07:56','2023-03-14 15:08:41'),
-('stdt-c9fe9','Michael Andres','Espinosa Caicedo','test3@espe.edu.ec','2000-12-23','latacunga','1743567889','abcd1234','L00039499','0981122345','la quebrada del centro','INGPLRA','1','2023-03-14','2023-03-13 16:15:26','2023-03-13 16:16:05'),
-('stdt-e71e0','Juan Carlos','Duty Salcedo','test4@espe.edu.ec','1999-03-23','matriz','1713457602','abcd1234','L00982331','0987234567','Los Naranjos y Amazonas','IDS','1','2023-03-14','2023-03-13 16:09:08','2023-03-13 16:10:31'),
-('stdt-aceb0','Ricardo Alejandro','Jaramillo Salgado','donrichard@espe.edu.ec','1999-03-23','matriz','1750245779','abc12345','L00391334','0983594593','las conchas y cerezos','INGPLRA','1','2023-03-13','2023-03-13 16:01:02','2023-03-13 16:11:01');
-
-SELECT * FROM students
-
-
+('student','Ricardo','Jaramillo','test@gmail.com','1999-01-01','matriz','1730456776','student','L00391331','0982244691', 'Los tulipanes', 'IDS', '1' ,'2023-03-13','2021-12-05 18:27:39', '2022-04-03 06:10:34');
 
 -- --------------------------------------------------------
 
@@ -181,12 +184,12 @@ SELECT * FROM students
 -- Estructura de tabla para la tabla `subjects`
 --
 CREATE TABLE `subjects` (
-  `subject` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `career` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `name` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
-  `semester` int(2) NOT NULL,
-  `description` text COLLATE utf8_spanish2_ci,
-  `user_teachers` text COLLATE utf8_spanish2_ci NOT NULL
+ `subject` VARCHAR(20) COLLATE utf8_spanish2_ci NOT NULL,
+ `career` VARCHAR(20) COLLATE utf8_spanish2_ci NOT NULL,
+ `name` VARCHAR(100) COLLATE utf8_spanish2_ci NOT NULL,
+ `semester` INT(2) NOT NULL,
+ `description` TEXT COLLATE utf8_spanish2_ci,
+ `user_teachers` TEXT COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -194,11 +197,11 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`subject`, `career`, `name`, `semester`, `description`, `user_teachers`) VALUES
-('CALDIF01', 'MATBASICAS', 'Calculo Diferencial', 9, 'Calculo jsjsjs', 'teacher_e9418,tchr37db23,teacher_e9408,'),
-('CALINT', 'IDS', 'Calculo Integral', 1, '', ',teacher_e9443,tchra80e12,teacher_617af,'),
-('DESARROLLO', 'MATBASICAS', 'Software', 3, 'jsjsjsj lalalas', 'teacher_e9408,'),
-('EDU_FISC01QR', 'MATBASICAS', 'Educación física', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis lectus at rhoncus faucibus. Etiam sit amet nulla eu tortor luctus semper. Donec egestas leo nisl, at ornare ex tempus id. Nullam at euismod arcu, vitae bibendum risus. Vivamus cursus elit at diam mattis pretium. Maecenas non condimentum justo, et tempor tortor. Nam at mi commodo, euismod enim non, malesuada felis. Proin quis elementum justo. In posuere, nunc vel ultrices sagittis, velit purus viverra augue, posuere scelerisque dolor magna vel nisl. Aliquam in commodo ligula, at mattis ligula. Curabitur et arcu metus. Mauris neque arcu, volutpat quis volutpat a, bibendum ac magna. Duis pellentesque viverra quam eget euismod.\r\n\r\nPhasellus tincidunt posuere faucibus. Sed imperdiet metus ullamcorper enim consequat tempor. Quisque nec lectus facilisis, gravida nisl sit amet, egestas nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae turpis massa. Aenean gravida commodo ante a maximus. Sed eget mi ac ante hendrerit molestie. Vivamus feugiat purus sit amet lobortis tempor. Quisque neque libero, ultrices non ex id, venenatis convallis lorem. Suspendisse malesuada erat vel ornare interdum. In hac habitasse platea dictumst.', ',teacher_e9408,'),
-('INGBAS01', 'IDS', 'Ingles Básico', 1, 'El idioma inglés (English language o English) es una lengua germánica occidental que surgió en los reinos anglosajones de Inglaterra y se extendió hasta el Norte en lo que se convertiría en el sudeste de Escocia, bajo la influencia del Reino de Northumbria.', ',teacher_617af,tchra80e12,teacher_e9443,');
+('CALDIF01', 'MATBASICAS', 'Calculo Diferencial', 9, 'Calculo', 'teacher'),
+('CALINT', 'IDS', 'Calculo Integral', 1, 'Matematics', 'teacher'),
+('DESARROLLO', 'MATBASICAS', 'Software', 3, 'Profesional', 'teacher'),
+('EDU_FISC01QR', 'MATBASICAS', 'Educación física', 1, 'Fisico', 'teacher'),
+('INGBAS01', 'IDS', 'Ingles Básico', 1, 'Estudio marco Europeo B2', 'teacher');
 
 -- --------------------------------------------------------
 
@@ -229,50 +232,11 @@ CREATE TABLE `teachers` (
 --
 
  INSERT INTO `teachers` (`user`, `name`, `surnames`, `date_of_birth`, `gender`, `cedula`, `id`,`pass`, `phone`, `address`, `level_studies`,`email`, `career`, `created_at`, `updated_at`) VALUES
- ('tchr-0daed', 'Luis Miguel', 'Maná Zoé', '2001-04-20', 'hombre', '1750245009', 'L00123456', 'qwerty12','0983594591','Avenida Libertador Simon Bolivar', 'Ingenieria', 'lapapachola@gmail.com','IDS', '2023-04-03 17:35:39', '2023-02-07 12:45:38'),
- ('tchra80e12', 'Pamela Alaba', 'Sánchez Caizahuano', '2022-02-08', 'mujer', '1750245008', 'L00123455', 'qwerty11','0983594592', 'Av. Siempre Viva', 'Licenciatura', 'encebollado1@gmail.com', 'IDS,INGBIO,MATBASICAS,MTABIOTEC', '2022-02-02 00:47:13', '2022-02-07 12:45:38');
+ ('teacher', 'Steven', 'Cardenas', '2001-04-20', 'hombre', '1750245009', 'L00123456', 'teacher','0983594591','Avenida Libertador Simon Bolivar', 'Ingenieria', 'edit@gmail.com','IDS', '2021-05-01 00:00:00', '2022-04-03 06:10:34');
  
 
+
 -- --------------------------------------------------------
-
-
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
-  `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,  
-  `email` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `pass` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `permissions` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `image` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `image_updated_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=UTF8_SPANISH2_CI;
-
---
--- Volcado de datos para la tabla `users`
---
--- Commit
-
-INSERT INTO `users` (`user`, `name`,`surnames`,`email`, `pass`, `permissions`, `image`, `image_updated_at`, `created_at`, `updated_at`) VALUES
-('admin', 'Andres', 'Carrera', 'nandy@gmail.com', 'root', 'admin', 'admin221.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
-('admineb405',  'Angela', 'Champ','magomez@gmail.com', 'editor', 'editor', 'user.png', NULL, '2021-12-04 02:13:36', '2022-03-13 02:59:59'),
-('student22', 'Ricardo', 'Jaramillo', 'test@gmail.com', 'student', 'student', 'user.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
-('teacher33', 'Steven', '	Cardenas', 'edit@gmail.com', 'teacher', 'teacher', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
-('empre55', 'Luis', 'LLumiq', 'edor@gmail.com', 'empre', 'empre', 'user.png', NULL, '2021-05-01 00:00:00', NULL),
-('empre-fa051','Alberta Suzuki','Salcedo Velez','lazanahoria@gmail.com','qwerty15', 'empre','user.png', NULL,'2023-03-17 16:22:33',NULL),
-('empre-fa050','Pedro Alexander','Dominguez Sanchez','metegolgana@gmail.com','qwerty12','empre','user.png', NULL, '2023-03-16 16:22:33', NULL);
-
--- db_schoolusers
-
-
--- Índices para tablas volcadas
---
 
 --
 -- Creacion de Tabla Emprendedores
@@ -294,15 +258,44 @@ CREATE TABLE `emprendedor` (
 
 
 INSERT INTO `emprendedor` (`user`,`name`,`surnames`,`date_of_birth`,`gender`,`cedula`,`pass`,`phone`,`address`,`email`,`created_at`,`updated_at`) VALUES
-('empre-fa051','Alberta Suzuki','Salcedo Velez','2000-03-17','mujer','1713905213','qwerty15','0987345672','Ecuatoriana','lazanahoria@gmail.com','2023-03-17 16:22:33','2023-03-18 16:22:33'),
-('empre-fa050','Pedro Alexander','Dominguez Sanchez','2000-04-10','hombre','1713905211','qwerty12','0987345671','Ecuatoriana','metegolgana@gmail.com','2023-03-16 16:22:33','2023-03-18 16:22:33');
+('empre','Luis','LLumiq','2000-03-17','mujer','1713905213','empre','0987345672','Ecuatoriana','edor@gmail.com','2021-05-01 00:00:00', '2022-04-03 06:10:34');
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `user` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `name` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
+  `surnames` varchar(60) COLLATE utf8_spanish2_ci NOT NULL,  
+  `email` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `pass` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `permissions` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
+  `rol` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
+  `image` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `image_updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=UTF8_SPANISH2_CI;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+-- Commit
+
+INSERT INTO `users` (`user`, `name`,`surnames`,`email`, `pass`, `permissions`, `rol`, `image`, `image_updated_at`, `created_at`, `updated_at`) VALUES
+('admin', 'Andres', 'Carrera', 'nandy@gmail.com', 'root', 'admin', NULL, 'admin221.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
+('editor',  'Angela', 'Champ','magomez@gmail.com', 'editor', 'editor',NULL, 'user.png', '2022-02-22 15:18:10', '2021-12-04 02:13:36', '2022-03-13 02:59:59'),
+('student', 'Ricardo', 'Jaramillo', 'test@gmail.com', 'student', 'editor','student', 'user.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
+('teacher', 'Steven', '	Cardenas', 'edit@gmail.com', 'teacher', 'editor', 'teacher','user.png', '2022-02-22 15:18:06', '2021-05-01 00:00:00', '2022-04-03 06:10:34'),
+('empre', 'Luis', 'LLumiq', 'edor@gmail.com', 'empre', 'editor','empre', 'user.png', '2022-02-22 15:18:06', '2021-05-01 00:00:00', '2022-04-03 06:10:34');
 
 
-SELECT * FROM emprendedor
-
-SELECT name, surnames, gender FROM emprendedor
+-- db_schoolusers
 
 
+-- Índices para tablas volcadas
+--
 --
 -- Indices de la tabla `administratives`
 --
@@ -368,5 +361,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-/*db_schooldb_schoolemprendedoremprendedorcareersemprendedoremprendedor*/

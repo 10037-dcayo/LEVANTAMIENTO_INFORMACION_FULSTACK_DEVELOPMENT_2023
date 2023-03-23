@@ -18,6 +18,7 @@ if (!empty($_POST['search'])) {
 	$_SESSION['user_surnames'] = array();
 	$_SESSION['user_email'] = array();
 	$_SESSION['user_type'] = array();
+	$_SESSION['user_rol'] = array();
 
 	$i = 0;
 
@@ -30,6 +31,7 @@ if (!empty($_POST['search'])) {
 	        $_SESSION['user_surnames'][$i] = $row['surnames'];
 			$_SESSION['user_email'][$i] = $row['email'];
 			$_SESSION['user_type'][$i] = $row['permissions'];
+			$_SESSION['user_rol'][$i] = $row['rol'];
 
 			$i += 1;
 		}
@@ -41,6 +43,7 @@ if (!empty($_POST['search'])) {
 	$_SESSION['user_surnames'] = array();
 	$_SESSION['user_email'] = array();
 	$_SESSION['user_type'] = array();
+	$_SESSION['user_rol'] = array();
 
 	$i = 0;
 
@@ -53,6 +56,7 @@ if (!empty($_POST['search'])) {
 	        $_SESSION['user_surnames'][$i] = $row['surnames'];
 			$_SESSION['user_email'][$i] = $row['email'];
 			$_SESSION['user_type'][$i] = $row['permissions'];
+			$_SESSION['user_rol'][$i] = $row['rol'];
 
 			$i += 1;
 		}
