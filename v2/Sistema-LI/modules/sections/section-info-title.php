@@ -61,6 +61,6 @@ if (strpos($url_actual, 'modules')) {
 </div>
 <div class="info-school-period">
     <span class="school-period">        
-        <a  href="https://prowessec.com/" target="_blank">PROWESSEC.EC</a>
+        <a  href="https://prowessec.com/" target="_blank">PROWESS.EC</a>
     </span>
 </div>

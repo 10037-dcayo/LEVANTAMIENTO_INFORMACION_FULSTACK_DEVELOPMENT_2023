@@ -5,7 +5,7 @@ if (isset($_POST['id'])) {
 	$_SESSION['POST_id'] = $_POST['id'];
 }
 
-$sql = "SELECT user, name, surnames, email, permissions, image FROM users WHERE user = '" . $_SESSION['POST_id'] . "'";
+$sql = "SELECT user, name, surnames, email, permissions, rol, image FROM users WHERE user = '" . $_SESSION['POST_id'] . "'";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
@@ -14,10 +14,10 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['user_surnames'] = $row['surnames'];
 		$_SESSION['email'] = $row['email'];
 		$_SESSION['user_type'] = $row['permissions'];
+		$_SESSION['user_rol'] = $row['rol'];
 		$_SESSION['user_image'] = $row['image'];
 
-	//	$_SESSION['student_pass'] = $row ['pass'];
-	//	$_SESSION['emprendedor_contra'] = $row ['pass'];
+	
 
 
 		if($_SESSION['user_image'] == null) {
@@ -90,18 +90,14 @@ echo '
 				</div>
 				<div class="last">
 					<label for="selectusertype" class="label">Permisos</label>
-					<select id="selectusertype" class="select" name="txtusertype" required>
+					<select id="selectusertype" class="select" name="txtusertype" disabled>
 					';
 if ($_SESSION['user_type'] == '') {
 	echo
 	'
 								<option value="">Seleccione</option>
 								<option value="admin">Administrador</option>
-								<option value="editor">Editor</option>	
-								<option value="student">Student</option>
-								<option value="teacher">Teacher</option>
-								<option value="empre">Emprendedor</option>
-
+								<option value="editor">Editor</option>								
 	';
 }
 if ($_SESSION['user_type'] == 'admin') {
@@ -109,20 +105,54 @@ if ($_SESSION['user_type'] == 'admin') {
 	'
 								<option value="admin">Administrador</option>
 								<option value="editor">Editor</option>	
-								<option value="student">Student</option>
-								<option value="teacher">Teacher</option>
-								<option value="empre">Emprendedor</option>
 							';
 } elseif ($_SESSION['user_type'] == 'editor') {
 	echo
 	'
 								<option value="editor">Editor</option>
 								<option value="admin">Administrador</option>									
+							';
+}
+echo
+'
+
+</select>
+</div>
+                    <div class="last">
+					<label for="selectuserrol" class="label">Rol</label>
+					<select id="selectuserrol" class="select" name="txtuserrol" disabled>
+					';
+if ($_SESSION['user_rol'] == '') {
+	echo
+	'
+								<option value="">Seleccione</option>
+								<option value="admin">Administrador</option>
+								<option value="editor">Editor</option>
+								<option value="student">Student</option>
+								<option value="teacher">Teacher</option>
+								<option value="empre">Emprendedor</option>
+
+	';
+}
+if ($_SESSION['user_rol'] == 'admin') {
+	echo
+	'
+								<option value="admin">Administrador</option>
+								<option value="editor">Editor</option>
 								<option value="student">Student</option>
 								<option value="teacher">Teacher</option>
 								<option value="empre">Emprendedor</option>
 							';
-} elseif ($_SESSION['user_type'] == 'student') {
+} elseif ($_SESSION['user_rol'] == 'editor') {
+	echo
+	'
+								<option value="editor">Editor</option>
+								<option value="admin">Administrador</option>
+								<option value="student">Student</option>
+								<option value="teacher">Teacher</option>
+								<option value="empre">Emprendedor</option>									
+							';
+} elseif ($_SESSION['user_rol'] == 'student') {
 	echo
 	'
 								<option value="student">Student</option>
@@ -131,7 +161,7 @@ if ($_SESSION['user_type'] == 'admin') {
 								<option value="teacher">Teacher</option>
 								<option value="empre">Emprendedor</option>
 							';
-} elseif ($_SESSION['user_type'] == 'teacher') {
+} elseif ($_SESSION['user_rol'] == 'teacher') {
 	echo
 	'
 								<option value="teacher">Teacher</option>
@@ -140,7 +170,7 @@ if ($_SESSION['user_type'] == 'admin') {
 								<option value="student">Student</option>								
 								<option value="empre">Emprendedor</option>
 							';
-} elseif ($_SESSION['user_type'] == 'empre') {
+} elseif ($_SESSION['user_rol'] == 'empre') {
 	echo
 	'
 								<option value="empre">Emprendedor</option>

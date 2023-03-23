@@ -79,12 +79,13 @@ textarea:focus {
 button:focus {
     outline: none !important;
     outline-width: 0 !important;
-    transition: all 200ms ease-in !important;
+    transition: all 200ms ease-in !important;s
 }
 
 body {
     font-family: Helvetica Neue”, Helvetica, Arial, sans-serif;
     color: #4a567c;
+    background-color: #022B3B;
 }
 
 body.login {
@@ -132,7 +133,7 @@ body.login {
     float: right;
     height: 50px;
     margin: 35px 3%;
-    background: #44475a;
+    background: rgba(142, 136, 192, 0.2);
     box-shadow: 0 2px 2px rgba(73, 80, 104, 0.4);
     border-radius: 0.4em;
     user-select: none;
@@ -216,9 +217,9 @@ body.login {
 
 .nav-home span.name_system {
     display: block;
-    padding: 12% 0;
-    background: url(../images/logo.svg) no-repeat center;
-    background-size: 190px;
+    padding: 10% 0;
+    background: url(../images/logo.png) no-repeat center;
+    background-size: 250px;
     text-indent: -999px;
 }
 
