@@ -64,3 +64,13 @@ if (strpos($url_actual, 'modules')) {
         <a  href="https://prowessec.com/" target="_blank">PROWESS.EC</a>
     </span>
 </div>
+
+<div >
+    <div style="text-align:center; margin: 120px 0;">             
+        <h1>Bienvenido a la plataforma de</h1>
+        <h1>Levantamiento de Información</h1>
+        <br>
+        <img src="../images/acnur_logo.png" style="align-content: center;" />
+    </div>
+
+</div>

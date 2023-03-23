@@ -55,6 +55,12 @@ if (!empty($_POST['btn'])) {
 			include_once '../modules/sections/section-admin.php';
 		} elseif (!empty($_SESSION['section-editor']) == 'go-' . $_SESSION['user']) {
 			include_once '../modules/sections/section-editor.php';
+		}elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
+			include_once '../modules/sections/section-student.php';
+		}elseif (!empty($_SESSION['section-teacher']) == 'go-' . $_SESSION['user']) {
+			include_once '../modules/sections/section-teacher.php';
+		}elseif (!empty($_SESSION['section-empre']) == 'go-' . $_SESSION['user']) {
+			include_once '../modules/sections/section-empre.php';
 		}
 		?>
 	</aside>
