@@ -1,4 +1,16 @@
-﻿
+﻿<?php
+session_start();
+
+header('Content-Type: text/html; charset=UTF-8');
+
+include_once 'modules/conexion.php';
+include_once 'modules/cookie.php';
+
+
+
+   
+
+?>
 
 
 
@@ -78,6 +90,7 @@
 		<a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
 	</ul>
 </aside>
+
 
 
 	<main>

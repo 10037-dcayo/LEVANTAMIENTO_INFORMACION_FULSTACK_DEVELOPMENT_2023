@@ -33,7 +33,7 @@ include_once 'modules/notif_info_unset.php';
 <body>
     <div class="loader"></div>
     <header class="header">
-        <?php
+       <?php
         include_once "modules/sections/section-info-title.php";
         ?>
     </header>

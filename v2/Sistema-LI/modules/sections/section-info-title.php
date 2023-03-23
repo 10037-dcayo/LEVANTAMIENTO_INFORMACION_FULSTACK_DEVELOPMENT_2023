@@ -3,6 +3,7 @@ include_once 'security.php';
 
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
+
 $url_actual = $_SERVER["REQUEST_URI"];
 
 if (strpos($url_actual, 'modules')) {
