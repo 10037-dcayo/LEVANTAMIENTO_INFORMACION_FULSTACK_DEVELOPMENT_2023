@@ -45,9 +45,9 @@ include_once 'modules/notif_info_unset.php';
             include_once 'modules/sections/section-editor.php';
         } elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
             include_once 'modules/sections/section-student.php';
-        } elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
+        } elseif (!empty($_SESSION['section-teacher']) == 'go-' . $_SESSION['user']) {
             include_once 'modules/sections/section-teacher.php';
-        }elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
+        }elseif (!empty($_SESSION['section-empre']) == 'go-' . $_SESSION['user']) {
             include_once 'modules/sections/section-empre.php';
         }
         ?>

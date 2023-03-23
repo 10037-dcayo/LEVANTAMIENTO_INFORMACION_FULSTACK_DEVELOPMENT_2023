@@ -12,22 +12,6 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
     if ($result = $conexion->query($sql)) {
         if ($row = mysqli_fetch_array($result)) {
     
-    /*//Cargar Usuario
-    if ($row['permissions'] == 'admin') {       
-    $section = 'admin';
-    } elseif ($row['permissions'] == 'editor') {
-    $section = 'student';
-    } elseif ($row['permissions'] == 'student') {        
-    $section = 'student';
-    exit();
-    } elseif ($row['permissions'] == 'teacher') {        
-    header("Location: ../teacher.php");
-    exit();
-    } elseif ($row['permissions'] == 'empre') {        
-    header("Location: ../emprendedor.php");
-    exit();
-    }*/
-
     switch ($row['permissions']) {
     case 'admin':
         $section = 'admin';
@@ -41,7 +25,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
         } elseif ($row['rol'] == 'empre') {
             $section = 'empre';
         } else {
-            $section = 'editor';
+            $section = 'empre';
         }
         break;
     default:
@@ -49,13 +33,6 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
         $section = 'unknown';
         break;
 }
-
-
-
-
-
-
-
 
     $user = $row['user'];
     $permissions = $row['permissions'];
