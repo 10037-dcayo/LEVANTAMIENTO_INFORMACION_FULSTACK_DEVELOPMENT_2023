@@ -1,135 +1,247 @@
-﻿
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Perfil Estudiante</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        background-color: #022B3B;
+        color: #fff;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        height: 70px;
+      }
+      
+      .logo img {
+        height: 100%;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: normal;
+      }
+
+      nav {
+        background-color: #f2f2f2;
+        padding: 10px;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      li {
+        margin-right: 10px;
+      }
+
+      a {
+        color: #333;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+        border: 1px solid #333;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #333;
+        color: #fff;
+      }
+
+      section {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+
+      .card {
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 10px;
+        flex-basis: calc(33.33% - 20px);
+      }
+
+      .card h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .card p {
+        margin: 10px 0;
+      }
 
 
 
-<!DOCTYPE html>
-<html lang="es">
+.menu-container {
+ position: relative;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+  
+}
+
+.menu li {
+  float: left;
+  position: relative;
+  border: 1px solid white;
+
+}
+
+.menu a {   
+  display: block;
+  padding: 10px 30px;
+  text-decoration: #fff;
+  color: #fff;
+}
+
+.menu li:hover > a {
+  background-color: #aaa;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #022B3B;
+  border: 1px solid #022B3B;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+
+.menu li:hover > .submenu {
+  display: block;
+}
+ 
+    footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #022B3B;
+    color:#fff;
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    }
+    .left-img {
+    margin-right: 20px;
+    width: 85px;
+    }
+
+    .right-img {
+    margin-left: 20px;
+    width: 85px;
+    }
 
 
 
+    </style>
+  </head>
+  <body>
+    <header>
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
-<title>Módulo Estudiante</title>
-<meta name="Description" content="Paginas donde encontrar contenido interesante">
-<link rel="canonical" href="https://misitio/index.php">
-<meta name="Robots" content="index, follow">
-<link href="./css/estilo.css" rel="stylesheet" type="text/css" media="screen">
+    <!-- este div es para agregar el logo de prowess a la izquierda -->
 
-
-<link rel="stylesheet" type="text/css" href="./css/student_style.css">
-
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <div class="logo">
+        <img src="/images/icon2.png" alt="Logo">
+      </div>
+      <div class="profile">
 
 
-</head> 
+     <!-- desde aqui creamos menu desplegable a la derecha -->
+
+     <ul class="menu">
+  <li>
+    <a href="#">Módulo</a>
+    <ul class="submenu">
+      <li><a href="#">Submenú 1</a></li>
+      <li><a href="#">Submenú 2</a></li>
+      <li><a href="#">Submenú 3</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Ayuda</a>
+    <ul class="submenu">
+      <li><a href="#">Submenú 1</a></li>
+      <li><a href="#">Submenú 2</a></li>
+      <li><a href="#">Submenú 3</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Estudiante</a>
+    <ul class="submenu">
+      <li><a href="#">Submenú 1</a></li>
+      <li><a href="#">Submenú 2</a></li>
+      <li><a href="#">Submenú 3</a></li>
+    </ul>
+  </li>
+</ul>
 
 
-<body>
-<div id="inicio"></div>
-<div id="header">
-<div id="bar">
-<a href="https://misitio/index.php"><title>Módulo Estudiante</title></a>
-<div class="descrip"></div>
-</div>
-<div id="page">
-<h1>Bienvenido/a al Modulo Estudiante</h1>
-
-<body>
-	<header>
-		<h1>Dashboard</h1>
-	</header>
-
-	<aside>
-		<ul>
-			<li><a href="#">Página principal</a></li>
-			<li><a href="#">Estadísticas</a></li>
-			<li><a href="#">Configuración</a></li>
-		</ul>
-	</aside>
-
+    </header>
     <nav>
-  <ul>
-    <li><a href="#">Inicio</a></li>
-    <li>
-      <a href="#">Productos</a>
       <ul>
-        <li><a href="www.google.com">Producto 1</a></li>
-        <li><a href="www.hotmail.com">Producto 2</a></li>
-        <li><a href="./user/">Producto 3</a></li>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#">Notificaciones</a></li>
+        <li><a href="#">Configuración</a></li>
+        <li><a href="./user/">Cerrar Sesión</a></li>
       </ul>
-    </li>
-    <li><a href="#">Contacto</a></li>
-  </ul>
-</nav>
+    </nav>
+    <section>
+      <div class="card">
+        <h2>Información Personal</h2>
+        <p>Nombre: Juan Pérez</p>
+        <p>Edad: 22 años</p>
+        <p>Correo Electrónico: juan.perez@gmail.com</p>
+      </div>
+      <div class="card">
+        <h2>Calificaciones</h2>
+        <p>Matemáticas: 90%</p>
+        <p>Historia: 80%</p>
+        <p>Ciencias: 85%</p>
+      </div>
+      <div class="card">
+        <h2>Asistencia</h2>
+        <p>Asistencias: 90%</p>
+        <p>Faltas: 10%</p>
+      </div>
+    </section>
 
 
 
 
-    <aside>
-	<ul>
-		<a href="#"><i class="fas fa-home"></i> Inicio</a>
-        <br>
-		<a href="#"><i class="fas fa-cog"></i> Configuración</a>
-        <br>
-		<a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
-	</ul>
-</aside>
+   <!-- pie de pagina satánico -->
+   
+   <footer>
+    <img src="/images/espe_logo.png" alt="Logo ESPE" class="left-img">
+    <p>Derechos reservados ©  2023 <href="https://www.prowessec.com">Universidad de las Fuerzas Armadas ESPE</p>
+    <img src="/images/acnur_logo.png" alt="Logo ACNUR" class="right-img">
+    </footer>
 
-
-	<main>
-		<h2>Bienvenido</h2>
-		<h2>Información del perfil</h2>
-		<p>Nombre: Juan Pérez</p>
-		<p>Correo electrónico: juan.perez@example.com</p>
-		<p>País: Venezuela</p>
-	</main>
-
-	<footer>
-		<p>Universidad de las Fuerzas Armadas ESPE © 2023 PROWESSEC.EC
-</p>
-	</footer>
-</body>
-
-
-
-
-
-
-<div class="intro">
-Descripción del Modulo Estudiante.
-</div>
-Esta es la página principal o de inicio de mi sitio web.<br>
-Es la primera que ven los que entran al sitio por primera vez y en todas las páginas restantes hay un enlace que conduce a ella.<br>
-En ella puedo poner enlaces a las otras páginas, imágenes sugestivas, videos o cualquier otro elemento.<br>
-<img src="./images/background_m_estudiantes.jpg" width="620" height="400" alt="Imagen para el intro" title="Mi sitio web, actualidad y tecnologia"><br>
-
-<h2>ENLACES A LOS CAMPUS VIRTUALES ESPE</h2>
-<div class="enlaces">
-<a href= "https://srvcas.espe.edu.ec/authenticationendpoint/login.do?Name=PreLoginRequestProcessor&commonAuthCallerPath=%252Fcas%252Flogin&forceAuth=true&passiveAuth=false&service=https%3A%2F%2Fmiespe.espe.edu.ec%2Fc%2Fportal%2Flogin&tenantDomain=carbon.super&sessionDataKey=df395a49-5b4c-4714-a543-090dd30de787&relyingParty=portal_luminis&type=cas&sp=portal_luminis&isSaaSApp=false&authenticators=BasicAuthenticator:LOCAL" target="_blank">MI ESPE</a><br>
-<a href="https://moodleltga.espe.edu.ec/moodle/" target="_blank">MOODLE</a><br>
-</div>
-
-Puede tener cualquier cantidad de texto, pero se recomienda que sea breve, que no sea necesario desplazarse por ella, que el contenido principal pueda verlo el lector al primer vistazo.<br>
-En la parte inferior del título están los botones para compartirla en las principales redes sociales.<br>
-En el extremo inferior deben ir los botones que permitan a los lectores seguirnos en estos sitios sociales.<br>
-<br>
-
-<h3>Sígueme en las redes sociales</h3>
-<a href="http://www.facebook.com/" rel="nofollow">
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 32 32"><path fill="#3B5998" d="M0 0h32v32H0z"/><path fill="#FFF" d="M22.08 32V19.607h4.16l.62-4.83h-4.78v-3.083c0-1.398.388-2.352 2.393-2.352h2.56V5.02c-.443-.058-1.962-.19-3.728-.19-3.688 0-6.213 2.25-6.213 6.385v3.562h-4.17v4.83h4.17V32h4.987z"/></svg>
-</a>
-<a href="https://twitter.com/" rel="nofollow"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 32 32"><path fill="#55ACEE" d="M0 0h32v32H0z"/><path fill="#FFF" d="M28 8.557c-.884.39-1.833.656-2.828.775 1.017-.608 1.798-1.573 2.166-2.725-.953.567-2.006.976-3.13 1.194-.896-.956-2.176-1.554-3.593-1.554-2.72 0-4.924 2.206-4.924 4.925 0 .387.045.763.13 1.125-4.094-.208-7.724-2.168-10.15-5.147-.423.726-.667 1.573-.667 2.476 0 1.71.87 3.214 2.19 4.1-.806-.027-1.564-.25-2.23-.616v.06c0 2.39 1.7 4.378 3.952 4.83-.414.113-.85.172-1.297.172-.317 0-.625-.03-.927-.086.63 1.956 2.447 3.38 4.6 3.42-1.685 1.318-3.808 2.107-6.114 2.107-.398 0-.79-.023-1.175-.068 2.18 1.396 4.768 2.213 7.55 2.213 9.056 0 14.01-7.506 14.01-14.012 0-.213-.005-.426-.015-.637.96-.694 1.795-1.56 2.455-2.55z"/></svg>
-</a><br>
-
-<div class="subir"><a href="#inicio">Subir</a></div>
-<div class="footer">
-Universidad de las Fuerzas Armadas ESPE &copy; 2023 <a href="https://prowessec.com/" target="_blank">PROWESSEC.EC</a><br>
-</div><br>
-</div></div>
-</body> 
+  </body>
 </html>
-
