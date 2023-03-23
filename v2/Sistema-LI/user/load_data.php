@@ -1,17 +1,83 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-$sql = "SELECT user, email, permissions, image, image_updated_at FROM users WHERE user = '" . $_SESSION['user'] . "'";
+$sql = "SELECT * FROM users WHERE user = '" . $_SESSION['user'] . "'";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
 		$_SESSION['user_id'] = $row['user'];
 		$_SESSION['email'] = $row['email'];
 		$_SESSION['user_type'] = $row['permissions'];
+		$_SESSION['user_rol'] = $row['rol'];
 		$_SESSION['user_image'] = $row['image'];
 		$_SESSION['image_updated_at'] = $row['image_updated_at'];
 	}
 }
+
+$sql = "SELECT * FROM students WHERE user = '" . $_SESSION['user'] . "'";
+
+if ($result = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($result)) {
+		$_SESSION['user_id'] = $row['user'];
+		$_SESSION['student_name'] = $row['name'];
+		$_SESSION['student_surnames'] = $row['surnames'];
+		$_SESSION['student_sede'] = $row['sede'];
+		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
+		$_SESSION['student_cedula'] = $row['cedula'];
+		$_SESSION['student_pass'] = $row ['pass'];
+		$_SESSION['student_email'] = $row['email'];		
+		$_SESSION['student_id'] = $row['id'];
+		$_SESSION['student_phone'] = $row['phone'];
+		$_SESSION['student_address'] = $row['address'];
+		$_SESSION['student_career'] = $row['career'];
+		$_SESSION['student_documentation'] = $row['documentation'];
+		$_SESSION['student_admission_date'] = $row['admission_date'];
+		
+	}
+}
+
+$sql = "SELECT * FROM teachers WHERE user = '" . $_SESSION['user'] . "'";
+
+if ($result = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($result)) {
+		$_SESSION['user_id'] = $row['user'];
+		$_SESSION['teacher_name'] = $row['name'];
+		$_SESSION['teacher_surnames'] = $row['surnames'];
+		$_SESSION['teacher_gender'] = $row['gender'];
+		$_SESSION['teacher_date_of_birth'] = $row['date_of_birth'];
+		$_SESSION['teacher_cedula'] = $row['cedula'];
+		$_SESSION['teacher_id'] = $row['id'];
+		$_SESSION['teacher_pass'] = $row['pass'];
+		$_SESSION['teacher_phone'] = $row['phone'];
+		$_SESSION['teacher_address'] = $row['address'];
+		$_SESSION['teacher_level_studies'] = $row['level_studies'];
+		$_SESSION['teacher_email'] = $row['email'];
+		$_SESSION['teacher_career'] = $row['career'];
+		
+	}
+}
+
+$sql = "SELECT * FROM emprendedor WHERE user = '" . $_SESSION['user'] . "'";
+
+if ($result = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($result)) {
+		$_SESSION['user_id'] = $row['user'];
+		$_SESSION['empre_pass'] = $row['pass'];
+		$_SESSION['empre_name'] = $row['name'];
+		$_SESSION['empre_surnames'] = $row['surnames'];
+		$_SESSION['empre_gender'] = $row['gender'];
+		$_SESSION['empre_date_of_birth'] = $row['date_of_birth'];
+		$_SESSION['empre_curp'] = $row['cedula'];
+		$_SESSION['empre_rfc'] = $row['address'];
+		$_SESSION['empre_phone'] = $row['phone'];
+		$_SESSION['empre_documentation'] = $row['email'];
+		$_SESSION['empre_pass'] = $row['pass'];
+		
+	}
+}
+
+
+
 
 $name_image_user = $_SESSION['raiz'] . '/images/users/' . $_SESSION['user_image'] . '';
 

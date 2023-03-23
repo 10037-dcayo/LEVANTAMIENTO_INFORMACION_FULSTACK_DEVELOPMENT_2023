@@ -71,7 +71,11 @@ include_once 'load_data.php';
 			include_once '../sections/section-admin.php';
 		} elseif (!empty($_SESSION['section-editor']) == 'go-' . $_SESSION['user']) {
 			include_once '../sections/section-editor.php';
+		}elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
+			include_once '../sections/section-student.php';
 		}
+
+
 		?>
 	</aside>
 	<section class="content">
