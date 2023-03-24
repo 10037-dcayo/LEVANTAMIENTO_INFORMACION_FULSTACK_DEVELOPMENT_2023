@@ -33,7 +33,7 @@ CREATE TABLE `administratives` (
   `date_of_birth` date DEFAULT NULL,
   `cedula` varchar(30) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `id` varchar(18) COLLATE utf8_spanish2_ci NOT NULL,
-  `career` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
+  `carrer` varchar(80) COLLATE utf8_spanish2_ci NOT NULL,
   `sede` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
   `email` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `celular` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `administratives` (
 --
 
 INSERT INTO `administratives` (`user`, `name`, `surnames`, `date_of_birth`, `cedula`, `id`, `carrer`, `sede`, `email`, `celular`, `pass`, `created_at`, `updated_at`) VALUES
-('admin', 'Andres', 'Carrera', '1997-04-05', '1600943241', 'L0012312', 'Ingenieria', 'matriz', 'nandy@gmail.com', '0983525002', 'root', '2021-12-05 18:27:39', '2022-04-03 06:10:34');
+('admin', 'Andres', 'Carrera', '1997-04-05', '1600943241', 'L0012312', 'Tecnologias de la Informacion', 'matriz', 'nandy@gmail.com', '0983525002', 'root', '2021-12-05 18:27:39', '2022-04-03 06:10:34');
  
 -- --------------------------------------------------------
 
@@ -284,8 +284,8 @@ CREATE TABLE `users` (
 -- Commit
 
 INSERT INTO `users` (`user`, `name`,`surnames`,`email`, `pass`, `permissions`, `rol`, `image`, `image_updated_at`, `created_at`, `updated_at`) VALUES
-('admin', 'Andres', 'Carrera', 'nandy@gmail.com', 'root', 'admin', NULL, 'admin221.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
-('editor',  'Angela', 'Champ','magomez@gmail.com', 'editor', 'editor',NULL, 'user.png', '2022-02-22 15:18:10', '2021-12-04 02:13:36', '2022-03-13 02:59:59'),
+('admin', 'Andres', 'Carrera', 'nandy@gmail.com', 'root', 'admin','admin', 'admin221.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
+('editor',  'Angela', 'Champ','magomez@gmail.com', 'editor', 'editor','editor', 'user.png', '2022-02-22 15:18:10', '2021-12-04 02:13:36', '2022-03-13 02:59:59'),
 ('student', 'Ricardo', 'Jaramillo', 'test@gmail.com', 'student', 'editor','student', 'user.png', '2022-02-22 15:18:06', '2021-12-05 18:27:39', '2022-04-03 06:10:34'),
 ('teacher', 'Steven', '	Cardenas', 'edit@gmail.com', 'teacher', 'editor', 'teacher','user.png', '2022-02-22 15:18:06', '2021-05-01 00:00:00', '2022-04-03 06:10:34'),
 ('empre', 'Luis', 'LLumiq', 'edor@gmail.com', 'empre', 'editor','empre', 'user.png', '2022-02-22 15:18:06', '2021-05-01 00:00:00', '2022-04-03 06:10:34');
