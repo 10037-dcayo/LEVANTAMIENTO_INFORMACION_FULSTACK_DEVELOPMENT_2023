@@ -142,7 +142,7 @@ include_once 'load_data.php';
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />
 					<label for="txtuseraddress" class="label">Domicilio</label>
 					<input id="txtuseraddress" class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['student_address']; ?>" placeholder="Domicilio" maxlength="200" required />
-					<label for="selectusercareers" class="label">Carrera</label>
+					<label for="selectusercareers" class="label">Carrer</label>
 					<select id="selectusercareers" class="select" name="selectCareer" required>
 						<?php
 						$career = $_SESSION['student_career'];
@@ -249,8 +249,8 @@ include_once 'load_data.php';
 				<div class="first">
 					<label for="txtusercedula" class="label">Cedula</label>
 					<input id="txtusercedula" class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
-					<label for="txtuseridt" class="label">ID</label>
-					<input id="txtuseridt" class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
+					<label for="txtuserid" class="label">ID</label>
+					<input id="txtuserid" class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserpass" class="label">Contraseña</label>
                     <input id="txtuserpass" class="text" type="text" name="txtpass" value="<?php echo $_SESSION['teacher_pass']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
@@ -298,7 +298,7 @@ include_once 'load_data.php';
 					</select>
 				</div>
 				<div class="first">
-					<label for="selectusercareers" class="label">Carrera</label>
+					<label for="selectusercareers" class="label">Carrer</label>
 					<select id="selectusercareers" class="select" name="selectCareer" required>
 						<?php
 						$_SESSION['teacher_career'] = trim($_SESSION['teacher_career'], ',');
@@ -458,10 +458,10 @@ include_once 'load_data.php';
                     <input id="txtuserpass" class="text" type="text" name="txtpass" value="<?php echo $_SESSION ['administratives_pass']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
                     <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['administratives_date_of_birth']; ?>"  placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
-                    <label for="selectusercareers" class="label">Carrera</label>
+                    <label for="selectusercareers" class="label">Carrer</label>
 					<select id="selectusercareers" class="select" name="selectCareer" required>
 						<?php
-						$career = $_SESSION['administratives_carrera'];
+						$career = $_SESSION['administratives_carrer'];
 
 						if ($career == '') {
 							echo

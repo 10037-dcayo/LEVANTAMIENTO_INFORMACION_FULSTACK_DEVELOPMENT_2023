@@ -33,7 +33,8 @@ $id_generate = 'tchr-' . unique_id(5);
                         <option value="otro">Otro</option>
                     </select>
                     <label for="selectusercareers" class="label">Carrera</label>
-                    <select id="selectusercareers" class="select-user-careers" name="selectCareers[]" multiple="multiple" placeholder="carrera" required>
+                    <select id="selectusercareers" class="select" name="selectCareer" required>
+                        <option value="">Seleccione</option>
                         <?php
                         $sql = "SELECT career, name FROM careers";
 
@@ -41,8 +42,8 @@ $id_generate = 'tchr-' . unique_id(5);
                             while ($row = mysqli_fetch_array($result)) {
                                 echo
                                 '
-									<option value="' . $row['career'] . '">' . $row['name'] . '</option>
-								';
+                                        <option value="' . $row['career'] . '">' . $row['name'] . '</option>
+                                ';
                             }
                         }
                         ?>
@@ -51,8 +52,8 @@ $id_generate = 'tchr-' . unique_id(5);
                 <div class="last">
                     <label for="txtusercedula" class="label">Cedula</label>
                     <input id="txtusercedula" class="text" type="text" name="txtcedula" value="" placeholder="Documento de Identificacion" pattern="[0-9]{10}" maxlength="10" required />
-                    <label for="txtuseridt" class="label">ID</label>
-                    <input id="txtuseridt" class="text" type="text" name="txtidt" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
+                    <label for="txtuserid" class="label">ID</label>
+                    <input id="txtuserid" class="text" type="text" name="txtid" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
                     <label for="txtuserphone" class="label">Número de teléfono</label>
                     <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="09999XXXXX" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
                     <label for="txtuseraddress" class="label">Domicilio</label>

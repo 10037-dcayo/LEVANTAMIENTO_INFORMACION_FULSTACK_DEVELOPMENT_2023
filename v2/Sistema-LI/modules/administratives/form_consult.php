@@ -9,13 +9,13 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['administratives_name'] = $row['name'];
 		$_SESSION['administratives_surnames'] = $row['surnames'];
 		$_SESSION['administratives_id'] = $row['id'];
-		$_SESSION['administratives_sede'] = $row['sede'];
-		$_SESSION['administratives_email'] = $row['email'];
+		$_SESSION['administratives_sede'] = $row['sede'];		
 		$_SESSION['administratives_cedula'] = $row['cedula'];
 		$_SESSION['administratives_celular'] = $row['celular'];
 		$_SESSION['administratives_pass'] = $row['pass'];
 		$_SESSION['administratives_date_of_birth'] = $row['date_of_birth'];
-		$_SESSION['administratives_carrera'] = $row['carrera'];
+		$_SESSION['administratives_carrer'] = $row['carrer'];
+		$_SESSION['administratives_email'] = $row['email'];
 	}
 }
 ?>
@@ -51,7 +51,7 @@ if ($result = $conexion->query($sql)) {
 					<label for="selectusercareers" class="label">Carrera</label>
 					<select id="selectusercareers" class="select" name="selectCareer" disabled>
 						<?php
-						$career = $_SESSION['student_career'];
+						$career = $_SESSION['administratives_career'];
 
 						if ($career == '') {
 							echo
@@ -78,7 +78,7 @@ if ($result = $conexion->query($sql)) {
 							}
 						}
 						?>
-					</select>				
+					</select>			
 				</div>
 				<div class="first">
 					<label class="label">Email</label>

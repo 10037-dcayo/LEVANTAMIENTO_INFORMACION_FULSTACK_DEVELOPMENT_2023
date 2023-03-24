@@ -86,8 +86,8 @@ if ($result = $conexion->query($sql)) {
 				<div class="last">
 					<label for="txtusercedula" class="label">Cedula</label>
 					<input id="txtusercedula" class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
-					<label for="txtuseridt" class="label">ID</label>
-					<input id="txtuseridt" class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
+					<label for="txtuserid" class="label">ID</label>
+					<input id="txtuserid" class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserpass" class="label">Contraseña</label>
                     <input id="txtuserpass" class="text" type="text" name="txtpass" value="<?php echo $_SESSION['teacher_pass']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
@@ -136,23 +136,26 @@ if ($result = $conexion->query($sql)) {
 				</div>
 				<div class="last">
 					<label for="selectusercareers" class="label">Carrera</label>
-					<select id="selectusercareers" class="select-user-careers" name="selectCareers[]" multiple="multiple" required>
+					<select id="selectusercareers" class="select" name="selectCareer" required>
 						<?php
-						$_SESSION['teacher_career'] = trim($_SESSION['teacher_career'], ',');
-						$careers = explode(',', $_SESSION['teacher_career']);
+						$career = $_SESSION['teacher_career'];
 
-						$i = 0;
+						if ($career == '') {
+							echo
+							'
+								<option value="">Seleccione</option>
+							';
+						}
 
 						$sql = "SELECT career, name FROM careers";
 
 						if ($result = $conexion->query($sql)) {
 							while ($row = mysqli_fetch_array($result)) {
-								if ($row['career'] == $careers[$i]) {
+								if ($row['career'] == $career) {
 									echo
 									'
 										<option value="' . $row['career'] . '" selected>' . $row['name'] . '</option>
 									';
-									$i++;
 								} else {
 									echo
 									'

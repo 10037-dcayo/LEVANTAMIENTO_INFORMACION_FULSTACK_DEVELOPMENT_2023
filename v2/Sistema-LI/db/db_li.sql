@@ -33,7 +33,7 @@ CREATE TABLE `administratives` (
   `date_of_birth` date DEFAULT NULL,
   `cedula` varchar(30) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `id` varchar(18) COLLATE utf8_spanish2_ci NOT NULL,
-  `carrera` varchar(80) COLLATE utf8_spanish2_ci NOT NULL,
+  `career` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `sede` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
   `email` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `celular` varchar(30) COLLATE utf8_spanish2_ci NOT NULL,
@@ -46,8 +46,8 @@ CREATE TABLE `administratives` (
 -- Volcado de datos para la tabla `administratives`
 --
 
-INSERT INTO `administratives` (`user`, `name`, `surnames`, `date_of_birth`, `cedula`, `id`, `carrera`, `sede`, `email`, `celular`, `pass`, `created_at`, `updated_at`) VALUES
-('admin', 'Andres', 'Carrera', '1997-04-05', '1600943241', 'L0012312', 'Tecnologias de la Informacion', 'matriz', 'nandy@gmail.com', '0983525002', 'root', '2021-12-05 18:27:39', '2022-04-03 06:10:34');
+INSERT INTO `administratives` (`user`, `name`, `surnames`, `date_of_birth`, `cedula`, `id`, `carrer`, `sede`, `email`, `celular`, `pass`, `created_at`, `updated_at`) VALUES
+('admin', 'Andres', 'Carrera', '1997-04-05', '1600943241', 'L0012312', 'Ingenieria', 'matriz', 'nandy@gmail.com', '0983525002', 'root', '2021-12-05 18:27:39', '2022-04-03 06:10:34');
  
 -- --------------------------------------------------------
 

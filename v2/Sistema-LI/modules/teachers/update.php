@@ -17,32 +17,49 @@ if ($_POST['txtuserid'] == '') {
 	exit();
 }
 
-$sql = "SELECT * FROM teachers WHERE user = '" . $_POST['txtuserid'] . "'";
+$sql_teachers = "SELECT * FROM teachers WHERE user = '" . $_POST['txtuserid'] . "'";
+$sql_user = "SELECT * FROM users WHERE user = '" . $_POST['txtuserid'] . "'";
 
-if ($result = $conexion->query($sql)) {
-	if ($row = mysqli_fetch_array($result)) {
-		$date = date('Y-m-d H:i:s');
-		$careers = '';
+mysqli_begin_transaction($conexion);
+try {
+    // Actualizar tabla teachers
+    if ($result = $conexion->query($sql_teachers)) {
+        if ($row = mysqli_fetch_array($result)) {
+            $date = date('Y-m-d H:i:s');
 
-		for ($i = 0; $i < count($_POST["selectCareers"]); $i++) {
-			$careers .= $_POST["selectCareers"][$i] . ',';
-		}
+            $sql_update_teachers = "UPDATE teachers SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "', gender = '" . trim($_POST['selectgender']) . "', cedula = '" . trim($_POST['txtcedula']) . "', pass = '" . trim($_POST['txtpass']) . "', id = '" . trim($_POST['txtid']) . "',  phone = '" . trim($_POST['txtphone']) . "', address = '" . trim($_POST['txtaddress']) . "', level_studies = '" . trim($_POST['selectlevelstudies']) . "', email = '" . trim($_POST['txtemail']) . "', career = '" . trim($_POST['selectCareer']) .  "', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
 
-		$careers = trim($careers, ',');
+            if (mysqli_query($conexion, $sql_update_teachers)) {
+                Info('Teacher actualizado.');
+            } else {
+                Error('Error al actualizar.');
+            }
+        } else {
+            Error('Este ID de alumno no existe.');
+        }
+    }
 
-		$sql_update = "UPDATE teachers SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', cedula = '" . trim($_POST['txtcedula']) . "', id = '" . trim($_POST['txtidt']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "', gender = '" . trim($_POST['selectgender']) . "', phone = '" . trim($_POST['txtphone']) . "', address = '" . trim($_POST['txtaddress']) . "', level_studies = '" . trim($_POST['selectlevelstudies']) . "', email = '" . trim($_POST['txtemail']) . "', career = '" . $careers . "', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+    // Actualizar tabla users
+    if ($result = $conexion->query($sql_user)) {
+        if ($row = mysqli_fetch_array($result)) {
+            $date = date('Y-m-d H:i:s');
+            $sql_update_user = "UPDATE users SET name ='" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) ."', email = '" . trim($_POST['txtemail']). "', pass = '" . trim($_POST['txtpass']) . "', permissions = 'editor', rol = 'teacher', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
 
-		if (mysqli_query($conexion, $sql_update)) {
-			Info('Docente actualizado.');
-		} else {
-			Error('Error al actualizar.');
-		}
-		
-		header('Location: /modules/teachers');
-		exit();
-	} else {
-		Error('Este ID de docente no existe.');
-		header('Location: /modules/teachers');
-		exit();
-	}
+            if (mysqli_query($conexion, $sql_update_user)) {
+                Info('Usuario actualizado.');
+            } else {
+                Error('Error al actualizar.');
+            }
+        } else {
+            Error('Este ID de usuario no existe.');
+        }
+    }
+
+    mysqli_commit($conexion);
+} catch (Exception $e) {
+    mysqli_rollback($conexion);
+    Error('Error al actualizar.');
 }
+
+header('Location: /modules/teachers');
+exit();

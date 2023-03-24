@@ -134,24 +134,31 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="email" name="txtemail" value="<?php echo $_SESSION['teacher_email']; ?>" disabled />
 				</div>
 				<div class="last">
-					<label class="label">Carrera</label>
-					<select class="select-user-careers disabled" name="selectCareers[]" multiple="multiple" disabled>
+					<label for="selectusercareers" class="label">Carrera</label>
+					<select id="selectusercareers" class="select" name="selectCareer" disabled>
 						<?php
-						$_SESSION['teacher_career'] = trim($_SESSION['teacher_career'], ',');
-						$arraySubjectTeachers = explode(',', $_SESSION['teacher_career']);
+						$career = $_SESSION['teacher_career'];
 
-						foreach ($arraySubjectTeachers as $key) {
-							$sql = "SELECT career, name FROM careers where career = '" . $key . "'";
+						if ($career == '') {
+							echo
+							'
+								<option value="">Seleccione</option>
+							';
+						}
 
-							if ($result = $conexion->query($sql)) {
-								while ($row = mysqli_fetch_array($result)) {
-									$_SESSION['teacher_career_id'] = $row['career'];
-									$_SESSION['teacher_career_name'] = $row['name'];
-								}
-								if ($_SESSION['teacher_career_id'] != '') {
+						$sql = "SELECT career, name FROM careers";
+
+						if ($result = $conexion->query($sql)) {
+							while ($row = mysqli_fetch_array($result)) {
+								if ($row['career'] == $career) {
 									echo
 									'
-										<option value="' . $_SESSION['teacher_career_id'] . '" selected>' . $_SESSION['teacher_career_name'] . '</option>
+										<option value="' . $row['career'] . '" selected>' . $row['name'] . '</option>
+									';
+								} else {
+									echo
+									'
+										<option value="' . $row['career'] . '">' . $row['name'] . '</option>
 									';
 								}
 							}

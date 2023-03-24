@@ -26,7 +26,7 @@ $id_generate = 'admin-' . unique_id(5);
                     <label for="txtuserid" class="label">ID</label>
                     <input id="txtuserid" class="text" type="text" name="txtid" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
                    <label for="selectsede" class="label">Sede</label>
-                    <select id="selectsede" class="select" name="selectsede" required>     
+                    <select id="selectsede" class="select" name="selectSede" required>     
                         <option value="">Seleccione</option>
                         <option value="matriz">Matriz</option>
                         <option value="latacunga">Latacunga</option>
@@ -42,7 +42,7 @@ $id_generate = 'admin-' . unique_id(5);
                     <input id="txtuserpass" class="text" type="password" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
                     <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="" placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
-                    <label for="selectusercareers" class="label">Carrera</label>
+                    <label for="selectusercareers" class="label">Carrer</label>
                     <select id="selectusercareers" class="select" name="selectCareer" required>
                         <option value="">Seleccione</option>
                         <?php
