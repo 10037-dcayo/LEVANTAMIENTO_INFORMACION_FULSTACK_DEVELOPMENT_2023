@@ -99,8 +99,6 @@ if ($result = $conexion->query($sql)) {
 }
 
 
-
-
 $name_image_user = $_SESSION['raiz'] . '/images/users/' . $_SESSION['user_image'] . '';
 
 if (!file_exists($name_image_user)) {

@@ -524,7 +524,8 @@ include_once 'load_data.php';
 		</form>
 
       <?php } ?>						
-						<button id="btnSave" class="btn icon" type="submit" autofocus>save</button>
+					
+						<button id="btnSave" class="btn icon" type="submit">save</button>
 					</div>
 				</div>
 				<div class="footer">
