@@ -528,7 +528,8 @@ include_once 'load_data.php';
 						<button id="btnSave" class="btn icon" type="submit">save</button>
 					</div>
 				</div>
-				<div class="footer">
+				<label class="label">Debes volver a iniciar sesión para ver los cambios reflejados</label>
+				 <div class="footer">					
 					<span class="user-permissions"><?php echo $_SESSION['user_type']; ?> </span>
 				</div>
 			</div>
