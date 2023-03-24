@@ -17,6 +17,8 @@ if ($_POST['txtuserid'] == '') {
 	exit();
 }
 
+// aqui empieza el update de estudiante
+
 $sql_student = "SELECT * FROM students WHERE user = '" . $_POST['txtuserid'] . "'";
 $sql_user = "SELECT * FROM users WHERE user = '" . $_POST['txtuserid'] . "'";
 
