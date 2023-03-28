@@ -87,17 +87,50 @@ if ($result = $conexion->query($sql)) {
 		
 		header('Location: /user');
 		exit();
-	} else {
+	} 
+	else {
 		Error('Este ID de alumno no existe.');
 		header('Location: /user');
 		exit();
 	}
 }
 
-//Poner teacher, editor y admin:
+//Actualizar teacher
+
+} elseif ($rol == 'teacher'){
+
+	$sql = "SELECT * FROM teachers WHERE user = '" . $_POST['txtuserid'] . "'";
+
+	if ($result = $conexion->query($sql)) {
+		if ($row = mysqli_fetch_array($result)) {
+			$date = date('Y-m-d H:i:s');
+			
+			$sql_update = "UPDATE teachers SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "', gender = '" . trim($_POST['selectgender']) . "', cedula = '" . trim($_POST['txtcedula']) . "', pass = '" . trim($_POST['txtpass']) . "', id = '" . trim($_POST['txtid']) . "',  phone = '" . trim($_POST['txtphone']) . "', address = '" . trim($_POST['txtaddress']) . "', level_studies = '" . trim($_POST['selectlevelstudies']) . "', email = '" . trim($_POST['txtemail']) . "', career = '" . trim($_POST['selectCareer']) .  "', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+
+			if (mysqli_query($conexion, $sql_update)) 
+				$sql_update = "UPDATE users SET name ='" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) ."', email = '" . trim($_POST['txtemail']). "', pass = '" . trim($_POST['txtpass']) . "', permissions = 'editor', rol = 'teacher', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+
+			if (mysqli_query($conexion, $sql_update)) {
+                Info('Docente actualizado.');
+            } else {
+                Error('Error al actualizar.');
+            }
+	
+			header('Location: /user');
+			exit();
+		}
+	 else {
+		Error('Este ID de docente no existe.');
+		header('Location: /user');
+		exit();
+	}
+}
+
+
+// poner editor y admin:
 
 } else {
     Error('Este usuario no tiene un rol válido.');
     header('Location: /user');
     exit();
-}
+ }
