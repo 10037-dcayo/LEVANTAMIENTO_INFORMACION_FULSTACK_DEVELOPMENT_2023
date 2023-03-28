@@ -31,7 +31,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['administratives_celular'] = $row['celular'];
 		$_SESSION['administratives_pass'] = $row['pass'];
 		$_SESSION['administratives_date_of_birth'] = $row['date_of_birth'];
-		$_SESSION['administratives_carrer'] = $row['carrer'];
+		$_SESSION['administratives_carrera'] = $row['carrera'];
 		
 	}
 }
