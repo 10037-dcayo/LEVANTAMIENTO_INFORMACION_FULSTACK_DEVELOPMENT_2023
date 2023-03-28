@@ -17,6 +17,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_phone'] = $row['phone'];
 		$_SESSION['student_address'] = $row['address'];
 		$_SESSION['student_career'] = $row['career'];
+		$_SESSION['student_asistencia'] = $row['asistencia'];
 		$_SESSION['student_documentation'] = $row['documentation'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
 	}
@@ -145,6 +146,15 @@ if ($result = $conexion->query($sql)) {
 					<label for="dateuseradmission" class="label">Fecha de admisión</label>
 					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" required />
 				</div>
+				<div class="description">
+                <label for="txtuserdates" class="label">Asistencia</label>
+                <input id="txtuserdates" class="textarea" type="text" name="txtuserdates" value="<?php echo $_SESSION['student_asistencia']; ?>" placeholder="Seleccione fechas" maxlength="20000" data-expandable/>
+                <button id="addBtn" class="btn icon"><i class="fas fa-plus-circle fa-lg fa-spin"></i></button>
+                </div>
+                <div class="label" id="dateListContainer">
+	            <br>
+                <ul id="dateList"></ul>
+               </div>
 			</div>
 			<button id="btnBack" class="btn back icon" type="button">arrow_back</button>
 			<button id="btnNext" class="btn icon" type="button">arrow_forward</button>
@@ -155,4 +165,44 @@ if ($result = $conexion->query($sql)) {
 <div class="content-aside">
 	<?php include_once "../sections/options-disabled.php"; ?>
 </div>
+<script>
+$(document).ready(function(){
+    $("#txtuserdates").datepicker({
+        dateFormat: 'yy-mm-dd',
+        numberOfMonths: 1,
+        onSelect: function(selectedDate) {
+        $(this).val(selectedDate); 
+    }
+});
+
+    // Agregamos cada fecha seleccionada a la lista
+    $("#addBtn").click(function(event) {
+        event.preventDefault();
+        var date = $("#txtuserdates").val();
+        if (date != "") {
+            $("#dateList").append("<li>" + date + " <button class='removeBtn'><i class='fas fa-times-circle fa-lg fa-spin'></i></button></li>");
+            $("#txtuserdates").val("");
+        }
+    });
+    
+    // Eliminamos la fecha seleccionada de la lista
+    $(document).on("click", ".removeBtn", function() {
+        $(this).parent().remove();
+    });
+    
+    // Al hacer submit, guardamos la lista en la variable students_asistencia
+    $("form").submit(function() {
+        var dates = [];
+        $("#dateList li").each(function() {
+            dates.push($(this).text().replace(" Eliminar", ""));
+        });
+        $("#txtuserdates").val(dates.join(", "));
+        return true;
+    });
+});
+</script>
 <script src="/js/modules/students.js" type="text/javascript"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-0sCz7O9XlHUBlTepQg2tL/j/ZtMInzGRBfKv2n/bGEB1MkXkXpy0eMHvG+vcnBfACpJZl+S6Z5p5r5L5Hy5U2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />

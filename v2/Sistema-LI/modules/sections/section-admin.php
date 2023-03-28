@@ -101,10 +101,7 @@ if (strpos($url_actual, 'modules')) {
                             echo 'active';
                         } ?>" href="/modules/subjects"><span class="icon">library_books</span>Asignaturas</a>
         </li>
-        <li><a class="<?php if ($output[1] == 'attendance') {
-                            echo 'active';
-                        } ?>" href="/modules/attendance"><span class="icon">fact_check</span>Asistencias</a>
-        </li>
+        
     </ul>
 </div>
 <div class="menu-mobile">
@@ -159,11 +156,7 @@ if (strpos($url_actual, 'modules')) {
                                     echo 'active-menu';
                                 } ?>" href="/modules/subjects"><span class="icon">library_books</span><span class="text">Asignaturas</span></a>
                 </li>
-                <li>
-                    <a class="<?php if ($output[1] == 'attendance') {
-                                    echo 'active-menu';
-                                } ?>" href="/modules/attendance"><span class="icon">fact_check</span><span class="text">Asistencias</span></a>
-                </li>
+                
             </ul>
         </nav>
     </header>

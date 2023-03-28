@@ -3,6 +3,8 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 $sql = "SELECT * FROM students WHERE user = '" . $_POST['txtuserid'] . "'";
 
+$_SESSION['student_asistencia'] = array();
+
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
 		$_SESSION['user_id'] = $row['user'];
@@ -17,6 +19,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_phone'] = $row['phone'];
 		$_SESSION['student_address'] = $row['address'];
 		$_SESSION['student_career'] = $row['career'];
+		$_SESSION['student_asistencia'] = $row['asistencia'];
 		$_SESSION['student_documentation'] = $row['documentation'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
 	}
@@ -141,6 +144,11 @@ if ($result = $conexion->query($sql)) {
 					</select>
 					<label for="dateuseradmission" class="label">Fecha de admisión</label>
 					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" disabled />
+				</div>
+
+				<div class="first">
+                    <label for="txtuserdates" class="label">Asistencia</label>
+					<textarea id="txtuserdates" class="textarea" name="txtuserdates" placeholder="Seleccione fechas" style="height: 200px; width: 500px; font-size: 16px;" readonly wrap="soft" disabled><?php echo $_SESSION['student_asistencia']; ?></textarea>			
 				</div>
 			</div>
 			<button id="btnBack" class="btn back icon" type="button">arrow_back</button>
