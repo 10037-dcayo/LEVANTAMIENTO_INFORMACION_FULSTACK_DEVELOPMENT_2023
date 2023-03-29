@@ -139,6 +139,8 @@ include_once 'load_data.php';
 						}
 						?>
 					</select>
+					<label class="label">Departamento</label>
+					<input class="text" type="text" name="txtdepartamento" value="<?php echo $_SESSION['student_departamento']; ?>" disabled />
 				</div>
 				<div class="first">
 					<label for="txtusercedula" class="label">Cédula</label>

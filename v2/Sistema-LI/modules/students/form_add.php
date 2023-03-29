@@ -54,9 +54,23 @@ $id_generate = 'stdt-' . unique_id(5);
                     <label for="selectuserdepartamento" class="label">Departamento</label>
                     <select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
                         <option value="">Seleccione</option>
-                        <option value="Levantamiento de la Informacion">Levantamiento de la Informacion</option>
-                        <option value="Cursos Moc">Cursos Moc</option>
-                        <option value="prowessbike">prowessbike</option>
+                        <option value="SOFTWARE - PROWESS EC PÁGINA WEB VENTAS">SOFTWARE - PROWESS EC PÁGINA WEB VENTAS</option>
+                        <option value="CONTABILIDAD Y AUDITORIA MAÑANA">CONTABILIDAD Y AUDITORIA MAÑANA</option>
+                        <option value="INVESTIGACIÓN">INVESTIGACIÓN</option>
+                        <option value="DOCUMENTACIÓN">DOCUMENTACIÓN</option>
+                        <option value="ADMINISTRACIÓN DE EMPRESAS - TALLER">ADMINISTRACIÓN DE EMPRESAS - TALLER</option>
+                        <option value="MARKETING">MARKETING</option>
+                        <option value="CREACIÓN DE CONTENIDO">CREACIÓN DE CONTENIDO</option>
+                        <option value="MENTORIAS MATUTINO">MENTORIAS MATUTINO </option>
+                        <option value="SOFTWARE - PROWESS BIKE">SOFTWARE - PROWESS BIKE</option>
+                        <option value="CONTABILIDAD Y AUDITORÍA/ TARDE">CONTABILIDAD Y AUDITORÍA/ TARDE</option>
+                        <option value="SOFTWARE - DESARROLLO PÁGINA WEB PROWESS AGRÍCOLA">SOFTWARE - DESARROLLO PÁGINA WEB PROWESS AGRÍCOLA</option>
+                        <option value="SOFTWARE - PROWESS APP AGRÍCOLA">SOFTWARE - PROWESS APP AGRÍCOLA</option>
+                        <option value="MODULO CURSOS MOCC">MODULO CURSOS MOCC</option>
+                        <option value="MENTORIAS VESPERTINO">MENTORIAS VESPERTINO</option>
+                        <option value="LEVANTAMIENTO DE INFORMACIÓN">LEVANTAMIENTO DE INFORMACIÓN</option>
+                        <option value="ELABORACIÓN DE MATERIALES DE APOYO">ELABORACIÓN DE MATERIALES DE APOYO</option>
+
                     </select>
 
                 </div>
@@ -74,14 +88,14 @@ $id_generate = 'stdt-' . unique_id(5);
                         <option value="">Seleccione</option>
                         <option value="LIDER">LIDER</option>
                         <option value="cOLIDER">COLIDER</option>
-                        <option value="APOYO1">APOYO1</option>
-                        <option value="APOYO2">APOYO2</option>
-                        <option value="APOYO3">APOYO3</option>
-                        <option value="APOYO4">APOYO4</option>
-                        <option value="APOYO5">APOYO5</option>
-                        <option value="APOYO5">APOYO6</option>
-                        <option value="APOYO5">APOYO7</option>
-                        <option value="APOYO5">APOYO8</option>
+                        <option value="APOYO1">APOYO 1</option>
+                        <option value="APOYO2">APOYO 2</option>
+                        <option value="APOYO3">APOYO 3</option>
+                        <option value="APOYO4">APOYO 4</option>
+                        <option value="APOYO5">APOYO 5</option>
+                        <option value="APOYO6">APOYO 6</option>
+                        <option value="APOYO7">APOYO 7</option>
+                        <option value="APOYO8">APOYO 8</option>
                     </select>
 
                     <label for="selectuserjornada" class="label">Jornada</label>

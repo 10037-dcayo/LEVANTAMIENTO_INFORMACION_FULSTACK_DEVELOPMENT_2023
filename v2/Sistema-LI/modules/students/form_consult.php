@@ -11,12 +11,14 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_name'] = $row['name'];
 		$_SESSION['student_surnames'] = $row['surnames'];
 		$_SESSION['student_sede'] = $row['sede'];
+		$_SESSION['student_departamento'] = $row['departamento'];
 		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['student_cedula'] = $row['cedula'];
 		$_SESSION['student_pass'] = $row ['pass'];
 		$_SESSION['email'] = $row['email'];		
 		$_SESSION['student_id'] = $row['id'];
 		$_SESSION['student_phone'] = $row['phone'];
+		$_SESSION['student_jerarquia'] = $row['jerarquia'];
 		$_SESSION['student_address'] = $row['address'];
 		$_SESSION['student_career'] = $row['career'];
 		$_SESSION['student_asistencia'] = $row['asistencia'];
@@ -110,6 +112,8 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
+					<label class="label">Departamento</label>
+					<input class="text" type="text" name="txtdepartamento" value="<?php echo $_SESSION['student_departamento']; ?>" disabled />
 				</div>
 				<div class="last">
 					<label class="label">Cédula</label>
@@ -120,6 +124,71 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtid" value="<?php echo $_SESSION['student_id']; ?>" disabled />
 					<label class="label">Número de teléfono</label>
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" disabled />
+
+
+					<label for="selectuserjerarquia" class="label">Jerarquia</label>
+					<select id="selectuserjerarquia" class="select" name="selectJerarquia" disabled>
+				
+					<?php
+						if ($_SESSION['student_jerarquia'] == 'LIDER') {
+							echo '
+						<option value="">Seleccione</option>
+						<option value="LIDER">LIDER</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						';
+						} elseif ($_SESSION['student_jerarquia'] == 'COLIDER') {
+							echo '
+						<option value="COLIDER">COLIDER</option>
+						<option value="LIDER">LIDER</option>
+
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						';
+						} elseif ($_SESSION['student_jerarquia'] == 'APOYO1') {
+							echo '
+						<option value="APOYO1">APOYO 1</option>
+						<option value="LIDER">LIDER</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						';
+						} elseif ($_SESSION['student_jerarquia'] == 'APOYO2') {
+							echo '
+						<option value="APOYO2">APOYO 2</option>
+						<option value="LIDER">LIDER</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						';
+						}
+						?>
+					</select>
+
+
+
+
+
+
 
 					<label for="selectuserjornada" class="label">Jornada</label>
                     <select id="selectuserjornada" class="select" name="selectJornada" disabled>

@@ -9,12 +9,14 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_name'] = $row['name'];
 		$_SESSION['student_surnames'] = $row['surnames'];
 		$_SESSION['student_sede'] = $row['sede'];
+		$_SESSION['student_departamento'] = $row['departamento'];
 		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['student_cedula'] = $row['cedula'];
 		$_SESSION['email'] = $row['email'];
 		$_SESSION['student_pass'] = $row ['pass'];
 		$_SESSION['student_id'] = $row['id'];
 		$_SESSION['student_phone'] = $row['phone'];
+		$_SESSION['student_jerarquia'] = $row['jerarquia'];
 		$_SESSION['student_address'] = $row['address'];
 		$_SESSION['student_career'] = $row['career'];
 		$_SESSION['student_asistencia'] = $row['asistencia'];
@@ -77,6 +79,7 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
+
 					<label for="selectuserdocumentation" class="label">Documentación</label>
 					<select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
 						<?php
@@ -110,6 +113,31 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
+
+
+				    <label for="selectuserdepartamento" class="label">Departamento</label>
+					<select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
+						<option value="default"><?php echo $_SESSION['student_departamento']; ?></option>
+                        <option value="SOFTWARE - PROWESS EC PÁGINA WEB VENTAS">SOFTWARE - PROWESS EC PÁGINA WEB VENTAS</option>
+                        <option value="CONTABILIDAD Y AUDITORIA MAÑANA">CONTABILIDAD Y AUDITORIA MAÑANA</option>
+                        <option value="INVESTIGACIÓN">INVESTIGACIÓN</option>
+                        <option value="DOCUMENTACIÓN">DOCUMENTACIÓN</option>
+                        <option value="ADMINISTRACIÓN DE EMPRESAS - TALLER">ADMINISTRACIÓN DE EMPRESAS - TALLER</option>
+                        <option value="MARKETING">MARKETING</option>
+                        <option value="CREACIÓN DE CONTENIDO">CREACIÓN DE CONTENIDO</option>
+                        <option value="MENTORIAS MATUTINO">MENTORIAS MATUTINO </option>
+                        <option value="SOFTWARE - PROWESS BIKE">SOFTWARE - PROWESS BIKE</option>
+                        <option value="CONTABILIDAD Y AUDITORÍA/ TARDE">CONTABILIDAD Y AUDITORÍA/ TARDE</option>
+                        <option value="SOFTWARE - DESARROLLO PÁGINA WEB PROWESS AGRÍCOLA">SOFTWARE - DESARROLLO PÁGINA WEB PROWESS AGRÍCOLA</option>
+                        <option value="SOFTWARE - PROWESS APP AGRÍCOLA">SOFTWARE - PROWESS APP AGRÍCOLA</option>
+                        <option value="MODULO CURSOS MOCC">MODULO CURSOS MOCC</option>
+                        <option value="MENTORIAS VESPERTINO">MENTORIAS VESPERTINO</option>
+                        <option value="LEVANTAMIENTO DE INFORMACIÓN">LEVANTAMIENTO DE INFORMACIÓN</option>
+                        <option value="ELABORACIÓN DE MATERIALES DE APOYO">ELABORACIÓN DE MATERIALES DE APOYO</option>
+					</select>
+
+
+					
 				</div>
 				<div class="last">
 					<label for="txtusercedula" class="label">Cédula</label>
@@ -120,6 +148,166 @@ if ($result = $conexion->query($sql)) {
 					<input id="txtuserid" class="text" type="text" name="txtid" value="<?php echo $_SESSION['student_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />
+
+
+					<label for="selectuserjerarquia" class="label">Jerarquia</label>
+					<select id="selectuserjerarquia" class="select" name="selectJerarquia" required>
+				
+					<?php
+						if ($_SESSION['student_jerarquia'] == 'LIDER') {
+							echo '
+						<option value="">Seleccione</option>
+						<option value="LIDER">LIDER</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						<option value="APOYO8">APOYO 8</option>
+						';
+						} elseif ($_SESSION['student_jerarquia'] == 'COLIDER') {
+							echo '
+						<option value="COLIDER">COLIDER</option>
+						<option value="LIDER">LIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						<option value="APOYO8">APOYO 8</option>
+
+						';
+						} elseif ($_SESSION['student_jerarquia'] == 'APOYO1') {
+							echo '
+						<option value="APOYO1">APOYO 1</option>
+						<option value="LIDER">LIDER</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						<option value="APOYO8">APOYO 8</option>
+
+						';
+						} elseif ($_SESSION['student_jerarquia'] == 'APOYO2') {
+							echo '
+						<option value="APOYO2">APOYO 2</option>
+						<option value="LIDER">LIDER</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						<option value="APOYO8">APOYO 8</option>
+
+						';
+						}
+
+						elseif ($_SESSION['student_jerarquia'] == 'APOYO3') {
+							echo '
+						<option value="APOYO3">APOYO 3</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="LIDER">LIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						<option value="APOYO8">APOYO 8</option>
+
+						';
+						}
+						elseif ($_SESSION['student_jerarquia'] == 'APOYO4') {
+							echo '
+						<option value="APOYO4">APOYO 4</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="LIDER">LIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						<option value="APOYO8">APOYO 8</option>
+
+						';
+						}
+						elseif ($_SESSION['student_jerarquia'] == 'APOYO5') {
+							echo '
+						<option value="APOYO5">APOYO 5</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="LIDER">LIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						<option value="APOYO8">APOYO 8</option>
+
+						';
+						}
+						elseif ($_SESSION['student_jerarquia'] == 'APOYO6') {
+							echo '
+						<option value="APOYO6">APOYO 6</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="LIDER">LIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO7">APOYO 7</option>
+						<option value="APOYO8">APOYO 8</option>
+
+						';
+						}
+						elseif ($_SESSION['student_jerarquia'] == 'APOYO7') {
+							echo '
+						<option value="APOYO7">APOYO 7</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="LIDER">LIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO8">APOYO 8</option>
+
+						';
+						}
+						elseif ($_SESSION['student_jerarquia'] == 'APOYO8') {
+							echo '
+						<option value="APOYO8">APOYO 8</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="LIDER">LIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						';
+						}
+						?>
+					</select>
+
+
+
+
+
 
 					<label for="selectuserjornada" class="label">Jornada</label>
                     <select id="selectuserjornada" class="select" name="selectJornada" required>
