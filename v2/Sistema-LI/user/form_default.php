@@ -106,8 +106,9 @@ include_once 'load_data.php';
 						}
 						?>
 					</select>
+
 					<label for="selectuserdocumentation" class="label">Documentación</label>
-					<select id="selectuserdocumentation" class="select" name="selectDocumentation" disabled>
+					<select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
 						<?php
 						if ($_SESSION['student_documentation'] == '') {
 							echo '
@@ -139,6 +140,45 @@ include_once 'load_data.php';
 						}
 						?>
 					</select>
+
+					<label for="selectuserestado" class="label">Estado</label>
+					<select id="selectuserestado" class="select" name="selectEstado" required>
+						<?php
+						if($_SESSION['student_status']==''){
+							echo'
+							<option value="">Seleccione</option>
+							<option value="activo">Activo</option>
+							<option value="en_proceso">En proceso</option>
+							<option value="finalizado">Finalizado</option>
+							';
+						} 
+						elseif ($_SESSION['student_status']=='activo') {
+							echo'
+							<option value="activo">Activo</option>
+							<option value="en_proceso">En proceso</option>
+							<option value="finalizado">Finalizado</option>
+							';
+						}
+						elseif ($_SESSION['student_status']=='en_proceso') {
+							echo'
+							<option value="en_proceso">En proceso</option>
+							<option value="activo">Activo</option>
+							<option value="finalizado">Finalizado</option>
+							';
+						}
+						elseif ($_SESSION['student_status']=='finalizado') {
+							echo'
+							<option value="finalizado">Finalizado</option>
+							<option value="activo">Activo</option>
+							<option value="en_proceso">En proceso</option>
+							';
+						}
+
+						?>
+					</select>
+
+
+
 					<label class="label">Departamento</label>
 					<input class="text" type="text" name="txtdepartamento" value="<?php echo $_SESSION['student_departamento']; ?>" disabled />
 				</div>
@@ -151,6 +191,101 @@ include_once 'load_data.php';
 					<input id="txtuserid" class="text" type="text" name="txtid" value="<?php echo $_SESSION['student_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />
+					
+
+
+	
+					<label for="selectuserjerarquia" class="label">Jerarquia</label>
+					<select id="selectuserjerarquia" class="select" name="selectJerarquia" required>
+				
+					<?php
+						if ($_SESSION['student_jerarquia'] == 'LIDER') {
+							echo '
+						<option value="">Seleccione</option>
+						<option value="LIDER">LIDER</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						';
+						} elseif ($_SESSION['student_jerarquia'] == 'COLIDER') {
+							echo '
+						<option value="COLIDER">COLIDER</option>
+						<option value="LIDER">LIDER</option>
+
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						';
+						} elseif ($_SESSION['student_jerarquia'] == 'APOYO1') {
+							echo '
+						<option value="APOYO1">APOYO 1</option>
+						<option value="LIDER">LIDER</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="APOYO2">APOYO 2</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						';
+						} elseif ($_SESSION['student_jerarquia'] == 'APOYO2') {
+							echo '
+						<option value="APOYO2">APOYO 2</option>
+						<option value="LIDER">LIDER</option>
+						<option value="COLIDER">COLIDER</option>
+						<option value="APOYO1">APOYO 1</option>
+						<option value="APOYO3">APOYO 3</option>
+						<option value="APOYO4">APOYO 4</option>
+						<option value="APOYO5">APOYO 5</option>
+						<option value="APOYO6">APOYO 6</option>
+						<option value="APOYO7">APOYO 7</option>
+						';
+						}
+						?>
+					</select>
+
+					<label for="selectuserjornada" class="label">Jornada</label>
+                    <select id="selectuserjornada" class="select" name="selectJornada" required>
+                        <?php
+						if ($_SESSION['student_jornada'] == '') {
+							echo '
+						<option value="">Seleccione</option>
+                        <option value="Vespertino">Vespertino</option>
+                        <option value="Matutino">Matutino</option>
+                        <option value="Otra">Otra</option>
+						';
+						} elseif ($_SESSION['student_jornada'] == 'Vespertino') {
+							echo '
+						<option value="Vespertino">Vespertino</option>
+						<option value="Matutino">Matutino</option>
+						<option value="Otra">Otra</option>
+						';
+						} elseif ($_SESSION['student_jornada'] == 'Matutino') {
+							echo '
+						<option value="Matutino">Matutino</option>
+						<option value="Vespertino">Vespertino</option>	
+						<option value="Otro">Otro</option>
+						';
+						} elseif ($_SESSION['student_jornada'] == 'Otro') {
+							echo '
+						<option value="Otro">Otro</option> 
+						<option value="Matutino">Matutino</option>
+						<option value="Vespertino">Vespertino</option>
+						';
+						}
+						?>
+                    </select>
+					
+					
 					<label for="txtuseraddress" class="label">Domicilio</label>
 					<input id="txtuseraddress" class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['student_address']; ?>" placeholder="Domicilio" maxlength="200" required />
 					<label for="selectusercareers" class="label">Carrera</label>
@@ -196,10 +331,6 @@ include_once 'load_data.php';
                     <label for="txtuserdates" class="label">Asistencia</label>
 					<textarea id="txtuserdates" class="textarea" name="txtuserdates" placeholder="Seleccione fechas" style="height: 200px; width: 500px; font-size: 16px;" readonly wrap="soft" disabled><?php echo $_SESSION['student_asistencia']; ?></textarea>			
 				</div>
-
-
-
-
 
 			</div>			
 		</form>

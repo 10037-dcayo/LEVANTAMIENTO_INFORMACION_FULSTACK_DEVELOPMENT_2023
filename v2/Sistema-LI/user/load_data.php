@@ -51,11 +51,14 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_email'] = $row['email'];		
 		$_SESSION['student_id'] = $row['id'];
 		$_SESSION['student_phone'] = $row['phone'];
+		$_SESSION['student_jerarquia'] = $row['jerarquia'];
 		$_SESSION['student_address'] = $row['address'];
 		$_SESSION['student_career'] = $row['career'];
+		$_SESSION['student_horas'] = $row['horas'];
 		$_SESSION['student_horario'] = $row['horario'];
 		$_SESSION['student_asistencia'] = $row['asistencia'];
 		$_SESSION['student_documentation'] = $row['documentation'];
+		$_SESSION['student_status'] = $row['estado'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
 		$_SESSION['student_jornada'] = $row['jornada'];
 	}
@@ -122,5 +125,5 @@ if (!file_exists($name_image_user)) {
 }
 
 if ($_SESSION['user_type'] == 'admin') {
-	$_SESSION['user_type'] = 'Adminisrador';
+	$_SESSION['user_type'] = 'Administrador';
 }

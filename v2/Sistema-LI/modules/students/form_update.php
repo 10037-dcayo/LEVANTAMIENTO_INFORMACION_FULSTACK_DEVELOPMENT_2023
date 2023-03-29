@@ -82,6 +82,7 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
+					
 					<label for="selectuserdocumentation" class="label">Documentación</label>
 					<select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
 						<?php
