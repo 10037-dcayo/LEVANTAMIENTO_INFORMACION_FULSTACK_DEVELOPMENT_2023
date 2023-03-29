@@ -182,6 +182,8 @@ CREATE TABLE `students` (
 -- Volcado de datos para la tabla `students`
 --
 
+INSERT INTO `students` () VALUES
+('stdt-c9c11','Ricardo Alejandro','Jaramillo Salgado','nrjaramillo2@espe.edu.ec',2000-03-23,'matriz','1750245779','student1','L00361339','0981122469','Las Naranjas y Av. Amazonas','IDS','96',' ','09:00-12:00','EN PROCESO','finalizado','LEVANTAMIENTO DE INFORMACIÓN','APOYO2','Vespertino','2023-02-24','2023-03-29 12:38:57','2023-03-29 17:11:13');
 
 -- --------------------------------------------------------
 
