@@ -20,6 +20,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_address'] = $row['address'];
 		$_SESSION['student_career'] = $row['career'];
 		$_SESSION['student_asistencia'] = $row['asistencia'];
+		$_SESSION['student_horario'] = $row['horario'];
 		$_SESSION['student_documentation'] = $row['documentation'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
 		$_SESSION['student_jornada'] = $row['jornada'];
@@ -189,7 +190,11 @@ if ($result = $conexion->query($sql)) {
 					<label for="dateuseradmission" class="label">Fecha de admisión</label>
 					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" disabled />
 				</div>
-
+<div class="description">
+    <label for="txtuserhours" class="label">Horario</label>
+    <input id="txtuserhours" class="text" type="text" name="txtuserhours" placeholder="Seleccione el horario" maxlength="20000" value="<?php echo $_SESSION['student_horario']; ?>" data-expandable disabled/>
+    
+</div>
 				<div class="first">
                     <label for="txtuserdates" class="label">Asistencia</label>
 					<textarea id="txtuserdates" class="textarea" name="txtuserdates" placeholder="Seleccione fechas" style="height: 200px; width: 500px; font-size: 16px;" readonly wrap="soft" disabled><?php echo $_SESSION['student_asistencia']; ?></textarea>			
