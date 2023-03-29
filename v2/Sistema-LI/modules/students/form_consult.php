@@ -11,6 +11,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_name'] = $row['name'];
 		$_SESSION['student_surnames'] = $row['surnames'];
 		$_SESSION['student_sede'] = $row['sede'];
+		$_SESSION['student_departamento'] = $row['departamento'];
 		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['student_cedula'] = $row['cedula'];
 		$_SESSION['student_pass'] = $row ['pass'];
@@ -110,6 +111,8 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
+					<label class="label">Departamento</label>
+					<input class="text" type="text" name="txtdepartamento" value="<?php echo $_SESSION['student_departamento']; ?>" disabled />
 				</div>
 				<div class="last">
 					<label class="label">Cédula</label>

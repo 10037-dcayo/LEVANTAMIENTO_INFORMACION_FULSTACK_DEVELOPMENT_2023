@@ -9,6 +9,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_name'] = $row['name'];
 		$_SESSION['student_surnames'] = $row['surnames'];
 		$_SESSION['student_sede'] = $row['sede'];
+		$_SESSION['student_departamento'] = $row['departamento'];
 		$_SESSION['student_date_of_birth'] = $row['date_of_birth'];
 		$_SESSION['student_cedula'] = $row['cedula'];
 		$_SESSION['email'] = $row['email'];
@@ -110,6 +111,27 @@ if ($result = $conexion->query($sql)) {
 							';
 						}
 						?>
+					</select>
+					<input class="text" type="text" name="txtdepartamento" value="<?php echo $_SESSION['student_documentation']; ?>" disabled />
+					<label class="label">Departamento</label>
+					<select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
+						<option value="default"><?php echo $_SESSION['student_departamento']; ?></option>
+                        <option value="SOFTWARE - PROWESS EC PÁGINA WEB VENTAS">SOFTWARE - PROWESS EC PÁGINA WEB VENTAS</option>
+                        <option value="CONTABILIDAD Y AUDITORIA MAÑANA">CONTABILIDAD Y AUDITORIA MAÑANA</option>
+                        <option value="INVESTIGACIÓN">INVESTIGACIÓN</option>
+                        <option value="DOCUMENTACIÓN">DOCUMENTACIÓN</option>
+                        <option value="ADMINISTRACIÓN DE EMPRESAS - TALLER">ADMINISTRACIÓN DE EMPRESAS - TALLER</option>
+                        <option value="MARKETING">MARKETING</option>
+                        <option value="CREACIÓN DE CONTENIDO">CREACIÓN DE CONTENIDO</option>
+                        <option value="MENTORIAS MATUTINO">MENTORIAS MATUTINO </option>
+                        <option value="SOFTWARE - PROWESS BIKE">SOFTWARE - PROWESS BIKE</option>
+                        <option value="CONTABILIDAD Y AUDITORÍA/ TARDE">CONTABILIDAD Y AUDITORÍA/ TARDE</option>
+                        <option value="SOFTWARE - DESARROLLO PÁGINA WEB PROWESS AGRÍCOLA">SOFTWARE - DESARROLLO PÁGINA WEB PROWESS AGRÍCOLA</option>
+                        <option value="SOFTWARE - PROWESS APP AGRÍCOLA">SOFTWARE - PROWESS APP AGRÍCOLA</option>
+                        <option value="MODULO CURSOS MOCC">MODULO CURSOS MOCC</option>
+                        <option value="MENTORIAS VESPERTINO">MENTORIAS VESPERTINO</option>
+                        <option value="LEVANTAMIENTO DE INFORMACIÓN">LEVANTAMIENTO DE INFORMACIÓN</option>
+                        <option value="ELABORACIÓN DE MATERIALES DE APOYO">ELABORACIÓN DE MATERIALES DE APOYO</option>
 					</select>
 				</div>
 				<div class="last">
