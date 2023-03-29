@@ -126,8 +126,64 @@ if ($result = $conexion->query($sql)) {
 	}
 }
 
+//Actualizar Administrador
 
-// poner editor y admin:
+} elseif ($rol == 'admin'){
+
+	$sql = "SELECT * FROM administratives WHERE user = '" . $_POST['txtuserid'] . "'";
+
+	if ($result = $conexion->query($sql)) {
+		if ($row = mysqli_fetch_array($result)) {
+			$date = date('Y-m-d H:i:s');
+			
+			$sql_update = "UPDATE administratives SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', id = '" . trim($_POST['txtid']) . "', sede = '" . trim($_POST['selectSede']) . "', cedula = '" . trim($_POST['txtcedula']) . "', celular = '" . trim($_POST['txtcelular']) . "', pass = '" . trim($_POST['txtpass']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "',carrer = '" . trim($_POST['selectCareer']) . "', email = '" . trim($_POST['txtemail']) . "', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+
+			if (mysqli_query($conexion, $sql_update)) 
+				$sql_update = "UPDATE users SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', email = '" . trim($_POST['txtemail']) . "', pass = '" . trim($_POST['txtpass']) . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+
+			if (mysqli_query($conexion, $sql_update)) {
+                Info('Administrador actualizado.');
+            } else {
+                Error('Error al actualizar.');
+            }
+	
+			header('Location: /user');
+			exit();
+		}
+	 else {
+		Error('Este ID de docente no existe.');
+		header('Location: /user');
+		exit();
+	}
+}
+
+//Actualizar Editor
+
+} elseif ($rol == 'editor'){
+
+	$sql = "SELECT * FROM users WHERE user = '" . $_POST['txtuserid'] . "'";
+
+	if ($result = $conexion->query($sql)) {
+		if ($row = mysqli_fetch_array($result)) {
+			$date = date('Y-m-d H:i:s');
+			
+			$sql_update = "UPDATE users SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) . "', email = '" . trim($_POST['txtemail']) . "', pass = '" . trim($_POST['txtpass']) . "', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+
+			if (mysqli_query($conexion, $sql_update)) {
+                Info('Editor actualizado.');
+            } else {
+                Error('Error al actualizar.');
+            }
+	
+			header('Location: /user');
+			exit();
+		}
+	 else {
+		Error('Este ID de docente no existe.');
+		header('Location: /user');
+		exit();
+	}
+}
 
 } else {
     Error('Este usuario no tiene un rol válido.');

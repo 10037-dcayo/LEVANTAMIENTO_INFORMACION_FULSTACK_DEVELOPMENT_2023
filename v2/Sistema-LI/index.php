@@ -32,6 +32,11 @@ if (!empty($_SESSION['authenticate']) == 'go-' . !empty($_SESSION['usuario'])) {
 			$(".loader").fadeOut("slow");
 		});
 	</script>
+	<script>
+function mostrarRecuperacion() {
+  alert('Para recuperar tu contraseña, contacta al administrador');
+}
+</script>
 </head>
 
 <body class="login">

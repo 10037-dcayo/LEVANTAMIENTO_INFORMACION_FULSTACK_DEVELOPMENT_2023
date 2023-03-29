@@ -5,13 +5,14 @@ if (isset($_POST['id'])) {
 	$_SESSION['POST_id'] = $_POST['id'];
 }
 
-$sql = "SELECT user, name, surnames, email, permissions, rol, image FROM users WHERE user = '" . $_SESSION['POST_id'] . "'";
+$sql = "SELECT user, name, surnames, pass, email, permissions, rol, image FROM users WHERE user = '" . $_SESSION['POST_id'] . "'";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
 		$_SESSION['user_id'] = $row['user'];
 		$_SESSION['user_name'] = $row['name'];
 		$_SESSION['user_surnames'] = $row['surnames'];
+		$_SESSION['user_pass'] = $row['pass'];
 		$_SESSION['email'] = $row['email'];
 		$_SESSION['user_type'] = $row['permissions'];
 		$_SESSION['user_rol'] = $row['rol'];
@@ -25,12 +26,13 @@ if ($result = $conexion->query($sql)) {
 		}
 
 		if ($_SESSION['user_type'] == 'admin' || $_SESSION['user_type'] == 'editor'|| $_SESSION['user_type'] == 'student'|| $_SESSION['user_type'] == 'teacher'|| $_SESSION['user_type'] == 'empre') {
-			$sql = "SELECT name, surnames FROM users WHERE user = '" . $_SESSION['user_id'] . "'";
+			$sql = "SELECT name, surnames,pass FROM users WHERE user = '" . $_SESSION['user_id'] . "'";
 
 			if ($result = $conexion->query($sql)) {
 				if ($row = mysqli_fetch_array($result)) {
 					$_SESSION['user_name'] = $row['name'];
 					$_SESSION['user_surnames'] = $row['surnames'];
+					$_SESSION['user_pass'] = $row['pass'];
 				}
 			}
 		}
@@ -86,7 +88,10 @@ echo '
 
 				<div class="first">
 					<label for="txtuseremail" class="label">Email</label>
-					<input id="txtuseremail" class="text" type="email" name="txtemailupdate" value="' . $_SESSION['email'] . '" placeholder="example@email.com" maxlength="200" autofocus/>
+					<input id="txtuseremail" class="text" type="email" name="txtemailupdate" value="' . $_SESSION['email'] . '" placeholder="example@email.com" maxlength="200" autofocus disabled/>
+					<label for="txtuserpass" class="label">Password</label>
+					<input id="txtuseremail" class="text" type="text" name="txtpassupdate" value="' . $_SESSION['user_pass'] . '" placeholder="********" maxlength="200" autofocus disabled/>
+
 				</div>
 				<div class="last">
 					<label for="selectusertype" class="label">Permisos</label>
@@ -117,8 +122,7 @@ echo
 '
 
 </select>
-</div>
-                    <div class="last">
+
 					<label for="selectuserrol" class="label">Rol</label>
 					<select id="selectuserrol" class="select" name="txtuserrol" disabled>
 					';

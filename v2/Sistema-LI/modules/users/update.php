@@ -5,7 +5,7 @@ include_once '../notif_info_msgbox.php';
 
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 
-function UpdateUserDB($conex, $user, $email, $permissions)
+function UpdateUserDB($conex, $user, $email, $pass, $permissions)
 {
 	$date = date('Y-m-d H:i:s');
 
@@ -13,7 +13,7 @@ function UpdateUserDB($conex, $user, $email, $permissions)
 		$sql_update = "UPDATE users SET e
 		 = null, permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
 	} else {
-		$sql_update = "UPDATE users SET email = '" . $email . "', permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
+		$sql_update = "UPDATE users SET email = '" . $email . "', pass = '" . $pass . "', permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
 	}
 
 	if (mysqli_query($conex, $sql_update)) {
@@ -26,7 +26,7 @@ function UpdateUserDB($conex, $user, $email, $permissions)
 }
 
 if (!empty($_SESSION['user_id']) && !empty($_POST['txtusertype'] == 'admin' || $_POST['txtusertype'] == 'editor') || $_POST['txtusertype'] == 'teacher' || $_POST['txtusertype'] == 'student'|| $_POST['txtusertype'] == 'empre') {
-	$sql = "SELECT user FROM users WHERE email = '" . trim($_POST['txtemailupdate']) . "' AND user != '" . trim($_SESSION['user_id']) . "' LIMIT 1";
+	$sql = "SELECT user FROM users WHERE email = '" . trim($_POST['txtemailupdate']) . "', pass = '" . trim($_POST['txtpassupdate']) . "' AND user != '" . trim($_SESSION['user_id']) . "' LIMIT 1";
 
 	if ($result = $conexion->query($sql)) {
 		if ($row = mysqli_fetch_array($result)) {

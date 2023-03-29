@@ -27,17 +27,10 @@ if (strpos($url_actual, 'modules')) {
         $_SESSION['title_form_section'] = 'Asignaturas';
     } elseif ($name_page[1] == 'careers') {
         $_SESSION['title_form_section'] = 'Carreras';
-    } elseif ($name_page[1] == 'attendance') {
-        $_SESSION['title_form_section'] = 'Asistencias';
     } elseif ($name_page[1] == 'emprendedor') {
         $_SESSION['title_form_section'] = 'Emprendedor';
     }
-} elseif (strpos($url_actual, 'attendance')) {
-    $name_page[1] = 'attendance';
 
-    if ($name_page[1] == 'attendance') {
-        $_SESSION['title_form_section'] = 'Asistencia';
-    }
 } elseif (strpos($url_actual, 'user')) {
     $name_page[1] = 'user';
 

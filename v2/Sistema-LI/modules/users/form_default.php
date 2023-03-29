@@ -65,6 +65,6 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 <div class="content-aside">
 	<?php
 	include_once '../notif_info.php';
-	include_once "../sections/options.php";
+	include_once "../sections/options-disabled.php";
 	?>
 </div>

@@ -30,28 +30,86 @@ $id_generate = 'stdt-' . unique_id(5);
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
                     <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="" placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
                     <label for="selectsede" class="label">Sede</label>
-                    <select id="selectsede" class="select" name="selectsede" required>     
+                    <select id="selectsede" class="select" name="selectSede" required>     
                         <option value="">Seleccione</option>
                         <option value="matriz">Matriz</option>
                         <option value="latacunga">Latacunga</option>
                         <option value="stodomingo">Sto. Domingo</option>
                     </select>
+
+
+
                     <label for="selectuserdocumentation" class="label">Documentación</label>
                     <select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
                         <option value="">Seleccione</option>
-                        <option value="1">Sí</option>
-                        <option value="0">No</option>
+                        <option value="REPROBADO">REPROBADO</option>   
+                        <option value="EN PROCESO">EN PROCESO</option>
+                        <option value="APROBADO">APROBADO</option>                                             
                     </select>
+
+
+                    <label for="selectuserestado" class="label">Estado</label>
+                    <select id="selectuserestado" class="select" name="selectEstado" required>
+                        <option value="">Seleccione</option>
+                        <option value="Activo">Activo</option>
+                        <option value="En proceso">En proceso</option>
+                        <option value="En proceso">Finalizado</option>
+                    </select>
+
+                    <label for="selectuserdepartamento" class="label">Departamento</label>
+                    <select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
+                        <option value="">Seleccione</option>
+                        <option value="Levantamiento de la Informacion">Levantamiento de la Informacion</option>
+                        <option value="Cursos Moc">Cursos Moc</option>
+                        <option value="prowessbike">prowessbike</option>
+                    </select>
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
                 <div class="last">
                     <label for="txtusercedula" class="label">Cédula</label>
                     <input id="txtusercedula" class="text" type="text" name="txtcedula" value="" placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10"  required />
                     <label for="txtuserpass" class="label">Contraseña</label>
-                    <input id="txtuserpass" class="text" type="password" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
+                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
                     <label for="txtuserid" class="label">ID</label>
                     <input id="txtuserid" class="text" type="text" name="txtid" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
                     <label for="txtuserphone" class="label">Número de teléfono</label>
                     <input id="txtuserphone" class="text" type="text" name="txtphone" value="" placeholder="09999XXXXX" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
+                    <label for="selectuserjerarquia" class="label">Jerarquia</label>
+                    <select id="selectuserjerarquia" class="select" name="selectJerarquia" required>
+                        <option value="">Seleccione</option>
+                        <option value="LIDER">LIDER</option>
+                        <option value="cOLIDER">COLIDER</option>
+                        <option value="APOYO1">APOYO1</option>
+                        <option value="APOYO2">APOYO2</option>
+                        <option value="APOYO3">APOYO3</option>
+                        <option value="APOYO4">APOYO4</option>
+                        <option value="APOYO5">APOYO5</option>
+                    </select>
+
+                    <label for="selectuserjornada" class="label">Jornada</label>
+                    <select id="selectuserjornada" class="select" name="selectJornada" required>
+                        <option value="">Seleccione</option>
+                        <option value="Vespertino">Vespertino</option>
+                        <option value="Matutino">Matutino</option>
+                        <option value="otra">otra</option>
+                    </select>
+
                     <label for="txtuseraddress" class="label">Domicilio</label>
                     <input id="txtuseraddress" class="text" type="text" name="txtaddress" value="" placeholder="Domicilio" maxlength="200" required />
                     <label for="selectusercareers" class="label">Carrera</label>
@@ -73,6 +131,71 @@ $id_generate = 'stdt-' . unique_id(5);
                     <label for="dateuseradmission" class="label">Fecha de admisión</label>
                     <input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo date('Y-m-d'); ?>" required />
                 </div>
+                <div class="last">
+  <label class="label" for="txthours">
+    <label for="txttotalhours_hidden" class="label">Contador de horas</label>
+    <input class="text" type="text" name="txttotalhours_hidden" id="txttotalhours_hidden" value="">
+  Horas
+  <span>
+    <input id="txthours" type="text" name="txthours" value="0" min="0">
+    <button id="addHoursBtn" class="btn" style="background: none; border: none; width: 25px; height: 25px;">
+      <i class="fas fa-plus-circle" style="color: blue;"></i>
+    </button>
+  </span>
+</label>
+<br>
+<label class="label" for="txttotalhours">
+  Total de Horas
+  <span>
+    <input id="txttotalhours" type="text" name="txttotalhours" value="0" readonly>
+    <button id="resetHoursBtn" class="btn" style="background: none; border: none; width: 25px; height: 25px;">
+      <i class="fas fa-redo-alt" style="color: blue;"></i>
+    </button>
+  </span>
+</label>
+
+</div>
+
+
+
+
+                <div class="description">
+    <label for="txtuserhours" class="label">Horario</label>
+    <input id="txtuserhours" class="text" type="text" name="txtuserhours" value=""placeholder="Seleccione el horario" maxlength="20000" data-expandable/>
+    <div class="hour-picker">
+        <label for="txtuserhours_start" class="text">Hora de entrada:</label>
+        <input id="txtuserhours_start" class="hour-input" type="time" name="txtuserhours_start" >
+        <label for="txtuserhours_end"class="text">Hora de salida:</label>
+        <input id="txtuserhours_end" class="hour-input" type="time" name="txtuserhours_end" >
+        <button id="addHourBtn" class="btn icon"><i class="fas fa-plus-circle fa-lg fa-spin"></i></button>
+
+
+    </div>
+</div>
+<div class="label" id="hourListContainer">
+    <br>
+    <ul id="hourList"></ul>
+</div>
+
+
+
+                <div class="description">
+                <label for="txtuserdates" class="label">Asistencia</label>
+                <input id="txtuserdates" class="textarea" type="text" name="txtuserdates" value="<?php echo $_SESSION['student_asistencia']; ?>" placeholder="Seleccione fechas" maxlength="20000" data-expandable/>
+                <button id="addBtn" class="btn icon"><i class="fas fa-plus-circle fa-lg fa-spin"></i></button>
+                </div>
+                <div class="label" id="dateListContainer">
+                <br>
+                <ul id="dateList"></ul>
+               </div>
+
+
+
+
+
+
+
+
             </div>
             <button id="btnBack" class="btn back icon" type="button">arrow_back</button>
             <button id="btnNext" class="btn icon" type="button">arrow_forward</button>
@@ -85,4 +208,110 @@ $id_generate = 'stdt-' . unique_id(5);
     include_once "../sections/options-disabled.php";
     ?>
 </div>
+<script>
+$(document).ready(function(){
+    $("#txtuserdates").datepicker({
+        dateFormat: 'yy-mm-dd',
+        numberOfMonths: 1,
+        onSelect: function(selectedDate) {
+        $(this).val(selectedDate); 
+    }
+});
+
+    // Agregamos cada fecha seleccionada a la lista
+    $("#addBtn").click(function(event) {
+        event.preventDefault();
+        var date = $("#txtuserdates").val();
+        if (date != "") {
+            $("#dateList").append("<li>" + date + " <button class='removeBtn'><i class='fas fa-times-circle fa-lg fa-spin'></i></button></li>");
+            $("#txtuserdates").val("");
+        }
+    });
+    
+    // Eliminamos la fecha seleccionada de la lista
+    $(document).on("click", ".removeBtn", function() {
+        $(this).parent().remove();
+    });
+    
+    // Al hacer submit, guardamos la lista en la variable students_asistencia
+    $("form").submit(function() {
+        var dates = [];
+        $("#dateList li").each(function() {
+            dates.push($(this).text().replace(" Eliminar", ""));
+        });
+        $("#txtuserdates").val(dates.join(", "));
+        return true;
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    // Agregamos cada horario seleccionado a la lista
+    $("#addHourBtn").click(function(event) {
+        event.preventDefault();
+        var startHour = $("#txtuserhours_start").val();
+        var endHour = $("#txtuserhours_end").val();
+        if (startHour != "" && endHour != "") {
+            $("#hourList").append("<li>" + startHour + " - " + endHour + " <button class='removeHourBtn'><i class='fas fa-times-circle fa-lg fa-spin'></i></button></li>");
+            $("#txtuserhours").val($("#txtuserhours").val().replace(hour, ''));
+            $("#txtuserhours_start").val("");
+            $("#txtuserhours_end").val("");
+        }
+    });
+    
+    // Eliminamos el horario seleccionado de la lista
+    $(document).on("click", ".removeHourBtn", function() {
+        $(this).parent().remove();
+        $("#txtuserhours").val($("#hourList").html());
+    });
+    
+    // Al hacer submit, guardamos la lista en la variable students_horario
+    $("form").submit(function() {
+        var hours = [];
+        $("#hourList li").each(function() {
+            var hour = $(this).text().replace(" Eliminar", "");
+            hour = hour.split(" - ");
+            hours.push(hour[0] + "-" + hour[1]);
+        });
+        $("#txtuserhours").val(hours.join(", "));
+        return true;
+    });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+  // Al hacer clic en el botón Agregar, se suman las horas ingresadas y se actualiza el campo Total de Horas
+  $("#addHoursBtn").on("click", function(event) {
+    event.preventDefault();
+    var hours = parseInt($("#txthours").val());
+    var total = parseInt($("#txttotalhours").val());
+    if (!isNaN(hours)) {
+      total += hours;
+      $("#txttotalhours").val(total);
+      $("#txthours").val(0);
+    }
+  });
+
+  // Al hacer clic en el botón Reiniciar, se reinicia el campo Total de Horas
+  $("#resetHoursBtn").on("click", function(event) {
+    event.preventDefault();
+    $("#txttotalhours").val(0);
+    
+    
+  });
+  $("form").submit(function() {
+    $("#txttotalhours_hidden").val($("#txttotalhours").val());
+    return true;
+  });
+
+});
+</script>
 <script src="/js/modules/students.js" type="text/javascript"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-0sCz7O9XlHUBlTepQg2tL/j/ZtMInzGRBfKv2n/bGEB1MkXkXpy0eMHvG+vcnBfACpJZl+S6Z5p5r5L5Hy5U2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
