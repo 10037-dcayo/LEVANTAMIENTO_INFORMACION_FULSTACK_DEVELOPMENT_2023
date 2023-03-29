@@ -114,6 +114,7 @@ if ($result = $conexion->query($sql)) {
 						?>
 					</select>
 
+
 				    <label for="selectuserdepartamento" class="label">Departamento</label>
 					<select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
 						<option value="default"><?php echo $_SESSION['student_departamento']; ?></option>
@@ -134,6 +135,9 @@ if ($result = $conexion->query($sql)) {
                         <option value="LEVANTAMIENTO DE INFORMACIÓN">LEVANTAMIENTO DE INFORMACIÓN</option>
                         <option value="ELABORACIÓN DE MATERIALES DE APOYO">ELABORACIÓN DE MATERIALES DE APOYO</option>
 					</select>
+
+
+					
 				</div>
 				<div class="last">
 					<label for="txtusercedula" class="label">Cédula</label>
