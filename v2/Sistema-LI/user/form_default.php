@@ -149,6 +149,39 @@ include_once 'load_data.php';
 					<input id="txtuserid" class="text" type="text" name="txtid" value="<?php echo $_SESSION['student_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserphone" class="label">Número de teléfono</label>
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />
+
+					<label for="selectuserjornada" class="label">Jornada</label>
+          <select id="selectuserjornada" class="select" name="selectJornada" required>
+          <?php
+						if ($_SESSION['student_jornada'] == '') {
+							echo '
+						<option value="">Seleccione</option>
+            <option value="Vespertino">Vespertino</option>
+            <option value="Matutino">Matutino</option>
+            <option value="Otra">Otra</option>
+						';
+						} elseif ($_SESSION['student_jornada'] == 'Vespertino') {
+							echo '
+						<option value="Vespertino">Vespertino</option>
+						<option value="Matutino">Matutino</option>
+						<option value="Otra">Otra</option>
+						';
+						} elseif ($_SESSION['student_jornada'] == 'Matutino') {
+							echo '
+						<option value="Matutino">Matutino</option>
+						<option value="Vespertino">Vespertino</option>	
+						<option value="Otro">Otro</option>
+						';
+						} elseif ($_SESSION['student_jornada'] == 'Otro') {
+							echo '
+						<option value="Otro">Otro</option> 
+						<option value="Matutino">Matutino</option>
+						<option value="Vespertino">Vespertino</option>
+						';
+						}
+						?>
+					</select>
+
 					<label for="txtuseraddress" class="label">Domicilio</label>
 					<input id="txtuseraddress" class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['student_address']; ?>" placeholder="Domicilio" maxlength="200" required />
 					<label for="selectusercareers" class="label">Carrera</label>

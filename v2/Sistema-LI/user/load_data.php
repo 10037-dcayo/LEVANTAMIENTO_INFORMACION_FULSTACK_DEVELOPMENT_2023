@@ -54,7 +54,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_career'] = $row['career'];
 		$_SESSION['student_documentation'] = $row['documentation'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
-		
+		$_SESSION['student_jornada'] = $row['jornada'];
 	}
 }
 

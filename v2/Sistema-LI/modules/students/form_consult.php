@@ -22,6 +22,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_asistencia'] = $row['asistencia'];
 		$_SESSION['student_documentation'] = $row['documentation'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
+		$_SESSION['student_jornada'] = $row['jornada'];
 	}
 }
 ?>
@@ -118,6 +119,40 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtid" value="<?php echo $_SESSION['student_id']; ?>" disabled />
 					<label class="label">Número de teléfono</label>
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" disabled />
+
+					<label for="selectuserjornada" class="label">Jornada</label>
+                    <select id="selectuserjornada" class="select" name="selectJornada" disabled>
+                        <?php
+						if ($_SESSION['student_jornada'] == '') {
+							echo '
+						<option value="">Seleccione</option>
+                        <option value="Vespertino">Vespertino</option>
+                        <option value="Matutino">Matutino</option>
+                        <option value="Otra">Otra</option>
+						';
+						} elseif ($_SESSION['student_jornada'] == 'Vespertino') {
+							echo '
+						<option value="Vespertino">Vespertino</option>
+						<option value="Matutino">Matutino</option>
+						<option value="Otra">Otra</option>
+						';
+						} elseif ($_SESSION['student_jornada'] == 'Matutino') {
+							echo '
+						<option value="Matutino">Matutino</option>
+						<option value="Vespertino">Vespertino</option>	
+						<option value="Otro">Otro</option>
+						';
+						} elseif ($_SESSION['student_jornada'] == 'Otro') {
+							echo '
+						<option value="Otro">Otro</option> 
+						<option value="Matutino">Matutino</option>
+						<option value="Vespertino">Vespertino</option>
+						';
+						}
+						?>
+                    </select>
+
+
 					<label class="label">Domicilio</label>
 					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['student_address']; ?>" disabled />
 					<label for="selectusercareers" class="label">Carrera</label>

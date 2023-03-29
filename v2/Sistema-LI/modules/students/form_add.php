@@ -89,7 +89,7 @@ $id_generate = 'stdt-' . unique_id(5);
                         <option value="">Seleccione</option>
                         <option value="Vespertino">Vespertino</option>
                         <option value="Matutino">Matutino</option>
-                        <option value="otra">otra</option>
+                        <option value="Otra">Otra</option>
                     </select>
 
                     <label for="txtuseraddress" class="label">Domicilio</label>
