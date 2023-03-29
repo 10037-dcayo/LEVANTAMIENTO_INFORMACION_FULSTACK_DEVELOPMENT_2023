@@ -116,6 +116,11 @@ if ($result = $conexion->query($sql)) {
 					</select>
 
 
+<<<<<<< HEAD
+					
+
+
+=======
 					<label for="selectuserestado" class="label">Estado</label>
 					<select id="selectuserestado" class="select" name="selectEstado" disabled>
 						<?php
@@ -151,6 +156,7 @@ if ($result = $conexion->query($sql)) {
 
 						?>
 					</select>
+>>>>>>> a505122d3e67aab673eb3ad4f471346ec6cb82f3
 
 
 
