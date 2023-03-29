@@ -28,7 +28,7 @@ $id_generate = 'stdt-' . unique_id(5);
 					<label for="txtuseremail" class="label">Correo</label>
                     <input id="txtuseremail" class="text" type="text" name="txtuseremail" value="" placeholder="ejemplo@email.com" maxlength="200" required/>
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
-                    <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="" placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
+                    <input id="dateofbirth" class="date" type="date" name="dateofbirth" value="" placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
                     <label for="selectsede" class="label">Sede</label>
                     <select id="selectsede" class="select" name="selectSede" required>     
                         <option value="">Seleccione</option>
@@ -129,7 +129,7 @@ $id_generate = 'stdt-' . unique_id(5);
                 </div>
                 <div class="last">
   <label class="label" for="txthours">
-    <label for="txttotalhours_hidden" class="label" placeholder="Suma de las horas">Contador de horas</label>
+    <label for="txttotalhours_hidden" class="label" placeholder="Suma de las horas">Horas de Vinculación</label>
     <input class="text" type="hidden" name="txttotalhours_hidden" id="txttotalhours_hidden" value="">
   Horas
   <span>
@@ -152,8 +152,8 @@ $id_generate = 'stdt-' . unique_id(5);
 
 </div>
                 <div class="description">
-    <label for="txtuserhours" class="label">Horario</label>
-    <input id="txtuserhours" class="text" type="text" name="txtuserhours" value=""placeholder="Seleccione el horario" maxlength="20000" data-expandable/>
+    <label for="txtuserhours" class="label">Seleccione sus Horarios</label>
+    <input id="txtuserhours" class="text" type="hidden" name="txtuserhours" value=""placeholder="Seleccione el horario" maxlength="20000" data-expandable/>
     <div class="hour-picker">
         <label for="txtuserhours_start" class="text">Hora de entrada:</label>
         <input id="txtuserhours_start" class="hour-input" type="time" name="txtuserhours_start" >

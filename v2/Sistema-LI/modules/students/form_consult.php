@@ -21,8 +21,9 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_jerarquia'] = $row['jerarquia'];
 		$_SESSION['student_address'] = $row['address'];
 		$_SESSION['student_career'] = $row['career'];
-		$_SESSION['student_asistencia'] = $row['asistencia'];
+		$_SESSION['student_horas'] = $row['horas'];
 		$_SESSION['student_horario'] = $row['horario'];
+		$_SESSION['student_asistencia'] = $row['asistencia'];		
 		$_SESSION['student_documentation'] = $row['documentation'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
 		$_SESSION['student_jornada'] = $row['jornada'];
@@ -258,13 +259,19 @@ if ($result = $conexion->query($sql)) {
 					</select>
 					<label for="dateuseradmission" class="label">Fecha de admisión</label>
 					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" disabled />
-				</div>
-<div class="description">
-    <label for="txtuserhours" class="label">Horario</label>
-    <input id="txtuserhours" class="text" type="text" name="txtuserhours" placeholder="Seleccione el horario" maxlength="20000" value="<?php echo $_SESSION['student_horario']; ?>" data-expandable disabled/>
-    
+
+					</div>
+					<div class="last">
+  <label class="label" for="txthours">
+    <label for="txttotalhours_hidden" class="label" placeholder="Suma de las horas">Horas de Vinculación</label>
+    <input class="text" type="text" name="txttotalhours_hidden" id="txttotalhours_hidden" style="height: 50px; width: 40px; font-size: 16px;" readonly wrap="soft"  value="<?php echo $_SESSION['student_horas']; ?>"disabled>
 </div>
-				<div class="first">
+				
+<div class="first">
+    <label for="txtuserhours" class="label">Horarios Establecidos</label>
+    <input id="txtuserhours" class="text" type="text" name="txtuserhours" placeholder="Seleccione el horario" maxlength="20000" style="height: 50px; width: 200px; font-size: 16px;" readonly wrap="soft" value="<?php echo $_SESSION['student_horario']; ?>" data-expandable disabled/>    
+</div>
+				<div class="last">
                     <label for="txtuserdates" class="label">Asistencia</label>
 					<textarea id="txtuserdates" class="textarea" name="txtuserdates" placeholder="Seleccione fechas" style="height: 200px; width: 500px; font-size: 16px;" readonly wrap="soft" disabled><?php echo $_SESSION['student_asistencia']; ?></textarea>			
 				</div>

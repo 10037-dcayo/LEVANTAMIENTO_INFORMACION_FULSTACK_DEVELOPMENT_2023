@@ -71,7 +71,7 @@ include_once 'load_data.php';
 					<label for="txtuseremail" class="label">Correo</label>
                     <input id="txtuseremail" class="text" type="email" name="txtemailupdate" value="<?php echo $_SESSION['student_email']; ?>" placeholder="ejemplo@email.com" maxlength="200" autofocus/>
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
-					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['student_date_of_birth']; ?>" pattern="\d{4}-\d{2}-\d{2}" placeholder="aaaa-mm-dd" maxlength="10" required />
+					<input id="dateofbirth" class="date" type="date" name="dateofbirth" value="<?php echo $_SESSION['student_date_of_birth']; ?>" pattern="\d{4}-\d{2}-\d{2}" placeholder="aaaa-mm-dd" maxlength="10" required />
 					<label for="selectsede" class="label">Sede</label>
 					<select id="selectsede" class="select" name="selectSede" required>
 						<?php
@@ -107,7 +107,7 @@ include_once 'load_data.php';
 						?>
 					</select>
 					<label for="selectuserdocumentation" class="label">Documentación</label>
-					<select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
+					<select id="selectuserdocumentation" class="select" name="selectDocumentation" disabled>
 						<?php
 						if ($_SESSION['student_documentation'] == '') {
 							echo '
@@ -185,7 +185,7 @@ include_once 'load_data.php';
 						?>
 					</select>
 					<label for="dateuseradmission" class="label">Fecha de admisión</label>
-					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" required />
+					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" disabled />
 				</div>
 				<div class="description">
         <label for="txtuserhours" class="label">Horario</label>
