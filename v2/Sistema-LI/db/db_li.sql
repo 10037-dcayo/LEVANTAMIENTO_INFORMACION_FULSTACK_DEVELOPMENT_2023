@@ -182,8 +182,6 @@ CREATE TABLE `students` (
 -- Volcado de datos para la tabla `students`
 --
 
-INSERT INTO `students` (`user`, `name`, `surnames`, `email`,`date_of_birth`, `sede`, `cedula`, `pass`, `id`, `phone`, `address`, `career`,`asistencia`, `documentation`, `admission_date`, `created_at`, `updated_at`) values
-('student','Ricardo','Jaramillo','test@gmail.com','1999-01-01','matriz','1730456776','student','L00391331','0982244691', 'Los tulipanes', 'IDS','2023-03-13', '1' ,'2023-03-13','2021-12-05 18:27:39', '2022-04-03 06:10:34');
 
 -- --------------------------------------------------------
 

@@ -43,12 +43,13 @@ $id_generate = 'stdt-' . unique_id(5);
                         <option value="EN PROCESO">EN PROCESO</option>
                         <option value="APROBADO">APROBADO</option>                                             
                     </select>
+
                     <label for="selectuserestado" class="label">Estado</label>
                     <select id="selectuserestado" class="select" name="selectEstado" required>
                         <option value="">Seleccione</option>
-                        <option value="Activo">Activo</option>
-                        <option value="En proceso">En proceso</option>
-                        <option value="En proceso">Finalizado</option>
+                        <option value="activo">Activo</option>
+                        <option value="en_proceso">En proceso</option>
+                        <option value="finalizado">Finalizado</option>
                     </select>
 
                     <label for="selectuserdepartamento" class="label">Departamento</label>
@@ -87,7 +88,7 @@ $id_generate = 'stdt-' . unique_id(5);
                     <select id="selectuserjerarquia" class="select" name="selectJerarquia" required>
                         <option value="">Seleccione</option>
                         <option value="LIDER">LIDER</option>
-                        <option value="cOLIDER">COLIDER</option>
+                        <option value="COLIDER">COLIDER</option>
                         <option value="APOYO1">APOYO 1</option>
                         <option value="APOYO2">APOYO 2</option>
                         <option value="APOYO3">APOYO 3</option>
