@@ -79,6 +79,7 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
+
 					<label for="selectuserdocumentation" class="label">Documentación</label>
 					<select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
 						<?php
@@ -112,8 +113,8 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
-					<input class="text" type="text" name="txtdepartamento" value="<?php echo $_SESSION['student_documentation']; ?>" disabled />
-					<label class="label">Departamento</label>
+
+				    <label for="selectuserdepartamento" class="label">Departamento</label>
 					<select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
 						<option value="default"><?php echo $_SESSION['student_departamento']; ?></option>
                         <option value="SOFTWARE - PROWESS EC PÁGINA WEB VENTAS">SOFTWARE - PROWESS EC PÁGINA WEB VENTAS</option>
