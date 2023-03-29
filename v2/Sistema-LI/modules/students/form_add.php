@@ -121,7 +121,7 @@ $id_generate = 'stdt-' . unique_id(5);
   <span>
     <input id="txthours" type="text" name="txthours" value="0" min="0">
     <button id="addHoursBtn" class="btn" style="background: none; border: none; width: 25px; height: 25px;">
-      <i class="fas fa-plus-circle" style="color: blue;"></i>
+      <i class="fas fa-plus-circle" style="color: white;"></i>
     </button>
   </span>
 </label>
@@ -131,7 +131,7 @@ $id_generate = 'stdt-' . unique_id(5);
   <span>
     <input id="txttotalhours" type="text" name="txttotalhours" value="0" readonly>
     <button id="resetHoursBtn" class="btn" style="background: none; border: none; width: 25px; height: 25px;">
-      <i class="fas fa-redo-alt" style="color: blue;"></i>
+      <i class="fas fa-redo-alt" style="color: white;"></i>
     </button>
   </span>
 </label>
