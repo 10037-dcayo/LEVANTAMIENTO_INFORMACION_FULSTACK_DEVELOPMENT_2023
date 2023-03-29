@@ -25,6 +25,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_horario'] = $row['horario'];
 		$_SESSION['student_asistencia'] = $row['asistencia'];		
 		$_SESSION['student_documentation'] = $row['documentation'];
+		$_SESSION['student_status'] = $row['estado'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
 		$_SESSION['student_jornada'] = $row['jornada'];
 	}
@@ -85,7 +86,7 @@ if ($result = $conexion->query($sql)) {
 						<?php
 						if ($_SESSION['student_documentation'] == '') {
 							echo '
-								<option value="">Seleccioné</option>
+								<option value="">Seleccione</option>
 								<option value="REPROBADO">REPROBADO</option>
 								<option value="EN PROCESO">EN PROCESO</option>
 								<option value="APROBADO">APROBADO</option>
@@ -113,6 +114,46 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
+
+
+					<label for="selectuserestado" class="label">Estado</label>
+					<select id="selectuserestado" class="select" name="selectEstado" disabled>
+						<?php
+						if($_SESSION['student_status']==''){
+							echo'
+							<option value="">Seleccione</option>
+							<option value="activo">Activo</option>
+							<option value="en_proceso">En proceso</option>
+							<option value="finalizado">Finalizado</option>
+							';
+						} 
+						elseif ($_SESSION['student_status']=='activo') {
+							echo'
+							<option value="activo">Activo</option>
+							<option value="en_proceso">En proceso</option>
+							<option value="finalizado">Finalizado</option>
+							';
+						}
+						elseif ($_SESSION['student_status']=='en_proceso') {
+							echo'
+							<option value="en_proceso">En proceso</option>
+							<option value="activo">Activo</option>
+							<option value="finalizado">Finalizado</option>
+							';
+						}
+						elseif ($_SESSION['student_status']=='finalizado') {
+							echo'
+							<option value="finalizado">Finalizado</option>
+							<option value="activo">Activo</option>
+							<option value="en_proceso">En proceso</option>
+							';
+						}
+
+						?>
+					</select>
+
+
+
 					<label class="label">Departamento</label>
 					<input class="text" type="text" name="txtdepartamento" value="<?php echo $_SESSION['student_departamento']; ?>" disabled />
 				</div>
