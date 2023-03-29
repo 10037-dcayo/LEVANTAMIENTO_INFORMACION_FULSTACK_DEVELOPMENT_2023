@@ -74,14 +74,14 @@ $id_generate = 'stdt-' . unique_id(5);
                         <option value="">Seleccione</option>
                         <option value="LIDER">LIDER</option>
                         <option value="cOLIDER">COLIDER</option>
-                        <option value="APOYO1">APOYO1</option>
-                        <option value="APOYO2">APOYO2</option>
-                        <option value="APOYO3">APOYO3</option>
-                        <option value="APOYO4">APOYO4</option>
-                        <option value="APOYO5">APOYO5</option>
-                        <option value="APOYO5">APOYO6</option>
-                        <option value="APOYO5">APOYO7</option>
-                        <option value="APOYO5">APOYO8</option>
+                        <option value="APOYO1">APOYO 1</option>
+                        <option value="APOYO2">APOYO 2</option>
+                        <option value="APOYO3">APOYO 3</option>
+                        <option value="APOYO4">APOYO 4</option>
+                        <option value="APOYO5">APOYO 5</option>
+                        <option value="APOYO6">APOYO 6</option>
+                        <option value="APOYO7">APOYO 7</option>
+                        <option value="APOYO8">APOYO 8</option>
                     </select>
 
                     <label for="selectuserjornada" class="label">Jornada</label>
