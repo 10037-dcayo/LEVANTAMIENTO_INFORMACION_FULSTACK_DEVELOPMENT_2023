@@ -36,9 +36,6 @@ $id_generate = 'stdt-' . unique_id(5);
                         <option value="latacunga">Latacunga</option>
                         <option value="stodomingo">Sto. Domingo</option>
                     </select>
-
-
-
                     <label for="selectuserdocumentation" class="label">Documentación</label>
                     <select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
                         <option value="">Seleccione</option>
@@ -46,8 +43,6 @@ $id_generate = 'stdt-' . unique_id(5);
                         <option value="EN PROCESO">EN PROCESO</option>
                         <option value="APROBADO">APROBADO</option>                                             
                     </select>
-
-
                     <label for="selectuserestado" class="label">Estado</label>
                     <select id="selectuserestado" class="select" name="selectEstado" required>
                         <option value="">Seleccione</option>
@@ -63,22 +58,6 @@ $id_generate = 'stdt-' . unique_id(5);
                         <option value="Cursos Moc">Cursos Moc</option>
                         <option value="prowessbike">prowessbike</option>
                     </select>
-
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 </div>
                 <div class="last">
@@ -100,6 +79,9 @@ $id_generate = 'stdt-' . unique_id(5);
                         <option value="APOYO3">APOYO3</option>
                         <option value="APOYO4">APOYO4</option>
                         <option value="APOYO5">APOYO5</option>
+                        <option value="APOYO5">APOYO6</option>
+                        <option value="APOYO5">APOYO7</option>
+                        <option value="APOYO5">APOYO8</option>
                     </select>
 
                     <label for="selectuserjornada" class="label">Jornada</label>
@@ -133,8 +115,8 @@ $id_generate = 'stdt-' . unique_id(5);
                 </div>
                 <div class="last">
   <label class="label" for="txthours">
-    <label for="txttotalhours_hidden" class="label">Contador de horas</label>
-    <input class="text" type="text" name="txttotalhours_hidden" id="txttotalhours_hidden" value="">
+    <label for="txttotalhours_hidden" class="label" placeholder="Suma de las horas">Contador de horas</label>
+    <input class="text" type="hidden" name="txttotalhours_hidden" id="txttotalhours_hidden" value="">
   Horas
   <span>
     <input id="txthours" type="text" name="txthours" value="0" min="0">
@@ -155,10 +137,6 @@ $id_generate = 'stdt-' . unique_id(5);
 </label>
 
 </div>
-
-
-
-
                 <div class="description">
     <label for="txtuserhours" class="label">Horario</label>
     <input id="txtuserhours" class="text" type="text" name="txtuserhours" value=""placeholder="Seleccione el horario" maxlength="20000" data-expandable/>
@@ -177,23 +155,15 @@ $id_generate = 'stdt-' . unique_id(5);
     <ul id="hourList"></ul>
 </div>
 
-
-
                 <div class="description">
                 <label for="txtuserdates" class="label">Asistencia</label>
-                <input id="txtuserdates" class="textarea" type="text" name="txtuserdates" value="<?php echo $_SESSION['student_asistencia']; ?>" placeholder="Seleccione fechas" maxlength="20000" data-expandable/>
+                <input id="txtuserdates" class="textarea" type="text" name="txtuserdates" value="" placeholder="Seleccione fechas" maxlength="20000" data-expandable/>
                 <button id="addBtn" class="btn icon"><i class="fas fa-plus-circle fa-lg fa-spin"></i></button>
                 </div>
                 <div class="label" id="dateListContainer">
                 <br>
                 <ul id="dateList"></ul>
                </div>
-
-
-
-
-
-
 
 
             </div>

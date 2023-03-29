@@ -81,20 +81,29 @@ if ($result = $conexion->query($sql)) {
 						if ($_SESSION['student_documentation'] == '') {
 							echo '
 								<option value="">Seleccioné</option>
-								<option value="1">Sí</option>
-								<option value="0">No</option>
+								<option value="REPROBADO">REPROBADO</option>
+								<option value="EN PROCESO">EN PROCESO</option>
+								<option value="APROBADO">APROBADO</option>
 							';
-						} else if ($_SESSION['student_documentation'][0] == 1) {
+						} else if ($_SESSION['student_documentation'] == 'REPROBADO') {
 							echo
 							'
-								<option value="1">Sí</option>
-								<option value="0">No</option>
+								<option value="REPROBADO">REPROBADO</option>
+								<option value="EN PROCESO">EN PROCESO</option>
+								<option value="APROBADO">APROBADO</option>
 							';
-						} elseif ($_SESSION['student_documentation'][0] == 0) {
+						} elseif ($_SESSION['student_documentation'] == 'EN PROCESO') {
 							echo
 							'
-								<option value="0">No</option>
-								<option value="1">Sí</option>
+								<option value="EN PROCESO">EN PROCESO</option>
+								<option value="REPROBADO">REPROBADO</option>
+								<option value="APROBADO">APROBADO</option>
+							';
+						}elseif ($_SESSION['student_documentation'] == 'APROBADO') {
+							echo
+							'   <option value="APROBADO">APROBADO</option>
+								<option value="EN PROCESO">EN PROCESO</option>
+								<option value="REPROBADO">REPROBADO</option>
 							';
 						}
 						?>
