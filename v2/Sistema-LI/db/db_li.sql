@@ -280,7 +280,7 @@ CREATE TABLE `users` (
   `permissions` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `rol` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `image` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `image_updated_at` timestamp NULL DEFAULT NULL,
+  `image_updated_at` timestamp DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=UTF8_SPANISH2_CI;

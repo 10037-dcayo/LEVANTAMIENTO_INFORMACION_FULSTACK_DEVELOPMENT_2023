@@ -22,7 +22,7 @@ include_once 'load_data.php';
 					<div class="section-user-image">
 						<img src="<?php echo '/images/users/' . $_SESSION['user_image']; ?>" />
 						<?php
-						$date_time_start = date_create($_SESSION['image_updated_at']);
+						$date_time_start = isset($_SESSION['image_updated_at']) ? date_create($_SESSION['image_updated_at']) : date_create('2000-12-23 10:30:15');
 						$date_time_end = date_create(date('Y-m-d'));
 						$interval = date_diff($date_time_start, $date_time_end);
 						$days = intval($interval->format('%a'));
@@ -108,7 +108,7 @@ include_once 'load_data.php';
 					</select>
 
 					<label for="selectuserdocumentation" class="label">Documentación</label>
-					<select id="selectuserdocumentation" class="select" name="selectDocumentation" required>
+					<select id="selectuserdocumentation" class="select" name="selectDocumentation" disabled>
 						<?php
 						if ($_SESSION['student_documentation'] == '') {
 							echo '
@@ -142,7 +142,7 @@ include_once 'load_data.php';
 					</select>
 
 					<label for="selectuserestado" class="label">Estado</label>
-					<select id="selectuserestado" class="select" name="selectEstado" required>
+					<select id="selectuserestado" class="select" name="selectEstado" disabled>
 						<?php
 						if($_SESSION['student_status']==''){
 							echo'
@@ -196,7 +196,7 @@ include_once 'load_data.php';
 
 	
 					<label for="selectuserjerarquia" class="label">Jerarquia</label>
-					<select id="selectuserjerarquia" class="select" name="selectJerarquia" required>
+					<select id="selectuserjerarquia" class="select" name="selectJerarquia" disabled>
 				
 					<?php
 						if ($_SESSION['student_jerarquia'] == 'LIDER') {
@@ -254,7 +254,7 @@ include_once 'load_data.php';
 					</select>
 
 					<label for="selectuserjornada" class="label">Jornada</label>
-                    <select id="selectuserjornada" class="select" name="selectJornada" required>
+                    <select id="selectuserjornada" class="select" name="selectJornada" disabled>
                         <?php
 						if ($_SESSION['student_jornada'] == '') {
 							echo '
@@ -289,7 +289,7 @@ include_once 'load_data.php';
 					<label for="txtuseraddress" class="label">Domicilio</label>
 					<input id="txtuseraddress" class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['student_address']; ?>" placeholder="Domicilio" maxlength="200" required />
 					<label for="selectusercareers" class="label">Carrera</label>
-					<select id="selectusercareers" class="select" name="selectCareer" required>
+					<select id="selectusercareers" class="select" name="selectCareer" disabled>
 						<?php
 						$career = $_SESSION['student_career'];
 
@@ -322,10 +322,16 @@ include_once 'load_data.php';
 					<label for="dateuseradmission" class="label">Fecha de admisión</label>
 					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" disabled />
 				</div>
-				<div class="description">
-        <label for="txtuserhours" class="label">Horario</label>
-        <input id="txtuserhours" class="text" type="text" name="txtuserhours" placeholder="Seleccione el horario" maxlength="20000" value="<?php echo $_SESSION['student_horario']; ?>" data-expandable disabled/>
-        </div>
+			<div class="last">
+  <label class="label" for="txthours">
+    <label for="txttotalhours_hidden" class="label" placeholder="Suma de las horas">Horas de Vinculación</label>
+    <input class="text" type="text" name="txttotalhours_hidden" id="txttotalhours_hidden" style="height: 50px; width: 40px; font-size: 16px;" readonly wrap="soft"  value="<?php echo $_SESSION['student_horas']; ?>"disabled>
+</div>
+				
+<div class="first">
+    <label for="txtuserhours" class="label">Horarios Establecidos</label>
+    <input id="txtuserhours" class="text" type="text" name="txtuserhours" placeholder="Seleccione el horario" maxlength="20000" style="height: 50px; width: 200px; font-size: 16px;" readonly wrap="soft" value="<?php echo $_SESSION['student_horario']; ?>" data-expandable disabled/>    
+</div>
 
          <div class="first">
                     <label for="txtuserdates" class="label">Asistencia</label>
