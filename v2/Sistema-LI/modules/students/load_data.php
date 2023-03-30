@@ -26,6 +26,8 @@ if ($result = $conexion->query($sql)) {
 
 				$_SESSION['user_id'] = array();
 
+				$_SESSION['student_departamento'] = array();
+
 
 				$_SESSION['student_email'] = array();
 
@@ -36,7 +38,7 @@ if ($result = $conexion->query($sql)) {
 
 				$i = 0;
 
-				$sql = "SELECT * FROM students WHERE user LIKE '%" . $_POST['search'] . "%' OR email LIKE '%". $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR cedula LIKE '%" . $_POST['search'] . "%' OR admission_date LIKE '%" . $_POST['search'] . "%' ORDER BY name";
+				$sql = "SELECT * FROM students WHERE user LIKE '%" . $_POST['search'] . "%' OR email LIKE '%". $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR cedula LIKE '%" . $_POST['search'] . "%' OR admission_date LIKE '%" . $_POST['search'] . "%' OR departamento LIKE '%" . $_POST['search'] . "%' ORDER BY name";
 
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
@@ -45,6 +47,8 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
 						$_SESSION['student_date'][$i] = $row['admission_date'];
 						$_SESSION['student_email'][$i] = $row['email'];
+						$_SESSION['student_departamento'][$i] = $row['departamento'];
+
 
 
 						$i += 1;
@@ -56,6 +60,7 @@ if ($result = $conexion->query($sql)) {
 				$_SESSION['student_name'] = array();
 				$_SESSION['student_cedula'] = array();
 				$_SESSION['email'] = array();
+				$_SESSION['student_departamento'] = array();
 
 				$_SESSION['student_date'] = array();
 
@@ -70,6 +75,8 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
 						$_SESSION['email'][$i] = $row['email'];
 						$_SESSION['student_date'][$i] = $row['admission_date'];
+						$_SESSION['student_departamento'][$i] = $row['departamento'];
+
 
 						$i += 1;
 					}

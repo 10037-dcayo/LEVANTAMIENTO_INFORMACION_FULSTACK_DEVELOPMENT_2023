@@ -48,6 +48,7 @@ if (!empty($_POST['search'])) {
 	$_SESSION['user_type'] = array();
 	$_SESSION['user_rol'] = array();
 
+
 	$i = 0;
 
 	$sql = "SELECT * FROM users ORDER BY user LIMIT $inicio, $max";
