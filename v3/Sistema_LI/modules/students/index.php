@@ -15,11 +15,11 @@ if (!empty($_POST['btn'])) {
 	$view_form = $_POST['btn'] . '.php';
 
 	if ($view_form == 'form_default.php') {
-		include_once 'unset.php';
+		include_once '../subjects/unset.php';
 	}
 } else {
 	$view_form = 'form_default.php';
-	include_once 'unset.php';
+	include_once '../subjects/unset.php';
 }
 
 // Pagina actual
