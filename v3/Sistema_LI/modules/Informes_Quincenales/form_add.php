@@ -1,5 +1,6 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
+include_once '../conexion.php';
 
 $sql = "SELECT * FROM users WHERE user = '" . $_SESSION['user'] . "'";
 
@@ -9,38 +10,58 @@ if ($result = $conexion->query($sql)) {
     }
 }
 
-if (isset($_POST['btnSave'])) {
-    // obtener los datos del formulario
-    $user_id = $_POST['txtuserid'];
-    $pdf_descripcion = $_POST['txtdescripcion'];
-    $pdf_archivo = $_FILES['pdf_archivo']['tmp_name']; // archivo PDF cargado
 
-    // verificar si se cargó un archivo PDF
-    if (!empty($pdf_archivo)) {
-        // Verificar si hubo errores al subir el archivo
-        if ($_FILES["pdf_archivo"]["error"] == 0) {
-            // leer el archivo PDF y codificarlo como base64
-            $pdf_base64 = base64_encode(file_get_contents($pdf_archivo));
+//
+$id = $_SESSION["user_id"];
+echo "Mi id es: " . $id;
 
-            // crear carpeta si no existe
-            $directory = "./uploads/" . $user_id;
-            if (!is_dir($directory)) {
-                mkdir($directory, 0777, true);
-            }
 
-            // guardar archivo en la carpeta con el nombre del user_id
-            $file_name = basename($_FILES["pdf_archivo"]["name"]);
-            $file_path = $directory . "/" . $file_name;
-            if (move_uploaded_file($pdf_archivo, $file_path)) {
-                // archivo guardado correctamente
-            } else {
-                // hubo un error al guardar el archivo
-            }
-        } else {
-            // hubo un error al subir el archivo
+    
+        $ruta = 'informesquincenalespdf/'. $id . '/'; /*Ruta donde se va guardar el archivo*/
+        $archivo=$ruta . $_FILES["archivo"]["name"];
+        if(!file_exists($ruta)){  /*Creando la ruta en caso de que no exista*/
+            mkdir($ruta);
         }
+        if(!file_exists($archivo)){
+            $resultado=@move_uploaded_file($_FILES["archivo"]["tmp_name"],$archivo); /*Me ayuda a mover el archivo a una ruta indicada*/
+            if($resultado){
+                echo "Archivo guardado correctamente";
+
+            }else{
+                echo "Error al guardar el archivo";
+
+            }
+
+        }else{
+            echo "Archivo ya existe";
+        }
+  
+
+
+/*$target_dir = "informesquincenalespdf/" . $id . "/";
+if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+}
+
+// Obtener el archivo PDF enviado
+$target_file = $target_dir . basename($_FILES["archivo"]["name"]);
+$fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+// Verificar que es un archivo PDF
+if ($fileType != "pdf") {
+    echo "Solo se permiten archivos PDF.";
+} else {
+    // Almacenar el archivo PDF en la carpeta
+    if (move_uploaded_file($_FILES["archivo"]["tmp_name"], $target_file)) {
+        echo "El archivo ". basename( $_FILES["archivo"]["name"]). " ha sido almacenado.";
+    } else {
+        echo "Ocurrió un error al cargar el archivo.";
     }
 }
+*/    
+		
+
+
 
 function unique_id($l = 10)
 {
@@ -55,7 +76,7 @@ $id_generate = 'Q-' . unique_id(5);
         <h1 class="titulo">Agregar</h1>
     </div>
     <div class="body">
-        <form name="form-add-students" action="insert.php" method="POST" autocomplete="off" autocapitalize="on">
+        <form  action="insert.php" method="POST" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
             <div class="wrap">
                 <div class="first">
                     <label for="txtuserid" class="label">Usuario</label>
@@ -71,12 +92,12 @@ $id_generate = 'Q-' . unique_id(5);
                     </div>
                     <div class="first">
                     <label for="txtuserarchivo" class="label">Archivo</label>
-                    <input id="txtuserarchivo" class="text" type="file" name="pdf_archivo" accept="application/pdf" required />
+                    <input type="file" class="text" id="archivo" name="archivo" accept="application/pdf">
 
                     </div>
                     </div>
             
-            <button id="btnSave" class="btn icon" type="submit">save</button>
+            <button class="btn icon" type="submit">save</button>
         </form>
     </div>
 </div>

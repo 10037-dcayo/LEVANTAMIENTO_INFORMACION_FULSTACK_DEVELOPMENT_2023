@@ -13,7 +13,7 @@ if ($result = $conexion->query($sql)) {
         exit();
     } else {
         $date = date('Y-m-d H:i:s');
-        $sql_insert = "INSERT INTO infoq (user, num, archivo, description, created_at, updated_at) VALUES ('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtnum']) . "', '" . trim($_POST['pdf_archivo']) . "', '" . trim($_POST['txtinfoqdescription']) . "','" . $date . "', '" . $date . "')";
+        $sql_insert = "INSERT INTO infoq (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtnum']) . "', '" . trim($_POST['archivo']) . "', '" . trim($_POST['txtinfoqdescription']) . "','" . $date . "', '" . $date . "')";
 
         if (mysqli_query($conexion, $sql_insert)) {
             Info('Archivo creado.');
@@ -29,3 +29,8 @@ if ($result = $conexion->query($sql)) {
     header('Location: /modules/Informes_Quincenales');
     exit();
 }
+
+
+
+
+

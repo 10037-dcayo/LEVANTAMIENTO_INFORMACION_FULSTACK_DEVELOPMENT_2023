@@ -26,8 +26,8 @@ if (!empty($_POST['search'])) {
 		while ($row = mysqli_fetch_array($result)) {
 			$_SESSION['user_id'][$i] = $row['user'];
 			$_SESSION['num'][$i] = $row['num'];
-			$_SESSION['infoq_archivo'][$i] = $row['archivo'];
-			$_SESSION['infoq_description'][$i] = $row['description'];
+			$_SESSION['infoq_archivo'][$i] = $row['archivopdf'];
+			$_SESSION['infoq_description'][$i] = $row['descripcion'];
 
 			$i += 1;
 		}
@@ -46,7 +46,7 @@ if (!empty($_POST['search'])) {
 		while ($row = mysqli_fetch_array($result)) {
 			$_SESSION['user_id'][$i] = $row['user'];
 			$_SESSION['num'][$i] = $row['num'];
-			$_SESSION['infoq_archivo'][$i] = $row['archivo'];
+			$_SESSION['infoq_archivo'][$i] = $row['archivopdf'];
 
 			$i += 1;
 		}
