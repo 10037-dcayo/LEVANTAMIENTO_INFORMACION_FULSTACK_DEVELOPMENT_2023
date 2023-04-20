@@ -11,31 +11,9 @@ if ($result = $conexion->query($sql)) {
 }
 
 
-//
-$id = $_SESSION["user_id"];
-echo "Mi id es: " . $id;
 
-
-    
-        $ruta = 'informesquincenalespdf/'. $id . '/'; /*Ruta donde se va guardar el archivo*/
-        $archivo=$ruta . $_FILES["archivo"]["name"];
-        if(!file_exists($ruta)){  /*Creando la ruta en caso de que no exista*/
-            mkdir($ruta);
-        }
-        if(!file_exists($archivo)){
-            $resultado=@move_uploaded_file($_FILES["archivo"]["tmp_name"],$archivo); /*Me ayuda a mover el archivo a una ruta indicada*/
-            if($resultado){
-                echo "Archivo guardado correctamente";
-
-            }else{
-                echo "Error al guardar el archivo";
-
-            }
-
-        }else{
-            echo "Archivo ya existe";
-        }
-  
+//$id = $_SESSION["user_id"];
+//echo "Mi id es: " . $id;
 
 
 /*$target_dir = "informesquincenalespdf/" . $id . "/";
@@ -76,18 +54,18 @@ $id_generate = 'Q-' . unique_id(5);
         <h1 class="titulo">Agregar</h1>
     </div>
     <div class="body">
-        <form  action="insert.php" method="POST" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
+        <form  action="insert.php" method="post" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
             <div class="wrap">
                 <div class="first">
                     <label for="txtuserid" class="label">Usuario</label>
-                    <input id="txtuserid" style="display: none;" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
+                    <input id="txtuserid" style="display: none;" type="text" name="userid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
                     <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
                     <label for="txtinfoqdescription" class="label">Descripción</label>
-                    <input id="txtinfoqdescription" maxlength="2000" class="textarea" type="text" name="txtinfoqdescription" data-expandable/>
+                    <input id="txtinfoqdescription" maxlength="2000" class="textarea" type="text" name="descripcion" data-expandable/>
                     </div>
                     <div class="first">
                     <label for="txtusernum" class="label">N°PDF</label>
-                    <input id="txtusernum" class="text" style=" display: none;" type="text" name="txtnum" value="<?php echo $id_generate; ?>" maxlength="50" required />
+                    <input id="txtusernum" class="text" style=" display: none;" type="text" name="num" value="<?php echo $id_generate; ?>" maxlength="50" required />
                     <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />     
                     </div>
                     <div class="first">

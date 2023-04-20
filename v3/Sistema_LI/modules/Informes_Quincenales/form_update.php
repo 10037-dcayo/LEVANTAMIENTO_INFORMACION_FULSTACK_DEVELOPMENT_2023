@@ -7,8 +7,8 @@ if ($result = $conexion->query($sql)) {
     if ($row = mysqli_fetch_array($result)) {
         $_SESSION['user_id'] = $row['user'];
         $_SESSION['num'] = $row['num'];
-        $_SESSION['infoq_description'] = $row['description'];
-        $_SESSION['infoq_archivo'] = $row['archivo'];
+        $_SESSION['infoq_description'] = $row['descripcion'];
+        $_SESSION['infoq_archivo'] = $row['archivopdf'];
     }
 }
 ?>
