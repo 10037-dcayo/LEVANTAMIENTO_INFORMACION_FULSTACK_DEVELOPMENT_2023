@@ -41,6 +41,27 @@ $id = $_SESSION["user_id"];
                     <label for="txtinfoqdescription" class="label">Descripción</label>
                     <textarea id="txtinfoqdescription" class="textarea" name="txtinfoqdescription" placeholder="Seleccione fechas" style="height: 200px; width: 400px; font-size: 16px;" readonly wrap="soft" disabled><?php echo $_SESSION['infoq_description']; ?></textarea>
                     </div>
+
+                    <div>
+                    <?php 
+                                 $path = 'informesquincenalespdf/' . $id;
+                                 if(file_exists($path)){
+                                        $directorio= opendir($path);
+                                        while($archivo=readdir($directorio)){
+                                            if(!is_dir($archivo)){
+                                                echo "<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
+                                                title='Ver archivo adjunto'class='btn btn-primary' target='_blank'><img src='../../../images/iconos/pdf.png'> Ver</a>";
+                                                echo " $archivo";
+                                            }
+                                        }
+                                    }
+                                
+                        ?>
+                        <!------------------------------------------------------------------>
+
+                    </div>
+
+                   
                 
             </div>
 
