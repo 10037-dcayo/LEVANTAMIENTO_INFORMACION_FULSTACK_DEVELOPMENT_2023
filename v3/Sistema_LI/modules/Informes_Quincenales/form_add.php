@@ -70,8 +70,7 @@ $id_generate = 'Q-' . unique_id(5);
                     </div>
                     <div class="first">
                     <label for="txtuserarchivo" class="label">Archivo</label>
-                    <input type="file" class="text" id="archivo" name="archivo" accept="application/pdf">
-
+                    <input type="file" class="text" id="archivo" name="archivo" accept="application/pdf" required>
                     </div>
                     </div>
             

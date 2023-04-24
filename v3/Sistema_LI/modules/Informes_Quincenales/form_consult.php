@@ -11,6 +11,8 @@ if ($result = $conexion->query($sql)) {
         $_SESSION['infoq_archivo'] = $row['archivopdf'];
     }
 }
+
+$id = $_SESSION["user_id"];
 ?>
 
 <div class="form-data">
@@ -26,30 +28,32 @@ if ($result = $conexion->query($sql)) {
                     <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" disabled />
                     <label class="label">N°PDF</label>
                     <input style="display: none;" type="text" name="btn" value="form_default" />
-                    <input class="text" type="text" name="txtnum" value="<?php echo $_SESSION['num']; ?>" disabled />                    
-                    </div>
+                    <input class="text" type="text" name="txtnum" value="<?php echo $_SESSION['num']; ?>" disabled />
+                             
+                </div>
                     <div class="first">
                     <label for="txtuserarchivo" class="label">Archivo</label>
                     <input id="txtuserarchivo" class="text" type="text" name="pdf_archivo" value="<?php echo $_SESSION['infoq_archivo']; ?>" accept="application/pdf" disabled />
-                    <button class="btn icon" style=" border: 0.5px solid #ccc; border-radius: 100px; padding: 6px 10px; margin-left: 10px;" type="button" onclick="viewPDF()"><i class="fa fa-search"></i></button>
-                    <a href="download_pdf?pdf=<?php echo $_SESSION['infoq_archivo']; ?>" class="btn icon" style="display: flex; justify-content: center; align-items: center; border: 0.5px solid #ccc; border-radius: 1000px; padding: 1px 1px; margin-left: 200px;"><i class="fa fa-download"></i></a>
+                    <!--<button class="btn icon" style=" border: 0.5px solid #ccc; border-radius: 100px; padding: 6px 10px; margin-left: 10px;" type="button" onclick="viewPDF()"><i class="fa fa-search"></i></button>
+                    <a href="download_pdf?pdf=<?php echo $_SESSION['infoq_archivo']; ?>" class="btn icon" style="display: flex; justify-content: center; align-items: center; border: 0.5px solid #ccc; border-radius: 1000px; padding: 1px 1px; margin-left: 200px;"><i class="fa fa-download"></i></a>-->
                     </div>
                     <div class="last">
                     <label for="txtinfoqdescription" class="label">Descripción</label>
-                    <textarea id="txtinfoqdescription" class="textarea" name="txtinfoqdescription" placeholder="Seleccione fechas" style="height: 200px; width: 500px; font-size: 16px;" readonly wrap="soft" disabled><?php echo $_SESSION['infoq_description']; ?></textarea>
-                </div>
+                    <textarea id="txtinfoqdescription" class="textarea" name="txtinfoqdescription" placeholder="Seleccione fechas" style="height: 200px; width: 400px; font-size: 16px;" readonly wrap="soft" disabled><?php echo $_SESSION['infoq_description']; ?></textarea>
+                    </div>
+                
             </div>
 
             <button id="btnSave" class="btn icon" type="submit" autofocus>done</button>
         </form>
-    </div>
-</div>
+    </div>                    
+ </div>
 <div class="content-aside">
     <?php include_once "../sections/options-disabled.php"; ?>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="/js/modules/students.js" type="text/javascript"></script>
-<script>
+<!--<script>
 function viewPDF() {
     var pdfBlob = new Blob([base64ToArrayBuffer('<?php echo base64_encode(base64_decode($_SESSION['infoq_archivo'])); ?>')], {type: 'application/pdf'});
     var pdfUrl = URL.createObjectURL(pdfBlob);
@@ -66,4 +70,4 @@ function base64ToArrayBuffer(base64) {
     }
     return bytes.buffer;
 }
-</script>
+</script>-->

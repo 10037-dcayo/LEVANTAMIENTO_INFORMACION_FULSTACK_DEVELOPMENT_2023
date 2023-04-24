@@ -14,33 +14,39 @@ if ($result = $conexion->query($sql)) {
 }
 
 
+$archivopdf = $_FILES["archivo"]["name"]; //$_FILES["archivo"]["name"] Permite obtener el nombre del archivo
 
-$sql = "SELECT * FROM infoq WHERE num = '" . $_POST['txtnum'] . "'";
-if ($result = $conexion->query($sql)) {
-    if ($row = mysqli_fetch_array($result)) {
-        Error('Ya existe un archivo con este ID.');
+
+$sql = "SELECT archivopdf FROM infoq";  //Realizamos la consulta para obtener el nombre del archivo pdf
+$result = $conexion->query($sql); //Realiza la consulta la base de datos
+$row = mysqli_fetch_array($result);//Devuelve los datos de una fila en forma de array
+$_SESSION['infoq_archivo']=$row['archivopdf'];//Almacenamos en la sesion el nombre del archivo del campo archivopdf
+$nombrePDF=$_SESSION['infoq_archivo'];//Almacenamos su contenido en la variable $nombrePDF
+    if ($nombrePDF==$archivopdf) {
+        Info('Ya existe un archivo con el nombre.');
         header('Location: /modules/Informes_Quincenales');
         exit();
     } else {
 
-        
+	//Accedemos a los datos enviados mediante $_POST
     $usuario = $_POST['userid'];
 	$numeroDePDF = $_POST['num'];
-	$archivopdf = $_POST['archivo'];
 	$descripcion = $_POST['descripcion'];
 	$date = date('Y-m-d H:i:s');
 	
-	
+	//Realizamos la inserción de datos en la base de datos y alojamos el PDF en una carperta que se crea
+	//a partir del user
 	$sql = "INSERT INTO infoq (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date')";
 	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];
     echo "Mi id es: " . $id;
 
 	if($_FILES["archivo"]["error"]>0){     //Para recibir archivos
-		echo "Error al cargar el archivo";
+		//echo "Error al cargar el archivo";
+		Info ("Error al cargar el archivo");
 	}else{
 		$permitidos= array("application/pdf"); //Solo recibe pdf
-		$limite_kb=1000;
+		$limite_kb=2000;
 		if(in_array($_FILES["archivo"]["type"],$permitidos) && $_FILES["archivo"]["size"]<=$limite_kb*1024){
 			$ruta = 'informesquincenalespdf/'. $id . '/'; //Ruta donde se va guardar el archivo
 			$archivo=$ruta . $_FILES["archivo"]["name"];
@@ -67,7 +73,9 @@ if ($result = $conexion->query($sql)) {
 				//echo "Archivo ya existe";
 			}
 		}else{
-			echo "Archivo no permitido, excede el tamaño";
+
+			Info ("Archivo no permitido, excede el tamaño");
+			//echo "Archivo no permitido, excede el tamaño";
 		}
 	}
 
@@ -82,11 +90,6 @@ if ($result = $conexion->query($sql)) {
         
         header('Location: /modules/Informes_Quincenales');
         exit();
-    }
-} else {
-    Error('Error en la consulta.');
-    header('Location: /modules/Informes_Quincenales');
-    exit();
 }
 
 

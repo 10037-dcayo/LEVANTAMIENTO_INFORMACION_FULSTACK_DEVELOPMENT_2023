@@ -1,5 +1,14 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
+include_once '../conexion.php';
+
+$sql="SELECT descripcion FROM infoq";
+if ($resultado = $conexion->query($sql)) {
+    if ($row = mysqli_fetch_array($resultado)) {
+        $_SESSION['infoq_description'] = $row['descripcion'];
+    }
+}
+
 ?>
 <div class="form-gridview">
 	<table class="default">
@@ -27,7 +36,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 		    		<tr>
 		    			<td>' . $_SESSION["user_id"][$i] . '</td>
 						<td>' . $_SESSION["num"][$i] . '</td>
-						<td class="center">' . $_SESSION["infoq_description"][$i] . '</td>
+						<td class="center">' . $_SESSION["infoq_description"] . '</td>
 						<td>' . $_SESSION["infoq_archivo"][$i] . '</td>
 						<td>
 							<form action="" method="POST">
@@ -83,3 +92,5 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 	include_once "../sections/options.php";
 	?>
 </div>
+
+<!--<td class="center">' . $_SESSION["infoq_description"][$i] . '</td>--> <!--en la linea 30-->
