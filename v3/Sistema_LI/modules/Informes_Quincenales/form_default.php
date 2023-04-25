@@ -16,13 +16,9 @@ if ($resultado = $conexion->query($sql)) {
 		if ($_SESSION['total_infoq'] != 0) {
 			echo '
 					<tr>
-						<th>Usuario</th>
-						<th>N°PDF</th>
-						<th class="center" style="width: 80px;">Descripción</th>
-						<th>Archivo Subido</th>
-						<th class="center"><a class="icon">visibility</a></th>
-						<th class="center"><a class="icon">edit</a></th>
-						<th class="center"><a class="icon">delete</a></th>
+						<th class="center" style="width: 15000px">Nombre archivo</th>
+						<th>Visualizar</th>
+						
 			';
 			if ($_SESSION['permissions'] != 'editor') {
 				echo '<th class="center"><a class="icon">delete</a></th>';
@@ -31,8 +27,28 @@ if ($resultado = $conexion->query($sql)) {
 					</tr>
 			';
 		}
-		for ($i = 0; $i < $_SESSION['total_infoq']; $i++) {
-			echo '
+	//	for ($i = 0; $i < $_SESSION['total_infoq']; $i++) {
+			
+			$path = 'informesquincenalespdf/' . $_SESSION["user"];
+                if(file_exists($path)){
+                    $directorio= opendir($path);
+                    while($archivo=readdir($directorio)){
+                        if(!is_dir($archivo)){
+                            
+                            echo "
+                            	<tr>
+                            		<td>$archivo</td>	
+                            		<td> 
+                            			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
+                                    title='Ver archivo adjunto' class='btn btn-primary' target='_blank'><img src='../../../images/iconos/pdf.png'></a></td>
+                                    
+                                </tr>";
+                            //echo " $archivo";                                    
+                        }
+                    }
+                }
+
+	/*		echo '
 		    		<tr>
 		    			<td>' . $_SESSION["user_id"][$i] . '</td>
 						<td>' . $_SESSION["num"][$i] . '</td>
@@ -58,7 +74,7 @@ if ($resultado = $conexion->query($sql)) {
 						</td>
 					</tr>
 				';
-		}
+		}*/
 		?>
 	</table>
 	<?php
@@ -84,7 +100,11 @@ if ($resultado = $conexion->query($sql)) {
 				</div>
 		';
 	}
+
+
 	?>
+
+
 </div>
 <div class="content-aside">
 	<?php
