@@ -63,7 +63,7 @@ if (strpos($url_actual, 'modules')) {
         <h1>Bienvenido a la plataforma de</h1>
         <h1>Levantamiento de Información</h1>
         <br>
-        <img src="../images/acnur_logo.png" style="align-content: center;" />
+        <img src="../../images/acnur_logo.png" style="align-content: center;" /> <!--Logo acnur para las secciones-->
     </div>
 
 </div>

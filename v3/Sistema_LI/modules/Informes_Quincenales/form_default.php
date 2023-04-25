@@ -16,8 +16,9 @@ if ($resultado = $conexion->query($sql)) {
 		if ($_SESSION['total_infoq'] != 0) {
 			echo '
 					<tr>
-						<th class="center" style="width: 15000px">Nombre archivo</th>
-						<th>Visualizar</th>
+						<th class="center" style="width: 250px">Nombre archivo</th>
+						<th >Descripción</th>
+						<th >Ver</th>
 						
 			';
 			if ($_SESSION['permissions'] != 'editor') {
@@ -28,6 +29,7 @@ if ($resultado = $conexion->query($sql)) {
 			';
 		}
 	//	for ($i = 0; $i < $_SESSION['total_infoq']; $i++) {
+
 			
 			$path = 'informesquincenalespdf/' . $_SESSION["user"];
                 if(file_exists($path)){
@@ -38,16 +40,16 @@ if ($resultado = $conexion->query($sql)) {
                             echo "
                             	<tr>
                             		<td>$archivo</td>	
+									<td >" . $_SESSION['infoq_description'] . "</td>
                             		<td> 
                             			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
-                                    title='Ver archivo adjunto' class='btn btn-primary' target='_blank'><img src='../../../images/iconos/pdf.png'></a></td>
+                                    title='Ver archivo adjunto' class=' btn btn-primary' target='_blank'><img src='../../../images/iconos/pdf.png'></a></td>
                                     
                                 </tr>";
                             //echo " $archivo";                                    
                         }
                     }
                 }
-
 	/*		echo '
 		    		<tr>
 		    			<td>' . $_SESSION["user_id"][$i] . '</td>

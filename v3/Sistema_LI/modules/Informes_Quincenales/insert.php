@@ -46,7 +46,7 @@ $nombrePDF=$_SESSION['infoq_archivo'];//Almacenamos su contenido en la variable 
 		Info ("Error al cargar el archivo");
 	}else{
 		$permitidos= array("application/pdf"); //Solo recibe pdf
-		$limite_kb=2000;//Limite del pdf para ser guardado en la carpeta del estudiante
+		$limite_kb=4000;//Limite del pdf para ser guardado en la carpeta del estudiante
 		if(in_array($_FILES["archivo"]["type"],$permitidos) && $_FILES["archivo"]["size"]<=$limite_kb*1024){
 			$ruta = 'informesquincenalespdf/'. $id . '/'; //Ruta donde se va guardar el archivo
 			$archivo=$ruta . $_FILES["archivo"]["name"];
