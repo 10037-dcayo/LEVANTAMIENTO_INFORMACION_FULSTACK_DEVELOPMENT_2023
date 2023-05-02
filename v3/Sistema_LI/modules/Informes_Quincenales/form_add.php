@@ -61,7 +61,8 @@ $id_generate = 'Q-' . unique_id(5);
                     <input id="txtuserid" style="display: none;" type="text" name="userid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
                     <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
                     <label for="txtinfoqdescription" class="label">Descripción</label>
-                    <input id="txtinfoqdescription" maxlength="2000" class="textarea" type="text" name="descripcion" data-expandable/>
+                    <!--<input id="txtinfoqdescription" maxlength="2000" class="textarea" type="text" name="descripcionn" data-expandable disabled/>-->
+                    <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10" readonly>Enviado para su revisión</textarea>
                     </div>
                     <div class="first">
                     <label for="txtusernum" class="label">N°PDF</label>

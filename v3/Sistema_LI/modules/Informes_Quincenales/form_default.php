@@ -16,9 +16,9 @@ if ($resultado = $conexion->query($sql)) {
 		if ($_SESSION['total_infoq'] != 0) {
 			echo '
 					<tr>
-						<th class="center" style="width: 250px">Nombre archivo</th>
-						<th >Descripción</th>
-						<th >Ver</th>
+						<th class="center" style="width: 800px">Nombre archivo</th>
+						<th class="center" style="width: 70px">Descripción</th>
+				        <th class="center"><a class="icon">visibility</a></th>
 						
 			';
 			if ($_SESSION['permissions'] != 'editor') {
@@ -39,12 +39,11 @@ if ($resultado = $conexion->query($sql)) {
                             
                             echo "
                             	<tr>
-                            		<td>$archivo</td>	
-									<td >" . $_SESSION['infoq_description'] . "</td>
+                            		<td>$archivo</td>
+									<td> " . $_SESSION['infoq_description'] . "</td>	
                             		<td> 
                             			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
-                                    title='Ver archivo adjunto' class=' btn btn-primary' target='_blank'><img src='../../../images/iconos/pdf.png'></a></td>
-                                    
+                                    title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' value='form_consult' type='submit'></button></td>
                                 </tr>";
                             //echo " $archivo";                                    
                         }
