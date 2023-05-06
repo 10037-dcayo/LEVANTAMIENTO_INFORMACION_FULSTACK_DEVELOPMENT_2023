@@ -1,10 +1,11 @@
 <?php
 include_once 'security.php';
 ?>
+<!--Botones habilitados y desabilitados-->
 <div class="form-options">
 	<div class="options">
 		<form action="" method="POST">
-			<button class="btn btn-disabled icon" name="btn" value="form_add" type="submit" disabled>add</button>
+			<button class="btn btn-add icon" name="btn" value="form_add" type="submit" title="Añadir archivo" >add</button>
 		</form>
 		<form action="" method="POST">
 			<button class="btn btn-disabled icon" name="btn" value="form_coding" type="submit" disabled>code</button>
@@ -13,7 +14,7 @@ include_once 'security.php';
 			<button class="btn btn-disabled icon" name="btn" value="form_printer" type="submit" disabled>print</button>
 		</form>
 		<form action="" method="POST">
-			<button id="btnExitOptions" class="btn btn-exit icon" name="btn" value="form_default" type="submit">close</button>
+			<button id="btnExitOptions" class="btn btn-disabled icon" name="btn" value="form_default" type="submit">close</button>
 		</form>
 	</div>
 	<div class="search">

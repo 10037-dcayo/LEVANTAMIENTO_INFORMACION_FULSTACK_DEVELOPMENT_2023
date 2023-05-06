@@ -65,7 +65,9 @@ if (strpos($url_actual, 'modules')) {
         <li><a class="<?php if ($output[1] == 'Informes_Quincenales') {
                             echo 'active';
                         } ?>" href="/modules/Informes_Quincenales"><span class="icon">recent_actors</span>Informes_Quincenales</a></li>
-        <li><a class="" href=""><span class="icon">library_books</span>Justificaciones</a></li>
+        <li><a class="<?php if ($output[1] == 'Justificaciones') {
+                            echo 'active';
+                        } ?>" href="/modules/Justificaciones"><span class="icon">library_books</span>Justificaciones</a></li>
         <li><a class="" href=""><span class="icon">recent_actors</span>Envio_1</a></li>
         <li><a class="" href=""><span class="icon">recent_actors</span>Envio_2</a></li>
         
