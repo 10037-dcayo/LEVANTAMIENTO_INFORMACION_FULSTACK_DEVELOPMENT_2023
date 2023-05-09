@@ -10,37 +10,6 @@ if ($result = $conexion->query($sql)) {
     }
 }
 
-
-
-//$id = $_SESSION["user_id"];
-//echo "Mi id es: " . $id;
-
-
-/*$target_dir = "informesquincenalespdf/" . $id . "/";
-if (!file_exists($target_dir)) {
-    mkdir($target_dir, 0777, true);
-}
-
-// Obtener el archivo PDF enviado
-$target_file = $target_dir . basename($_FILES["archivo"]["name"]);
-$fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-// Verificar que es un archivo PDF
-if ($fileType != "pdf") {
-    echo "Solo se permiten archivos PDF.";
-} else {
-    // Almacenar el archivo PDF en la carpeta
-    if (move_uploaded_file($_FILES["archivo"]["tmp_name"], $target_file)) {
-        echo "El archivo ". basename( $_FILES["archivo"]["name"]). " ha sido almacenado.";
-    } else {
-        echo "Ocurrió un error al cargar el archivo.";
-    }
-}
-*/    
-		
-
-
-
 function unique_id($l = 10)
 {
     return substr(md5(uniqid(mt_rand(), true)), 0, $l);
