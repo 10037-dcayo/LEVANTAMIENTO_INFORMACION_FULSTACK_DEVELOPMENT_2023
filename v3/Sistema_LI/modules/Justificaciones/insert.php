@@ -37,7 +37,7 @@ $nombrePDF=$_SESSION['infoq_archivo'];//Almacenamos su contenido en la variable 
 	//Realizamos la inserción de datos en la base de datos y alojamos el PDF en una carperta que se crea
 	//a partir del user
 	$sql = "INSERT INTO justificaciones (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date')";
-	//$resultado = $conexion->query($sql);
+	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];
     echo "Mi id es: " . $id;
 
@@ -83,50 +83,6 @@ $nombrePDF=$_SESSION['infoq_archivo'];//Almacenamos su contenido en la variable 
         header('Location: /modules/Justificaciones');
         exit();
 }
-
-
-//Codigo que funciona
-
-    /*$usuario = $_POST['userid'];
-	$numeroDePDF = $_POST['num'];
-	$archivopdf = $_POST['archivo'];
-	$descripcion = $_POST['descripcion'];
-	$date = date('Y-m-d H:i:s');
-	
-	
-	$sql = "INSERT INTO infoq (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date')";
-	$resultado = $conexion->query($sql);
-    $id = $_SESSION["user_id"];
-    echo "Mi id es: " . $id;
-
-	if($_FILES["archivo"]["error"]>0){     //Para recibir archivos
-		echo "Error al cargar el archivo";
-	}else{
-		$permitidos= array("application/pdf"); //Solo recibe pdf
-		$limite_kb=1000;
-		if(in_array($_FILES["archivo"]["type"],$permitidos) && $_FILES["archivo"]["size"]<=$limite_kb*1024){
-			$ruta = 'informesquincenalespdf/'. $id . '/'; //Ruta donde se va guardar el archivo
-			$archivo=$ruta . $_FILES["archivo"]["name"];
-			if(!file_exists($ruta)){  //Creando la ruta en caso de que no exista
-				mkdir($ruta);
-			}
-			if(!file_exists($archivo)){
-				$resultado=@move_uploaded_file($_FILES["archivo"]["tmp_name"],$archivo); //Me ayuda a mover el archivo a una ruta indicada
-				if($resultado){
-					echo "Archivo guardado correctamente";
-
-				}else{
-					echo "Error al guardar el archivo";
-
-				}
-
-			}else{
-				echo "Archivo ya existe";
-			}
-		}else{
-			echo "Archivo no permitido, excede el tamaño";
-		}
-	}*/
 
 
 ?>
