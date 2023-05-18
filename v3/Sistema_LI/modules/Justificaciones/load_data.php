@@ -15,8 +15,8 @@ if (!empty($_POST['search'])) {
 
 	$_SESSION['user_id'] = array();
 	$_SESSION['num'] = array();
-	$_SESSION['infoq_archivo'] = array();
-	$_SESSION['infoq_description'] = array();
+	$_SESSION['justificaciones_archivo'] = array();
+	$_SESSION['justificaciones_description'] = array();
 
 	$i = 0;
 
@@ -26,8 +26,8 @@ if (!empty($_POST['search'])) {
 		while ($row = mysqli_fetch_array($result)) {
 			$_SESSION['user_id'][$i] = $row['user'];
 			$_SESSION['num'][$i] = $row['num'];
-			$_SESSION['infoq_archivo'][$i] = $row['archivopdf'];
-			$_SESSION['infoq_description'][$i] = $row['descripcion'];
+			$_SESSION['justificaciones_archivo'][$i] = $row['archivopdf'];
+			$_SESSION['justificaciones_description'][$i] = $row['descripcion'];
 
 			$i += 1;
 		}
@@ -36,7 +36,7 @@ if (!empty($_POST['search'])) {
 } else {
 	$_SESSION['user_id'] = array();
 	$_SESSION['num'] = array();
-	$_SESSION['infoq_archivo'] = array();
+	$_SESSION['justificaciones_archivo'] = array();
 
 	$i = 0;
 
@@ -46,10 +46,10 @@ if (!empty($_POST['search'])) {
 		while ($row = mysqli_fetch_array($result)) {
 			$_SESSION['user_id'][$i] = $row['user'];
 			$_SESSION['num'][$i] = $row['num'];
-			$_SESSION['infoq_archivo'][$i] = $row['archivopdf'];
+			$_SESSION['justificaciones_archivo'][$i] = $row['archivopdf'];
 
 			$i += 1;
 		}
 	}
-	$_SESSION['total_infoq'] = count($_SESSION['num']);
+	$_SESSION['total_justificaciones'] = count($_SESSION['num']);
 }
