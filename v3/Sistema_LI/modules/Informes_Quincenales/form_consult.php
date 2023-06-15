@@ -34,9 +34,6 @@ $id = $_SESSION["user_id"];
                 <div class="first">
                     <label for="txtuserarchivo" class="label">Archivo</label>
                     <input id="txtuserarchivo" class="text" type="text" name="pdf_archivo" value="<?php echo $_SESSION['infoq_archivo']; ?>" accept="application/pdf" disabled />
-                    <!--<button class="btn icon" style=" border: 0.5px solid #ccc; border-radius: 100px; padding: 6px 10px; margin-left: 10px;" type="button" onclick="viewPDF()"><i class="fa fa-search"></i></button>
-                    <a href="download_pdf?pdf=<?php echo $_SESSION['infoq_archivo']; ?>" class="btn icon" style="display: flex; justify-content: center; align-items: center; border: 0.5px solid #ccc; border-radius: 1000px; padding: 1px 1px; margin-left: 200px;"><i class="fa fa-download"></i></a>-->
-
                     <label for="txtinfoqdescription" class="label">Descripción</label>
                     <input id="txtinfoqdescription" class="text" type="text" name="txtinfoqdescription" value="<?php echo $_SESSION['infoq_description']; ?>" accept="application/pdf" disabled />
                     
@@ -75,21 +72,3 @@ $id = $_SESSION["user_id"];
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="/js/modules/students.js" type="text/javascript"></script>
-<!--<script>
-function viewPDF() {
-    var pdfBlob = new Blob([base64ToArrayBuffer('<?php echo base64_encode(base64_decode($_SESSION['infoq_archivo'])); ?>')], {type: 'application/pdf'});
-    var pdfUrl = URL.createObjectURL(pdfBlob);
-    var newWindow = window.open('', '_blank', 'height=600,width=800');
-    newWindow.document.write('<iframe src="' + pdfUrl + '" width="100%" height="100%"></iframe>');
-}
-
-function base64ToArrayBuffer(base64) {
-    var binaryString = window.atob(base64);
-    var binaryLen = binaryString.length;
-    var bytes = new Uint8Array(binaryLen);
-    for (var i = 0; i < binaryLen; i++) {
-        bytes[i] = binaryString.charCodeAt(i);
-    }
-    return bytes.buffer;
-}
-</script>-->

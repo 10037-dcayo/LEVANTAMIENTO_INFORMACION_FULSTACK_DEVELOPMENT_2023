@@ -8,28 +8,24 @@ header('Cache-Control: no-cache, must-revalidate, max-age=0');
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');
 
-//Permisos de administrador y editor
+
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-// Formulario actual
 if (!empty($_POST['btn'])) {
 	$view_form = $_POST['btn'] . '.php';
 } else {
 	$view_form = 'form_default.php';
 }
 
-// Pagina actual
 if (!empty($_POST['page'])) {
 	$page = $_POST['page'];
 } else {
 	$page = 1;
 }
 
-// Numero de registros a visualizar
 $max = 50;
 $inicio = ($page - 1) * $max;
 
-// Cargar datos de Alumnos
 include_once 'load_data.php';
 ?>
 <!DOCTYPE html>
@@ -37,7 +33,8 @@ include_once 'load_data.php';
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
 	<meta name="robots" content="noindex">
 	<meta name="google" value="notranslate">
 	<link rel="icon" type="image/png" href="/images/icon.png" />
@@ -52,7 +49,7 @@ include_once 'load_data.php';
 	<script src="/js/controls/unsetnotif.js" type="text/javascript"></script>
 	<script src="/js/external/select2.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		$(window).load(function() {
+		$(window).load(function () {
 			$(".loader").fadeOut("slow");
 		});
 	</script>
@@ -71,7 +68,7 @@ include_once 'load_data.php';
 			include_once '../sections/section-admin.php';
 		} elseif (!empty($_SESSION['section-editor']) == 'go-' . $_SESSION['user']) {
 			include_once '../sections/section-editor.php';
-		}elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
+		} elseif (!empty($_SESSION['section-student']) == 'go-' . $_SESSION['user']) {
 			include_once '../sections/section-student.php';
 		}
 

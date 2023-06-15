@@ -86,4 +86,3 @@ $nombrePDF=$_SESSION['infoq_archivo'];//Almacenamos su contenido en la variable 
 
 
 ?>
-
