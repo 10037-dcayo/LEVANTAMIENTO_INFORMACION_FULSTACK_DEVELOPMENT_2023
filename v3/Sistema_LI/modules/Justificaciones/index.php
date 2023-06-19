@@ -8,28 +8,28 @@ header('Cache-Control: no-cache, must-revalidate, max-age=0');
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');
 
-//Permisos de administrador y editor
+
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-// Formulario actual
+
 if (!empty($_POST['btn'])) {
 	$view_form = $_POST['btn'] . '.php';
 } else {
 	$view_form = 'form_default.php';
 }
 
-// Pagina actual
+
 if (!empty($_POST['page'])) {
 	$page = $_POST['page'];
 } else {
 	$page = 1;
 }
 
-// Numero de registros a visualizar
+
 $max = 50;
 $inicio = ($page - 1) * $max;
 
-// Cargar datos de Alumnos
+
 include_once 'load_data.php';
 ?>
 <!DOCTYPE html>

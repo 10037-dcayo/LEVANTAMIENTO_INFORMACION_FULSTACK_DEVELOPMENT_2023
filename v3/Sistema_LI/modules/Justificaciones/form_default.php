@@ -43,38 +43,10 @@ if ($resultado = $conexion->query($sql)) {
                             		<td> 
                             			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
                                     title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' value='form_consult' type='submit'></button></td>
-                                </tr>";
-                            //echo " $archivo";                                    
+                                </tr>";                                
                         }
                     }
                 }
-	/*		echo '
-		    		<tr>
-		    			<td>' . $_SESSION["user_id"][$i] . '</td>
-						<td>' . $_SESSION["num"][$i] . '</td>
-						<td class="center">' . $_SESSION["infoq_description"] . '</td>
-						<td>' . $_SESSION["infoq_archivo"][$i] . '</td>
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtnum" value="' . $_SESSION["num"][$i] . '"/>
-								<button class="btnview" name="btn" value="form_consult" type="submit"></button>
-							</form>
-						</td>
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtnum" value="' . $_SESSION["num"][$i] . '"/>
-								<button class="btnedit" name="btn" value="form_update" type="submit"></button>
-							</form>
-						</td>
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtnum" value="' . $_SESSION["num"][$i] . '"/>
-								<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
-							</form>
-						</td>
-					</tr>
-				';
-		}*/
 		?>
 	</table>
 	<?php
@@ -112,5 +84,3 @@ if ($resultado = $conexion->query($sql)) {
 	include_once "../sections/options-disabled.php";
 	?>
 </div>
-
-<!--<td class="center">' . $_SESSION["infoq_description"][$i] . '</td>--> <!--en la linea 30-->
