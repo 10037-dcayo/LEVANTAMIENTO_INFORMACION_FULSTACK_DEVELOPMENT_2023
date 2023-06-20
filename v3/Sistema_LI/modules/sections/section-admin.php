@@ -85,7 +85,7 @@ if (strpos($url_actual, 'modules')) {
         </li>
         <li><a class="<?php if ($output[1] == 'students') {
                             echo 'active';
-                        } ?>" href="/home"><span class="icon">recent_actors</span>Alumnos</a>
+                        } ?>" href="/modules/students"><span class="icon">recent_actors</span>Alumnos</a>
             <ul>
                 <li><a class="<?php if ($output[1] == 'students') {
                             echo 'active';
