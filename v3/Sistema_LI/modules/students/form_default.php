@@ -11,6 +11,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 						<th>Nombre</th>
 						<th>Cédula</th>
 						<th class="center" style="width: 80px;">Fecha de Admisión</th>
+						<th class="center" style="width: 80px;">Sede</th>
 						<th class="center"><a class="icon">visibility</a></th>
 						<th class="center"><a class="icon">edit</a></th>
 						
@@ -29,6 +30,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 						<td>' . $_SESSION["student_name"][$i] . '</td>
 						<td class="tdbreakw">' . $_SESSION["student_cedula"][$i] . '</td>
 						<td class="center">' . $_SESSION["student_date"][$i] . '</td>
+						<td class="center">' . $_SESSION["student_sede"][$i] . '</td>
 						<td>
 							<form action="" method="POST">
 								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
