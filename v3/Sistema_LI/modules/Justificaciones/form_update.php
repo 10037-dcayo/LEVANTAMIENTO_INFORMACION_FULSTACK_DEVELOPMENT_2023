@@ -47,15 +47,23 @@ if ($result = $conexion->query($sql)) {
 <script src="/js/modules/students.js" type="text/javascript"></script>
 <script>
 if (isset($_POST['btnSave'])) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> ff47aab3433e0d3319e199091510223504a0b046
     $user_id = $_POST['txtuserid'];
     $pdf_descripcion = $_POST['txtdescripcion'];
     $pdf_archivo = $_FILES['pdf_archivo']['name']; 
 
+<<<<<<< HEAD
   
     if (!empty($pdf_archivo)) {
  
         $target_dir = "uploads/";
+=======
+    if (!empty($pdf_archivo)) {
+        $target_dir = "uploads/"; 
+>>>>>>> ff47aab3433e0d3319e199091510223504a0b046
         $target_file = $target_dir . basename($_FILES["pdf_archivo"]["name"]);
         move_uploaded_file($_FILES["pdf_archivo"]["tmp_name"], $target_file);
     }

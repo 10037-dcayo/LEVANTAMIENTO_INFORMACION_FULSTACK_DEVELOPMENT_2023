@@ -23,6 +23,7 @@ if (strpos($url_actual, 'modules')) {
         $_SESSION['title_form_section'] = 'Docentes';
     } elseif ($name_page[1] == 'students') {
         $_SESSION['title_form_section'] = 'Alumnos';
+        if($name_page[1] == 'students'){}
     } elseif ($name_page[1] == 'subjects') {
         $_SESSION['title_form_section'] = 'Asignaturas';
     } elseif ($name_page[1] == 'careers') {

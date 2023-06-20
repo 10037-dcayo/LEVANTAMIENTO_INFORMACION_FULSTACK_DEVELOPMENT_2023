@@ -17,7 +17,6 @@ if ($_POST['txtnum'] == '') {
 	exit();
 }
 
-// aqui empieza el update de estudiante
 
 $sql_infoq = "SELECT * FROM infoq WHERE num = '" . $_POST['txtnum'] . "'";
 
