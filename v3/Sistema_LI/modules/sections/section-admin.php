@@ -86,6 +86,18 @@ if (strpos($url_actual, 'modules')) {
         <li><a class="<?php if ($output[1] == 'students') {
                             echo 'active';
                         } ?>" href="/modules/students"><span class="icon">recent_actors</span>Alumnos</a>
+            <ul>
+                <li><a class="<?php if ($output[1] == 'students') {
+                            echo 'active';
+                        } ?>" href="/modules/students"><span class="icon">recent_actors</span>Matriz</a>
+                </li>
+                <li><a class="<?php if ($output[1] == 'students') {
+                            echo 'active';
+                        } ?>" href="/modules/students"><span class="icon">recent_actors</span>Latacunga</a>
+                </li>
+
+            </ul>
+
         </li>
 
         <li><a class="<?php if ($output[1] == 'emprendedor') {
