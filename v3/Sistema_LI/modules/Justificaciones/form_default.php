@@ -43,10 +43,19 @@ if ($resultado = $conexion->query($sql)) {
                             		<td> 
                             			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
                                     title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' value='form_consult' type='submit'></button></td>
+<<<<<<< HEAD
+                                </tr>";
+                               
+                        }
+                    }
+                }
+
+=======
                                 </tr>";                                
                         }
                     }
                 }
+>>>>>>> ff47aab3433e0d3319e199091510223504a0b046
 		?>
 	</table>
 	<?php
@@ -84,3 +93,7 @@ if ($resultado = $conexion->query($sql)) {
 	include_once "../sections/options-disabled.php";
 	?>
 </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> ff47aab3433e0d3319e199091510223504a0b046
