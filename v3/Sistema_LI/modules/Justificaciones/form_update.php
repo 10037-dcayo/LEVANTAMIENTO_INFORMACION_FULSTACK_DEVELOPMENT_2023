@@ -47,15 +47,15 @@ if ($result = $conexion->query($sql)) {
 <script src="/js/modules/students.js" type="text/javascript"></script>
 <script>
 if (isset($_POST['btnSave'])) {
-    // obtener los datos del formulario
+
     $user_id = $_POST['txtuserid'];
     $pdf_descripcion = $_POST['txtdescripcion'];
-    $pdf_archivo = $_FILES['pdf_archivo']['name']; // archivo PDF cargado
+    $pdf_archivo = $_FILES['pdf_archivo']['name']; 
 
-    // verificar si se cargó un archivo PDF
+  
     if (!empty($pdf_archivo)) {
-        // mover el archivo cargado a la carpeta de carga
-        $target_dir = "uploads/"; // directorio de carga
+ 
+        $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["pdf_archivo"]["name"]);
         move_uploaded_file($_FILES["pdf_archivo"]["tmp_name"], $target_file);
     }
