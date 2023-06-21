@@ -1,21 +1,9 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 ?>
-
 <div class="form-gridview">
-
-	<div class="sede-buttons">
-		<h2 class="sede">Sede</h2>
-		<div class="buttons">
-			<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								<button name="btn" value="form_womb" type="submit">Matriz</button>
-							</form>	
-			<button>Latacunga</button>
-		</div>
-	</div>
-	<h2>Todos</h2>
 	<table class="default">
+		<h1>CAMBIO</h1>
 		<?php
 		if ($_SESSION['total_users'] != 0) {
 			echo '
@@ -102,7 +90,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 
 <?php
-
+header('Location: /modules/students/womb');
 
 # ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
 

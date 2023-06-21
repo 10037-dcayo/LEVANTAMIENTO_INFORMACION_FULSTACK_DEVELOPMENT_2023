@@ -84,18 +84,26 @@ if (strpos($url_actual, 'modules')) {
             echo 'active';
         } ?>" href="/modules/teachers"><span class="icon">connect_without_contact</span>Docentes</a>
         </li>
-        <li class="student-list">
+        <li class="student">
             <a class="<?php if ($output[1] == 'students') {
                 echo 'active';
             } ?>" href="/modules/students">
                 <span class="icon">recent_actors</span>Alumnos
             </a>
-            <ul class="dropdown-menu">
-                <li>
-                    <span class="student-sede">Matriz</span>
+            <ul>
+                <li class="student-list">
+                    <a class="<?php if ($output[1] == 'students') {
+                        echo 'student-list';
+                    } ?>" href="/modules/students/womb">
+                        <span>Matriz</span>
+                    </a>
                 </li>
-                <li>
-                    <span class="student-sede">Latacunga</span>
+                <li class="student-list">
+                    <a class="<?php if ($output[1] == 'students') {
+                        echo 'student-list';
+                    } ?>" href="/modules/students/form-brand">
+                        <span>Latacunga</span>
+                    </a>
                 </li>
             </ul>
         </li>
