@@ -24,7 +24,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 			';
 		}
 		for ($i = 0; $i < $_SESSION['total_users']; $i++) {
-			if ($_SESSION['student_sede'][$i] == 'matriz') {
+			if ($_SESSION['student_sede'][$i] == 'latacunga') {
 				echo '
 				<tr>
 					<td>' . $_SESSION["user_id"][$i] . '</td>
