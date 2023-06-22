@@ -8,7 +8,6 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 		<h2 class="sede">Sede</h2>
 		<div class="buttons">
 			<form action="" method="POST">
-<<<<<<< HEAD
 				<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION[" user_id"][$i] . '"/>
 								<button name="btn" value="load_data" type="submit">Matriz</button>
 							</form>	
@@ -17,17 +16,9 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 								
 								<button name="btn" value="" type="submit">Latacunga</button>
 							</form>	
-=======
-								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								<button name="btn" value="form_womb" type="submit">Matriz</button><br>
-							</form>	
-			
-		
-			<button>Latacunga</button>
->>>>>>> 23b03b47ec0121d84fd95d64df19c6d95c04d654
 		</div>
 	</div>
-	<h2 class="textList">Listado</h2>
+	<h2>Todos</h2>
 	<table class="default">
 		<?php
 		if ($_SESSION['total_users'] != 0) {
