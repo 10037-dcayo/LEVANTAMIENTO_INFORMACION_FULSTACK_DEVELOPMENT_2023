@@ -71,7 +71,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 			if ($page == $n) {
 				echo '<li class="active"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
 			} else {
-				echo '<li><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
+				echo '<li><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="matriz' . $n . '">' . $n . '</button></form></li>';
 			}
 		}
 		echo '
