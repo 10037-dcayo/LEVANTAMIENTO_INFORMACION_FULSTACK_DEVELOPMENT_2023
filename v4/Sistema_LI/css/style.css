@@ -2691,3 +2691,9 @@ input[type="range"]:active {
 .sede-buttons button:last-child{
     margin-right: 0;
 }
+
+.textList {
+    color: #FCE8E4 ; 
+    margin-top: 20px; 
+    margin-left: 30px; 
+  }

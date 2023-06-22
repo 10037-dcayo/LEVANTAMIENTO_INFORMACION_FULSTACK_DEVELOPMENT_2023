@@ -9,12 +9,14 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 		<div class="buttons">
 			<form action="" method="POST">
 								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								<button name="btn" value="form_womb" type="submit">Matriz</button>
+								<button name="btn" value="form_womb" type="submit">Matriz</button><br>
 							</form>	
+			
+		
 			<button>Latacunga</button>
 		</div>
 	</div>
-	<h2>Todos</h2>
+	<h2 class="textList">Listado</h2>
 	<table class="default">
 		<?php
 		if ($_SESSION['total_users'] != 0) {
