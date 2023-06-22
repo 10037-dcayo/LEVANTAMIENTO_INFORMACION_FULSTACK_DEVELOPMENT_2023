@@ -3,7 +3,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 ?>
 <div class="form-gridview">
 	<table class="default">
-		<h2 class="sede" >Estudiantes Sede Matriz</h2>
+		<h2 class="sedeMatriz" >Estudiantes Sede Matriz</h2>
 		<?php
 		if ($_SESSION['total_users'] != 0) {
 			echo '

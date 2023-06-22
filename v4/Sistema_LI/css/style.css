@@ -2663,7 +2663,15 @@ input[type="range"]:active {
     font-weight: 500;
     display: flex;
 }
-
+.sedeMatriz{
+    margin-top: 20px; 
+    margin-left: 30px; 
+    color: #eef4ff;
+    font-size: 1.5rem;
+    text-transform: initial;
+    font-weight: 500;
+    display: flex;
+}
 .sede-buttons{
     display: flex;
     align-items: center;
@@ -2678,7 +2686,7 @@ input[type="range"]:active {
 
 .sede-buttons button{
     margin-right: 10px;
-    padding: 5px 0px;
+    padding: 5px 5px;
     background-color: #6272a4;
     color: #fff;
     border: none;
