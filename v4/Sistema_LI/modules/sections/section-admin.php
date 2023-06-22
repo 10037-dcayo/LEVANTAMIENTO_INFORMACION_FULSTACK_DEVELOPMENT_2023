@@ -90,24 +90,7 @@ if (strpos($url_actual, 'modules')) {
             } ?>" href="/modules/students">
                 <span class="icon">recent_actors</span>Alumnos
             </a>
-            <ul>
-                <li class="student-list">
-                    <a class="<?php if ($output[1] == 'students') {
-                        echo 'student-list';
-                    } ?>" href="/modules/students/womb">
-                        <span>Matriz</span>
-                    </a>
-                </li>
-                <li class="student-list">
-                    <a class="<?php if ($output[1] == 'students') {
-                        echo 'student-list';
-                    } ?>" href="/modules/students/form-brand">
-                        <span>Latacunga</span>
-                    </a>
-                </li>
-            </ul>
         </li>
-
         <li><a class="<?php if ($output[1] == 'emprendedor') {
             echo 'active';
         } ?>" href="/modules/emprendedor"><span class="icon">attach_money</span>Emprendedor</a>

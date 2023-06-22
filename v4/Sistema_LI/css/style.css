@@ -2630,8 +2630,6 @@ input[type="range"]:active {
     border-left: 4px solid #6272a4;
 }
 
-
-
  .student-list  {
     padding-left: 20%;
     color: #eef4ff;
@@ -2680,7 +2678,7 @@ input[type="range"]:active {
 
 .sede-buttons button{
     margin-right: 10px;
-    padding: 5px 10px;
+    padding: 5px 0px;
     background-color: #6272a4;
     color: #fff;
     border: none;
