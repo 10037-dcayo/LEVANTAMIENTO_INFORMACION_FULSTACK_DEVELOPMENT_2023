@@ -161,11 +161,6 @@ if ($result = $conexion->query($sql)) {
 </div>
 <div class="content-aside">
 	<?php
-	include_once "../sections/options-disabled.php";
-	?>
-</div>
-<div class="content-aside">
-	<?php
 	include_once '../notif_info.php';
 	include_once "../sections/options.php";
 	?>
