@@ -2697,6 +2697,16 @@ input[type="range"]:active {
     margin-right: 0;
 }
 
+.button-effect {
+    transition: box-shadow 0.3s ease; 
+    
+  }
+  
+  .button-effect:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+    opacity: 0.5;
+  }
+
 .textList {
     color: #FCE8E4 ; 
     margin-top: 20px; 
