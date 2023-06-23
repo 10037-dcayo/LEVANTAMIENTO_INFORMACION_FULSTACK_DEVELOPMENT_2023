@@ -1,126 +1,147 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
+
+function unique_id($l = 10)
+{
+    return substr(md5(uniqid(mt_rand(), true)), 0, $l);
+}
+
+
+$id_generate = 'stdt-' . unique_id(5);
 ?>
-
-<div class="form-gridview">
-<<<<<<< HEAD
-	<table class="default">
-		<h2 class="sedeMatriz" >Estudiantes Sede Matriz</h2>
-		<?php
-		if ($_SESSION['total_users'] != 0) {
-			echo '
-					<tr>
-						<th>Usuario</th>
-						<th>Nombre</th>
-						<th>Cédula</th>
-						<th class="center" style="width: 80px;">Fecha de Admisión</th>
-						<th class="center"><a class="icon">visibility</a></th>
-						<th class="center"><a class="icon">edit</a></th>
-						
-			';
-			if ($_SESSION['permissions'] != 'editor') {
-				echo '<th class="center"><a class="icon">delete</a></th>';
-			}
-			echo '
-					</tr>
-			';
-		}
-		for ($i = 0; $i < $_SESSION['total_users']; $i++) {
-			if ($_SESSION['student_sede'][$i] == 'latacunga') {
-				echo '
-=======
-  <h2>Latacunga</h2>
-  <table class="default">
-    <?php
-    if ($_SESSION['total_users'] != 0) {
-      echo '
->>>>>>> c0ac55d6b23aeec0276ce225988ab60879e05542
-				<tr>
-					<th>Usuario</th>
-					<th>Nombre</th>
-					<th>Cédula</th>
-					<th class="center" style="width: 80px;">Fecha de Admisión</th>
-					<th class="center"><a class="icon">visibility</a></th>
-					<th class="center"><a class="icon">edit</a></th>';
-
-      if ($_SESSION['permissions'] != 'editor') {
-        echo '<th class="center"><a class="icon">delete</a></th>';
-      }
-
-      echo '</tr>';
-    }
-
-    for ($i = 0; $i < $_SESSION['total_users']; $i++) {
-      if ($_SESSION['student_sede'][$i] == 'latacunga') {
-        echo '
-					<tr>
-						<td>' . $_SESSION["user_id"][$i] . '</td>
-						<td>' . $_SESSION["student_name"][$i] . '</td>
-						<td class="tdbreakw">' . $_SESSION["student_cedula"][$i] . '</td>
-						<td class="center">' . $_SESSION["student_date"][$i] . '</td>
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								<button class="btnview" name="btn" value="form_consult" type="submit"></button>
-							</form>
-						</td>
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								<button class="btnedit" name="btn" value="form_update" type="submit"></button>
-							</form>
-						</td>';
-
-        if ($_SESSION['permissions'] != 'editor') {
-          echo '
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
-							</form>
-						</td>';
-        }
-
-        echo '</tr>';
-      }
-    }
-    ?>
-  </table>
-  
-  <?php
-  if ($_SESSION['total_users'] == 0) {
-    echo '
-			<img src="/images/404.svg" class="data-not-found" alt="404">
-		';
-  }
-  if ($_SESSION['total_users'] != 0) {
-    echo '
-			<div class="pages">
-				<ul>';
-
-    for ($n = 1; $n <= $tpages; $n++) {
-      if ($page == $n) {
-        echo '<li class="active"><form name="form-pages" action="" method="POST"><button type="" name="page" value="form_campus' . $n . '">' . $n . '</button></form></li>';
-      } else {
-        echo '<li><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
-      }
-    }
-
-    echo '</ul></div>';
-  }
-  ?>
+<div class="form-data">
+    <div class="head">
+        <h1 class="titulo">Estudiantes Sede Latacunga</h1>
+    </div>
+    <div class="body">
+        
+    </div>
 </div>
-
 <div class="content-aside">
-  <?php
-  include_once '../notif_info.php';
-  include_once "../sections/options.php";
-  ?>
+    <?php
+    include_once "../sections/options-disabled.php";
+    ?>
 </div>
+<script>
+$(document).ready(function(){
+    $("#txtuserdates").datepicker({
+        dateFormat: 'yy-mm-dd',
+        numberOfMonths: 1,
+        onSelect: function(selectedDate) {
+        $(this).val(selectedDate); 
+    }
+});
+
+    // Agregamos cada fecha seleccionada a la lista
+    $("#addBtn").click(function(event) {
+        event.preventDefault();
+        var date = $("#txtuserdates").val();
+        if (date != "") {
+            $("#dateList").append("<li>" + date + " <button class='removeBtn'><i class='fas fa-times-circle fa-lg fa-spin'></i></button></li>");
+            $("#txtuserdates").val("");
+        }
+    });
+    
+    // Eliminamos la fecha seleccionada de la lista
+    $(document).on("click", ".removeBtn", function() {
+        $(this).parent().remove();
+    });
+    
+    // Al hacer submit, guardamos la lista en la variable students_asistencia
+    $("form").submit(function() {
+        var dates = [];
+        $("#dateList li").each(function() {
+            dates.push($(this).text().replace(" Eliminar", ""));
+        });
+        $("#txtuserdates").val(dates.join(", "));
+        return true;
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    // Agregamos cada horario seleccionado a la lista
+    $("#addHourBtn").click(function(event) {
+        event.preventDefault();
+        var startHour = $("#txtuserhours_start").val();
+        var endHour = $("#txtuserhours_end").val();
+        if (startHour != "" && endHour != "") {
+            $("#hourList").append("<li>" + startHour + " - " + endHour + " <button class='removeHourBtn'><i class='fas fa-times-circle fa-lg fa-spin'></i></button></li>");
+            $("#txtuserhours").val($("#txtuserhours").val().replace(hour, ''));
+            $("#txtuserhours_start").val("");
+            $("#txtuserhours_end").val("");
+        }
+    });
+    
+    // Eliminamos el horario seleccionado de la lista
+    $(document).on("click", ".removeHourBtn", function() {
+        $(this).parent().remove();
+        $("#txtuserhours").val($("#hourList").html());
+    });
+    
+    // Al hacer submit, guardamos la lista en la variable students_horario
+    $("form").submit(function() {
+        var hours = [];
+        $("#hourList li").each(function() {
+            var hour = $(this).text().replace(" Eliminar", "");
+            hour = hour.split(" - ");
+            hours.push(hour[0] + "-" + hour[1]);
+        });
+        $("#txtuserhours").val(hours.join(", "));
+        return true;
+    });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+  // Al hacer clic en el botón Agregar, se suman las horas ingresadas y se actualiza el campo Total de Horas
+  $("#addHoursBtn").on("click", function(event) {
+    event.preventDefault();
+    var hours = parseInt($("#txthours").val());
+    var total = parseInt($("#txttotalhours").val());
+    if (!isNaN(hours)) {
+      total += hours;
+      $("#txttotalhours").val(total);
+      $("#txthours").val(0);
+    }
+  });
+
+  // Al hacer clic en el botón Reiniciar, se reinicia el campo Total de Horas
+  $("#resetHoursBtn").on("click", function(event) {
+    event.preventDefault();
+    $("#txttotalhours").val(0);
+    
+    
+  });
+  $("form").submit(function() {
+    $("#txttotalhours_hidden").val($("#txttotalhours").val());
+    return true;
+  });
+
+});
+</script>
+<script src="/js/modules/students.js" type="text/javascript"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-0sCz7O9XlHUBlTepQg2tL/j/ZtMInzGRBfKv2n/bGEB1MkXkXpy0eMHvG+vcnBfACpJZl+S6Z5p5r5L5Hy5U2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 
 <?php
+
 # ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
+
 // Todos los derechos reservados © Quito - Ecuador || Estudiantes TIC's en línea || Levantamiento de Información || ESPE 2022-2023
+
 // Ricardo Alejandro  Jaramillo Salgado, Michael Andres Espinosa Carrera, Steven Cardenas, Luis LLumiquinga
+
 # ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
+
 ?>
+
+
+
+
+

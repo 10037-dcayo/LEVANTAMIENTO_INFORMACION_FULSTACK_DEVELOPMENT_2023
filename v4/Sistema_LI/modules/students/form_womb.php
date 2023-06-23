@@ -1,95 +1,34 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
-?>
-<div class="form-gridview">
-	<table class="default">
-		<h2 class="sede" >Estudiantes Sede Matriz</h2>
-		<?php
-		if ($_SESSION['total_users'] != 0) {
-			echo '
-					<tr>
-						<th>Usuario</th>
-						<th>Nombre</th>
-						<th>Cédula</th>
-						<th class="center" style="width: 80px;">Fecha de Admisión</th>
-						<th class="center"><a class="icon">visibility</a></th>
-						<th class="center"><a class="icon">edit</a></th>
-						
-			';
-			if ($_SESSION['permissions'] != 'editor') {
-				echo '<th class="center"><a class="icon">delete</a></th>';
-			}
-			echo '
-					</tr>
-			';
-		}
-		for ($i = 0; $i < $_SESSION['total_users']; $i++) {
-			if ($_SESSION['student_sede'][$i] == 'matriz') {
-				echo '
-				<tr>
-					<td>' . $_SESSION["user_id"][$i] . '</td>
-				<td>' . $_SESSION["student_name"][$i] . '</td>
-				<td class="tdbreakw">' . $_SESSION["student_cedula"][$i] . '</td>
-				<td class="center">' . $_SESSION["student_date"][$i] . '</td>
-				<td>
-					<form action="" method="POST">
-						<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-						<button class="btnview" name="btn" value="form_consult" type="submit"></button>
-					</form>
-				</td>
-				<td>
-					<form action="" method="POST">
-						<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-						<button class="btnedit" name="btn" value="form_update" type="submit"></button>
-					</form>
-				</td>
-				<td>
-					<form action="" method="POST">
-						<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-						<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
-					</form>
-				</td>
-			</tr>
-		';
-			}
 
-		}
-		?>
-	</table>
-	<?php
-	if ($_SESSION['total_users'] == 0) {
-		echo '
-				<img src="/images/404.svg" class="data-not-found" alt="404">
-		';
-	}
-	if ($_SESSION['total_users'] != 0) {
-		echo '
-				<div class="pages">
-					<ul>
-		';
-		for ($n = 1; $n <= $tpages; $n++) {
-			if ($page == $n) {
-				echo '<li class="active"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
-			} else {
-				echo '<li><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="matriz' . $n . '">' . $n . '</button></form></li>';
-			}
-		}
-		echo '
-					</ul>
-				</div>
-		';
-	}
-	?>
+function unique_id($l = 10)
+{
+    return substr(md5(uniqid(mt_rand(), true)), 0, $l);
+}
+
+
+$id_generate = 'stdt-' . unique_id(5);
+?>
+<div class="form-data">
+    <div class="head">
+        <h1 class="titulo">Estudiantes Sede Matriz</h1>
+    </div>
+    <div class="body">
+        
+    </div>
 </div>
 <div class="content-aside">
-	<?php
-	include_once '../notif_info.php';
-	include_once "../sections/options.php";
-	?>
+    <?php
+    include_once "../sections/options-disabled.php";
+    ?>
 </div>
 
 
-
+<script src="/js/modules/students.js" type="text/javascript"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-0sCz7O9XlHUBlTepQg2tL/j/ZtMInzGRBfKv2n/bGEB1MkXkXpy0eMHvG+vcnBfACpJZl+S6Z5p5r5L5Hy5U2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 <?php
