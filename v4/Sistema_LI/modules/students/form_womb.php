@@ -1,7 +1,7 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-$sql = "SELECT * FROM students WHERE sede='latacunga'";
+$sql = "SELECT * FROM students WHERE sede='matriz'";
 
 
 if ($result = $conexion->query($sql)) {
