@@ -2691,9 +2691,8 @@ input[type="range"]:active {
     color: #fff;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    cursor:pointer;
 }
-
 .sede-buttons button:last-child{
     margin-right: 0;
 }
@@ -2701,5 +2700,4 @@ input[type="range"]:active {
 .textList {
     color: #FCE8E4 ; 
     margin-top: 20px; 
-    margin-left: 30px; 
-  }
+    margin-left:30px;}
