@@ -1,7 +1,7 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-$sql = "SELECT * FROM students WHERE sede='matriz'";
+$sql = "SELECT * FROM students WHERE sede='latacunga'";
 
 
 if ($result = $conexion->query($sql)) {
@@ -73,7 +73,7 @@ if ($result = $conexion->query($sql)) {
 
 			$i = 0;
 
-			$sql = "SELECT * FROM students ORDER BY created_at DESC, user, name";
+			$sql = "SELECT * FROM students WHERE sede='matriz' ORDER BY created_at DESC, user, NAME ";
 
 			if ($result = $conexion->query($sql)) {
 				while ($row = mysqli_fetch_array($result)) {
