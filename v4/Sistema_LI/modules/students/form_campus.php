@@ -164,7 +164,12 @@ if ($result = $conexion->query($sql)) {
 	include_once "../sections/options-disabled.php";
 	?>
 </div>
-
+<div class="content-aside">
+	<?php
+	include_once '../notif_info.php';
+	include_once "../sections/options.php";
+	?>
+</div>
 
 <script src="/js/modules/students.js" type="text/javascript"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
