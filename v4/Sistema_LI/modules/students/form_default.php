@@ -4,17 +4,17 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 <div class="form-gridview">
 
-	<div class="sede-buttons">
+<div class="sede-buttons">
 		<h2 class="sede">Sede</h2>
 		<div class="buttons">
 			<form action="" method="POST">
 				<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION[" user_id"][$i] . '"/>
-								<button name="btn" value="form_womb" type="submit">Matriz</button><br>
+								<button name="btn" value="load_data" type="submit">Matriz</button><br>
 							</form>	
 			<form action="" method="POST">
 								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
 								
-								<button name="btn" value="form_campus" type="submit">Latacunga</button>
+								<button name="btn" value="" type="submit">Latacunga</button>
 							</form>	
 		</div>
 	</div>
