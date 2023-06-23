@@ -73,7 +73,7 @@ if ($result = $conexion->query($sql)) {
 
 			$i = 0;
 
-			$sql = "SELECT * FROM students ORDER BY created_at DESC, user, name LIMIT $inicio, $max";
+			$sql = "SELECT * FROM students ORDER BY created_at DESC, user, name";
 
 			if ($result = $conexion->query($sql)) {
 				while ($row = mysqli_fetch_array($result)) {
