@@ -71,31 +71,38 @@ if ($result = $conexion->query($sql)) {
 			$_SESSION['student_jornada'] = array();
 
 
-			$i = 0;
+			function visibiliza($i,$empieza,$termina){
+				$sql = "SELECT * FROM students WHERE sede='latacunga' ORDER BY created_at DESC, user, NAME  LIMIT $empieza,$termina";
+				global $_SESSION, $conexion;
 
-			$sql = "SELECT * FROM students WHERE sede='latacunga' ORDER BY created_at DESC, user, NAME ";
+				if ($result = $conexion->query($sql)) {
+					while ($row = mysqli_fetch_array($result)) {
+						$_SESSION['user_id'][$i] = $row['user'];
+						$_SESSION['student_cedula'][$i] = $row['cedula'];
+						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
+						$_SESSION['email'][$i] = $row['email'];
+						$_SESSION['student_date'][$i] = $row['admission_date'];
+						$_SESSION['student_departamento'][$i] = $row['departamento'];
+						$_SESSION['student_documentation'][$i] = $row['documentation'];
+						$_SESSION['student_status'][$i] = $row['estado'];
+						$_SESSION['student_sede'][$i] = $row['sede'];
+						$_SESSION['student_jerarquia'][$i] = $row['jerarquia'];
+						$_SESSION['student_jornada'][$i] = $row['jornada'];
+						$_SESSION['student_career'][$i] = $row['career'];
 
-			if ($result = $conexion->query($sql)) {
-				while ($row = mysqli_fetch_array($result)) {
-					$_SESSION['user_id'][$i] = $row['user'];
-					$_SESSION['student_cedula'][$i] = $row['cedula'];
-					$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
-					$_SESSION['email'][$i] = $row['email'];
-					$_SESSION['student_date'][$i] = $row['admission_date'];
-					$_SESSION['student_departamento'][$i] = $row['departamento'];
-					$_SESSION['student_documentation'][$i] = $row['documentation'];
-					$_SESSION['student_status'][$i] = $row['estado'];
-					$_SESSION['student_sede'][$i] = $row['sede'];
-					$_SESSION['student_jerarquia'][$i] = $row['jerarquia'];
-					$_SESSION['student_jornada'][$i] = $row['jornada'];
-					$_SESSION['student_career'][$i] = $row['career'];
-
-
-
-
-					$i += 1;
+						$i += 1;
+					}
 				}
+				
+				return $sql;
 			}
+			
+			$i = 0;
+			$empieza = 15;
+			$termina = 25;
+
+			visibiliza($i,$empieza,$termina);
+		
 			$_SESSION['total_users'] = count($_SESSION['user_id']);
 		}
 	}
