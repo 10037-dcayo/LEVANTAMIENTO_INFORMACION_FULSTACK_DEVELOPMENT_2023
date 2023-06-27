@@ -101,10 +101,30 @@ if ($result = $conexion->query($sql)) {
 	}
 }
 ?>
-
-<div class="form-data">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<meta name="robots" content="noindex">
+	<meta name="google" value="notranslate">
+	<link rel="icon" type="image/png" href="/images/icon.png" />
+	<title>Asignaturas | Sistema de Control Escolar</title>
+	<meta name="description" content="Sistema Escolar, gestión de asistencias." />
+	<link rel="stylesheet" href="/css/style.css?v=<?php echo(rand()); ?>" media="screen, projection" type="text/css" />
+	<link rel="stylesheet" href="/css/select2.css" media="screen, projection" type="text/css" />
+	<script src="/js/external/jquery.min.js" type="text/javascript"></script>
+    <script src="/js/external/prefixfree.min.js" type="text/javascript"></script>
+	<script src="/js/controls/unsetnotif.js"  type="text/javascript"></script>
+	<script src="/js/external/select2.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$(".loader").fadeOut("slow");
+		});
+	</script>
+</head>
+<body>
+<div class="form-gridview">
 	<div class="head">
-		<h1 class="titulo">Estudiantes Sede Latacunga</h1>
+		<h1 class="textList">Estudiantes Sede Latacunga</h1>
 	</div>
 	<div class="body">
 		<table class="default">
@@ -157,15 +177,16 @@ if ($result = $conexion->query($sql)) {
 			}
 			?>
 		</table>
+		<br>
 	</div>
 </div>
-
 <div class="content-aside">
 	<?php
 	include_once '../notif_info.php';
 	include_once "../sections/options.php";
 	?>
 </div>
+</body>
 
 <script src="/js/modules/students.js" type="text/javascript"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
@@ -178,6 +199,7 @@ if ($result = $conexion->query($sql)) {
 
 <?php
 
+
 # ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
 
 // Todos los derechos reservados © Quito - Ecuador || Estudiantes TIC's en línea || Levantamiento de Información || ESPE 2022-2023
@@ -187,7 +209,3 @@ if ($result = $conexion->query($sql)) {
 # ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
 
 ?>
-
-
-
-

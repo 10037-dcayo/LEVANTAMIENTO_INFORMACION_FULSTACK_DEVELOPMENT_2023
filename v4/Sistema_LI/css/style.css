@@ -2655,9 +2655,9 @@ input[type="range"]:active {
 }
 
 .sede{
-    padding-left: 5%;
+    padding-left: 30px;
     margin-right: 20px;
-    color: #eef4ff;
+    color: #FCE8E4 ;
     font-size: 1.5rem;
     text-transform: initial;
     font-weight: 500;
