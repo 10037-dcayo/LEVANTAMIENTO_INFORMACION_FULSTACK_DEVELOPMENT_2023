@@ -1,8 +1,13 @@
 <?php
+include_once '../security.php';
+include_once '../conexion.php';
+include_once '../notif_info_msgbox.php';
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
 $sql = "SELECT * FROM students WHERE sede='latacunga'";
 
+$max = 20;
+$inicio = 0;
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
@@ -71,8 +76,9 @@ if ($result = $conexion->query($sql)) {
 			$_SESSION['student_jornada'] = array();
 
 
-			function visibiliza($i,$empieza,$termina){
-				$sql = "SELECT * FROM students WHERE sede='latacunga' ORDER BY created_at DESC, user, NAME  LIMIT $empieza,$termina";
+			function visibiliza($i, $inicio, $max)
+			{
+				$sql = "SELECT * FROM students WHERE sede='latacunga' ORDER BY created_at DESC, user, NAME  LIMIT $inicio, $max";
 				global $_SESSION, $conexion;
 
 				if ($result = $conexion->query($sql)) {
@@ -93,51 +99,56 @@ if ($result = $conexion->query($sql)) {
 						$i += 1;
 					}
 				}
-				
+
 				return $sql;
 			}
-			
-			$i = 0;
-			$empieza = 15;
-			$termina = 25;
 
-			visibiliza($i,$empieza,$termina);
-		
+			$i = 0;
+			
+
+			visibiliza($i, $inicio, $max);
+
 			$_SESSION['total_users'] = count($_SESSION['user_id']);
 		}
 	}
 }
 ?>
+
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
 	<meta name="robots" content="noindex">
 	<meta name="google" value="notranslate">
 	<link rel="icon" type="image/png" href="/images/icon.png" />
 	<title>Asignaturas | Sistema de Control Escolar</title>
 	<meta name="description" content="Sistema Escolar, gestión de asistencias." />
-	<link rel="stylesheet" href="/css/style.css?v=<?php echo(rand()); ?>" media="screen, projection" type="text/css" />
+	<link rel="stylesheet" href="/css/style.css?v=<?php echo (rand()); ?>" media="screen, projection" type="text/css" />
 	<link rel="stylesheet" href="/css/select2.css" media="screen, projection" type="text/css" />
 	<script src="/js/external/jquery.min.js" type="text/javascript"></script>
-    <script src="/js/external/prefixfree.min.js" type="text/javascript"></script>
-	<script src="/js/controls/unsetnotif.js"  type="text/javascript"></script>
+	<script src="/js/external/prefixfree.min.js" type="text/javascript"></script>
+	<script src="/js/controls/unsetnotif.js" type="text/javascript"></script>
 	<script src="/js/external/select2.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		$(window).load(function() {
+		$(window).load(function () {
 			$(".loader").fadeOut("slow");
 		});
 	</script>
-</head>
+
+	<div class="form-gridview">
+		<div class="head">
+			<h1 class="textList">Estudiantes Sede Latacunga</h1>
+		</div>
+		<div class="body">
+			<table class="default">
+				</head>
+
 <body>
-<div class="form-gridview">
-	<div class="head">
-		<h1 class="textList">Estudiantes Sede Latacunga</h1>
-	</div>
-	<div class="body">
-		<table class="default">
-			<?php
-			if ($_SESSION['total_users'] != 0) {
-				echo '
+
+				
+				<?php
+				if ($_SESSION['total_users'] != 0) {
+					echo '
 					<tr>
 						<th>Usuario</th>
 						<th>Nombre</th>
@@ -147,15 +158,15 @@ if ($result = $conexion->query($sql)) {
 						<th class="center"><a class="icon">edit</a></th>
 						
 			';
-				if ($_SESSION['permissions'] != 'editor') {
-					echo '<th class="center"><a class="icon">delete</a></th>';
-				}
-				echo '
+					if ($_SESSION['permissions'] != 'editor') {
+						echo '<th class="center"><a class="icon">delete</a></th>';
+					}
+					echo '
 					</tr>
 			';
-			}
-			for ($i = 0; $i < $_SESSION['total_users']; $i++) {
-				echo '
+				}
+				for ($i = 0; $i < $_SESSION['total_users']; $i++) {
+					echo '
 		    		<tr>
 		    			<td>' . $_SESSION["user_id"][$i] . '</td>
 						<td>' . $_SESSION["student_name"][$i] . '</td>
@@ -181,18 +192,18 @@ if ($result = $conexion->query($sql)) {
 						</td>
 					</tr>
 				';
-			}
-			?>
-		</table>
-		<br>
+				}
+				?>
+			</table>
+			<br>
+		</div>
 	</div>
-</div>
-<div class="content-aside">
-	<?php
-	include_once '../notif_info.php';
-	include_once "../sections/options.php";
-	?>
-</div>
+	<div class="content-aside">
+		<?php
+		include_once '../notif_info.php';
+		include_once "../sections/options.php";
+		?>
+	</div>
 </body>
 
 <script src="/js/modules/students.js" type="text/javascript"></script>

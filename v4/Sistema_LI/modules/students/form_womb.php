@@ -1,40 +1,12 @@
 <?php
-include_once '../security.php';
-include_once '../conexion.php';
-
-
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
+$sql = "SELECT * FROM students WHERE sede='matriz'";
 
-//$sql = "SELECT * FROM students WHERE sede='matriz'";
-
-// Formulario actual
-if (!empty($_POST['a'])) {
-	$view_consult = $_POST['s'] . '.php';
-
-	if ($view_consult == 'form_womb.php') {
-		include_once '../subjects/unset.php';
-	}
-} else {
-	$view_consult = 'form_womb.php';
-	include_once '../subjects/unset.php';
-}
-
-//Pagina actual
-if (!empty($_GET['page'])) {
-	$page = $_GET['page'];
-} else {
-	$page = 1;
-}
-// Numero de registros a visualizar
-$max = 20;
-$inicio = ($page - 1) * $max;
-
-$sql = "SELECT * FROM students WHERE sede='matriz' ORDER BY created_at DESC, user, name LIMIT $inicio, $max";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
-		$sql = "SELECT COUNT(user) AS total FROM students WHERE sede='matriz' ";
+		$sql = "SELECT COUNT(user) AS total FROM students WHERE sede='matriz'";
 
 		if ($result = $conexion->query($sql)) {
 			if ($row = mysqli_fetch_array($result)) {
@@ -99,90 +71,73 @@ if ($result = $conexion->query($sql)) {
 			$_SESSION['student_jornada'] = array();
 
 
-			$i = 0;
+			function visibiliza($i,$empieza,$termina){
+				$sql = "SELECT * FROM students WHERE sede='matriz' ORDER BY created_at DESC, user, NAME  LIMIT $empieza,$termina";
+				global $_SESSION, $conexion;
 
-			$sql = "SELECT * FROM students WHERE sede='matriz' ORDER BY created_at DESC, user, name LIMIT $inicio, $max";
+				if ($result = $conexion->query($sql)) {
+					while ($row = mysqli_fetch_array($result)) {
+						$_SESSION['user_id'][$i] = $row['user'];
+						$_SESSION['student_cedula'][$i] = $row['cedula'];
+						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
+						$_SESSION['email'][$i] = $row['email'];
+						$_SESSION['student_date'][$i] = $row['admission_date'];
+						$_SESSION['student_departamento'][$i] = $row['departamento'];
+						$_SESSION['student_documentation'][$i] = $row['documentation'];
+						$_SESSION['student_status'][$i] = $row['estado'];
+						$_SESSION['student_sede'][$i] = $row['sede'];
+						$_SESSION['student_jerarquia'][$i] = $row['jerarquia'];
+						$_SESSION['student_jornada'][$i] = $row['jornada'];
+						$_SESSION['student_career'][$i] = $row['career'];
 
-			if ($result = $conexion->query($sql)) {
-				while ($row = mysqli_fetch_array($result)) {
-					$_SESSION['user_id'][$i] = $row['user'];
-					$_SESSION['student_cedula'][$i] = $row['cedula'];
-					$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
-					$_SESSION['email'][$i] = $row['email'];
-					$_SESSION['student_date'][$i] = $row['admission_date'];
-					$_SESSION['student_departamento'][$i] = $row['departamento'];
-					$_SESSION['student_documentation'][$i] = $row['documentation'];
-					$_SESSION['student_status'][$i] = $row['estado'];
-					$_SESSION['student_sede'][$i] = $row['sede'];
-					$_SESSION['student_jerarquia'][$i] = $row['jerarquia'];
-					$_SESSION['student_jornada'][$i] = $row['jornada'];
-					$_SESSION['student_career'][$i] = $row['career'];
-
-
-
-
-					$i += 1;
+						$i += 1;
+					}
 				}
+				
+				return $sql;
 			}
+			
+			$i = 0;
+			$empieza = 0;
+			$termina = 25;
+
+			visibiliza($i,$empieza,$termina);
+		
 			$_SESSION['total_users'] = count($_SESSION['user_id']);
 		}
 	}
 }
 ?>
-<!DOCTYPE html>
-<html lang="es">
-
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport"
-		content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
 	<meta name="robots" content="noindex">
 	<meta name="google" value="notranslate">
 	<link rel="icon" type="image/png" href="/images/icon.png" />
 	<title>Asignaturas | Sistema de Control Escolar</title>
 	<meta name="description" content="Sistema Escolar, gestión de asistencias." />
-	<link rel="stylesheet" href="/css/style.css?v=<?php echo (rand()); ?>" media="screen, projection" type="text/css" />
+	<link rel="stylesheet" href="/css/style.css?v=<?php echo(rand()); ?>" media="screen, projection" type="text/css" />
 	<link rel="stylesheet" href="/css/select2.css" media="screen, projection" type="text/css" />
 	<script src="/js/external/jquery.min.js" type="text/javascript"></script>
-	<script src="/js/external/prefixfree.min.js" type="text/javascript"></script>
-	<script src="/js/controls/unsetnotif.js" type="text/javascript"></script>
+    <script src="/js/external/prefixfree.min.js" type="text/javascript"></script>
+	<script src="/js/controls/unsetnotif.js"  type="text/javascript"></script>
 	<script src="/js/external/select2.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		$(window).load(function () {
+		$(window).load(function() {
 			$(".loader").fadeOut("slow");
 		});
 	</script>
 </head>
-
-
 <body>
-	<div class="loader"></div>
-	<header class="header">
-		<?php
-		include_once "../sections/section-info-title.php";
-		?>
-	</header>
-	<aside>
-		<?php
-		if (!empty($_SESSION['section-admin']) == 'go-' . $_SESSION['user']) {
-			include_once '../sections/section-admin.php';
-		} elseif (!empty($_SESSION['section-editor']) == 'go-' . $_SESSION['user']) {
-			include_once '../sections/section-editor.php';
-		}elseif (!empty($_SESSION['section-teacher']) == 'go-' . $_SESSION['user']) {
-			include_once '../sections/section-teacher.php';
-		}
-		?>
-	</aside>
-	<section class="content">
-		<div class="form-gridview">
-
-			<div class="head">
-				<h1 class="textList">Estudiantes Sede Matriz</h1>
-			</div>
-				<table class="default">
-					<?php
-					if ($_SESSION['total_users'] != 0) {
-						echo '
+<div class="form-gridview">
+	<div class="head">
+		<h1 class="textList">Estudiantes Sede Latacunga</h1>
+	</div>
+	<div class="body">
+		<table class="default">
+			<?php
+			if ($_SESSION['total_users'] != 0) {
+				echo '
 					<tr>
 						<th>Usuario</th>
 						<th>Nombre</th>
@@ -192,15 +147,15 @@ if ($result = $conexion->query($sql)) {
 						<th class="center"><a class="icon">edit</a></th>
 						
 			';
-						if ($_SESSION['permissions'] != 'editor') {
-							echo '<th class="center"><a class="icon">delete</a></th>';
-						}
-						echo '
+				if ($_SESSION['permissions'] != 'editor') {
+					echo '<th class="center"><a class="icon">delete</a></th>';
+				}
+				echo '
 					</tr>
 			';
-					}
-					for ($i = 0; $i < $_SESSION['total_users']; $i++) {
-						echo '
+			}
+			for ($i = 0; $i < $_SESSION['total_users']; $i++) {
+				echo '
 		    		<tr>
 		    			<td>' . $_SESSION["user_id"][$i] . '</td>
 						<td>' . $_SESSION["student_name"][$i] . '</td>
@@ -226,39 +181,20 @@ if ($result = $conexion->query($sql)) {
 						</td>
 					</tr>
 				';
-					}
-					?>
-				</table>
-				<?php
-				if ($_SESSION['total_users'] != 0) {
-					echo '
-        <div class="pages">
-            <ul>
-    ';
-					for ($n = 1; $n <= $tpages; $n++) {
-						if ($page == $n) {
-							echo '<li><a href="form_womb.php?page=' . $n . '">' . $n . '</a></li>';
-						} else {
-							echo '<li><a href="form_womb.php?page=' . $n . '">' . $n . '</a></li>';
-						}
-					}
-					echo '
-            </ul>
-        </div>
-    ';
-				}
-				?>
-				<br>
-
-		</div>
-		<div class="content-aside">
-			<?php
-			include_once '../notif_info.php';
-			include_once "../sections/options.php";
+			}
 			?>
-		</div>
-		</section>
-		</body>
+		</table>
+		<br>
+	</div>
+</div>
+<div class="content-aside">
+	<?php
+	include_once '../notif_info.php';
+	include_once "../sections/options.php";
+	?>
+</div>
+</body>
+
 <script src="/js/modules/students.js" type="text/javascript"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
