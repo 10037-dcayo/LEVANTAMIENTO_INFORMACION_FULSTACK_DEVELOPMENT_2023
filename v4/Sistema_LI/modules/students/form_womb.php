@@ -69,11 +69,11 @@ if ($result = $conexion->query($sql)) {
 			$_SESSION['student_sede'] = array();
 			$_SESSION['student_jerarquia'] = array();
 			$_SESSION['student_jornada'] = array();
+			
+			$i=0;
 
-
-			function visibiliza($i,$empieza,$termina){
-				$sql = "SELECT * FROM students WHERE sede='matriz' ORDER BY created_at DESC, user, NAME  LIMIT $empieza,$termina";
-				global $_SESSION, $conexion;
+			
+				$sql = "SELECT * FROM students WHERE sede='matriz' ORDER BY created_at DESC, user, NAME";
 
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
@@ -93,15 +93,6 @@ if ($result = $conexion->query($sql)) {
 						$i += 1;
 					}
 				}
-				
-				return $sql;
-			}
-			
-			$i = 0;
-			$empieza = 0;
-			$termina = 25;
-
-			visibiliza($i,$empieza,$termina);
 		
 			$_SESSION['total_users'] = count($_SESSION['user_id']);
 		}
@@ -131,7 +122,7 @@ if ($result = $conexion->query($sql)) {
 <body>
 <div class="form-gridview">
 	<div class="head">
-		<h1 class="textList">Estudiantes Sede Latacunga</h1>
+		<h1 class="textList">Estudiantes Sede Matriz</h1>
 	</div>
 	<div class="body">
 		<table class="default">
