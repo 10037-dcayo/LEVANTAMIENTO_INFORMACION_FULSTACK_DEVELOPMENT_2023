@@ -75,10 +75,10 @@ if ($result = $conexion->query($sql)) {
 			$_SESSION['student_jerarquia'] = array();
 			$_SESSION['student_jornada'] = array();
 
-
+			
 			function visibiliza($i, $inicio, $max)
 			{
-				$sql = "SELECT * FROM students WHERE sede='latacunga' ORDER BY created_at DESC, user, NAME  LIMIT $inicio, $max";
+				$sql = "SELECT * FROM students WHERE sede='latacunga' AND estado='activo' ORDER BY created_at DESC, user, NAME  LIMIT $inicio, $max";
 				global $_SESSION, $conexion;
 
 				if ($result = $conexion->query($sql)) {
@@ -102,7 +102,7 @@ if ($result = $conexion->query($sql)) {
 
 				return $sql;
 			}
-
+			
 			$i = 0;
 			
 
