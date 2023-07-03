@@ -1,7 +1,7 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-$sql = "SELECT COUNT(num) AS total FROM infoq";
+$sql = "SELECT COUNT(num) AS total FROM send_one";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
@@ -15,19 +15,19 @@ if (!empty($_POST['search'])) {
 
 	$_SESSION['user_id'] = array();
 	$_SESSION['num'] = array();
-	$_SESSION['infoq_archivo'] = array();
-	$_SESSION['infoq_description'] = array();
+	$_SESSION['send_archivo'] = array();
+	$_SESSION['send_description'] = array();
 
 	$i = 0;
 
-	$sql = "SELECT * FROM infoq WHERE num LIKE '%" . $_POST['search'] . "%' OR archivo LIKE '%" . $_POST['search'] . "%' OR user LIKE '%" . $_POST['search'] . "%' OR num LIKE '%" . $_POST['search'] . "%' OR description LIKE '%" . $_POST['search'] . "%' ORDER BY num";
+	$sql = "SELECT * FROM send_one WHERE num LIKE '%" . $_POST['search'] . "%' OR archivo LIKE '%" . $_POST['search'] . "%' OR user LIKE '%" . $_POST['search'] . "%' OR num LIKE '%" . $_POST['search'] . "%' OR descripcion LIKE '%" . $_POST['search'] . "%' ORDER BY num";
 
 	if ($result = $conexion->query($sql)) {
 		while ($row = mysqli_fetch_array($result)) {
 			$_SESSION['user_id'][$i] = $row['user'];
 			$_SESSION['num'][$i] = $row['num'];
-			$_SESSION['infoq_archivo'][$i] = $row['archivopdf'];
-			$_SESSION['infoq_description'][$i] = $row['descripcion'];
+			$_SESSION['send_archivo'][$i] = $row['archivopdf'];
+			$_SESSION['send_description'][$i] = $row['descripcion'];
 
 			$i += 1;
 		}
@@ -36,20 +36,20 @@ if (!empty($_POST['search'])) {
 } else {
 	$_SESSION['user_id'] = array();
 	$_SESSION['num'] = array();
-	$_SESSION['infoq_archivo'] = array();
+	$_SESSION['send_archivo'] = array();
 
 	$i = 0;
 
-	$sql = "SELECT * FROM infoq ORDER BY num LIMIT $inicio, $max";
+	$sql = "SELECT * FROM send_one ORDER BY num LIMIT $inicio, $max";
 
 	if ($result = $conexion->query($sql)) {
 		while ($row = mysqli_fetch_array($result)) {
 			$_SESSION['user_id'][$i] = $row['user'];
 			$_SESSION['num'][$i] = $row['num'];
-			$_SESSION['infoq_archivo'][$i] = $row['archivopdf'];
+			$_SESSION['send_archivo'][$i] = $row['archivopdf'];
 
 			$i += 1;
 		}
 	}
-	$_SESSION['total_infoq'] = count($_SESSION['num']);
+	$_SESSION['total_send'] = count($_SESSION['num']);
 }

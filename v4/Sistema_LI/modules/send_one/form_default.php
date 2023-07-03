@@ -2,10 +2,10 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
 
-$sql="SELECT descripcion FROM infoq";
+$sql="SELECT descripcion FROM send_one";
 if ($resultado = $conexion->query($sql)) {
     if ($row = mysqli_fetch_array($resultado)) {
-        $_SESSION['infoq_description'] = $row['descripcion'];
+        $_SESSION['send_description'] = $row['descripcion'];
     }
 }
 
@@ -13,7 +13,7 @@ if ($resultado = $conexion->query($sql)) {
 <div class="form-gridview">
 	<table class="default">
 		<?php
-		if ($_SESSION['total_infoq'] != 0) {
+		if ($_SESSION['total_send'] != 0) {
 			echo '
 					<tr>
 						<th class="center" style="width: 800px">Nombre archivo</th>
@@ -28,7 +28,7 @@ if ($resultado = $conexion->query($sql)) {
 					</tr>
 			';
 		}	
-			$path = 'informesquincenalespdf/' . $_SESSION["user"];
+			$path = 'sendonepdf/' . $_SESSION["user"];
                 if(file_exists($path)){
                     $directorio= opendir($path);
                     while($archivo=readdir($directorio)){
@@ -37,7 +37,7 @@ if ($resultado = $conexion->query($sql)) {
                             echo "
                             	<tr>
                             		<td>$archivo</td>
-									<td> " . $_SESSION['infoq_description'] . "</td>	
+									<td> " . $_SESSION['send_description'] . "</td>	
                             		<td> 
                             			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
                                     title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' value='form_consult' type='submit'></button></td>
