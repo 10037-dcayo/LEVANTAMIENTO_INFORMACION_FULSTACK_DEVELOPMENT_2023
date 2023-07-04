@@ -28,40 +28,6 @@ if ($resultado = $conexion->query($sql)) {
 			echo '	
 					</tr>
 			';
-<<<<<<< HEAD
-		}	
-			$path = 'sendonepdf/' . $_SESSION["user"];
-                if(file_exists($path)){
-                    $directorio= opendir($path);
-                    while($archivo=readdir($directorio)){
-                        if(!is_dir($archivo)){
-                            
-                            echo "
-                            	<tr>
-                            		<td>$archivo</td>
-									<td> " . $_SESSION['send_description'] . "</td>	
-                            		<td>
-									
-									<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
-                                    title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' 
-									value='form_consult' type='submit'></button>
-									
-									</td>
-
-                            		<td>
-									
-                            			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
-                                    title='borrar archivo adjunto' class='btndelete' target='_blank'><button class='btndelete' name='btn' 
-									value='form_delete' type='submit'></button>
-									
-									</td>
-
-                                </tr>"
-								;                                 
-                        }
-                    }
-                }
-=======
 		}
 		$path = 'sendonepdf/' . $_SESSION["user"];
 		if (file_exists($path)) {
@@ -82,11 +48,17 @@ if ($resultado = $conexion->query($sql)) {
 																<button class="btnedit" name="btn" value="form_update" type="submit"></button>
 															</form>
 														</td>
+														<td>
+														<form action="" method="POST">
+															<input style="display:none;" type="text" name="txtuserid" value="' . $archivo . '"/>
+															<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
+														</form>
+													</td>
+													
 													</tr>';
 				}
 			}
 		}
->>>>>>> 35401561437cf40c6b5db08fba849d1c27e272da
 		?>
 	</table>
 	<?php
