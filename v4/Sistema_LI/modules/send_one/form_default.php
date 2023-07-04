@@ -2,11 +2,11 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
 
-$sql="SELECT descripcion FROM send_one";
+$sql = "SELECT descripcion FROM send_one";
 if ($resultado = $conexion->query($sql)) {
-    if ($row = mysqli_fetch_array($resultado)) {
-        $_SESSION['send_description'] = $row['descripcion'];
-    }
+	if ($row = mysqli_fetch_array($resultado)) {
+		$_SESSION['send_description'] = $row['descripcion'];
+	}
 }
 
 ?>
@@ -16,9 +16,10 @@ if ($resultado = $conexion->query($sql)) {
 		if ($_SESSION['total_send'] != 0) {
 			echo '
 					<tr>
-						<th class="center" style="width: 800px">Nombre archivo</th>
+						<th class="center" style="width: 800px">Nombre del archivo</th>
 						<th class="center" style="width: 70px">Descripción</th>
 				        <th class="center"><a class="icon">visibility</a></th>
+								<th class="center"><a class="icon">edit</a></th>
 						
 			';
 			if ($_SESSION['permissions'] != 'admin') {
@@ -27,6 +28,7 @@ if ($resultado = $conexion->query($sql)) {
 			echo '	
 					</tr>
 			';
+<<<<<<< HEAD
 		}	
 			$path = 'sendonepdf/' . $_SESSION["user"];
                 if(file_exists($path)){
@@ -59,6 +61,32 @@ if ($resultado = $conexion->query($sql)) {
                         }
                     }
                 }
+=======
+		}
+		$path = 'sendonepdf/' . $_SESSION["user"];
+		if (file_exists($path)) {
+			$directorio = opendir($path);
+			while ($archivo = readdir($directorio)) {
+				if (!is_dir($archivo)) {
+
+					echo '
+													<tr>
+														<td>' . $archivo . '</td>
+														<td>' . $_SESSION["send_description"] . '</td>	
+														<td> 
+															<div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $archivo . '"
+															title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" name="btn" value="form_consult" type="submit"></button></td>
+														gi<td>
+															<form action="" method="POST">
+																<input style="display:none;" type="text" name="txtuserid" value="'.$archivo.'"/>
+																<button class="btnedit" name="btn" value="form_update" type="submit"></button>
+															</form>
+														</td>
+													</tr>';
+				}
+			}
+		}
+>>>>>>> 35401561437cf40c6b5db08fba849d1c27e272da
 		?>
 	</table>
 	<?php
