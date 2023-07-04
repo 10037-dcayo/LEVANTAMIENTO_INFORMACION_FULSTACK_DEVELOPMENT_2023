@@ -69,6 +69,7 @@ if (strpos($url_actual, 'modules')) {
                             echo 'active';
                         } ?>" href="/modules/subjects"><span class="icon">library_books</span>Asignaturas</a></li>
         
+        
 </div>
 <div class="menu-mobile">
     <header>
