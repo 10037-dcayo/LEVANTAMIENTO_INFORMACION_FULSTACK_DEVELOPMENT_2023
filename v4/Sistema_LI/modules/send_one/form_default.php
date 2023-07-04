@@ -21,7 +21,7 @@ if ($resultado = $conexion->query($sql)) {
 				        <th class="center"><a class="icon">visibility</a></th>
 						
 			';
-			if ($_SESSION['permissions'] != 'editor') {
+			if ($_SESSION['permissions'] != 'admin') {
 				echo '<th class="center"><a class="icon">delete</a></th>';
 			}
 			echo '	
@@ -38,22 +38,36 @@ if ($resultado = $conexion->query($sql)) {
                             	<tr>
                             		<td>$archivo</td>
 									<td> " . $_SESSION['send_description'] . "</td>	
-                            		<td> 
+                            		<td>
+									
+									<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
+                                    title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' 
+									value='form_consult' type='submit'></button>
+									
+									</td>
+
+                            		<td>
+									
                             			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
-                                    title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' value='form_consult' type='submit'></button></td>
-                                </tr>";                                 
+                                    title='borrar archivo adjunto' class='btndelete' target='_blank'><button class='btndelete' name='btn' 
+									value='form_delete' type='submit'></button>
+									
+									</td>
+
+                                </tr>"
+								;                                 
                         }
                     }
                 }
 		?>
 	</table>
 	<?php
-	if ($_SESSION['total_infoq'] == 0) {
+	if ($_SESSION['total_send'] == 0) {
 		echo '
 				<img src="/images/404.svg" class="data-not-found" alt="404">
 		';
 	}
-	if ($_SESSION['total_infoq'] != 0) {
+	if ($_SESSION['total_send'] != 0) {
 		echo '
 				<div class="pages">
 					<ul>
