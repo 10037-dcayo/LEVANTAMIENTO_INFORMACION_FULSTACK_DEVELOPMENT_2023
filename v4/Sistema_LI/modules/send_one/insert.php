@@ -12,70 +12,57 @@ if ($result = $conexion->query($sql)) {
         $_SESSION['user_id'] = $row['user'];
     }
 }
+$archivopdf = $_FILES["archivo"]["name"]; 
+$sql = "SELECT archivopdf FROM send_one";
+$resultado = $conexion->query($sql); 
+$row = mysqli_fetch_array($result);
+$_SESSION['send_archivo']=$row['archivopdf'];
 
-
-$archivopdf = $_FILES["archivo"]["name"]; //$_FILES["archivo"]["name"] Permite obtener el nombre del archivo
-
-
-$sql = "SELECT archivopdf FROM send_one";  //Realizamos la consulta para obtener el nombre del archivo pdf
-$resultado = $conexion->query($sql); //Realiza la consulta la base de datos
-$row = mysqli_fetch_array($result);//Devuelve los datos de una fila en forma de array
-$_SESSION['send_archivo']=$row['archivopdf'];//Almacenamos en la sesion el nombre del archivo del campo archivopdf
-$nombrePDF=$_SESSION['send_archivo'];//Almacenamos su contenido en la variable $nombrePDF
+$nombrePDF=$_SESSION['send_archivo'];
     if ($nombrePDF==$archivopdf) {
         Info('Ya existe un archivo con el nombre.');
         header('Location: /modules/send_one');
         exit();
     } else {
 
-	//Accedemos a los datos enviados mediante $_POST
   $usuario = $_POST['userid'];
 	$numeroDePDF = $_POST['num'];
 	$descripcion = $_POST['descripcion'];
 	$date = date('Y-m-d H:i:s');
 	
-	//Realizamos la inserción de datos en la base de datos y alojamos el PDF en una carperta que se crea
-	//a partir del user
 	$sql = "INSERT INTO send_one (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date')";
 	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];
     echo "Mi id es: " . $id;
 
-	if($_FILES["archivo"]["error"]>0){     //Para recibir archivos
-		//echo "Error al cargar el archivo";
+	if($_FILES["archivo"]["error"]>0){     
 		Info ("Error al cargar el archivo");
 	}else{
-		$permitidos= array("application/pdf"); //Solo recibe pdf
-		$limite_kb=4000;//Limite del pdf para ser guardado en la carpeta del estudiante
+		$permitidos= array("application/pdf"); 
+		$limite_kb=5000;
 		if(in_array($_FILES["archivo"]["type"],$permitidos) && $_FILES["archivo"]["size"]<=$limite_kb*1024){
-			$ruta = 'sendonepdf/'. $id . '/'; //Ruta donde se va guardar el archivo
+			$ruta = 'sendonepdf/'. $id . '/';
 			$archivo=$ruta . $_FILES["archivo"]["name"];
-			if(!file_exists($ruta)){  //Creando la ruta en caso de que no exista
+			if(!file_exists($ruta)){
 				mkdir($ruta);
 			}
-			if(!file_exists($archivo)){//Verificamos si ya existe el archivo
-				$resultado=@move_uploaded_file($_FILES["archivo"]["tmp_name"],$archivo); //Me ayuda a mover el archivo a una ruta indicada
+			if(!file_exists($archivo)){
+				$resultado=@move_uploaded_file($_FILES["archivo"]["tmp_name"],$archivo);
 				if($resultado){
 
                     Info ("Archivo guardado correctamente");
-					//echo "Archivo guardado correctamente";
-
 				}else{
                     
                     Info ("Error al guardar el archivo");
-					//echo "Error al guardar el archivo";
-
 				}
 
 			}else{
 
                 Info ("El archivo ya existe");
-				//echo "Archivo ya existe";
 			}
 		}else{
 
 			Info ("Archivo no permitido, excede el tamaño");
-			//echo "Archivo no permitido, excede el tamaño";
 		}
 	}
 

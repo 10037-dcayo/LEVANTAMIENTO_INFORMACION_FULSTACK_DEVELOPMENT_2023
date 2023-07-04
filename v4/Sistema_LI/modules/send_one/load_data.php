@@ -40,7 +40,7 @@ if (!empty($_POST['search'])) {
 
 	$i = 0;
 
-	$sql = "SELECT * FROM send_one ORDER BY num LIMIT $inicio, $max";
+	$sql = "SELECT * FROM send_one ORDER BY num";
 
 	if ($result = $conexion->query($sql)) {
 		while ($row = mysqli_fetch_array($result)) {

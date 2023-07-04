@@ -29,8 +29,12 @@ if (strpos($url_actual, 'modules')) {
         $_SESSION['title_form_section'] = 'Carreras';
     } elseif ($name_page[1] == 'emprendedor') {
         $_SESSION['title_form_section'] = 'Emprendedor';
+    }elseif ($name_page[1] == 'Informes_Quincenales') {
+        $_SESSION['title_form_section'] = 'Informes Quincenales';
+    }elseif ($name_page[1] == 'Justificaciones') {
+        $_SESSION['title_form_section'] = 'Justificaciones';
     }elseif ($name_page[1] == 'send_one') {
-        $_SESSION['title_form_section'] = 'Envio 1';
+        $_SESSION['title_form_section'] = 'Envió 1';
     }
 
 } elseif (strpos($url_actual, 'user')) {

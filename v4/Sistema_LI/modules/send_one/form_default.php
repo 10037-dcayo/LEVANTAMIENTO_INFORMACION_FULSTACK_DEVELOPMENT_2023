@@ -16,7 +16,7 @@ if ($resultado = $conexion->query($sql)) {
 		if ($_SESSION['total_send'] != 0) {
 			echo '
 					<tr>
-						<th class="center" style="width: 800px">Nombre archivo</th>
+						<th class="center" style="width: 800px">Nombre del archivo</th>
 						<th class="center" style="width: 70px">Descripción</th>
 				        <th class="center"><a class="icon">visibility</a></th>
 						
@@ -48,12 +48,12 @@ if ($resultado = $conexion->query($sql)) {
 		?>
 	</table>
 	<?php
-	if ($_SESSION['total_infoq'] == 0) {
+	if ($_SESSION['total_send'] == 0) {
 		echo '
 				<img src="/images/404.svg" class="data-not-found" alt="404">
 		';
 	}
-	if ($_SESSION['total_infoq'] != 0) {
+	if ($_SESSION['total_send'] != 0) {
 		echo '
 				<div class="pages">
 					<ul>
