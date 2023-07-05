@@ -28,7 +28,6 @@ if ($resultado = $conexion->query($sql)) {
 			echo '	
 					</tr>
 			';
-<<<<<<< HEAD
 		}	
 			$path = 'sendonepdf/' . $_SESSION["user"];
                 if(file_exists($path)){
@@ -36,47 +35,14 @@ if ($resultado = $conexion->query($sql)) {
                     while($archivo=readdir($directorio)){
                         if(!is_dir($archivo)){
                             
-                            echo "
-                            	<tr>
-                            		<td>$archivo</td>
-									<td> " . $_SESSION['send_description'] . "</td>	
-                            		<td>
-									
-									<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
-                                    title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' 
-									value='form_consult' type='submit'></button>
-									
-									</td>
-
-                            		<td>
-									
-                            			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
-                                    title='borrar archivo adjunto' class='btndelete' target='_blank'><button class='btndelete' name='btn' 
-									value='form_delete' type='submit'></button>
-									
-									</td>
-
-                                </tr>"
-								;                                 
-                        }
-                    }
-                }
-=======
-		}
-		$path = 'sendonepdf/' . $_SESSION["user"];
-		if (file_exists($path)) {
-			$directorio = opendir($path);
-			while ($archivo = readdir($directorio)) {
-				if (!is_dir($archivo)) {
-
-					echo '
+													echo '
 													<tr>
 														<td>' . $archivo . '</td>
 														<td>' . $_SESSION["send_description"] . '</td>	
 														<td> 
 															<div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $archivo . '"
 															title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" name="btn" value="form_consult" type="submit"></button></td>
-														gi<td>
+														<td>
 															<form action="" method="POST">
 																<input style="display:none;" type="text" name="txtuserid" value="'.$archivo.'"/>
 																<button class="btnedit" name="btn" value="form_update" type="submit"></button>
@@ -89,11 +55,10 @@ if ($resultado = $conexion->query($sql)) {
 														</form>
 													</td>
 													
-													</tr>';
-				}
-			}
-		}
->>>>>>> 551739988fb6f72d13129fad588e74fbb5cc99a4
+													</tr>';         
+                        }
+                    }
+                }
 		?>
 	</table>
 	<?php
