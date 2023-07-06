@@ -125,7 +125,6 @@ if ($result = $conexion->query($sql)) {
 		<h1 class="textList">Estudiantes Sede Matriz</h1>
 	</div>
 	<div class="scrollable-container ">
-		<div class="scrollable-content">
 		<table class="default">
 			<?php
 			if ($_SESSION['total_users'] != 0) {
@@ -177,7 +176,6 @@ if ($result = $conexion->query($sql)) {
 			?>
 		</table>
 		<br>
-		</div>
 		<br>
 	</div>
 	<br>
