@@ -124,7 +124,8 @@ if ($result = $conexion->query($sql)) {
 	<div class="head">
 		<h1 class="textList">Estudiantes Sede Matriz</h1>
 	</div>
-	<div class="body">
+	<div class="scrollable-container ">
+		<div class="scrollable-content">
 		<table class="default">
 			<?php
 			if ($_SESSION['total_users'] != 0) {
@@ -176,7 +177,10 @@ if ($result = $conexion->query($sql)) {
 			?>
 		</table>
 		<br>
+		</div>
+		<br>
 	</div>
+	<br>
 </div>
 <div class="content-aside">
 	<?php
@@ -185,7 +189,6 @@ if ($result = $conexion->query($sql)) {
 	?>
 </div>
 </body>
-
 <script src="/js/modules/students.js" type="text/javascript"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -193,6 +196,35 @@ if ($result = $conexion->query($sql)) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 	integrity="sha512-0sCz7O9XlHUBlTepQg2tL/j/ZtMInzGRBfKv2n/bGEB1MkXkXpy0eMHvG+vcnBfACpJZl+S6Z5p5r5L5Hy5U2Q=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<script>
+  // Control del desplazamiento
+  const container = document.querySelector('.scrollable-container');
+  const content = document.querySelector('.scrollable-content');
+
+  container.addEventListener('scroll', function() {
+    const scrollLeft = container.scrollLeft;
+    const containerWidth = container.offsetWidth;
+    const contentWidth = content.offsetWidth;
+
+    // Comprobar si se ha llegado al final del contenido
+    if (scrollLeft + containerWidth >= contentWidth) {
+      // Cargar más registros
+      const lastRecord = document.querySelector('.record:last-child');
+      const lastRecordIndex = parseInt(lastRecord.innerHTML.match(/\d+/)[0]);
+      const nextRecordIndex = lastRecordIndex + 1;
+
+      // Simular carga de registros
+      for (let i = 0; i < 5; i++) {
+        const newRecord = document.createElement('div');
+        newRecord.className = 'record';
+        newRecord.innerHTML = 'Registro ' + (nextRecordIndex + i);
+        content.appendChild(newRecord);
+      }
+    }
+  });
+</script>
+
 
 
 <?php
