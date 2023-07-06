@@ -139,6 +139,7 @@ if ($result = $conexion->query($sql)) {
 		<div class="head">
 			<h1 class="textList">Estudiantes Sede Latacunga</h1>
 		</div>
+		<div class="scrollable-container ">
 		<div class="body">
 			<table class="default">
 				</head>
@@ -196,6 +197,8 @@ if ($result = $conexion->query($sql)) {
 				?>
 			</table>
 			<br>
+			<br>
+			</div>
 		</div>
 	</div>
 	<div class="content-aside">
