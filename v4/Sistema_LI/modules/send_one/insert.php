@@ -29,8 +29,9 @@ $nombrePDF=$_SESSION['send_archivo'];
 	$numeroDePDF = $_POST['num'];
 	$descripcion = $_POST['descripcion'];
 	$date = date('Y-m-d H:i:s');
+	$status="En revisión";
 	
-	$sql = "INSERT INTO send_one (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date')";
+	$sql = "INSERT INTO send_one (user, num, archivopdf, descripcion, created_at, updated_at,estado) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date', '$status')";
 	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];
     echo "Mi id es: " . $id;
