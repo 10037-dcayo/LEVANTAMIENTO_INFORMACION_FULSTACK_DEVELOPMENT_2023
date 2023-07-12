@@ -18,8 +18,9 @@ if ($resultado = $conexion->query($sql)) {
 					<tr>
 						<th class="center" style="width: 800px">Nombre del archivo</th>
 						<th class="center" style="width: 70px">Descripción</th>
-				        <th class="center"><a class="icon">visibility</a></th>
-								<th class="center"><a class="icon">edit</a></th>
+				        <th class="center"><a class="icon">download</a></th>
+								<th class="center"><a class="icon">visibility</a></th>
+								
 						
 			';
 			if ($_SESSION['permissions'] != 'admin') {
@@ -45,7 +46,7 @@ if ($resultado = $conexion->query($sql)) {
 														<td>
 															<form action="" method="POST">
 																<input style="display:none;" type="text" name="txtuserid" value="'.$archivo.'"/>
-																<button class="btnedit" name="btn" value="form_update" type="submit"></button>
+																<button class="btnedit" name="btn" value="form_view" type="submit"></button>
 															</form>
 														</td>
 														<td>
