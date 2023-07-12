@@ -4,69 +4,63 @@ include_once '../conexion.php';
 include_once '../notif_info_msgbox.php';
 
 
-$sql = "SELECT * FROM send_one";
-if ($resultado = $conexion->query($sql)) {
-	if ($row = mysqli_fetch_array($resultado)) {
-		$_SESSION['status'] = $row['estado'];
-	}
-}
-
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-if (empty($_POST['txtuserid'])) {
-  header('Location: /');
-  exit();
+$sql = "SELECT * FROM send_one WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
+
+if ($result = $conexion->query($sql)) {
+  if ($row = mysqli_fetch_array($result)) {
+    $_SESSION['user_id'] = $row['user'];
+    $_SESSION['numero'] = $row['num'];
+    $_SESSION['state'] = $row['estado'];
+    $_SESSION['mensaje'] = $row['message'];
+    $_SESSION['nombre'] = $row['archivopdf'];
+  }
 }
 
-$archivopdf = $_POST['txtuserid'];
-
-$sql = "SELECT * FROM send_one";
-if ($resultado = $conexion->query($sql)) {
-	if ($row = mysqli_fetch_array($resultado)) {
-		$_SESSION['status'] = $row['estado'];
-	}
-}
-
-
-$usuario = $_SESSION["user"];
-$numero = $_SESSION["num"];
 ?>
 <div class="form-data">
   <div class="head">
     <h1 class="titulo">Visualizar</h1>
   </div>
   <div class="body">
-    <form action="insert.php" method="post" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
+    <form action="#" method="post" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
       <div class="wrap">
         <div class="first">
-          <label for="txtuserid" class="label">Usuario</label>
-          <input id="txtuserid" style="display: none;" type="text" name="userid" value="<?php echo $usuario; ?>"
-            maxlength="50">
-          <input class="text" type="text" name="txt" value="<?php echo $usuario; ?>" maxlength="50" disabled />
+          <label for="txtuserid" <label for="txtuserid" class="label">Usuario</label>
+          <input id="txtuserid" style="display: none;" type="text" name="userid"
+            value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
+            disabled />
+          <label for="txtinfoqdescription" class="label">Descripción</label>
+          <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
+          value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
+
         <div class="first">
-          <label for="txtusernum" class="label">N°PDF</label>
-          <input id="txtusernum" class="text" style=" display: none;" type="text" name="num"
-            value="<?php echo $numero; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txt" value="<?php echo implode(", ", $numero); ?>" required disabled />
+          <label for="txtname" class="label">N°PDF</label>
+          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
+            value="<?php echo $_SESSION['numero']; ?>" maxlength="50" required />
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['numero']; ?>" required disabled />
         </div>
 
         <div class="first">
           <label for="txtname" class="label">Nombre</label>
           <input id="txtname" class="text" style=" display: none;" type="text" name="name"
-            value="<?php echo $archivopdf; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txt" value="<?php echo $archivopdf; ?>" required disabled />
+            value="<?php echo $_SESSION['nombre']; ?>" maxlength="50" required />
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['nombre']; ?>" required disabled />
         </div>
 
         <div class="first">
-          <label for="txtstate" class="label">Estado</label>
-          <input id="txtestate" class="text" style=" display: none;" type="text" name="state"
-            value="<?php echo '.$_SESSION["status"];.' ?>" maxlength="50" required />
-          <input class="text" type="text" name="txt" value="<?php echo $estado; ?>" required disabled />
+          <label for="txtname" class="label">Estado</label>
+          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
+            value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['state']; ?>" required disabled />
         </div>
+
       </div>
 
-      <button class="btn icon" type="submit">save</button>
+      <button class="btn icon" type="submit" autofocus>done</button>
     </form>
   </div>
 </div>
