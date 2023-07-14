@@ -12,13 +12,25 @@ if (empty($_POST['txtuserid'])) {
 }
 
 
-$sql_delete = "DELETE FROM users WHERE user = '" . $_POST['txtuserid'] . "'";
+$sql_delete = "DELETE FROM send_one WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
+
+if (mysqli_query($conexion, $sql_delete)) {
+	$sql_delete = "DELETE FROM send_one WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
+
+	if (mysqli_query($conexion, $sql_delete)) {
+		Error('Alumno eliminado.');
+	} else {
+		Error('Error al eliminar.');
+	}
+} else {
+	Error('Error al eliminar.');
+}
+
 $nombreArchivo = $_POST['txtuserid'];
 $rutaArchivo = 'sendonepdf/' . $_SESSION["user"] . '/' . $nombreArchivo;
 
 if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
  { 
-    $sql_delete = "DELETE FROM send_one WHERE user = '" . $_POST['txtuserid'] . "'";
     if (unlink($rutaArchivo) & mysqli_query($conexion, $sql_delete)) {
         Error('Archivo Eliminado');
         
@@ -28,14 +40,6 @@ if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
 } else {
     Error('El archivo no existe');
 }
+
 header('Location: /modules/send_one');
 exit();
-
-
-# ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
-
-// Todos los derechos reservados © Quito - Ecuador || Estudiantes TIC's en línea || Levantamiento de Información || ESPE 2022-2023
-
-// Ricardo Alejandro  Jaramillo Salgado, Michael Andres Espinosa Carrera, Steven Cardenas, Luis LLumiquinga
-
-# ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
