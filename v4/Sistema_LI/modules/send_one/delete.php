@@ -12,14 +12,16 @@ if (empty($_POST['txtuserid'])) {
 }
 
 
-$sql_delete = "DELETE FROM users WHERE user = '" . $_POST['txtuserid'] . "'";
+$sql_delete = "DELETE FROM send_one WHERE user = '" . $_POST['txtuserid'] . "'";
 $nombreArchivo = $_POST['txtuserid'];
 $rutaArchivo = 'sendonepdf/' . $_SESSION["user"] . '/' . $nombreArchivo;
-
-if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
+//file_exists($rutaArchivo) && 
+//unlink($rutaArchivo) && 
+if (mysqli_query($conexion, $sql_delete))
  { 
     $sql_delete = "DELETE FROM send_one WHERE user = '" . $_POST['txtuserid'] . "'";
-    if (unlink($rutaArchivo) & mysqli_query($conexion, $sql_delete)) {
+
+    if (mysqli_query($conexion, $sql_delete)) {
         Error('Archivo Eliminado');
         
     } else {
