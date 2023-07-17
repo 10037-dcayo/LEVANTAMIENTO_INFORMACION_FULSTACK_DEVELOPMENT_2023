@@ -36,26 +36,23 @@ if ($result = $conexion->query($sql)) {
           <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
           value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
-
         <div class="first">
-          <label for="txtname" class="label">N°PDF</label>
+          <label for="txtname" class="label">Estado</label>
           <input id="txtname" class="text" style=" display: none;" type="text" name="name"
-            value="<?php echo $_SESSION['numero']; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['numero']; ?>" required disabled />
+            value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['state']; ?>" required disabled />
         </div>
-
         <div class="first">
           <label for="txtname" class="label">Nombre</label>
           <input id="txtname" class="text" style=" display: none;" type="text" name="name"
             value="<?php echo $_SESSION['nombre']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['nombre']; ?>" required disabled />
         </div>
-
         <div class="first">
-          <label for="txtname" class="label">Estado</label>
+          <label for="txtname" class="label">N°PDF</label>
           <input id="txtname" class="text" style=" display: none;" type="text" name="name"
-            value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['state']; ?>" required disabled />
+            value="<?php echo $_SESSION['numero']; ?>" maxlength="50" required />
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['numero']; ?>" required disabled />
         </div>
 
       </div>
