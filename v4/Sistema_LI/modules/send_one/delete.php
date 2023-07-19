@@ -12,9 +12,6 @@ if (empty($_POST['txtuserid'])) {
 }
 
 
-<<<<<<< HEAD
-$sql_delete = "DELETE FROM send_one WHERE user = '" . $_POST['txtuserid'] . "'";
-=======
 $sql_delete = "DELETE FROM send_one WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
 
 if (mysqli_query($conexion, $sql_delete)) {
@@ -29,20 +26,12 @@ if (mysqli_query($conexion, $sql_delete)) {
 	Error('Error al eliminar.');
 }
 
->>>>>>> fb882e029088ce6f93ec185827d623fe9b0e5a46
 $nombreArchivo = $_POST['txtuserid'];
 $rutaArchivo = 'sendonepdf/' . $_SESSION["user"] . '/' . $nombreArchivo;
-//file_exists($rutaArchivo) && 
-//unlink($rutaArchivo) && 
-if (mysqli_query($conexion, $sql_delete))
- { 
-<<<<<<< HEAD
-    $sql_delete = "DELETE FROM send_one WHERE user = '" . $_POST['txtuserid'] . "'";
 
-    if (mysqli_query($conexion, $sql_delete)) {
-=======
+if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
+ { 
     if (unlink($rutaArchivo) & mysqli_query($conexion, $sql_delete)) {
->>>>>>> fb882e029088ce6f93ec185827d623fe9b0e5a46
         Error('Archivo Eliminado');
         
     } else {
