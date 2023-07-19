@@ -79,7 +79,7 @@ textarea:focus {
 button:focus {
     outline: none !important;
     outline-width: 0 !important;
-    transition: all 200ms ease-in !important;s
+    transition: all 200ms ease-in !important;
 }
 
 body {

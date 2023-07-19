@@ -68,6 +68,10 @@ if (strpos($url_actual, 'modules')) {
         <li><a class="<?php if ($output[1] == 'subjects') {
                             echo 'active';
                         } ?>" href="/modules/subjects"><span class="icon">library_books</span>Asignaturas</a></li>
+          <li><a class="<?php if ($output[1] == 'students') {
+                            echo 'active';
+                        } ?>" href="/modules/edit_send_one"><span class="icon">library_books</span>Envió 1</a></li>  
+  
         
         
 </div>
@@ -91,6 +95,12 @@ if (strpos($url_actual, 'modules')) {
                                     echo 'active';
                                 } ?>" href="/modules/subjects" title="Asignaturas"><span class="icon">library_books</span></a>
                 </li>
+                <li>
+                    <a class="<?php if ($output[1] == 'subjects') {
+                                    echo 'active';
+                                } ?>" href="/modules/edit_send_one" title="Estudiantes"><span class="icon">students</span></a>
+                </li>
+                
                 
             </ul>
         </nav>

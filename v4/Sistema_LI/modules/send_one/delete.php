@@ -29,9 +29,15 @@ if (mysqli_query($conexion, $sql_delete)) {
 $nombreArchivo = $_POST['txtuserid'];
 $rutaArchivo = 'sendonepdf/' . $_SESSION["user"] . '/' . $nombreArchivo;
 
+<<<<<<< HEAD
 if (file_exists($rutaArchivo))
  { 
     if (unlink($rutaArchivo)) {
+=======
+if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
+ { 
+    if (unlink($rutaArchivo) & mysqli_query($conexion, $sql_delete)) {
+>>>>>>> ad5e6b3d410ebffa3c18fc98b4867fa70efc83e9
         Error('Archivo Eliminado');
         
     } else {

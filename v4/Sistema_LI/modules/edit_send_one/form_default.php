@@ -4,20 +4,6 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 <div class="form-gridview">
 
-<div class="sede-buttons">
-		<h2 class="sede">Sede</h2>
-		<div class="buttons">
-			<form action="" method="POST">
-				<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION[" user_id"][$i] . '"/>
-								<button class="button-effect" name="btn" value="form_womb" type="submit">Matriz</button><br>
-							</form>	
-			<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								
-								<button class="button-effect" name="btn" value="form_campus" type="submit">Latacunga</button>
-							</form>	
-		</div>
-	</div>
 	<h2 class="textList">Listado</h2>
 	<table class="default">
 		<?php
@@ -29,15 +15,9 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 						<th>Cédula</th>
 						<th class="center" style="width: 80px;">Fecha de Admisión</th>
 						<th class="center"><a class="icon">visibility</a></th>
-						<th class="center"><a class="icon">edit</a></th>
 						
 			';
-			if ($_SESSION['permissions'] != 'admin') {
-				echo '<th class="center"><a class="icon">delete</a></th>';
-			}
-			echo '
-					</tr>
-			';
+		
 		}
 		for ($i = 0; $i < $_SESSION['total_users']; $i++) {
 			echo '
@@ -50,18 +30,6 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 							<form action="" method="POST">
 								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
 								<button class="btnview" name="btn" value="form_consult" type="submit"></button>
-							</form>
-						</td>
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								<button class="btnedit" name="btn" value="form_update" type="submit"></button>
-							</form>
-						</td>
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
 							</form>
 						</td>
 					</tr>
