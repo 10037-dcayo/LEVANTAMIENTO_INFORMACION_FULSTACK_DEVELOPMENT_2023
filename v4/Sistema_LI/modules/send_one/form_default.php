@@ -42,7 +42,8 @@ if ($resultado = $conexion->query($sql)) {
 														<td>' . $_SESSION["send_description"] . '</td>	
 														<td> 
 															<div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $archivo . '"
-															title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" name="btn" value="form_consult" type="submit"></button></td>
+															title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" 
+															name="btn" value="form_consult" type="submit"></button></td>
 														<td>
 															<form action="" method="POST">
 																<input style="display:none;" type="text" name="txtuserid" value="'.$archivo.'"/>
