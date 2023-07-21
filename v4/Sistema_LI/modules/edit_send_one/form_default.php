@@ -28,8 +28,8 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 						<td class="center">' . $_SESSION["student_date"][$i] . '</td>
 						<td>
 							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
-								<button class="btnview" name="btn" value="form_consult" type="submit"></button>
+								<input style="display:none;" type="text" id="texuserid" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
+								<button class="btnview" name="btn" value="form_documents" type="submit"></button>
 							</form>
 						</td>
 					</tr>
@@ -74,14 +74,4 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 
 <?php
-
-
-# ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
-
-// Todos los derechos reservados © Quito - Ecuador || Estudiantes TIC's en línea || Levantamiento de Información || ESPE 2022-2023
-
-// Ricardo Alejandro  Jaramillo Salgado, Michael Andres Espinosa Carrera, Steven Cardenas, Luis LLumiquinga
-
-# ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
-
 ?>

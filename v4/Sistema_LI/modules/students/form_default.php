@@ -32,7 +32,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 						<th class="center"><a class="icon">edit</a></th>
 						
 			';
-			if ($_SESSION['permissions'] != 'admin') {
+			if ($_SESSION['permissions'] != 'edit') {
 				echo '<th class="center"><a class="icon">delete</a></th>';
 			}
 			echo '
