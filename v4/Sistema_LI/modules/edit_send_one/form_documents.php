@@ -1,19 +1,68 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
-include_once "../send_one/load_data.php";
 
-$sql = "SELECT descripcion FROM send_one WHERE user = '" . $_POST['txtuserid'] . "'";
+// Debes definir el valor de $max antes de usarlo en el cálculo de $tpages
+$max = 10; // Aquí debes proporcionar el valor apropiado
 
-if ($resultado = $conexion->query($sql)) {
-	if ($row = mysqli_fetch_array($resultado)) {
-		$_SESSION['send_description'] = $row['descripcion'];
+$sql = "SELECT COUNT(num) AS total FROM send_one";
+
+if ($result = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($result)) {
+		$tpages = ceil($row['total'] / $max);
 	}
 }
 
+if (!empty($_POST['search'])) {
+	$_POST['search'] = trim($_POST['search']);
+	$_POST['search'] = mysqli_real_escape_string($conexion, $_POST['search']);
+
+	$_SESSION['num'] = array();
+	$_SESSION['send_archivo'] = array();
+	$_SESSION['send_description'] = array();
+
+	$i = 0;
+
+	$sql = "SELECT * FROM send_one WHERE num LIKE '%" . $_POST['search'] . "%' OR archivo LIKE '%" . $_POST['search'] . "%' OR user LIKE '%" . $_POST['search'] . "%' OR descripcion LIKE '%" . $_POST['search'] . "%' ORDER BY num";
+
+	if ($result = $conexion->query($sql)) {
+		while ($row = mysqli_fetch_array($result)) {
+			$_SESSION['num'][$i] = $row['num'];
+			$_SESSION['send_archivo'][$i] = $row['archivopdf'];
+			$_SESSION['send_description'][$i] = $row['descripcion'];
+
+			$i += 1;
+		}
+	}
+	$_SESSION['total_send'] = count($_SESSION['num']);
+} else {
+	$_SESSION['num'] = array();
+	$_SESSION['send_archivo'] = array();
+
+	$i = 0;
+
+	$sql = "SELECT * FROM send_one WHERE user = '" . $_POST['txtuserid'] . "' ORDER BY num";
+
+	if ($result = $conexion->query($sql)) {
+		while ($row = mysqli_fetch_array($result)) {
+			$_SESSION['num'][$i] = $row['num'];
+			$_SESSION['send_archivo'][$i] = $row['archivopdf'];
+
+			$i += 1;
+		}
+	}
+	$_SESSION['total_send'] = count($_SESSION['num']);
+}
 ?>
+
+
+
 <div class="form-gridview">
 	<table class="default">
+		<?php 
+			echo '<h2> ' .$_POST['txtuserid'].' </h2>'
+		?>
+
 		<?php
 		if ($_SESSION['total_send'] != 0) {
 			echo '
@@ -32,7 +81,7 @@ if ($resultado = $conexion->query($sql)) {
 					</tr>
 			';
 		}	
-			$path = 'sendonepdf/' . $_SESSION["user"];
+			$path = '../send_one/sendonepdf/' . $_POST["txtuserid"];
                 if(file_exists($path)){
                     $directorio= opendir($path);
                     while($archivo=readdir($directorio)){
@@ -44,7 +93,8 @@ if ($resultado = $conexion->query($sql)) {
 														<td>' . $_SESSION["send_description"] . '</td>	
 														<td> 
 															<div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $archivo . '"
-															title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" name="btn" value="form_consult" type="submit"></button></td>
+															title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" 
+															name="btn" value="form_consult" type="submit"></button></td>
 														<td>
 															<form action="" method="POST">
 																<input style="display:none;" type="text" name="txtuserid" value="'.$archivo.'"/>
