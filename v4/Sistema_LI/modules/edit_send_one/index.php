@@ -34,7 +34,7 @@ $max = 20;
 $inicio = ($page - 1) * $max;
 
 // Cargar datos de Asignaturas
-include_once "load_data.php";
+include_once "../students/load_data.php";
 
 ?>
 <!DOCTYPE html>
