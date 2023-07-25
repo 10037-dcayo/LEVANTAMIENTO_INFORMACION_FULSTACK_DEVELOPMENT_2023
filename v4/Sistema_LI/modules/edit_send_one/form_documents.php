@@ -60,7 +60,7 @@ if (!empty($_POST['search'])) {
 <div class="form-gridview">
 	<table class="default">
 		<?php 
-			echo '<h2> ' .$_POST['txtuserid'].' </h2>'
+			echo '<h2 class="textList"> ' .$_POST['txtname'].' </h2>'
 		?>
 
 		<?php
