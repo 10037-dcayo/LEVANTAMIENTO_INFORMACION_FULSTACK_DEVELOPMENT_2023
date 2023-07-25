@@ -70,12 +70,12 @@ if (!empty($_POST['search'])) {
 						<th class="center" style="width: 800px">Nombre del archivo</th>
 						<th class="center" style="width: 70px">Descripción</th>
 				        <th class="center"><a class="icon">download</a></th>
-								<th class="center"><a class="icon">visibility</a></th>
+								<th class="center"><a class="icon">edit</a></th>
 								
 						
 			';
-			if ($_SESSION['permissions'] != 'admin') {
-				echo '<th class="center"><a class="icon">delete</a></th>';
+			if ($_SESSION['permissions'] != 'edit') {
+				//echo '<th class="center"><a class="icon">delete</a></th>';
 			}
 			echo '	
 					</tr>
@@ -102,12 +102,16 @@ if (!empty($_POST['search'])) {
 																<button class="btnedit" name="btn" value="form_view" type="submit"></button>
 															</form>
 														</td>
+<<<<<<< HEAD
 														<td>
 														<form action="" method="POST">
 															<input style="display:none;" type="text" name="txtuserid" value="' . $archivo . '"/>
 															<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
 														</form>
 														</td>
+=======
+														
+>>>>>>> f6cdd19312a9490ec16b2d2ca97bbfc2bd403bdd
 													
 													</tr>';         
                         }
