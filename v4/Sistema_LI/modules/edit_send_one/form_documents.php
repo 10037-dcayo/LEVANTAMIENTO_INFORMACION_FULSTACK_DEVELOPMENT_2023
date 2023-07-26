@@ -2,6 +2,12 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
 
+$sql = "SELECT descripcion FROM send_one";
+if ($resultado = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($resultado)) {
+		$_SESSION['send_description'] = $row['descripcion'];
+	}
+}
 // Debes definir el valor de $max antes de usarlo en el cálculo de $tpages
 $max = 10; // Aquí debes proporcionar el valor apropiado
 
@@ -90,7 +96,7 @@ if (!empty($_POST['search'])) {
 													echo '
 													<tr>
 														<td>' . $archivo . '</td>
-															
+														<td>' . $_SESSION["send_description"] . '</td>	
 														<td> 
 															<div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $archivo . '"
 															title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" 
@@ -102,7 +108,6 @@ if (!empty($_POST['search'])) {
 																<button class="btnedit" name="btn" value="form_view" type="submit"></button>
 															</form>
 														</td>
-<<<<<<< HEAD
 														<td>
 														<form action="" method="POST">
 															<input style="display:none;" type="text" name="txtuserid" value="' . $archivo . '"/>
@@ -110,8 +115,6 @@ if (!empty($_POST['search'])) {
 														</form>
 														</td>
 													
-=======
->>>>>>> 1a8c5141f05571d46bb04747fea12a2cbda93390
 													</tr>';         
                         }
                     }
