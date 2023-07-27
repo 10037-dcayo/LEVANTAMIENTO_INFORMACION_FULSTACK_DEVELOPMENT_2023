@@ -107,14 +107,7 @@ if (!empty($_POST['search'])) {
 																<input style="display:none;" type="text" name="txtuserid" value="'.$archivo.'"/>
 																<button class="btnedit" name="btn" value="form_update" type="submit"></button>
 															</form>
-														</td>
-														<td>
-														<form action="" method="POST">
-															<input style="display:none;" type="text" name="txtuserid" value="' . $archivo . '"/>
-															<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
-														</form>
-														</td>
-													
+														</td>													
 													</tr>';         
                         }
                     }
