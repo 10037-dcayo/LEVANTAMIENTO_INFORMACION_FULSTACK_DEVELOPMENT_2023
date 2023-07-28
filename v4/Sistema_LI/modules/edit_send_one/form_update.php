@@ -27,25 +27,21 @@ if ($result = $conexion->query($sql)) {
     <form action="#" method="post" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
       <div class="wrap">
         <div class="first">
-          <label for="txtuserid" <label for="txtuserid" class="label">Usuario</label>
-          <input id="txtuserid" style="display: none;" type="text" name="userid"
-            value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
-            disabled />
+          <label for="txtuserid" class="label">Usuario</label>
+          <input id="txtuserid" style="display: none;" type="text" name="userid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
+         
           <label for="txtinfoqdescription" class="label">Descripción</label>
-          <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
-            value="<?php echo $_SESSION['user_id']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
+          <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10" value="<?php echo $_SESSION['mensaje']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
         <div class="first">
           <label for="txtname" class="label">Estado</label>
-          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
-            value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
+          <input id="txtname" class="text" style=" display: none;" type="text" name="name" value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['state']; ?>" required />
         </div>
         <div class="first">
           <label for="txtname" class="label">Nombre</label>
-          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
-            value="<?php echo $_SESSION['nombre']; ?>" maxlength="50" required />
+          <input id="txtname" class="text" style=" display: none;" type="text" name="name" value="<?php echo $_SESSION['nombre']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['nombre']; ?>" required disabled />
         </div>
         <div class="first">
@@ -57,9 +53,10 @@ if ($result = $conexion->query($sql)) {
 
       </div>
       <form action="" method="POST">
-        <input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION[" user_id"][$i] . '"/>
-                <button class="btn icon" name="btn" value="form_delete" autofocus type="submit">done</button>
-              </form>
+        <input style="display:none;" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id'][$i]; ?>"/>
+        <button class="btn icon" name="btn" value="form_delete" autofocus type="submit">done</button>
+      </form>
+
     </form>
   </div>
 </div>
