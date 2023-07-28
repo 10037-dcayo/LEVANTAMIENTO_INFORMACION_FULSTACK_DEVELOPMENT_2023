@@ -15,47 +15,47 @@ if ($result = $conexion->query($sql)) {
 
 ?>
 <div class="form-data">
-	<div class="head">
-		<h1 class="titulo">Actualizar</h1>
-	</div>
-	<div class="body">
-		<form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
-			<div class="wrap">
-      <div class="first">
-          <label for="txtuserid" class="label">Usuario</label>
-          <input id="txtuserid" style="display: none;" type="text" name="userid"
+  <div class="head">
+    <h1 class="titulo">Actualizar</h1>
+  </div>
+  <div class="body">
+    <form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
+      <div class="wrap">
+        <div class="first">
+          <label class="label">Usuario</label>
+          <input id="txtuserid" style="display: none;" type="text" name="txtuserid"
             value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
+          <input class="text" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
             disabled />
-          <label for="txtinfoqdescription" class="label">Descripción</label>
+          <label  class="label">Descripción</label>
           <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
             value="<?php echo $_SESSION['user_id']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
         <div class="first">
-          <label for="txtname" class="label">Estado</label>
-          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
+          <label for="txtestado" class="label">Estado</label>
+          <input id="txtestado" class="text" style=" display: none;" type="text" name="txtestado"
             value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['state']; ?>" required />
+          <input class="text" type="text" name="txtestado" value="<?php echo $_SESSION['state']; ?>" required />
         </div>
         <div class="first">
-          <label for="txtname" class="label">Nombre</label>
-          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
+          <label class="label">Nombre</label>
+          <input id="txtname" class="text" style=" display: none;" type="text" name="txtname"
             value="<?php echo $_SESSION['nombre']; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['nombre']; ?>" required disabled />
+          <input class="text" type="text" name="txtname" value="<?php echo $_SESSION['nombre']; ?>" required disabled />
         </div>
         <div class="first">
-          <label for="txtname" class="label">N°PDF</label>
-          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
+          <label class="label">N°PDF</label>
+          <input id="txtnum" class="text" style=" display: none;" type="text" name="txtnum"
             value="<?php echo $_SESSION['numero']; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['numero']; ?>" required disabled />
+          <input class="text" type="text" name="txtnum" value="<?php echo $_SESSION['numero']; ?>" required disabled />
         </div>
-</div>
-			<button id="btnSave" class="btn icon" type="submit">save</button>
-		</form>
-	</div>
+      </div>
+      <button id="btnSave" class="btn icon" name="btn" type="submit">save</button>
+    </form>
+  </div>
 </div>
 <div class="content-aside">
-	<?php include_once "../sections/options-disabled.php"; ?>
+  <?php include_once "../sections/options-disabled.php"; ?>
 </div>
 
 
@@ -63,7 +63,9 @@ if ($result = $conexion->query($sql)) {
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-0sCz7O9XlHUBlTepQg2tL/j/ZtMInzGRBfKv2n/bGEB1MkXkXpy0eMHvG+vcnBfACpJZl+S6Z5p5r5L5Hy5U2Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  integrity="sha512-0sCz7O9XlHUBlTepQg2tL/j/ZtMInzGRBfKv2n/bGEB1MkXkXpy0eMHvG+vcnBfACpJZl+S6Z5p5r5L5Hy5U2Q=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 
