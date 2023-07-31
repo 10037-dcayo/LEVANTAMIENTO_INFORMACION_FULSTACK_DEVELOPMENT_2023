@@ -15,7 +15,6 @@ if ($result = $conexion->query($sql)) {
 
 ?>
 <div class="form-data">
-<<<<<<< HEAD
   <div class="head">
     <h1 class="titulo">Revisión de Documentación</h1>
   </div>
@@ -27,20 +26,6 @@ if ($result = $conexion->query($sql)) {
           <input id="txtuserid" style="display: none;" type="text" name="userid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
          
-=======
-	<div class="head">
-		<h1 class="titulo">Actualizar</h1>
-	</div>
-	<div class="body">
-		<form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
-			<div class="wrap">
-      <div class="first">
-          <label for="txtuserid" class="label">Usuario</label>
-          <input id="txtuserid" style="display: none;" type="text" name="userid"
-            value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
-            disabled />
->>>>>>> d1c40e977cc5c5256698fa98523274757af63e2a
           <label for="txtinfoqdescription" class="label">Descripción</label>
           <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10" value="<?php echo $_SESSION['mensaje']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
