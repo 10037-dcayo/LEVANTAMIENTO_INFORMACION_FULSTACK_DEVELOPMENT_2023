@@ -18,25 +18,25 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 			echo '<h2 class="textList"> ' .$_POST['txtname'].' </h2>'
 		?>
     <div class="textList">
-      <div class="item upLeft">
+      <div class="item upLeft rounded-blue-box ">
         <h2 class="textList">Justificación</h2>
         <form action="form-name-repetido-1.php">
           <p><input type="submit" value="Ver"></p>
         </form>
       </div>
-      <div class="item upRight">
+      <div class="item upRight rounded-blue-box">
         <h2 class="textList">Informes Quincenales</h2>
         <form action="form-name-repetido-2.php">
           <p><input type="submit" value="Ver"></p>
         </form>
       </div>
-      <div class="item downLeft">
+      <div class="item downLeft rounded-blue-box">
         <h2 class="textList">Envío 1</h2>
         <form action="form-name-repetido-3.php">
           <p><input type="submit" value="Ver"></p>
         </form>
       </div>
-      <div class="item downRight">
+      <div class="item downRight rounded-blue-box">
         <h2 class="textList">Envío 2</h2>
         <form action="form-name-repetido-4.php">
           <p><input type="submit" value="Ver"></p>

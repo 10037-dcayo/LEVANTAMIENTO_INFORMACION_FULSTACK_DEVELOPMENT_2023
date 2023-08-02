@@ -2732,7 +2732,24 @@ input[type="range"]:active {
       }
       .item {
         text-align: center;
-        background: purple;
+        background-color: rgba(0, 0, 255, 0.7); /* Fondo azul transparente, ajusta el último valor (0.7) para la transparencia */
         grid-column: 1fr 1fr;
         grid-row: 1fr 1fr;
       }
+      
+/* Nueva clase para la caja redondeada, azul oscuro y transparente */
+.rounded-blue-box {
+    background-color: rgba(0, 0, 100, 0.7); /* Fondo azul opaco transparente */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px;
+    transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+  }
+  
+  .rounded-blue-box:hover {
+    background-color: rgba(0, 0, 100, 0.3); /* Hacer la caja más transparente al pasar el mouse */
+  }
+  
+  
+  
+
+  
