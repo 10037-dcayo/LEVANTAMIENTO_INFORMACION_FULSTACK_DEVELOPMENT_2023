@@ -2708,9 +2708,14 @@ input[type="range"]:active {
   }
 
 .textList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr 1fr;
+    gap: 10px;
     color: #FCE8E4 ; 
     margin-top: 20px; 
-    margin-left:30px;}
+    margin-left: 10px;
+    margin-right: 10px;}
    
     .scrollable-container {
         width: 100%;
@@ -2724,4 +2729,10 @@ input[type="range"]:active {
         border: 1px solid black;
         margin-bottom: 0px;
         padding: 0px;
+      }
+      .item {
+        text-align: center;
+        background: purple;
+        grid-column: 1fr 1fr;
+        grid-row: 1fr 1fr;
       }
