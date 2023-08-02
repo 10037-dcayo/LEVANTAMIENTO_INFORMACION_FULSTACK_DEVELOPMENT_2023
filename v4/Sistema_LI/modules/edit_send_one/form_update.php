@@ -22,23 +22,12 @@ if ($result = $conexion->query($sql)) {
     <form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
       <div class="wrap">
         <div class="first">
-<<<<<<< HEAD
           <label for="txtuserid" class="label">Usuario</label>
           <input id="txtuserid" style="display: none;" type="text" name="userid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
          
           <label for="txtinfoqdescription" class="label">Descripción</label>
           <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10" value="<?php echo $_SESSION['mensaje']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
-=======
-          <label class="label">Usuario</label>
-          <input id="txtuserid" style="display: none;" type="text" name="txtuserid"
-            value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
-          <input class="text" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
-            disabled />
-          <label  class="label">Descripción</label>
-          <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
-            value="<?php echo $_SESSION['user_id']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
->>>>>>> fff30fb95a8badaac09d3a81ab794bd152c453ab
         </div>
         <div class="first">
           <label for="txtestado" class="label">Estado</label>
