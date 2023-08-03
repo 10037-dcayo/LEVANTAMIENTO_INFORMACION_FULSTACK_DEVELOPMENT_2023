@@ -35,8 +35,6 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 								<input style="display:none;" type="text" id="txtname" name="txtname" value="' . $_SESSION["student_name"][$i] . '"/>
 								<button class="btnview" name="btn" value="menu" type="submit"></button>
 							</form>
-							
-							</form>
 						</td>
 					</tr>
 				';

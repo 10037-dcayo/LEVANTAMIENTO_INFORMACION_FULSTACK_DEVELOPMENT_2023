@@ -70,7 +70,7 @@ if (strpos($url_actual, 'modules')) {
                         } ?>" href="/modules/subjects"><span class="icon">library_books</span>Asignaturas</a></li>
           <li><a class="<?php if ($output[1] == 'edit_send_one') {
                             echo 'active';
-                        } ?>" href="/modules/edit_send_one"><span class="icon">library_books</span>Documentacíon</a></li>  
+                        } ?>" href="/modules/edit_send_one"><span class="icon">library_books</span>Documentación</a></li>  
   
         
         

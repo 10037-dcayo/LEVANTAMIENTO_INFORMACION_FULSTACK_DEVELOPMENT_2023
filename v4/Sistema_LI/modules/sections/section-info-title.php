@@ -36,7 +36,7 @@ if (strpos($url_actual, 'modules')) {
     }elseif ($name_page[1] == 'send_one') {
         $_SESSION['title_form_section'] = 'Envió 1';
     }elseif ($name_page[1] == 'edit_send_one') {
-        $_SESSION['title_form_section'] = 'Documentación Envio 1';
+        $_SESSION['title_form_section'] = 'Documentación';
     }
 
 } elseif (strpos($url_actual, 'user')) {

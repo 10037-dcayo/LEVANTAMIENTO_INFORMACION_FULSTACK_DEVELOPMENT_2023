@@ -1,3 +1,4 @@
+
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
@@ -61,12 +62,10 @@ if (!empty($_POST['search'])) {
 }
 ?>
 
-
-
 <div class="form-gridview">
 	<table class="default">
-	<h2 class="titlecenter"> Envió 1  </h2>
-		<?php 
+	<h2 class="titlecenter"> Justificaciónes </h2>
+  <?php 
 			echo '<h2 class="textList"> ' .$_POST['txtname'].' </h2>'
 		?>
 		<?php
@@ -140,9 +139,8 @@ if (!empty($_POST['search'])) {
 
 
 	?>
-
-
 </div>
+
 <div class="content-aside">
 	<?php
 	include_once '../notif_info.php';
