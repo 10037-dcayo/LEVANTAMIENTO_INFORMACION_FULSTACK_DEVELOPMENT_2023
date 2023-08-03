@@ -2748,47 +2748,10 @@ input[type="range"]:active {
     border-radius: 10px; /* Bordes redondeados */
     padding: 20px;
     transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
-    text-align: center;
   }
   
   .rounded-blue-box:hover {
     background-color: rgba(0, 0, 100, 0.3); /* Hacer la caja más transparente al pasar el mouse */
-  }
-  
-  .textList {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .item {
-    background-color: rgba(0, 0, 100, 0.7);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .flex-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  h2.textList {
-    margin-right: 10px;
-  }
-  
-  input[type="submit"] {
-    background-color: rgba(0, 0, 255, 0.9);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: rgba(0, 0, 255, 1);
   }
   
   
