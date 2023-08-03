@@ -2716,6 +2716,11 @@ input[type="range"]:active {
     margin-top: 20px; 
     margin-left: 10px;
     margin-right: 10px;}
+
+.titlecenter{
+    text-align: center;
+    color: #FCE8E4 ; 
+}
    
     .scrollable-container {
         width: 100%;
@@ -2732,17 +2737,18 @@ input[type="range"]:active {
       }
       .item {
         text-align: center;
-        background-color: rgba(0, 0, 255, 0.7); /* Fondo azul transparente, ajusta el último valor (0.7) para la transparencia */
+         /* Fondo azul transparente, ajusta el último valor (0.7) para la transparencia */
         grid-column: 1fr 1fr;
         grid-row: 1fr 1fr;
       }
       
 /* Nueva clase para la caja redondeada, azul oscuro y transparente */
 .rounded-blue-box {
-    background-color: rgba(0, 0, 100, 0.7); /* Fondo azul opaco transparente */
+    background-color:none; /* Fondo azul opaco transparente */
     border-radius: 10px; /* Bordes redondeados */
     padding: 20px;
     transition: background-color 0.3s; /* Transición suave al cambiar el fondo */
+    text-align: center;
   }
   
   .rounded-blue-box:hover {

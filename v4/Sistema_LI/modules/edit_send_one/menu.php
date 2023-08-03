@@ -1,8 +1,8 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-$name=$_POST['txtname'];
-$id=$_POST['txtuserid'];
+$name = $_POST['txtname'];
+$id = $_POST['txtuserid'];
 
 ?>
 
@@ -17,35 +17,36 @@ $id=$_POST['txtuserid'];
   <table class="default">
     <?php
     echo '<h2 class="textList"> ' . $_POST['txtname'] . ' </h2>';
-      ?>
+    ?>
     <div class="textList">
-      <div class="item upLeft rounded-blue-box ">
-        <h2 class="textList">Justificación</h2>
-        <form action="form-name-repetido-1.php">
-          <p><input type="submit" value="Ver"></p>
+    <div class="item downLeft rounded-blue-box">
+        <h2 >Justificaciónes</h2>
+        <form action="" method="POST">
+          <input style="display:none;" type="text" id="texuserid" name="txtuserid" value="<?php echo $id; ?>" />
+          <input style="display:none;" type="text" id="texname" name="txtname" value="<?php echo $name; ?>" />
+          <button class="btn" id="btnSave" value="form_justificaciones" name="btn" type="submit">Ver</button>
         </form>
       </div>
       <div class="item upRight rounded-blue-box">
-        <h2 class="textList">Informes Quincenales</h2>
+        <h2 >Informes Quincenales</h2>
         <form action="form-name-repetido-2.php">
           <p><input type="submit" value="Ver"></p>
         </form>
       </div>
-      <div class="item downLeft rounded-blue-box">
-        <h2 class="textList">Envío 1</h2>
 
+      <div class="item downLeft rounded-blue-box">
+        <h2 >Envío 1</h2>
         <form action="" method="POST">
-        <input  style="display:none;" type="text" id="texuserid" name="txtuserid"  value="<?php echo $id; ?>"/>
-        <input  style="display:none;" type="text" id="texname" name="txtname"  value="<?php echo $name; ?>"/>
-																<button class="btn" id="btnSave" value="form_documents" name="btn" type="submit">Ver</button>
-															</form>
+          <input style="display:none;" type="text" id="texuserid" name="txtuserid" value="<?php echo $id; ?>" />
+          <input style="display:none;" type="text" id="texname" name="txtname" value="<?php echo $name; ?>" />
+          <button class="btn" id="btnSave" value="form_documents" name="btn" type="submit">Ver</button>
+        </form>
       </div>
       <div class="item downRight rounded-blue-box">
-        <h2 class="textList">Envío 2</h2>
+        <h2>Envío 2</h2>
         <form action="form-name-repetido-4.php">
           <p><input type="submit" value="Ver"></p>
         </form>
       </div>
-    </div
-  </table>
+    </div </table>
 </div>
