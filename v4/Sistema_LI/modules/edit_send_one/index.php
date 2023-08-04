@@ -41,20 +41,21 @@ include_once '../students/load_data.php';
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
 	<meta name="robots" content="noindex">
 	<meta name="google" value="notranslate">
 	<link rel="icon" type="image/png" href="/images/icon.png" />
 	<title>Asignaturas | Sistema de Control Escolar</title>
 	<meta name="description" content="Sistema Escolar, gestión de asistencias." />
-	<link rel="stylesheet" href="/css/style.css?v=<?php echo(rand()); ?>" media="screen, projection" type="text/css" />
+	<link rel="stylesheet" href="/css/style.css?v=<?php echo (rand()); ?>" media="screen, projection" type="text/css" />
 	<link rel="stylesheet" href="/css/select2.css" media="screen, projection" type="text/css" />
 	<script src="/js/external/jquery.min.js" type="text/javascript"></script>
-    <script src="/js/external/prefixfree.min.js" type="text/javascript"></script>
-	<script src="/js/controls/unsetnotif.js"  type="text/javascript"></script>
+	<script src="/js/external/prefixfree.min.js" type="text/javascript"></script>
+	<script src="/js/controls/unsetnotif.js" type="text/javascript"></script>
 	<script src="/js/external/select2.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		$(window).load(function() {
+		$(window).load(function () {
 			$(".loader").fadeOut("slow");
 		});
 	</script>
@@ -73,7 +74,7 @@ include_once '../students/load_data.php';
 			include_once '../sections/section-admin.php';
 		} elseif (!empty($_SESSION['section-editor']) == 'go-' . $_SESSION['user']) {
 			include_once '../sections/section-editor.php';
-		}elseif (!empty($_SESSION['section-teacher']) == 'go-' . $_SESSION['user']) {
+		} elseif (!empty($_SESSION['section-teacher']) == 'go-' . $_SESSION['user']) {
 			include_once '../sections/section-teacher.php';
 		}
 		?>
