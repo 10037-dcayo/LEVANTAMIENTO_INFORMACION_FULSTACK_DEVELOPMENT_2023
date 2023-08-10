@@ -71,7 +71,7 @@ if (strpos($url_actual, 'modules')) {
          <li><a class="<?php if ($output[1] == 'Envio_1') {
                             echo 'active';
                         } ?>" href="/modules/send_one"><span class="icon">recent_actors</span>Envio_1</a></li>
-        <li><a class="" href=""><span class="icon">recent_actors</span>Envio_2</a></li>
+        <li><a class="" href="/modules/send_two"><span class="icon">recent_actors</span>Envio_2</a></li>
         
         
 </div>
