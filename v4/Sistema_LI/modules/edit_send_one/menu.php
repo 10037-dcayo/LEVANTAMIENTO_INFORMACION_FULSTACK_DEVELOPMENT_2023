@@ -27,10 +27,12 @@ $id = $_POST['txtuserid'];
           <button class="btn" id="btnSave" value="form_justificaciones" name="btn" type="submit">Ver</button>
         </form>
       </div>
-      <div class="item upRight rounded-blue-box">
-        <h2 >Informes Quincenales</h2>
-        <form action="form-name-repetido-2.php">
-          <p><input type="submit" value="Ver"></p>
+      <div class="item downLeft rounded-blue-box">
+        <h2>Informes Quincenales</h2>
+        <form action="" method="POST">
+          <input style="display:none;" type="text" id="texuserid" name="txtuserid" value="<?php echo $id; ?>" />
+          <input style="display:none;" type="text" id="texname" name="txtname" value="<?php echo $name; ?>" />
+          <button class="btn" id="btnSave" value="form_infoq" name="btn" type="submit">Ver</button>
         </form>
       </div>
 
