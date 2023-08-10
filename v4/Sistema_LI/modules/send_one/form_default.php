@@ -20,6 +20,7 @@ if ($resultado = $conexion->query($sql)) {
 						<th class="center" style="width: 70px">Descripción</th>
 				        <th class="center"><a class="icon">download</a></th>
 								<th class="center"><a class="icon">visibility</a></th>
+	
 								
 						
 			';
