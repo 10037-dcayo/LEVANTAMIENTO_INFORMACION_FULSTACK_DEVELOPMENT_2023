@@ -15,6 +15,7 @@ if ($result = $conexion->query($sql)) {
     $_SESSION['state'] = $row['estado'];
     $_SESSION['mensaje'] = $row['message'];
     $_SESSION['nombre'] = $row['archivopdf'];
+    $_SESSION['evidencia'] = $row['evidencepdf'];
   }
 }
 
