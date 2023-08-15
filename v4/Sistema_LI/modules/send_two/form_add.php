@@ -39,7 +39,7 @@ $id_generate = 'S2-' . unique_id(5);
                     </div>
                     <div class="first">
                     <label for="txtuserarchivo" class="label">Archivo</label>
-                    <input type="file" class="text" id="archivo" name="archivo" accept="application/pdf , application/msword " required>
+                    <input type="file" class="text" id="archivo" name="archivo" accept=".docx" required>
                     </div>
                     </div>
             
