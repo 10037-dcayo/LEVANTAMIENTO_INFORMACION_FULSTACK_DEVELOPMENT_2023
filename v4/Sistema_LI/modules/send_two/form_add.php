@@ -16,7 +16,7 @@ function unique_id($l = 10)
 }
 
 
-$id_generate = 'S-' . unique_id(5);
+$id_generate = 'S2-' . unique_id(5);
 ?>
 <div class="form-data">
     <div class="head">
