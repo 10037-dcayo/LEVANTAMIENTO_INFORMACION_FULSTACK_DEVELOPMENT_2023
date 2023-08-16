@@ -68,7 +68,7 @@ if (!empty($_POST['search'])) {
 
 <div class="form-gridview">
 	<table class="default">
-	<h2 class="titlecenter"> Justificaciónes </h2>
+	<h2 class="titlecenter"> Justificaciones </h2>
   <?php 
 			echo '<h2 class="textList"> ' .$_POST['txtname'].' </h2>'
 		?>
