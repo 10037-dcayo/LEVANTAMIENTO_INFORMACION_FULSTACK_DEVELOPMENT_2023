@@ -168,7 +168,7 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" disabled />
 
 
-					<label for="selectuserjerarquia" class="label">Jerarquia</label>
+					<label for="selectuserjerarquia" class="label">Jerarquía</label>
 					<select id="selectuserjerarquia" class="select" name="selectJerarquia" disabled>
 				
 					<?php
