@@ -73,7 +73,7 @@ if (strpos($url_actual, 'modules')) {
                         } ?>" href="/modules/send_one"><span class="icon">recent_actors</span>Envio_1</a></li>
         <li><a class="<?php if ($output[1] == 'Envio_2') {
                             echo 'active';
-                        } ?>" href="/modules/new_send_two"><span class="icon">recent_actors</span>Envio_2</a></li>
+                        } ?>" href="/modules/send_two"><span class="icon">recent_actors</span>Envio_2</a></li>
         
         
 </div>

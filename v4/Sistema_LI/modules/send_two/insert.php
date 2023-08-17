@@ -21,7 +21,7 @@ $_SESSION['send_archivo']=$row['archivopdf'];
 $nombrePDF=$_SESSION['send_archivo'];
     if ($nombrePDF==$archivopdf) {
         Info('Ya existe un archivo con el nombre.');
-        header('Location: /modules/new_send_two');
+        header('Location: /modules/send_two');
         exit();
     } else {
 
@@ -70,7 +70,7 @@ $nombrePDF=$_SESSION['send_archivo'];
 	}
 
         
-        header('Location: /modules/new_send_two');
+        header('Location: /modules/send_two');
         exit();
 }
 
