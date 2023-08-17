@@ -12,10 +12,10 @@ if (empty($_POST['txtuserid'])) {
 }
 
 
-$sql_delete = "DELETE FROM send_two WHERE sendtwopdf = '" . $_POST['txtuserid'] . "'";
+$sql_delete = "DELETE FROM send_two WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
 
 if (mysqli_query($conexion, $sql_delete)) {
-	$sql_delete = "DELETE FROM send_two WHERE sendtwopdf = '" . $_POST['txtuserid'] . "'";
+	$sql_delete = "DELETE FROM send_two WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
 
 	if (mysqli_query($conexion, $sql_delete)) {
 		Error('Alumno eliminado.');
