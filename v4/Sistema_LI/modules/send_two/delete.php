@@ -12,10 +12,10 @@ if (empty($_POST['txtuserid'])) {
 }
 
 
-$sql_delete = "DELETE FROM send_one WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
+$sql_delete = "DELETE FROM send_two WHERE sendtwopdf = '" . $_POST['txtuserid'] . "'";
 
 if (mysqli_query($conexion, $sql_delete)) {
-	$sql_delete = "DELETE FROM send_one WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
+	$sql_delete = "DELETE FROM send_two WHERE sendtwopdf = '" . $_POST['txtuserid'] . "'";
 
 	if (mysqli_query($conexion, $sql_delete)) {
 		Error('Alumno eliminado.');
@@ -27,7 +27,7 @@ if (mysqli_query($conexion, $sql_delete)) {
 }
 
 $nombreArchivo = $_POST['txtuserid'];
-$rutaArchivo = 'sendonepdf/' . $_SESSION["user"] . '/' . $nombreArchivo;
+$rutaArchivo = 'sendtwopdf/' . $_SESSION["user"] . '/' . $nombreArchivo;
 
 if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
  { 
@@ -41,5 +41,5 @@ if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
     Error('El archivo no existe');
 }
 
-header('Location: /modules/send_one');
+header('Location: /modules/send_two');
 exit();
