@@ -20,7 +20,7 @@ $id = $_POST['txtuserid'];
     ?>
     <div class="textList">
     <div class="item downLeft rounded-blue-box">
-        <h2>Justificaciónes</h2>
+        <h2>Justificaciones</h2>
         <form action="" method="POST">
           <input style="display:none;" type="text" id="texuserid" name="txtuserid" value="<?php echo $id; ?>" />
           <input style="display:none;" type="text" id="texname" name="txtname" value="<?php echo $name; ?>" />
