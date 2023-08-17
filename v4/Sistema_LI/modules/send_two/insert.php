@@ -41,8 +41,8 @@ $nombrePDF=$_SESSION['send_archivo'];
 	if($_FILES["archivo"]["error"]>0){     
 		Info ("Error al cargar el archivo");
 	}else{
-		$permitidos= array("application/pdf"); 
-		$limite_kb=7.421;
+		$permitidos = array("application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+		$limite_kb=5000;
 		if(in_array($_FILES["archivo"]["type"],$permitidos) && $_FILES["archivo"]["size"]<=$limite_kb*1024){
 			$ruta = 'sendtwopdf/'. $id . '/';
 			$archivo=$ruta . $_FILES["archivo"]["name"];
