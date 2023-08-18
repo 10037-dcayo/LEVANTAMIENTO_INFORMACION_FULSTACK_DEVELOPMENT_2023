@@ -391,7 +391,7 @@ if ($result = $conexion->query($sql)) {
 					</select>
 					<label for="dateuseradmission" class="label">Fecha de admisión</label>
 					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" disabled />
-					<label for="dateuser" class="label">Fecha de admisión</label>
+					<label for="dateuser" class="label">Fecha de salida</label>
 					<input id="dateuser" class="date" type="date" name="datefinish" value="<?php echo $_SESSION['student_finish']; ?>" disabled />
 
 					</div>
