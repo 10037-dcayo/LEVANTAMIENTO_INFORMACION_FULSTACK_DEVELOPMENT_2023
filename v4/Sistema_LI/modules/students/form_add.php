@@ -136,6 +136,8 @@ $id_generate = 'stdt-' . unique_id(5);
                     </select>
                     <label for="dateuseradmission" class="label">Fecha de admisión</label>
                     <input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo date('Y-m-d'); ?>" required />
+                    <label for="dateuserfinish" class="label">Fecha de Finalización </label>
+                    <input id="dateuserfinish" class="date" type="date" name="datefinish" value="placeholder" required />
                 </div>
                 <div class="last">
   <label class="label" for="txthours">

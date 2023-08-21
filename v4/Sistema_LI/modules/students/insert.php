@@ -30,7 +30,7 @@ if ($result = $conexion->query($sql)) {
 		$sql_insert_user = "INSERT INTO users(user, name, surnames, email, pass, permissions, rol, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "','" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtuseremail']) . "', '" . trim($_POST['txtpass']) . "', 'editor', 'student', 'user.png','" . $date . "')";
 
 		if (mysqli_query($conexion, $sql_insert_user)) {
-			$sql_insert_teacher = "INSERT INTO students(user, name, surnames, email, cedula, pass, id, sede, date_of_birth, phone, address, career, horas, asistencia, horario, documentation, estado, departamento, jerarquia, jornada, admission_date, created_at) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "','" . trim($_POST['txtuseremail']). "', '" . trim($_POST['txtcedula']) . "', '" . trim($_POST['txtpass']) . "', '" . trim($_POST['txtid']) . "','" . trim($_POST['selectSede']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "', '" . trim($_POST['selectCareer']) . "', '" . trim($_POST['txttotalhours_hidden']) . "','" . trim($_POST['txtuserdates']) . "', '" . trim($_POST['txtuserhours']) . "', '" . trim($_POST['selectDocumentation']) . "','" . trim($_POST['selectEstado']) . "','" . trim($_POST['selectDepartamento']) . "','" . trim($_POST['selectJerarquia']) . "','" . trim($_POST['selectJornada']) . "', '" . trim($_POST['dateadmission']) . "',  '" . $date . "')";
+			$sql_insert_teacher = "INSERT INTO students(user, name, surnames, email, cedula, pass, id, sede, date_of_birth, phone, address, career, horas, asistencia, horario, documentation, estado, departamento, jerarquia, jornada, admission_date, created_at, finish_date) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "','" . trim($_POST['txtuseremail']). "', '" . trim($_POST['txtcedula']) . "', '" . trim($_POST['txtpass']) . "', '" . trim($_POST['txtid']) . "','" . trim($_POST['selectSede']) . "', '" . trim($_POST['dateofbirth']) . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "', '" . trim($_POST['selectCareer']) . "', '" . trim($_POST['txttotalhours_hidden']) . "','" . trim($_POST['txtuserdates']) . "', '" . trim($_POST['txtuserhours']) . "', '" . trim($_POST['selectDocumentation']) . "','" . trim($_POST['selectEstado']) . "','" . trim($_POST['selectDepartamento']) . "','" . trim($_POST['selectJerarquia']) . "','" . trim($_POST['selectJornada']) . "', '" . trim($_POST['dateadmission']) . "',  '" . $date . "','" . trim($_POST['datefinish']) . "',  '" . $date . "')";
 
 			if (mysqli_query($conexion, $sql_insert_teacher)) {
 				Info('Alumno agregado.');
@@ -49,7 +49,8 @@ if ($result = $conexion->query($sql)) {
 	}
 }
 
-
+// comentarios
+//Comentario 2
 
 
 
