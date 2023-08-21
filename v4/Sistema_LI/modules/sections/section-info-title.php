@@ -34,11 +34,11 @@ if (strpos($url_actual, 'modules')) {
     }elseif ($name_page[1] == 'Justificaciones') {
         $_SESSION['title_form_section'] = 'Justificaciones';
     }elseif ($name_page[1] == 'send_one') {
-        $_SESSION['title_form_section'] = 'Envió 1';
+        $_SESSION['title_form_section'] = 'Envío 1';
     }elseif ($name_page[1] == 'edit_send_one') {
         $_SESSION['title_form_section'] = 'Documentación';
     }elseif ($name_page[1] == 'send_two') {
-        $_SESSION['title_form_section'] = 'Envió 2';
+        $_SESSION['title_form_section'] = 'Envío 2';
     }
 
 } elseif (strpos($url_actual, 'user')) {
