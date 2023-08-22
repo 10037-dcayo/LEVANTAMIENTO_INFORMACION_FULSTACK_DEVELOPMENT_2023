@@ -2,26 +2,15 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
 
-$sql = "SELECT estado FROM send_one";
-if ($resultado = $conexion->query($sql)) {
-	if ($row = mysqli_fetch_array($resultado)) {
-		$_SESSION['send_estado'] = $row['estado'];
-	}
-}
+$sql = "SELECT * FROM send_one";
 
-$sql = "SELECT created_at FROM send_one";
-if ($resultado = $conexion->query($sql)) {
-	if ($row = mysqli_fetch_array($resultado)) {
-		$_SESSION['send_created'] = $row['created_at'];
+if ($result = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($result)) {
+	  $_SESSION['send_estado'] = $row['estado'];
+	  $_SESSION['send_created'] = $row['created_at'];
+	  $_SESSION['send_updated'] = $row['updated_at'];
 	}
-}
-
-$sql = "SELECT updated_at FROM send_one";
-if ($resultado = $conexion->query($sql)) {
-	if ($row = mysqli_fetch_array($resultado)) {
-		$_SESSION['send_updated'] = $row['updated_at'];
-	}
-}
+  }
 // Debes definir el valor de $max antes de usarlo en el cálculo de $tpages
 $max = 10; // Aquí debes proporcionar el valor apropiado
 
