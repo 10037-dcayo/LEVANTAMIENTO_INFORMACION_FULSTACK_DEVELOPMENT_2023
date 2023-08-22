@@ -2,10 +2,24 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
 
-$sql = "SELECT descripcion FROM send_one";
+$sql = "SELECT estado FROM send_one";
 if ($resultado = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($resultado)) {
-		$_SESSION['send_description'] = $row['descripcion'];
+		$_SESSION['send_estado'] = $row['estado'];
+	}
+}
+
+$sql = "SELECT created_at FROM send_one";
+if ($resultado = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($resultado)) {
+		$_SESSION['send_created'] = $row['created_at'];
+	}
+}
+
+$sql = "SELECT updated_at FROM send_one";
+if ($resultado = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($resultado)) {
+		$_SESSION['send_updated'] = $row['updated_at'];
 	}
 }
 // Debes definir el valor de $max antes de usarlo en el cálculo de $tpages
@@ -25,7 +39,9 @@ if (!empty($_POST['search'])) {
 
 	$_SESSION['num'] = array();
 	$_SESSION['send_archivo'] = array();
-	$_SESSION['send_description'] = array();
+	$_SESSION['send_estado'] = array();
+	$_SESSION['send_created'] = array();
+	$_SESSION['send_updated'] = array();
 
 	$i = 0;
 
@@ -35,7 +51,9 @@ if (!empty($_POST['search'])) {
 		while ($row = mysqli_fetch_array($result)) {
 			$_SESSION['num'][$i] = $row['num'];
 			$_SESSION['send_archivo'][$i] = $row['archivopdf'];
-			$_SESSION['send_description'][$i] = $row['descripcion'];
+			$_SESSION['send_estado'][$i] = $row['estado'];
+			$_SESSION['send_created'][$i] = $row['created_at'];
+			$_SESSION['send_updated'][$i] = $row['updated_at'];
 
 			$i += 1;
 		}
@@ -74,7 +92,9 @@ if (!empty($_POST['search'])) {
 			echo '
 					<tr>
 						<th class="center" style="width: 800px">Nombre del archivo</th>
-						<th class="center" style="width: 70px">Descripción</th>
+						<th class="center" style="width: 70px">Estado</th>
+						<th class="center" style="width: 300px">Creado</th>
+						<th class="center" style="width: 300px">Actualizado</th>
 				        <th class="center"><a class="icon">download</a></th>
 								<th class="center"><a class="icon">edit</a></th>
 								
@@ -96,7 +116,9 @@ if (!empty($_POST['search'])) {
 													echo '
 													<tr>
 														<td>' . $archivo . '</td>
-														<td>' . $_SESSION["send_description"] . '</td>	
+														<td>' . $_SESSION["send_estado"] . '</td>
+														<td>' . $_SESSION["send_created"] . '</td>
+														<td>' . $_SESSION["send_updated"] . '</td>
 														<td> 
 															<div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $archivo . '"
 															title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" 
