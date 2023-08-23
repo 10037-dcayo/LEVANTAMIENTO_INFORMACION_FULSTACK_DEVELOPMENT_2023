@@ -2,6 +2,25 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
 
+$sql_cont="SELECT COUNT(user) as total FROM notify";
+if ($result_not = $conexion->query($sql_cont)) {
+	if ($row = mysqli_fetch_array($result_not)) {
+	  $_SESSION['total_not'] = $row['total'];
+	}
+  }
+
+
+$sql="SELECT * FROM notify";
+	if ($result = $conexion->query($sql)) {
+		if ($row = mysqli_fetch_array($result)) {
+			$_SESSION['usuario'] = $row['user'];
+			$_SESSION['nombre'] = $row['name'];
+			$_SESSION['mesage'] = $row['mensaje'];
+			$_SESSION['pdf'] = $row['nombrepdf'];
+			$_SESSION['state'] = $row['estado'];
+			$i += 1;
+		}
+	}
 
 ?>
 
@@ -67,11 +86,27 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 	?>
 </div>
 <div class="content-aside">
-	<?php
-	include_once '../notif_info.php';
-	include_once "../sections/options.php";
-	?>
+<?php
+		for ($i = 0; $i < $_SESSION['total_not']; $i++) {
+			echo '
+					
+		    			<p class="box-notification-doc">'. $_SESSION["nombre"] . ', '.$_SESSION["message"] . $_SESSION["pdf"] .' 
+							</p>
+				';
+		}
+		?>
+    </div>
 </div>
+
+<script>
+	document.getElementById("show-notification").addEventListener("click", function() {
+    document.getElementById("floating-notification").classList.add("show");
+});
+
+document.getElementById("close-notification").addEventListener("click", function() {
+    document.getElementById("floating-notification").classList.remove("show");
+});
+</script>
 
 
 
