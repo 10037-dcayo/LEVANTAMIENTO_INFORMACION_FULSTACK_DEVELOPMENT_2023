@@ -291,6 +291,8 @@ $(document).ready(function() {
     event.preventDefault();
     $("#txttotalhours").val(0);
     
+
+    
     
   });
   $("form").submit(function() {
