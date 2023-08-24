@@ -13,14 +13,13 @@ if ($result = $conexion->query($sql)) {
   }
 // Debes definir el valor de $max antes de usarlo en el cálculo de $tpages
 $max = 10; // Aquí debes proporcionar el valor apropiado
-
 $sql = "SELECT COUNT(num) AS total FROM send_one";
-
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
 		$tpages = ceil($row['total'] / $max);
 	}
 }
+// Este es un comentario
 
 if (!empty($_POST['search'])) {
 	$_POST['search'] = trim($_POST['search']);
