@@ -21,6 +21,7 @@ if ($result = $conexion->query($sql)) {
 		$tpages = ceil($row['total'] / $max);
 	}
 }
+// Aquí debes proporcionar el valor apropiado v2
 
 if (!empty($_POST['search'])) {
 	$_POST['search'] = trim($_POST['search']);
