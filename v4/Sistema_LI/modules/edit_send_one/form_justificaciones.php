@@ -3,12 +3,14 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
 
-$sql = "SELECT descripcion FROM justificaciones";
-if ($resultado = $conexion->query($sql)) {
-	if ($row = mysqli_fetch_array($resultado)) {
-		$_SESSION['justificaciones_description'] = $row['descripcion'];
+$sql = "SELECT * FROM justificaciones";
+
+if ($result = $conexion->query($sql)) {
+	if ($row = mysqli_fetch_array($result)) {
+	  $_SESSION['justificaciones_creado'] = $row['created_at'];
+	  $_SESSION['justificaciones_actualizado'] = $row['updated_at'];
 	}
-}
+  }
 // Debes definir el valor de $max antes de usarlo en el cálculo de $tpages
 $max = 10; // Aquí debes proporcionar el valor apropiado
 
@@ -27,7 +29,8 @@ if (!empty($_POST['search'])) {
 	$_SESSION['user_id'] = array();
 	$_SESSION['num'] = array();
 	$_SESSION['justificaciones_archivo'] = array();
-	$_SESSION['justificaciones_description'] = array();
+	$_SESSION['justificaciones_creado'] = array();
+	$_SESSION['justificaciones_actualizado'] = array();
 
 	$i = 0;
 
@@ -38,7 +41,8 @@ if (!empty($_POST['search'])) {
 			$_SESSION['user_id'][$i] = $row['user'];
 			$_SESSION['num'][$i] = $row['num'];
 			$_SESSION['justificaciones_archivo'][$i] = $row['archivopdf'];
-			$_SESSION['justificaciones_description'][$i] = $row['descripcion'];
+			$_SESSION['justificaciones_creado'][$i] = $row['created_at'];
+			$_SESSION['justificaciones_actualizado'][$i] = $row['updated_at'];
 
 			$i += 1;
 		}
@@ -77,7 +81,8 @@ if (!empty($_POST['search'])) {
 			echo '
 					<tr>
 						<th class="center" style="width: 800px">Nombre archivo</th>
-						<th class="center" style="width: 70px">Descripción</th>
+						<th class="center" style="width: 300px">Creado</th>
+						<th class="center" style="width: 300px">Actualizado</th>
 				        <th class="center"><a class="icon">visibility</a></th>
 						
 			';
@@ -99,7 +104,8 @@ if (!empty($_POST['search'])) {
                             echo "
                             	<tr>
                             		<td>$archivo</td>
-									<td> " . $_SESSION['justificaciones_description'] . "</td>	
+									<td> " . $_SESSION['justificaciones_creado'] . "</td>
+									<td> " . $_SESSION['justificaciones_actualizado'] . "</td>	
                             		<td> 
                             			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
                                     title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' value='form_consult' type='submit'></button></td>
