@@ -90,7 +90,7 @@ $sql="SELECT * FROM notify";
 		for ($i = 0; $i < $_SESSION['total_not']; $i++) {
 			echo '
 					
-		    			<p class="box-notification-doc">'. $_SESSION["nombre"] . ', '.$_SESSION["message"] . $_SESSION["pdf"] .' 
+		    			<p class="box-notification-doc">'. $_SESSION["nombre"] . ', '.$_SESSION["mesage"] . $_SESSION["pdf"] .' 
 							</p>
 				';
 		}
