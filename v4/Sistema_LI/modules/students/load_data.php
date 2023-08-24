@@ -95,10 +95,6 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_jornada'][$i] = $row['jornada'];
 						$_SESSION['student_career'][$i] = $row['career'];
 						$_SESSION['student_finish'][$i] = $row['finish_date'];
-
-
-
-
 						$i += 1;
 					}
 				}
