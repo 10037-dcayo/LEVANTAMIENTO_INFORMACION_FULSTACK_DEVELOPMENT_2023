@@ -86,30 +86,16 @@ $sql="SELECT * FROM notify";
 	?>
 </div>
 <div class="content-aside">
-<?php
-		for ($i = 0; $i < $_SESSION['total_not']; $i++) {
-			echo '
-					
-		    			<p class="box-notification-doc">'. $_SESSION["nombre"] . ', '.$_SESSION["mesage"] . $_SESSION["pdf"] .' 
-							</p>
-				';
-		}
-		?>
-    </div>
+    <?php
+    for ($i = 0; $i < $_SESSION['total_not']; $i++) {
+        mysqli_data_seek($result, $i); // Mueve el puntero al índice $i
+        $row = mysqli_fetch_array($result);
+
+        echo '<p class="box-notification-doc">' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p>';
+    }
+    ?>
 </div>
-
-<script>
-	document.getElementById("show-notification").addEventListener("click", function() {
-    document.getElementById("floating-notification").classList.add("show");
-});
-
-document.getElementById("close-notification").addEventListener("click", function() {
-    document.getElementById("floating-notification").classList.remove("show");
-});
-</script>
-
-
-
+</div>
 
 
 <?php
