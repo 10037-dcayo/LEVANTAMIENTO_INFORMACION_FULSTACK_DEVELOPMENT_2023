@@ -3,7 +3,6 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 ?>
 
-
 <div class="form-gridview">
 
 	<h2 class="textList">Listado</h2>
@@ -12,9 +11,10 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 		if ($_SESSION['total_users'] != 0) {
 			echo '
 					<tr>
-						<th>Usuario</th>
+						<th>id</th>
 						<th>Nombre</th>
-						<th>Cédula</th>
+						<th>Carrera</th>
+						<th>Cédula</th>				
 						<th class="center" style="width: 80px;">Fecha de Admisión</th>
 						<th class="center"><a class="icon">visibility</a></th>
 						
@@ -24,8 +24,9 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 		for ($i = 0; $i < $_SESSION['total_users']; $i++) {
 			echo '
 		    		<tr>
-		    			<td>' . $_SESSION["user_id"][$i] . '</td>
+						<td>' . $_SESSION["user_id"][$i] . '</td> 
 						<td>' . $_SESSION["student_name"][$i] . '</td>
+						<td>' . $_SESSION["student_career"][$i] . '</td>
 						<td class="tdbreakw">' . $_SESSION["student_cedula"][$i] . '</td>
 						<td class="center">' . $_SESSION["student_date"][$i] . '</td>
 						<td>

@@ -35,9 +35,9 @@ if ($result = $conexion->query($sql)) {
 				$_SESSION['student_name'] = array();
 				$_SESSION['student_cedula'] = array();
 				$_SESSION['student_date'] = array();
-				$_SESSION['student_date_finalization'] = array(); //aguegue la linea y le puse finaliztion 
 				$_SESSION['student_documentation'] = array();
 				$_SESSION['student_finish'] = array();
+				$_SESSION['student_id'] = array(); //come
 				$i = 0;
 
 				$sql = "SELECT * FROM students WHERE user LIKE '%" . $_POST['search'] . "%' OR email LIKE '%". $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR cedula LIKE '%" . $_POST['search'] . "%' OR admission_date LIKE '%" . $_POST['search'] . "%' OR documentation LIKE '%" . $_POST['search'] . "%' OR estado LIKE '%" . $_POST['search'] . "%' OR jerarquia LIKE '%" . $_POST['search'] . "%' OR jornada LIKE '%" . $_POST['search'] . "%' OR career LIKE '%" . $_POST['search'] . "%' OR sede LIKE '%" . $_POST['search'] . "%' OR departamento LIKE '%" . $_POST['search'] . "%'OR finish_date LIKE '%" . $_POST['search'] . "%' ORDER BY name";
@@ -47,7 +47,6 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_cedula'][$i] = $row['cedula'];
 						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
 						$_SESSION['student_date'][$i] = $row['admission_date'];
-						$_SESSION['student_date_finalization'][$i] = $row['finish_date'];// agruegue esta linea 
 						$_SESSION['student_email'][$i] = $row['email'];
 						$_SESSION['student_departamento'][$i] = $row['departamento'];
 						$_SESSION['student_documentation'][$i] = $row['documentation'];
@@ -57,6 +56,7 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_jornada'][$i] = $row['jornada'];
 						$_SESSION['student_career'][$i] = $row['career'];
 						$_SESSION['student_finish'][$i] = $row['finish_date'];
+						$_SESSION['student_id'] = $row['id'];//este tamhin
 
 
 						$i += 1;
@@ -72,12 +72,12 @@ if ($result = $conexion->query($sql)) {
 				$_SESSION['student_career'] = array();
 				$_SESSION['student_documentation'] = array();
 				$_SESSION['student_date'] = array();
-				$_SESSION['student_date_finalization'] = array();//agregue esta linea 
 				$_SESSION['student_status'] = array();
 				$_SESSION['student_sede'] = array();
 				$_SESSION['student_jerarquia'] = array();
 				$_SESSION['student_jornada'] = array();
 				$_SESSION['student_finish'] = array();
+				$_SESSION['student_id'] = array(); // este tambien 
 
 				$i = 0;
 
@@ -90,7 +90,6 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_name'][$i] = $row['name'] . ' ' . $row['surnames'];
 						$_SESSION['email'][$i] = $row['email'];
 						$_SESSION['student_date'][$i] = $row['admission_date'];
-						$_SESSION['student_date_finalization'][$i] = $row['finish_date'];//Agregue esta linea 
 						$_SESSION['student_departamento'][$i] = $row['departamento'];
 						$_SESSION['student_documentation'][$i] = $row['documentation'];
 						$_SESSION['student_status'][$i] = $row['estado'];
@@ -98,7 +97,8 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_jerarquia'][$i] = $row['jerarquia'];
 						$_SESSION['student_jornada'][$i] = $row['jornada'];
 						$_SESSION['student_career'][$i] = $row['career'];
-						$_SESSION['student_finish'][$i] = $row['finish_date'];
+						$_SESSION['student_id'] = $row['id'];//este tambien 
+						
 
 
 
@@ -126,4 +126,3 @@ if ($result = $conexion->query($sql)) {
 // Ricardo Alejandro  Jaramillo Salgado, Michael Andres Espinosa Carrera, Steven Cardenas, Luis LLumiquinga
 
 # ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
-
