@@ -32,7 +32,7 @@ $sql="SELECT * FROM notify";
 		if ($_SESSION['total_users'] != 0) {
 			echo '
 					<tr>
-						<th>Usuario</th>
+						<th>id</th>
 						<th>Nombre</th>
 						<th>Cédula</th>
 						<th class="center" style="width: 80px;">Fecha de Admisión</th>
