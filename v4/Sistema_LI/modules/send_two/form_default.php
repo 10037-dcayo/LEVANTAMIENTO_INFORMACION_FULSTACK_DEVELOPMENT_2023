@@ -2,7 +2,7 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
 
-$sql = "SELECT descripcion FROM send_one";
+$sql = "SELECT descripcion FROM send_two";
 if ($resultado = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($resultado)) {
 		$_SESSION['send_description'] = $row['descripcion'];
@@ -19,8 +19,7 @@ if ($resultado = $conexion->query($sql)) {
 						<th class="center" style="width: 800px">Nombre del archivo</th>
 						<th class="center" style="width: 70px">Descripción</th>
 				        <th class="center"><a class="icon">download</a></th>
-								<th class="center"><a class="icon">visibility</a></th>
-								
+								<th class="center"><a class="icon">visibility</a></th>								
 						
 			';
 			if ($_SESSION['permissions'] != 'admin') {
@@ -30,7 +29,7 @@ if ($resultado = $conexion->query($sql)) {
 					</tr>
 			';
 		}	
-			$path = 'sendonepdf/' . $_SESSION["user"];
+			$path = 'sendtwopdf/' . $_SESSION["user"];
                 if(file_exists($path)){
                     $directorio= opendir($path);
                     while($archivo=readdir($directorio)){

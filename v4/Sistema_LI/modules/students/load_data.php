@@ -37,10 +37,10 @@ if ($result = $conexion->query($sql)) {
 				$_SESSION['student_date'] = array();
 				$_SESSION['student_date_finalization'] = array(); //aguegue la linea y le puse finaliztion 
 				$_SESSION['student_documentation'] = array();
-
+				$_SESSION['student_finish'] = array();
 				$i = 0;
 
-				$sql = "SELECT * FROM students WHERE user LIKE '%" . $_POST['search'] . "%' OR email LIKE '%". $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR cedula LIKE '%" . $_POST['search'] . "%' OR admission_date LIKE '%" . $_POST['search'] . "%' OR documentation LIKE '%" . $_POST['search'] . "%' OR estado LIKE '%" . $_POST['search'] . "%' OR jerarquia LIKE '%" . $_POST['search'] . "%' OR jornada LIKE '%" . $_POST['search'] . "%' OR career LIKE '%" . $_POST['search'] . "%' OR sede LIKE '%" . $_POST['search'] . "%' OR departamento LIKE '%" . $_POST['search'] . "%' ORDER BY name";
+				$sql = "SELECT * FROM students WHERE user LIKE '%" . $_POST['search'] . "%' OR email LIKE '%". $_POST['search'] . "%' OR name LIKE '%" . $_POST['search'] . "%' OR surnames LIKE '%" . $_POST['search'] . "%' OR cedula LIKE '%" . $_POST['search'] . "%' OR admission_date LIKE '%" . $_POST['search'] . "%' OR documentation LIKE '%" . $_POST['search'] . "%' OR estado LIKE '%" . $_POST['search'] . "%' OR jerarquia LIKE '%" . $_POST['search'] . "%' OR jornada LIKE '%" . $_POST['search'] . "%' OR career LIKE '%" . $_POST['search'] . "%' OR sede LIKE '%" . $_POST['search'] . "%' OR departamento LIKE '%" . $_POST['search'] . "%'OR finish_date LIKE '%" . $_POST['search'] . "%' ORDER BY name";
 				if ($result = $conexion->query($sql)) {
 					while ($row = mysqli_fetch_array($result)) {
 						$_SESSION['user_id'][$i] = $row['user'];
@@ -56,7 +56,7 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_jerarquia'][$i] = $row['jerarquia'];
 						$_SESSION['student_jornada'][$i] = $row['jornada'];
 						$_SESSION['student_career'][$i] = $row['career'];
-
+						$_SESSION['student_finish'][$i] = $row['finish_date'];
 
 
 						$i += 1;
@@ -77,7 +77,7 @@ if ($result = $conexion->query($sql)) {
 				$_SESSION['student_sede'] = array();
 				$_SESSION['student_jerarquia'] = array();
 				$_SESSION['student_jornada'] = array();
-
+				$_SESSION['student_finish'] = array();
 
 				$i = 0;
 
@@ -98,6 +98,7 @@ if ($result = $conexion->query($sql)) {
 						$_SESSION['student_jerarquia'][$i] = $row['jerarquia'];
 						$_SESSION['student_jornada'][$i] = $row['jornada'];
 						$_SESSION['student_career'][$i] = $row['career'];
+						$_SESSION['student_finish'][$i] = $row['finish_date'];
 
 
 

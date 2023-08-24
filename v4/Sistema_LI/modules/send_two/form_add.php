@@ -16,7 +16,7 @@ function unique_id($l = 10)
 }
 
 
-$id_generate = 'S2-' . unique_id(5);
+$id_generate = 'S-' . unique_id(5);
 ?>
 <div class="form-data">
     <div class="head">
@@ -39,7 +39,7 @@ $id_generate = 'S2-' . unique_id(5);
                     </div>
                     <div class="first">
                     <label for="txtuserarchivo" class="label">Archivo</label>
-                    <input type="file" class="text" id="archivo" name="archivo" accept=".docx" required>
+                    <input type="file" class="text" id="archivo" name="archivo" accept=".pdf, .docx" required>
                     </div>
                     </div>
             

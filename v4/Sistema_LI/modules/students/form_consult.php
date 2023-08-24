@@ -28,6 +28,7 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['student_status'] = $row['estado'];
 		$_SESSION['student_admission_date'] = $row['admission_date'];
 		$_SESSION['student_jornada'] = $row['jornada'];
+		$_SESSION['student_finish'] = $row['finish_date'];
 	}
 }
 ?>
@@ -168,7 +169,7 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['student_phone']; ?>" disabled />
 
 
-					<label for="selectuserjerarquia" class="label">Jerarquia</label>
+					<label for="selectuserjerarquia" class="label">Jerarquía</label>
 					<select id="selectuserjerarquia" class="select" name="selectJerarquia" disabled>
 				
 					<?php
@@ -390,6 +391,8 @@ if ($result = $conexion->query($sql)) {
 					</select>
 					<label for="dateuseradmission" class="label">Fecha de admisión</label>
 					<input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo $_SESSION['student_admission_date']; ?>" disabled />
+					<label for="dateuser" class="label">Fecha de salida</label>
+					<input id="dateuser" class="date" type="date" name="datefinish" value="<?php echo $_SESSION['student_finish']; ?>" disabled />
 
 					</div>
 					<div class="last">

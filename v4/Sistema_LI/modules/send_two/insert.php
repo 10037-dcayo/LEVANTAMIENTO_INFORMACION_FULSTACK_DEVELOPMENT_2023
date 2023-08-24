@@ -31,9 +31,9 @@ $nombrePDF=$_SESSION['send_archivo'];
 	$date = date('Y-m-d H:i:s');
 	$status="En revisión";
 	$mensaje="Sin comentarios";
-  $evidencia="";
+	$evidencia="";
 	
-	$sql = "INSERT INTO send_two (user, num, archivopdf, descripcion, created_at, updated_at,estado,message,evidencepdf) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date', '$status', '$mensaje', '$evidencia')";
+	$sql = "INSERT INTO send_two (user, num, archivopdf, descripcion, created_at, updated_at,estado,message,evidencepdf) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date', '$status', '$mensaje','$evidencia')";
 	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];
     echo "Mi id es: " . $id;
@@ -41,7 +41,7 @@ $nombrePDF=$_SESSION['send_archivo'];
 	if($_FILES["archivo"]["error"]>0){     
 		Info ("Error al cargar el archivo");
 	}else{
-		$permitidos= array("application/pdf", "application/msword"); 
+		$permitidos = array("application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
 		$limite_kb=5000;
 		if(in_array($_FILES["archivo"]["type"],$permitidos) && $_FILES["archivo"]["size"]<=$limite_kb*1024){
 			$ruta = 'sendtwopdf/'. $id . '/';
