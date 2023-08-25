@@ -27,8 +27,7 @@ $id_generate = 'stdt-' . unique_id(5);
                     <input id="txtusersurnames" class="text" type="text" name="txtsurnames" placeholder="Apellidos" value="" maxlength="60" required />   
 					<label for="txtuseremail" class="label">Correo</label>
                     <input id="txtuseremail" class="text" type="text" name="txtuseremail" value="" placeholder="ejemplo@email.com" maxlength="200" required/>
-                    <label for="dateofbirth" class="label">Fecha de nacimiento</label>
-                    <input id="dateofbirth" class="date" type="date" name="dateofbirth" value="" placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
+
                     <label for="selectsede" class="label">Sede</label>
                     <select id="selectsede" class="select" name="selectSede" required>     
                         <option value="">Seleccione</option>
