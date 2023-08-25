@@ -31,10 +31,12 @@ $sql="SELECT * FROM notify";
 		if ($_SESSION['total_users'] != 0) {
 			echo '
 					<tr>
-						<th>id</th>
-						<th>Nombre</th>
+				    <th class="center">Nombre</th>
 						<th>Cédula</th>
-						<th class="center" style="width: 80px;">Fecha de Admisión</th>
+						<th class="center">ID</th>
+						<th>Carrera</th>
+						<th class="center" style="width: 90px;">Fecha de Admisión</th>
+						<th class="center" style="width: 100px;">Fecha de Salida</th>
 						<th class="center"><a class="icon">visibility</a></th>
 						
 			';
@@ -43,10 +45,13 @@ $sql="SELECT * FROM notify";
 		for ($i = 0; $i < $_SESSION['total_users']; $i++) {
 			echo '
 		    		<tr>
-		    			<td>' . $_SESSION["student_id"][$i] . '</td>
+		    			
 						<td>' . $_SESSION["student_name"][$i] . '</td>
 						<td class="tdbreakw">' . $_SESSION["student_cedula"][$i] . '</td>
+						<td class="center">' . $_SESSION["student_id"][$i] . '</td>
+						<td class="center">' . $_SESSION["student_career"][$i] . '</td>
 						<td class="center">' . $_SESSION["student_date"][$i] . '</td>
+						<td class="center">' . $_SESSION["student_finish"][$i] . '</td>
 						<td>
 							<form action="" method="POST">
 								<input style="display:none;" type="text" id="texuserid" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
@@ -90,7 +95,7 @@ $sql="SELECT * FROM notify";
         mysqli_data_seek($result, $i); // Mueve el puntero al índice $i
         $row = mysqli_fetch_array($result);
 
-        echo '<p class="box-notification-doc">' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p>';
+        echo '<div class="box-notification-doc" ><p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p> <button>Cerrar</button> </div>';
     }
     ?>
 </div>
