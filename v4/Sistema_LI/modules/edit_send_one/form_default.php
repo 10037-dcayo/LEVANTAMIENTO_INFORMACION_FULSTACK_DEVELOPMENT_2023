@@ -21,7 +21,6 @@ $sql="SELECT * FROM notify";
 			$i += 1;
 		}
 	}
-
 ?>
 
 <div class="form-gridview">
@@ -44,7 +43,7 @@ $sql="SELECT * FROM notify";
 		for ($i = 0; $i < $_SESSION['total_users']; $i++) {
 			echo '
 		    		<tr>
-		    			<td>' . $_SESSION["user_id"][$i] . '</td>
+		    			<td>' . $_SESSION["student_id"][$i] . '</td>
 						<td>' . $_SESSION["student_name"][$i] . '</td>
 						<td class="tdbreakw">' . $_SESSION["student_cedula"][$i] . '</td>
 						<td class="center">' . $_SESSION["student_date"][$i] . '</td>
