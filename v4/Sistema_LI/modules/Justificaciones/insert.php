@@ -33,10 +33,13 @@ $nombrePDF=$_SESSION['infoq_archivo'];//Almacenamos su contenido en la variable 
 	$numeroDePDF = $_POST['num'];
 	$descripcion = $_POST['descripcion'];
 	$date = date('Y-m-d H:i:s');
-	
+	$status="En revisión";
+	$mensaje="Sin comentarios";	
+	$status="En revisión";
+	$mensaje="Sin comentarios";
 	//Realizamos la inserción de datos en la base de datos y alojamos el PDF en una carperta que se crea
 	//a partir del user
-	$sql = "INSERT INTO justificaciones (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date')";
+	$sql = "INSERT INTO justificaciones (user, num, archivopdf, descripcion, created_at, updated_at, estado, message) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date', '$status', '$mensaje')";
 	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];
     echo "Mi id es: " . $id;

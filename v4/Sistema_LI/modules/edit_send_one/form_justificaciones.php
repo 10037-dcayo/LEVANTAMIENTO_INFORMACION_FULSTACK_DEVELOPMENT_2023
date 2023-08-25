@@ -7,8 +7,9 @@ $sql = "SELECT * FROM justificaciones";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
-	  $_SESSION['justificaciones_creado'] = $row['created_at'];
-	  $_SESSION['justificaciones_actualizado'] = $row['updated_at'];
+		$_SESSION['justificaciones_estado'] = $row['estado'];	
+	  	$_SESSION['justificaciones_creado'] = $row['created_at'];
+	  	$_SESSION['justificaciones_actualizado'] = $row['updated_at'];
 	}
   }
 // Debes definir el valor de $max antes de usarlo en el cálculo de $tpages
@@ -29,6 +30,7 @@ if (!empty($_POST['search'])) {
 	$_SESSION['user_id'] = array();
 	$_SESSION['num'] = array();
 	$_SESSION['justificaciones_archivo'] = array();
+	$_SESSION['justificaciones_estado'] = array();
 	$_SESSION['justificaciones_creado'] = array();
 	$_SESSION['justificaciones_actualizado'] = array();
 
@@ -41,6 +43,7 @@ if (!empty($_POST['search'])) {
 			$_SESSION['user_id'][$i] = $row['user'];
 			$_SESSION['num'][$i] = $row['num'];
 			$_SESSION['justificaciones_archivo'][$i] = $row['archivopdf'];
+			$_SESSION['justificaciones_estado'][$i] = $row['estado'];
 			$_SESSION['justificaciones_creado'][$i] = $row['created_at'];
 			$_SESSION['justificaciones_actualizado'][$i] = $row['updated_at'];
 
@@ -81,6 +84,7 @@ if (!empty($_POST['search'])) {
 			echo '
 					<tr>
 						<th class="center" style="width: 800px">Nombre archivo</th>
+						<th class="center" style="width: 300px">Estado</th>
 						<th class="center" style="width: 300px">Creado</th>
 						<th class="center" style="width: 300px">Actualizado</th>
 				        <th class="center"><a class="icon">visibility</a></th>
@@ -104,6 +108,7 @@ if (!empty($_POST['search'])) {
                             echo "
                             	<tr>
                             		<td>$archivo</td>
+									<td> " . $_SESSION['justificaciones_estado'] . "</td>
 									<td> " . $_SESSION['justificaciones_creado'] . "</td>
 									<td> " . $_SESSION['justificaciones_actualizado'] . "</td>	
                             		<td> 
