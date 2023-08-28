@@ -5,7 +5,7 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
 
-$sql_cont="SELECT COUNT(user) as total FROM notify";
+$sql_cont="SELECT COUNT(user) as total FROM notify WHERE estado='revisar'";
 if ($result_not = $conexion->query($sql_cont)) {
 	if ($row = mysqli_fetch_array($result_not)) {
 	  $_SESSION['total_not'] = $row['total'];
@@ -13,7 +13,7 @@ if ($result_not = $conexion->query($sql_cont)) {
   }
 
 
-$sql="SELECT * FROM notify";
+$sql="SELECT * FROM notify WHERE estado='revisar'";
 	if ($result = $conexion->query($sql)) {
 		if ($row = mysqli_fetch_array($result)) {
 			$_SESSION['usuario'] = $row['user'];
@@ -97,7 +97,6 @@ $sql="SELECT * FROM notify";
     for ($i = 0; $i < $_SESSION['total_not']; $i++) {
         mysqli_data_seek($result, $i); // Mueve el puntero al índice $i
         $row = mysqli_fetch_array($result);
-
         echo '<div class="box-notification-doc" ><p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p> <button>Cerrar</button> </div>';
     }
     ?>

@@ -27,12 +27,8 @@ if ($result = $conexion->query($sql)) {
 	} else {
 		$date = date('Y-m-d H:i:s');
 		$finish = date('Y-m-d H:i:s');
-<<<<<<< HEAD
 		$birth = "";
 
-=======
-		$cumpleaños="";
->>>>>>> e2b18245023bbf8dac0248f5c172a652b0bd73e0
 		$sql_insert_user = "INSERT INTO users(user, name, surnames, email, pass, permissions, rol, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "','" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtuseremail']) . "', '" . trim($_POST['txtpass']) . "', 'editor', 'student', 'user.png','" . $date . "')";
 
 		if (mysqli_query($conexion, $sql_insert_user)) {
