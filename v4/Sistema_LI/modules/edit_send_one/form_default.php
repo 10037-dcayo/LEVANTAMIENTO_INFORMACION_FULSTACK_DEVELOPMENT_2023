@@ -97,7 +97,16 @@ $sql="SELECT * FROM notify WHERE estado='revisar'";
     for ($i = 0; $i < $_SESSION['total_not']; $i++) {
         mysqli_data_seek($result, $i); // Mueve el puntero al índice $i
         $row = mysqli_fetch_array($result);
+<<<<<<< HEAD
         echo '<div class="box-notification-doc" ><p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p> <button>Cerrar</button> </div>';
+=======
+
+		echo '<div class="box-notification-doc">
+        <p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p>
+        <button class="close-button">Cerrar</button>
+      </div>';
+
+>>>>>>> ba6050bbe6256cd73b86e5698c239b0b388cc98a
     }
     ?>
 </div>

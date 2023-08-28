@@ -2797,3 +2797,32 @@ input[type="range"]:active {
     cursor: pointer;
     box-shadow: 0 1px 6px rgba(142, 136, 192, 0.2);
 }
+
+
+/* BUTTON CERRAR */
+
+
+.box-notification-doc {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .close-button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px; /* Ajusta el valor para cambiar la cantidad de redondez */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .close-button:hover {
+    background-color: #d32f2f;
+  }
+
