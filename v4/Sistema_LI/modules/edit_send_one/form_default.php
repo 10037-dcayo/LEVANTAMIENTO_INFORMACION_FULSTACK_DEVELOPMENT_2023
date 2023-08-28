@@ -98,7 +98,11 @@ $sql="SELECT * FROM notify";
         mysqli_data_seek($result, $i); // Mueve el puntero al índice $i
         $row = mysqli_fetch_array($result);
 
-        echo '<div class="box-notification-doc" ><p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p> <button>Cerrar</button> </div>';
+		echo '<div class="box-notification-doc">
+        <p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p>
+        <button class="close-button">Cerrar</button>
+      </div>';
+
     }
     ?>
 </div>
