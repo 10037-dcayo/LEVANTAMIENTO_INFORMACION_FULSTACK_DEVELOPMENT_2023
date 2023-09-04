@@ -2790,7 +2790,6 @@ input[type="range"]:active {
     display: block;
     width: 40px;
     height: 40px;
-    color: #eef4ff;
     font-size: 1em;
     border: none;
     border-radius: 100%;
@@ -2804,25 +2803,33 @@ input[type="range"]:active {
 
 .box-notification-doc {
     border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: flex-start;
   }
 
   .close-button {
-    background-color: #f44336;
     border: none;
-    color: white;
     padding: 5px 10px;
-    text-align: center;
+    text-align: right;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
     border-radius: 8px; /* Ajusta el valor para cambiar la cantidad de redondez */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: red;
+    background: #569188;
   }
 
   .close-button:hover {
-    background-color: #d32f2f;
-  }
+    background-color: white;
+    color: #f44336; /* Cambia el color del texto al color original */
+}
 
+.btn-modal {
+    display: flex;
+    justify-content: flex-start;
+}

@@ -94,20 +94,33 @@ $sql="SELECT * FROM notify WHERE estado='revisar'";
 </div>
 <div class="content-aside">
     <?php
-    for ($i = 0; $i < $_SESSION['total_not']; $i++) {
-        mysqli_data_seek($result, $i); // Mueve el puntero al índice $i
-        $row = mysqli_fetch_array($result);
-<<<<<<< HEAD
-        echo '<div class="box-notification-doc" ><p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p> <button>Cerrar</button> </div>';
-=======
+   for ($i = 0; $i < $_SESSION['total_not']; $i++) {
+    mysqli_data_seek($result, $i);
+    $row = mysqli_fetch_array($result);
+    echo '<div class=" box-notification-doc">
+		<div class="btn-modal">
+		<form  action="" method="post">
+                <input type="hidden" name="notification_id" value="' . $row["nombrepdf"] . '">
+                <button class="close-button" type="submit" name="close_notification">x</button>
+            </form>
+						</div> 
+            <p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p>
+           
+        </div>';
+}
+if (isset($_POST['close_notification'])) {
+	// Obtén el ID de la notificación desde el formulario
+	$notification_id = $_POST['notification_id'];
 
-		echo '<div class="box-notification-doc">
-        <p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p>
-        <button class="close-button">Cerrar</button>
-      </div>';
+	// Ejecuta la consulta SQL para actualizar el estado de la notificación a lo que necesites
+	$sql_update = "UPDATE notify SET estado = 'cerrado' WHERE nombrepdf = '$notification_id'";
+	
+	// Ejecuta la consulta de actualización
+	if ($conexion->query($sql_update)) {
+		$sql_update = "UPDATE notify SET estado = 'cerrado' WHERE nombrepdf = '$notification_id'";
+	}
+}
 
->>>>>>> ba6050bbe6256cd73b86e5698c239b0b388cc98a
-    }
     ?>
 </div>
 </div>

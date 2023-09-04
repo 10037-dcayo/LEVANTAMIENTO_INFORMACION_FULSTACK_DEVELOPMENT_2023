@@ -27,7 +27,7 @@ if ($result = $conexion->query($sql)) {
 	} else {
 		$date = date('Y-m-d H:i:s');
 		$finish = date('Y-m-d H:i:s');
-		$birth = "";
+		$birth =  date('Y-m-d');
 
 		$sql_insert_user = "INSERT INTO users(user, name, surnames, email, pass, permissions, rol, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "','" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtuseremail']) . "', '" . trim($_POST['txtpass']) . "', 'editor', 'student', 'user.png','" . $date . "')";
 

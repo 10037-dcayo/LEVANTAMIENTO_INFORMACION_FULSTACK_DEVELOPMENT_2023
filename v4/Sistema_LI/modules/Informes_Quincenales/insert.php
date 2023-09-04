@@ -7,12 +7,13 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 $sql = "SELECT * FROM users WHERE user = '" . $_SESSION['user'] . "'";
 
+$sql = "SELECT * FROM users WHERE user = '" . $_SESSION['user'] . "'";
 if ($result = $conexion->query($sql)) {
     if ($row = mysqli_fetch_array($result)) {
         $_SESSION['user_id'] = $row['user'];
+				$_SESSION['name_user'] = $row['name'];
     }
 }
-
 
 $archivopdf = $_FILES["archivo"]["name"]; 
 
@@ -35,7 +36,16 @@ $nombrePDF=$_SESSION['infoq_archivo'];
 	$date = date('Y-m-d H:i:s');
 	$status="En revisión";
 	$mensaje="Sin comentarios";
-	
+	$evidencia="";
+	$name_not=$_SESSION['name_user'];
+	$status_not="revisar";
+	$mensaje_not="ha subido a Informes Quincenales el documento: ";
+
+
+
+	$sql_not="INSERT INTO notify (user, name, mensaje, nombrepdf, estado) VALUES ('$usuario','$name_not','$mensaje_not','$archivopdf','$status_not')";
+	$result_not = $conexion->query($sql_not);
+
 	$sql = "INSERT INTO infoq (user, num, archivopdf, descripcion, created_at, updated_at, estado, message) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date','$status', '$mensaje')";
 	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];

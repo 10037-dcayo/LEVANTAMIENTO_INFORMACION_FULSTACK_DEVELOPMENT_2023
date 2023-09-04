@@ -12,13 +12,13 @@ if (empty($_POST['txtuserid'])) {
 }
 
 
-$sql_delete = "DELETE FROM send_two WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
+$sql_delete = "DELETE FROM infoq WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
 
 if (mysqli_query($conexion, $sql_delete)) {
-	$sql_delete = "DELETE FROM send_two WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
+	$sql_delete = "DELETE FROM infoq WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
 
 	if (mysqli_query($conexion, $sql_delete)) {
-		Error('Documento eliminado.');
+		Error('Alumno eliminado.');
 	} else {
 		Error('Error al eliminar.');
 	}
@@ -27,7 +27,7 @@ if (mysqli_query($conexion, $sql_delete)) {
 }
 
 $nombreArchivo = $_POST['txtuserid'];
-$rutaArchivo = 'sendtwopdf/' . $_SESSION["user"] . '/' . $nombreArchivo;
+$rutaArchivo = 'informesquincenalespdf/' . $_SESSION["user"] . '/' . $nombreArchivo;
 
 if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
  { 
@@ -41,5 +41,5 @@ if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
     Error('El archivo no existe');
 }
 
-header('Location: /modules/send_two');
+header('Location: /modules/informes_Quincenales');
 exit();
