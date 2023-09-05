@@ -23,11 +23,14 @@ if ($result = $conexion->query($sql)) {
       <div class="wrap">
         <div class="first">
           <label for="txtuserid" class="label">Usuario</label>
-          <input id="txtuserid" style="display: none;" type="text" name="userid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
-         
+          <input id="txtuserid" style="display: none;" type="text" name="userid"
+            value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
+            disabled />
+
           <label for="txtinfoqdescription" class="label">Descripción</label>
-          <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10" value="<?php echo $_SESSION['mensaje']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
+          <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
+            value="<?php echo $_SESSION['mensaje']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
         <div class="first">
           <label for="txtestado" class="label">Estado</label>
@@ -46,6 +49,10 @@ if ($result = $conexion->query($sql)) {
           <input id="txtnum" class="text" style=" display: none;" type="text" name="txtnum"
             value="<?php echo $_SESSION['numero']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txtnum" value="<?php echo $_SESSION['numero']; ?>" required disabled />
+        </div>
+        <div class="first">
+          <label for="txtuserarchivo" class="label">Archivo</label>
+          <input type="file" class="text" id="archivo" name="archivo" accept="application/pdf" required>
         </div>
       </div>
       <button id="btnSave" class="btn icon" name="btn" type="submit">save</button>

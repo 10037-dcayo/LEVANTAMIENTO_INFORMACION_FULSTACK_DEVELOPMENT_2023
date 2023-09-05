@@ -47,6 +47,10 @@ if ($result = $conexion->query($sql)) {
             value="<?php echo $_SESSION['numero']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txtnum" value="<?php echo $_SESSION['numero']; ?>" required disabled />
         </div>
+        <div class="first">
+          <label for="txtuserarchivo" class="label">Archivo</label>
+          <input type="file" class="text" id="archivo" name="archivo" accept="application/pdf" required>
+        </div>
       </div>
       <button id="btnSave" class="btn icon" name="btn" type="submit">save</button>
     </form>

@@ -14,10 +14,10 @@ if (empty($_POST['txtnum'])) {
 }
 
 
-$sql_update = "UPDATE send_two SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']). "' WHERE num = '" . trim($_POST['txtnum']) . "'";;
+$sql_update = "UPDATE send_two SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']).  "', evidencepdf = '" . trim($_POST['archivo']). "' WHERE num = '" . trim($_POST['txtnum']) . "'";;
 
 if (mysqli_query($conexion, $sql_update)) {
-	$sql_update = "UPDATE send_two SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']). "' WHERE num = '" . trim($_POST['txtnum']) . "'";;
+	$sql_update = "UPDATE send_two SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']).  "', evidencepdf = '" . trim($_POST['archivo']). "' WHERE num = '" . trim($_POST['txtnum']) . "'";;
 
 	if (mysqli_query($conexion, $sql_update)) {
 		Info('Documento actualizado.');

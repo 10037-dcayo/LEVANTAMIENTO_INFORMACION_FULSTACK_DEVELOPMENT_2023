@@ -15,10 +15,10 @@ if (empty($_POST['txtnum'])) {
 
 $date = date('Y-m-d H:i:s');
 
-$sql_update = "UPDATE infoq SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']). "',updated_at='$date' WHERE num = '" . trim($_POST['txtnum']) . "'";;
+$sql_update = "UPDATE infoq SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']). "',updated_at='$date', evidencepdf = '" . trim($_POST['archivo']). "'  WHERE num = '" . trim($_POST['txtnum']) . "'";;
 
 if (mysqli_query($conexion, $sql_update)) {
-	$sql_update = "UPDATE infoq SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']). "' ,updated_at='$date' WHERE num = '" . trim($_POST['txtnum']) . "'";;
+	$sql_update = "UPDATE infoq SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']). "',updated_at='$date', evidencepdf = '" . trim($_POST['archivo']).  "'  WHERE num = '" . trim($_POST['txtnum']) . "'";;
 
 	if (mysqli_query($conexion, $sql_update)) {
 		Info('Documento actualizado.');
