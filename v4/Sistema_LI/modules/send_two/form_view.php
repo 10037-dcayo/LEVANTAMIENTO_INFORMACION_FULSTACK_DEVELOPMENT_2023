@@ -8,6 +8,27 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 $sql = "SELECT * FROM send_two WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
 
+// Verifica si se ha hecho clic en el botón de descarga
+if (isset($_POST['download_pdf'])) {
+  // Realiza la consulta SQL para obtener el PDF
+  $sql = "SELECT evidencepdf FROM send_two WHERE num = '" . $_SESSION['numero'] . "'";
+  $result = $conexion->query($sql);
+
+  if ($result && $row = mysqli_fetch_assoc($result)) {
+      // Configura las cabeceras para la descarga del PDF
+      header('Content-Type: application/pdf');
+      header('Content-Disposition: inline; filename="documento.pdf"'); // Puedes cambiar el nombre del archivo aquí
+
+      // Muestra el contenido del PDF almacenado en la base de datos
+      echo $row['evidencepdf'];
+      exit; // Termina la ejecución después de la descarga o visualización
+  } else {
+      // Si no se encontró el PDF, muestra un mensaje de error
+      echo "El PDF no está disponible.";
+      exit;
+  }
+}
+
 if ($result = $conexion->query($sql)) {
   if ($row = mysqli_fetch_array($result)) {
     $_SESSION['user_id'] = $row['user'];
@@ -56,6 +77,10 @@ if ($result = $conexion->query($sql)) {
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['numero']; ?>" required disabled />
         </div>
 
+
+        
+        <button class="btn icon" type="button" onclick="downloadPDF()">PDF</button>
+
       </div>
 
       <button class="btn icon" type="submit" autofocus>done</button>
@@ -68,3 +93,36 @@ if ($result = $conexion->query($sql)) {
   ?>
 </div>
 <script src="/js/modules/students.js" type="text/javascript"></script>
+
+<script>
+function downloadPDF() {
+    // Hacer una solicitud AJAX para obtener el PDF
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'download_pdf.php', true); // Crea un archivo PHP separado para manejar la descarga
+    xhr.responseType = 'blob';
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var blob = xhr.response;
+
+            // Crea un enlace para descargar el PDF
+            var a = document.createElement('a');
+            a.href = window.URL.createObjectURL(blob);
+            a.download = 'documento.pdf'; // Cambia el nombre del archivo aquí
+            a.style.display = 'none';
+
+            // Agrega el enlace al documento y haz clic en él
+            document.body.appendChild(a);
+            a.click();
+
+            // Limpia el enlace
+            window.URL.revokeObjectURL(a.href);
+            document.body.removeChild(a);
+        } else {
+            alert('Error al descargar el PDF.');
+        }
+    };
+
+    xhr.send();
+}
+</script>

@@ -86,4 +86,3 @@ $nombrePDF=$_SESSION['send_archivo'];
 
 
 ?>
-
