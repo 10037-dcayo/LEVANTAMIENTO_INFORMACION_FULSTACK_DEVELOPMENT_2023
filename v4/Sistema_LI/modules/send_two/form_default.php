@@ -62,33 +62,8 @@ if ($resultado = $conexion->query($sql)) {
                 }
 		?>
 	</table>
-	<?php
-	if ($_SESSION['total_send'] == 0) {
-		echo '
-				<img src="/images/404.svg" class="data-not-found" alt="404">
-		';
-	}
-	if ($_SESSION['total_send'] != 0) {
-		echo '
-				<div class="pages">
-					<ul>
-		';
-		for ($n = 1; $n <= $tpages; $n++) {
-			if ($page == $n) {
-				echo '<li class="active"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
-			} else {
-				echo '<li><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
-			}
-		}
-		echo '
-					</ul>
-				</div>
-		';
-	}
 
-
-	?>
-
+<br></br>
 
 </div>
 <div class="content-aside">

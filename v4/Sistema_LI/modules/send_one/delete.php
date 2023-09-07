@@ -18,7 +18,7 @@ if (mysqli_query($conexion, $sql_delete)) {
 	$sql_delete = "DELETE FROM send_one WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
 
 	if (mysqli_query($conexion, $sql_delete)) {
-		Error('Documento eliminado.');
+		Error('Alumno eliminado.');
 	} else {
 		Error('Error al eliminar.');
 	}

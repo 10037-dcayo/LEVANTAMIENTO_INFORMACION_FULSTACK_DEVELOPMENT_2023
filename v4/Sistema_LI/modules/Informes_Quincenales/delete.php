@@ -41,5 +41,5 @@ if (file_exists($rutaArchivo) & mysqli_query($conexion, $sql_delete))
     Error('El archivo no existe');
 }
 
-header('Location: /modules/informes_Quincenales');
+header('Location: /modules/Informes_Quincenales');
 exit();

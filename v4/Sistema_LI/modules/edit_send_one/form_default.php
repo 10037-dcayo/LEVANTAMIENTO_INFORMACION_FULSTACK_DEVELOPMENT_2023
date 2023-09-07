@@ -93,6 +93,12 @@ $sql="SELECT * FROM notify WHERE estado='revisar'";
 	?>
 </div>
 <div class="content-aside">
+	<?php
+	include_once '../notif_info.php';
+	include_once "../sections/options.php";
+	?>
+</div>
+<div class="content-aside">
     <?php
    for ($i = 0; $i < $_SESSION['total_not']; $i++) {
     mysqli_data_seek($result, $i);
@@ -113,17 +119,17 @@ if (isset($_POST['close_notification'])) {
 	$notification_id = $_POST['notification_id'];
 
 	// Ejecuta la consulta SQL para actualizar el estado de la notificación a lo que necesites
-	$sql_update = "UPDATE notify SET estado = 'cerrado' WHERE nombrepdf = '$notification_id'";
+	$sql_update = "Delete from notify  WHERE nombrepdf = '$notification_id'";
 	
 	// Ejecuta la consulta de actualización
 	if ($conexion->query($sql_update)) {
-		$sql_update = "UPDATE notify SET estado = 'cerrado' WHERE nombrepdf = '$notification_id'";
+		$sql_update = "Delete from notify  WHERE nombrepdf = '$notification_id'";
 	}
 }
 
     ?>
 </div>
-</div>
+
 
 
 <?php
