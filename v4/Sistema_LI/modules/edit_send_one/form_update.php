@@ -52,7 +52,7 @@ if ($result = $conexion->query($sql)) {
         </div>
         <div class="first">
           <label for="txtuserarchivo" class="label">Archivo</label>
-          <input type="file" class="text" id="archivo" name="archivo" accept="application/pdf" required>
+          <input type="file" class="text" id="archivo" name="archivo" accept="application/pdf">
         </div>
       </div>
       <button id="btnSave" class="btn icon" name="btn" type="submit">save</button>
