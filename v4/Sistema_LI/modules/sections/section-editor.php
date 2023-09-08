@@ -82,23 +82,26 @@ if (strpos($url_actual, 'modules')) {
             <ul>
                 <li>
                     <a class="<?php if ($output[1] == 'home') {
-                                    echo 'active';
-                                } ?>" href="/home" title="Dashboard"><span class="icon">dashboard</span></a>
+                        echo 'active-menu';
+                    } ?>" href="/home"><span class="icon">dashboard</span><span class="text">Dashboard</span></a>
                 </li>
                 <li>
                     <a class="<?php if ($output[1] == 'careers') {
-                                    echo 'active';
-                                } ?>" href="/modules/careers" title="Carreras"><span class="icon">school</span></a>
+                        echo 'active-menu';
+                    } ?>" href="/modules/careers"><span class="icon">school</span><span
+                            class="text">Carreras</span></a>
                 </li>
                 <li>
                     <a class="<?php if ($output[1] == 'subjects') {
-                                    echo 'active';
-                                } ?>" href="/modules/subjects" title="Asignaturas"><span class="icon">library_books</span></a>
+                        echo 'active-menu';
+                    } ?>" href="/modules/subjects"><span class="icon">library_books</span><span
+                            class="text">Asignaturas</span></a>
                 </li>
                 <li>
                     <a class="<?php if ($output[1] == 'subjects') {
-                                    echo 'active';
-                                } ?>" href="/modules/edit_send_one" title="Estudiantes"><span class="icon">students</span></a>
+                        echo 'active-menu';
+                    } ?>" href="/modules/edit_send_one"><span class="icon">library_books</span><span
+                            class="text">Documentación</span></a>
                 </li>
                 
                 
@@ -112,13 +115,14 @@ if (strpos($url_actual, 'modules')) {
         <img class="activator-user" id="activator-user" src="/images/users/<?php echo $_SESSION['image']; ?>">
         <nav>
             <ul>
-                <li class="first">
+                <li class="first-item">
                     <a class="<?php if ($output[1] == 'user') {
-                                    echo 'active';
-                                } ?>" href="/user" title="Configuración"><span class="icon">settings</span></a>
+                        echo 'active-user';
+                    } ?>" href="/users"><span class="icon">settings</span><span class="text">Configuración</span></a>
                 </li>
                 <li>
-                    <a href="/modules/logout" title="Cerrar Sesión"><span class="icon">logout</span></a>
+                    <a href="/modules/logout"><span class="icon">logout</span><span class="text">Cerrar
+                            sesión</span></a>
                 </li>
             </ul>
         </nav>
