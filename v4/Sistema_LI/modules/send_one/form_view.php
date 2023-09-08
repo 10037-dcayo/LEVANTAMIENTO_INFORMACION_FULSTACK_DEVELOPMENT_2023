@@ -18,8 +18,12 @@ if ($result = $conexion->query($sql)) {
     $_SESSION['evidencia'] = $row['evidencepdf'];
   }
 }
-
+// Obtén el nombre del archivo desde la base de datos o alguna otra fuente
+$nombre_del_archivo = $_SESSION['evidencia'];
+// Construye la URL completa al archivo PDF
+$url_archivo_pdf = '/modules/edit_send_one/send_one/evidencepdf/' . $nombre_del_archivo;
 ?>
+
 <div class="form-data">
   <div class="head">
     <h1 class="titulo">Visualizar</h1>
@@ -35,7 +39,7 @@ if ($result = $conexion->query($sql)) {
             disabled />
           <label for="txtinfoqdescription" class="label">Descripción</label>
           <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
-          value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
+            value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
         <div class="first">
           <label for="txtname" class="label">Estado</label>
@@ -56,15 +60,15 @@ if ($result = $conexion->query($sql)) {
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['numero']; ?>" required disabled />
         </div>
         <div class="first">
-          <label for="txtname" class="label">N°PDF</label>
+          <label for="txtname" class="label">Nombre PDF</label>
           <input id="txtname" class="text" style=" display: none;" type="text" name="name"
             value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" required disabled />
         </div>
 
         <div class="first">
-    <button id="btnMostrarPDF" class="btn" type="button">Mostrar PDF</button>
-</div>
+          <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
+        </div>
 
       </div>
 
@@ -78,4 +82,3 @@ if ($result = $conexion->query($sql)) {
   ?>
 </div>
 <script src="/js/modules/students.js" type="text/javascript"></script>
-

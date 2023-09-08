@@ -7,25 +7,51 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 $_POST['txtnum'] = trim($_POST['txtnum']);
 
-
 if (empty($_POST['txtnum'])) {
-	header('Location: /');
-	exit();
+    header('Location: /');
+    exit();
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Manejar la carga del archivo
+    if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
+        $nombre_archivo = $_FILES["archivo"]["name"];
+        $ruta_temporal = $_FILES["archivo"]["tmp_name"];
 
-$sql_update = "UPDATE send_one SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']).  "', evidencepdf = '" . trim($_POST['archivo']). "' WHERE num = '" . trim($_POST['txtnum']) . "'";;
+        // Define la carpeta donde deseas guardar el archivo
+        $carpeta_destino = "send_one/evidencepdf/";
 
-if (mysqli_query($conexion, $sql_update)) {
-	$sql_update = "UPDATE send_one SET  estado = '" . trim($_POST['txtestado']) ."', message = '" . trim($_POST['descripcion']).  "', evidencepdf = '" . trim($_POST['archivo']). "' WHERE num = '" . trim($_POST['txtnum']) . "'";;
+        // Verifica si la carpeta de destino existe y créala si no
+        if (!file_exists($carpeta_destino)) {
+            mkdir($carpeta_destino, 0755, true);
+        }
 
-	if (mysqli_query($conexion, $sql_update)) {
-		Info('Documento actualizado.');
-	} else {
-		Error('Error al atualizar.');
-	}
-} else {
-	Error('Error al actualizar.');
+        // Mueve el archivo temporal a la carpeta de destino
+        $ruta_destino = $carpeta_destino . $nombre_archivo;
+
+        if (move_uploaded_file($ruta_temporal, $ruta_destino)) {
+            // El archivo se ha cargado exitosamente
+            Info("Archivo cargado con éxito.");
+
+            // Ahora puedes actualizar la base de datos con el nombre del archivo
+            $sql_update = "UPDATE send_one SET  estado = '" . trim($_POST['txtestado']) . "', message = '" . trim($_POST['descripcion']) . "', evidencepdf = '" . $nombre_archivo . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
+
+            if (mysqli_query($conexion, $sql_update)) {
+                Info('Documento actualizado.');
+            } else {
+                Error('Error al actualizar.');
+            }
+        } else {
+            // Hubo un error al mover el archivo
+            Error("Error al cargar el archivo.");
+        }
+    } else {
+        // Hubo un error al cargar el archivo
+        Error("Error al cargar el archivo.");
+    }
 }
+
 header('Location: /modules/edit_send_one');
 exit();
+
+?>

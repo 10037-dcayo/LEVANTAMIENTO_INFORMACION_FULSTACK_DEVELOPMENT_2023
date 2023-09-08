@@ -19,7 +19,9 @@ if ($result = $conexion->query($sql)) {
     <h1 class="titulo">Actualizar</h1>
   </div>
   <div class="body">
-    <form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
+
+    <form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
+
       <div class="wrap">
         <div class="first">
           <label for="txtuserid" class="label">Usuario</label>
@@ -54,7 +56,12 @@ if ($result = $conexion->query($sql)) {
           <label for="txtuserarchivo" class="label">Archivo</label>
           <input type="file" class="text" id="archivo" name="archivo" accept="application/pdf">
         </div>
+
+
       </div>
+
+
+
       <button id="btnSave" class="btn icon" name="btn" type="submit">save</button>
     </form>
   </div>
