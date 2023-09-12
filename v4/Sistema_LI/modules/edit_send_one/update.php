@@ -11,7 +11,7 @@ if (empty($_POST['txtnum'])) {
     header('Location: /');
     exit();
 }
-
+$id=$_SESSION['user_id'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Manejar la carga del archivo
     if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ruta_temporal = $_FILES["archivo"]["tmp_name"];
 
         // Define la carpeta donde deseas guardar el archivo
-        $carpeta_destino = "send_one/evidencepdf/";
+        $carpeta_destino = 'sendonepdf/'. $id . '/';
 
         // Verifica si la carpeta de destino existe y créala si no
         if (!file_exists($carpeta_destino)) {
