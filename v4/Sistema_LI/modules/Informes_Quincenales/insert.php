@@ -46,7 +46,7 @@ $nombrePDF=$_SESSION['infoq_archivo'];
 	$sql_not="INSERT INTO notify (user, name, mensaje, nombrepdf, estado) VALUES ('$usuario','$name_not','$mensaje_not','$archivopdf','$status_not')";
 	$result_not = $conexion->query($sql_not);
 
-	$sql = "INSERT INTO infoq (user, num, archivopdf, descripcion, created_at, updated_at, estado, message) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date','$status', '$mensaje')";
+	$sql = "INSERT INTO infoq (user, num, archivopdf, descripcion, created_at, updated_at, estado, message, evidencepdf) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date','$status', '$mensaje', '$evidencia')";
 	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];
     echo "Mi id es: " . $id;
