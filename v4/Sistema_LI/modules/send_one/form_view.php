@@ -18,10 +18,15 @@ if ($result = $conexion->query($sql)) {
     $_SESSION['evidencia'] = $row['evidencepdf'];
   }
 }
+$id = $_SESSION['user_id']; 
 // Obtén el nombre del archivo desde la base de datos o alguna otra fuente
 $nombre_del_archivo = $_SESSION['evidencia'];
 // Construye la URL completa al archivo PDF
-$url_archivo_pdf = '/modules/edit_send_one/send_one/evidencepdf/' . $nombre_del_archivo;
+
+$url_archivo_pdf = '/modules/edit_send_one/sendonepdf/' . $id . '/' . $nombre_del_archivo;
+
+
+
 ?>
 
 <div class="form-data">
@@ -69,6 +74,8 @@ $url_archivo_pdf = '/modules/edit_send_one/send_one/evidencepdf/' . $nombre_del_
         <div class="first">
           <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
         </div>
+
+
 
       </div>
 
