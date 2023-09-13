@@ -2,33 +2,10 @@
 include_once '../security.php';
 include_once '../conexion.php';
 include_once '../notif_info_msgbox.php';
-
-
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
+$id = $_POST['txtuserid'];
 $sql = "SELECT * FROM send_two WHERE archivopdf = '" . $_POST['txtuserid'] . "'";
-
-// Verifica si se ha hecho clic en el botón de descarga
-if (isset($_POST['download_pdf'])) {
-  // Realiza la consulta SQL para obtener el PDF
-  $sql = "SELECT evidencepdf FROM send_two WHERE num = '" . $_SESSION['numero'] . "'";
-  $result = $conexion->query($sql);
-
-  if ($result && $row = mysqli_fetch_assoc($result)) {
-      // Configura las cabeceras para la descarga del PDF
-      header('Content-Type: application/pdf');
-      header('Content-Disposition: inline; filename="documento.pdf"'); // Puedes cambiar el nombre del archivo aquí
-
-      // Muestra el contenido del PDF almacenado en la base de datos
-      echo $row['evidencepdf'];
-      exit; // Termina la ejecución después de la descarga o visualización
-  } else {
-      // Si no se encontró el PDF, muestra un mensaje de error
-      echo "El PDF no está disponible.";
-      exit;
-  }
-}
-
 if ($result = $conexion->query($sql)) {
   if ($row = mysqli_fetch_array($result)) {
     $_SESSION['user_id'] = $row['user'];
@@ -39,8 +16,17 @@ if ($result = $conexion->query($sql)) {
     $_SESSION['evidencia'] = $row['evidencepdf'];
   }
 }
+$id = $_SESSION['user_id']; 
+// Obtén el nombre del archivo desde la base de datos o alguna otra fuente
+$nombre_del_archivo = $_SESSION['evidencia'];
+// Construye la URL completa al archivo PDF
+
+$url_archivo_pdf = '/modules/edit_send_one/sendtwopdf/' . $id . '/' . $nombre_del_archivo;
+
+
 
 ?>
+
 <div class="form-data">
   <div class="head">
     <h1 class="titulo">Visualizar</h1>
@@ -56,7 +42,7 @@ if ($result = $conexion->query($sql)) {
             disabled />
           <label for="txtinfoqdescription" class="label">Descripción</label>
           <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
-          value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
+            value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
         <div class="first">
           <label for="txtname" class="label">Estado</label>
@@ -76,12 +62,21 @@ if ($result = $conexion->query($sql)) {
             value="<?php echo $_SESSION['numero']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['numero']; ?>" required disabled />
         </div>
+        <div class="first">
+          <label for="txtname" class="label">Nombre PDF</label>
+          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
+            value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" required />
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" required disabled />
+        </div>
+
+        <div class="first">
+          <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
+        </div>
 
 
-        
-        <button class="btn icon" type="button" onclick="downloadPDF()">PDF</button>
 
       </div>
+
 
       <button class="btn icon" type="submit" autofocus>done</button>
     </form>
