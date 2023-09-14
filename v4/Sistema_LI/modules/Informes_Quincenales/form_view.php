@@ -15,8 +15,11 @@ if ($result = $conexion->query($sql)) {
     $_SESSION['state'] = $row['estado'];
     $_SESSION['mensaje'] = $row['message'];
     $_SESSION['nombre'] = $row['archivopdf'];
+    $_SESSION['coment'] = $row['message_student'];
   }
 }
+//obtenemos los comentarios del estudiante
+$comenario_estudiante=$_SESSION['coment'];
 
 ?>
 <div class="form-data">
@@ -32,15 +35,22 @@ if ($result = $conexion->query($sql)) {
             value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
             disabled />
-          <label for="txtinfoqdescription" class="label">Descripción</label>
-          <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
-          value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
         <div class="first">
-          <label for="txtname" class="label">Estado</label>
-          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
+            <label for="txtname" class="label">Estado</label>
+            <input id="txtname" class="text" style=" display: none;" type="text" name="name"
             value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['state']; ?>" required disabled />
+            <input class="text" type="text" name="txt" value="<?php echo $_SESSION['state']; ?>" required disabled />
+          </div>
+        <div class="first">    
+            <label for="txtinfoqdescription" class="label">Descripción</label>
+            <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
+            value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
+        </div>
+        <div class="first">
+          <label for="txtcomentario" class="label">Comentarios del estudiante</label>
+          <textarea name="comentario" id="comentario" class="textarea" cols="30" rows="10"
+            value="<?php echo $_SESSION['user_id']; ?>"><?php echo $comenario_estudiante; ?></textarea>
         </div>
         <div class="first">
           <label for="txtname" class="label">Nombre</label>
