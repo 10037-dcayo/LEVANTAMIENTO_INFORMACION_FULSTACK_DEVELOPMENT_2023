@@ -1115,7 +1115,8 @@ body.login {
 
 .form-data .body .textarea {
     display: block;
-    width: 203.1%;
+    /* cambio el tamaño 09142023 */
+    width: 94.5%; 
     min-height: 50px;
     max-height: 120px;
     margin: 0 0 20px 0;
