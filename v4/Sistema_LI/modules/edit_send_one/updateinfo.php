@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Info("Archivo cargado con éxito.");
             
             // Actualiza la base de datos con el nombre del archivo
-            $sql_update = "UPDATE send_one SET estado = '" . trim($_POST['txtestado']) . "', message = '" . trim($_POST['descripcion']) . "', evidencepdf = '" . $nombre_archivo . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
+            $sql_update = "UPDATE infoq SET estado = '" . trim($_POST['txtestado']) . "', message = '" . trim($_POST['descripcion']) . "', evidencepdf = '" . $nombre_archivo . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
 
             if (mysqli_query($conexion, $sql_update)) {
                 Info('Documento actualizado.');
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         // No se cargó un archivo, solo actualiza la base de datos sin cambiar el archivo
-        $sql_update = "UPDATE send_one SET estado = '" . trim($_POST['txtestado']) . "', message = '" . trim($_POST['descripcion']) . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
+        $sql_update = "UPDATE infoq SET estado = '" . trim($_POST['txtestado']) . "', message = '" . trim($_POST['descripcion']) . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
 
         if (mysqli_query($conexion, $sql_update)) {
             Info('Documento actualizado (sin cambios en el archivo).');
