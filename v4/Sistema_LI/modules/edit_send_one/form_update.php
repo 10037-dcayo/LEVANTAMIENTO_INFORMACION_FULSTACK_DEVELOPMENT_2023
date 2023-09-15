@@ -20,7 +20,8 @@ if ($result = $conexion->query($sql)) {
   </div>
   <div class="body">
 
-    <form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
+    <form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on"
+      enctype="multipart/form-data">
 
       <div class="wrap">
         <div class="first">
