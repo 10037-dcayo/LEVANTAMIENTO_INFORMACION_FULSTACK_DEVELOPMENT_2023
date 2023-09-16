@@ -73,14 +73,16 @@ $url_archivo_pdf = '/modules/edit_send_one/informesquincenalespdf/' . $id . '/' 
         </div>
         <div class="first">
           <label for="txtname" class="label">Nombre PDF</label>
-          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
+          <input id="txtname" class="text" style="display: none;" type="text" name="name"
             value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" required disabled />
         </div>
 
-        <div class="first">
-          <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
-        </div>
+        <?php if (!empty($_SESSION['evidencia'])): ?>
+          <div class="first">
+            <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
+          </div>
+        <?php endif; ?>
       </div>
 
       <button class="btn icon" type="submit" autofocus>done</button>
