@@ -19,9 +19,9 @@ if ($result = $conexion->query($sql)) {
     $_SESSION['coment'] = $row['message_student'];
   }
 }
-$id = $_SESSION['user_id']; 
+$id = $_SESSION['user_id'];
 //obtenemos los comentarios del estudiante
-$comenario_estudiante=$_SESSION['coment'];
+$comenario_estudiante = $_SESSION['coment'];
 // Obtén el nombre del archivo desde la base de datos o alguna otra fuente
 $nombre_del_archivo = $_SESSION['evidencia'];
 // Construye la URL completa al archivo PDF
@@ -52,7 +52,7 @@ $url_archivo_pdf = '/modules/edit_send_one/sendonepdf/' . $id . '/' . $nombre_de
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['state']; ?>" required disabled />
         </div>
         <div class="first">
-        <label for="txtinfoqdescription" class="label">Comentario de documentación</label>
+          <label for="txtinfoqdescription" class="label">Comentario de documentación</label>
           <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
             value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
@@ -75,14 +75,17 @@ $url_archivo_pdf = '/modules/edit_send_one/sendonepdf/' . $id . '/' . $nombre_de
         </div>
         <div class="first">
           <label for="txtname" class="label">Nombre PDF</label>
-          <input id="txtname" class="text" style=" display: none;" type="text" name="name"
+          <input id="txtname" class="text" style="display: none;" type="text" name="name"
             value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" required disabled />
         </div>
 
-        <div class="first">
-          <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
-        </div>
+        <?php if (!empty($_SESSION['evidencia'])): ?>
+          <div class="first">
+            <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
+          </div>
+        <?php endif; ?>
+
       </div>
       <button class="btn icon" type="submit" autofocus>done</button>
     </form>
