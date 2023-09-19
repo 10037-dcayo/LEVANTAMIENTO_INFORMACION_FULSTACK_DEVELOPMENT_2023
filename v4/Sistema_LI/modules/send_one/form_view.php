@@ -65,7 +65,7 @@ $url_archivo_pdf = '/modules/edit_send_one/sendonepdf/' . $id . '/' . $nombre_de
             rows="10"><?php echo $comenario_estudiante; ?></textarea>
         </div>
         <div class="first">
-          <label class="label">Nombre</label>
+          <label for="txtname" class="label">Nombre</label>
           <input id="txtname" class="text" style=" display: none;" type="text" name="txtname"
             value="<?php echo $_SESSION['nombre']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txtname" value="<?php echo $_SESSION['nombre']; ?>" required disabled />
@@ -82,7 +82,11 @@ $url_archivo_pdf = '/modules/edit_send_one/sendonepdf/' . $id . '/' . $nombre_de
             value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" />
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" />
         </div>
-
+        <?php if (!empty($_SESSION['evidencia'])): ?>
+          <div class="first">
+            <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
+          </div>
+        <?php endif; ?>
 
       </div>
 
