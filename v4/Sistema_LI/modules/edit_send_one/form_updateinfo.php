@@ -1,3 +1,4 @@
+<!-- Vista quincenal actualizar editar -->
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
@@ -10,9 +11,11 @@ if ($result = $conexion->query($sql)) {
     $_SESSION['state'] = $row['estado'];
     $_SESSION['mensaje'] = $row['message'];
     $_SESSION['nombre'] = $row['archivopdf'];
+    $_SESSION['coment'] = $row['message_student'];
   }
 }
-
+//obtenemos los comentarios del estudiante
+$comenario_estudiante = $_SESSION['coment'];
 ?>
 <div class="form-data">
   <div class="head">
@@ -28,16 +31,22 @@ if ($result = $conexion->query($sql)) {
             value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
             disabled />
-
-          <label for="txtinfoqdescription" class="label">Descripción</label>
-          <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
-            value="<?php echo $_SESSION['mensaje']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
         </div>
         <div class="first">
           <label for="txtestado" class="label">Estado</label>
           <input id="txtestado" class="text" style=" display: none;" type="text" name="txtestado"
             value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
           <input class="text" type="text" name="txtestado" value="<?php echo $_SESSION['state']; ?>" required />
+        </div>
+        <div class="first">
+        <label for="txtinfoqdescription" class="label">Descripción</label>
+          <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
+            value="<?php echo $_SESSION['mensaje']; ?>"><?php echo $_SESSION['mensaje']; ?></textarea>
+        </div>
+        <div class="first">
+          <label for="txtcomentario" class="label">Comentarios del estudiante</label>
+          <textarea name="comentario" id="comentario" class="textarea" cols="30"
+            rows="10" readonly><?php echo $comenario_estudiante; ?></textarea>
         </div>
         <div class="first">
           <label class="label">Nombre</label>
