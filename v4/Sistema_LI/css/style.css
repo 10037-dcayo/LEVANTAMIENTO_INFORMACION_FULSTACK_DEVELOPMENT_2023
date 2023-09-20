@@ -2851,3 +2851,41 @@ input[type="range"]:active {
     background-color: #0056b3; /* Cambiar el color de fondo en hover */
   }
   
+  /*Subtitulo*/
+  .subtitle{
+    padding:  14px 0;
+    border-bottom: 1px solid #282a3660;
+    border-top: 1px solid #282a3660;
+  }
+  .subtitle h2 {
+        color: #eef4ff;
+        font-size: 1em;
+        text-shadow: 0 1px 5px rgba(142, 136, 192, 0.2);
+        text-align: left;
+        font-weight: 500;
+        padding-left: 14;
+        text-transform: capitalize;
+        padding-left: 4%;
+        font-weight: 500;
+  }
+
+  /*Estilos de cargar archivo file*/
+  .update-file {
+    font-size: 16px;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+    width: 400px;
+    outline: none;
+  }
+
+  ::-webkit-file-upload-button{
+    color: white;
+    background: #6daaa3;
+    padding: 14px;
+    border: none;
+    border-radius: 10px 0px 0px 10px;
+    outline: none;
+  }
+  ::-webkit-file-upload-button:hover{
+    background: #569188;
+  } 

@@ -46,8 +46,8 @@ $url_archivo_pdf = '/modules/edit_send_one/sendtwopdf/' . $id . '/' . $nombre_de
         <div class="first">
           <label for="txtestado" class="label">Estado</label>
           <input id="txtestado" class="text" style=" display: none;" type="text" name="txtestado"
-            value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txtestado" value="<?php echo $_SESSION['state']; ?>" required />
+            value="<?php echo $_SESSION['state']; ?>" maxlength="50" required readonly/>
+          <input class="text" type="text" name="txtestado" value="<?php echo $_SESSION['state']; ?>" required readonly/>
         </div>
         <div class="first">
         <label for="txtinfoqdescription" class="label">Comentario de documentación</label>
@@ -75,7 +75,7 @@ $url_archivo_pdf = '/modules/edit_send_one/sendtwopdf/' . $id . '/' . $nombre_de
           <label for="txtname" class="label">Evidencia</label>
           <input id="txtname" class="text" style="display: none;" type="text" name="name"
             value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" />
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" />
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" readonly/>
         </div>
 
         <?php if (!empty($_SESSION['evidencia'])): ?>

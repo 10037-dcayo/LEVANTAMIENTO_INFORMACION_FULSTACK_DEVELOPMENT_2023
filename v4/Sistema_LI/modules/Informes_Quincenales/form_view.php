@@ -31,10 +31,10 @@ $url_archivo_pdf = '/modules/edit_send_one/informesquincenalespdf/' . $id . '/' 
 ?>
 <div class="form-data">
   <div class="head">
-    <h1 class="titulo">Actualizar</h1>
+    <h1 class="titulo">Datos generales</h1>
   </div>
   <div class="body">
-    <form name="form-update-students" action="update_view.php" method="POST" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
+    <form name="form-update-students" action="update_view.php" method="POST" autocomplete="off" autocapitalize="on" enctype="multipart/form-data"> 
       <div class="wrap">
         <div class="first">
           <label for="txtuserid" class="label">Usuario</label>
@@ -47,17 +47,12 @@ $url_archivo_pdf = '/modules/edit_send_one/informesquincenalespdf/' . $id . '/' 
             <label for="txtestado" class="label">Estado</label>
             <input id="txtestado" class="text" style=" display: none;" type="text" name="txtestado"
             value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
-            <input class="text" type="text" name="txtestado" value="<?php echo $_SESSION['state']; ?>" required />
+            <input class="text" type="text" name="txtestado" value="<?php echo $_SESSION['state']; ?>" required readonly/>
           </div>
-        <div class="first">    
+        <div class="description">    
             <label for="txtinfoqdescription" class="label">Comentario de documentación</label>
             <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
             value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
-        </div>
-        <div class="first">
-          <label for="txtcomentario" class="label">Comentarios del estudiante</label>
-          <textarea name="comentario" id="comentario" class="textarea" cols="30" 
-			rows="10"><?php echo $comenario_estudiante; ?></textarea>
         </div>
         <div class="first">
           <label for="txtname" class="label">Nombre</label>
@@ -75,7 +70,7 @@ $url_archivo_pdf = '/modules/edit_send_one/informesquincenalespdf/' . $id . '/' 
           <label for="txtname" class="label">Evidencia</label>
           <input id="txtname" class="text" style="display: none;" type="text" name="name"
             value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" />
-          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" />
+          <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" readonly/>
         </div>
 
         <?php if (!empty($_SESSION['evidencia'])): ?>
@@ -85,7 +80,24 @@ $url_archivo_pdf = '/modules/edit_send_one/informesquincenalespdf/' . $id . '/' 
         <?php endif; ?>
       </div>
 
+      <div class="subtitle">
+      <h2>Actualizar documentación</h2>
+      </div>
+      <div class="wrap">
+        <div class="description">
+          <label for="txtcomentario" class="label">Comentarios del estudiante</label>
+          <textarea name="comentario" id="comentario" class="textarea" cols="30" 
+			      rows="10"><?php echo $comenario_estudiante; ?></textarea>
+        </div>
+
+        <div>
+          <input type="file" class="update-file" id="archivo" name="archivo" accept="application/pdf">
+        </div>
+
+      </div>
+
       <button id="btnSave" class="btn icon" name="btn" type="submit">save</button>
+
     </form>
   </div>
 </div>
