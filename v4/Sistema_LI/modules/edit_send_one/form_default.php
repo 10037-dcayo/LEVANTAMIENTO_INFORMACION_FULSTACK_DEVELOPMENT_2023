@@ -107,7 +107,7 @@ $sql="SELECT * FROM notify WHERE estado='revisar'";
 		<div class="btn-modal">
 		<form  action="" method="post">
                 <input type="hidden" name="notification_id" value="' . $row["nombrepdf"] . '">
-                <button class="close-button" type="submit" name="close_notification">x</button>
+                <button class="close-button" type="submit" name="close_notification">X</button>
             </form>
 						</div> 
             <p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p>
