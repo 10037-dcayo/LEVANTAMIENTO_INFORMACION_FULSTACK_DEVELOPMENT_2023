@@ -31,10 +31,13 @@ $url_archivo_pdf = '/modules/edit_send_one/informesquincenalespdf/' . $id . '/' 
 ?>
 <div class="form-data">
   <div class="head">
-    <h1 class="titulo">Datos generales</h1>
+    <h1 class="titulo">Formulario de documentación quincenal</h1>
   </div>
   <div class="body">
     <form name="form-update-students" action="update_view.php" method="POST" autocomplete="off" autocapitalize="on" enctype="multipart/form-data"> 
+      <div class="subtitle">
+        <h2>Datos Generales</h2>
+      </div>
       <div class="wrap">
         <div class="first">
           <label for="txtuserid" class="label">Usuario</label>
@@ -81,7 +84,7 @@ $url_archivo_pdf = '/modules/edit_send_one/informesquincenalespdf/' . $id . '/' 
       </div>
 
       <div class="subtitle">
-      <h2>Actualizar documentación</h2>
+        <h2>Actualizar documentación</h2>
       </div>
       <div class="wrap">
         <div class="description">

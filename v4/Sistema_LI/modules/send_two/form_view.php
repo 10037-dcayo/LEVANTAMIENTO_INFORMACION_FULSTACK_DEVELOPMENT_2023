@@ -31,13 +31,16 @@ $url_archivo_pdf = '/modules/edit_send_one/sendtwopdf/' . $id . '/' . $nombre_de
 
 <div class="form-data">
   <div class="head">
-    <h1 class="titulo">Actualizar</h1>
+    <h1 class="titulo">Formulario de envío 2</h1>
   </div>
   <div class="body">
     <form name="form-update-students" action="update_view.php" method="POST" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
+    <div class="subtitle">
+      <h2>Datos Generales</h2>
+    </div>
       <div class="wrap">
         <div class="first">
-          <label for="txtuserid" <label for="txtuserid" class="label">Usuario</label>
+          <label for="txtuserid" class="label">Usuario</label>
           <input id="txtuserid" style="display: none;" type="text" name="userid"
             value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50"
@@ -46,18 +49,13 @@ $url_archivo_pdf = '/modules/edit_send_one/sendtwopdf/' . $id . '/' . $nombre_de
         <div class="first">
           <label for="txtestado" class="label">Estado</label>
           <input id="txtestado" class="text" style=" display: none;" type="text" name="txtestado"
-            value="<?php echo $_SESSION['state']; ?>" maxlength="50" required readonly/>
+            value="<?php echo $_SESSION['state']; ?>" maxlength="50" readonly/>
           <input class="text" type="text" name="txtestado" value="<?php echo $_SESSION['state']; ?>" required readonly/>
         </div>
-        <div class="first">
+        <div class="description">
         <label for="txtinfoqdescription" class="label">Comentario de documentación</label>
           <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10"
             value="<?php echo $_SESSION['user_id']; ?>" readonly><?php echo $_SESSION['mensaje']; ?></textarea>
-        </div>
-        <div class="first">
-          <label for="txtcomentario" class="label">Comentarios del estudiante</label>
-          <textarea name="comentario" id="comentario" class="textarea" cols="30"
-            rows="10"><?php echo $comenario_estudiante; ?></textarea>
         </div>
         <div class="first">
           <label for="txtname" class="label">Nombre</label>
@@ -83,6 +81,20 @@ $url_archivo_pdf = '/modules/edit_send_one/sendtwopdf/' . $id . '/' . $nombre_de
             <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
           </div>
         <?php endif; ?>
+      </div>
+
+      <div class="subtitle">
+        <h2>Actualizar documentación</h2>
+      </div>
+      <div class="wrap">
+        <div class="description">
+          <label for="txtcomentario" class="label">Comentarios del estudiante</label>
+          <textarea name="comentario" id="comentario" class="textarea" cols="30"
+            rows="10"><?php echo $comenario_estudiante; ?></textarea>
+        </div>
+        <div>
+          <input type="file" class="update-file" id="archivo" name="archivo" accept="application/pdf">
+        </div>
       </div>
 
       <button id="btnSave" class="btn icon" name="btn" type="submit">save</button>
