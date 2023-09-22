@@ -43,7 +43,7 @@ if (file_exists($rutaArchivo) && unlink($rutaArchivo)) {
 } else {
     Error('No se pudo eliminar el archivo del usuario.');
 }
-// Vacía la carpeta del usuario en edit_send_one/sendonepdf
+// Vacía la carpeta del usuario.
 $rutaCarpetaUsuario = '../edit_send_one/sendonepdf/' . $_SESSION["user"] . '/';
 if (is_dir($rutaCarpetaUsuario)) {
     // Obtiene una lista de archivos en la carpeta
