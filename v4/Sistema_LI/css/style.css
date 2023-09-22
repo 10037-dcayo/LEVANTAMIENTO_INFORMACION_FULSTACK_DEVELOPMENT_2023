@@ -2855,10 +2855,12 @@ ul li a.student-list {
   display: flex;
   justify-content: flex-start;
 }
-
+.button-container {
+  text-align: center; /* Centrar horizontalmente el contenido */
+}
 .btn-download {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 30px;
   background-color: #3f6992; /* Color de fondo del botón */
   color: #fff; /* Color del texto */
   text-decoration: none;
@@ -2866,7 +2868,6 @@ ul li a.student-list {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease; /* Efecto de transición en hover */
-  margin-left: 40px;
 }
 
 .btn-download:hover {
