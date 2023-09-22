@@ -36,9 +36,11 @@ $comenario_estudiante = $_SESSION['coment'];
         </div>
         <div class="first">
           <label for="txtestado" class="label">Estado</label>
-          <input id="txtestado" class="text" style=" display: none;" type="text" name="txtestado"
-            value="<?php echo $_SESSION['state']; ?>" maxlength="50" required />
-          <input class="text" type="text" name="txtestado" value="<?php echo $_SESSION['state']; ?>" required />
+          <select id="txtestado" class="select-estado" name="txtestado" required>
+            <option value="En revisión" <?php if ($_SESSION['state'] === 'En revisión') echo 'selected'; ?>>En revisión</option>
+            <option value="Rechazado" <?php if ($_SESSION['state'] === 'Rechazado') echo 'selected'; ?>>Rechazado</option>
+            <option value="Aprobado" <?php if ($_SESSION['state'] === 'Aprobado') echo 'selected'; ?>>Aprobado</option>
+          </select>
         </div>
         <div class="first">
         <label for="txtinfoqdescription" class="label">Descripción</label>

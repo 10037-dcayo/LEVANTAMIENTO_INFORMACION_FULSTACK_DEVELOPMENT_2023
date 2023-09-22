@@ -35,13 +35,13 @@ $id_generate = 'S-' . unique_id(5);
                     <input id="txtusernum" class="text" style=" display: none;" type="text" name="num" value="<?php echo $id_generate; ?>" maxlength="50" required />
                     <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />     
                 </div>
-                <div>
-                <label for="txtusernum" class="label">Cargar Archivo</label>
-                    <input type="file" class="update-file" id="archivo" name="archivo" accept="application/pdf" required>
-                </div>
-                <div class="first">
+                <div class="description">
                     <label for="txtinfoqdescription" class="label">Descripción</label>
                     <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10" readonly>Documentación</textarea>
+                </div>
+                <div>
+                    <label for="txtusernum" class="label">Cargar Archivo</label>
+                    <input type="file" class="update-file" id="archivo" name="archivo" accept="application/pdf" required>
                 </div>
             </div>
             
