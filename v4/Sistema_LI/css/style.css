@@ -2860,7 +2860,7 @@ ul li a.student-list {
 }
 .btn-download {
   display: inline-block;
-  padding: 10px 30px;
+  padding: 10px 20px;
   background-color: #3f6992; /* Color de fondo del botón */
   color: #fff; /* Color del texto */
   text-decoration: none;

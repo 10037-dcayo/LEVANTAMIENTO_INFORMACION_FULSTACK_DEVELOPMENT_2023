@@ -77,8 +77,10 @@ $url_archivo_pdf = '/modules/edit_send_one/informesquincenalespdf/' . $id . '/' 
         </div>
 
         <?php if (!empty($_SESSION['evidencia'])): ?>
-          <div class="first">
-            <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
+          <div class="button-container">
+            <div class="first">
+              <a href="<?php echo $url_archivo_pdf; ?>" download class="btn-download">Descargar Documento</a>
+            </div>
           </div>
         <?php endif; ?>
       </div>
