@@ -96,7 +96,7 @@ $url_archivo_pdf = '/modules/edit_send_one/informesquincenalespdf/' . $id . '/' 
         </div>
 
         <div>
-          <input type="file" class="update-file" id="archivo" name="archivo" accept="application/pdf">
+          <input type="file" class="update-file" id="archivo" name="archivo" accept=".pdf, .doc, .docx">
         </div>
 
       </div>

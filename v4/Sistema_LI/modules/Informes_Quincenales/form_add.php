@@ -41,7 +41,7 @@ $id_generate = 'Q-' . unique_id(5);
                 </div>
                 <div class="first">
                     <label for="txtuserarchivo" class="label">Cargar Archivo</label>
-                    <input type="file" class="update-file" id="archivo" name="archivo" accept="application/pdf" required>
+                    <input type="file" class="update-file" id="archivo" name="archivo" accept=".pdf, .doc, .docx" required>
                 </div>
             </div>
             

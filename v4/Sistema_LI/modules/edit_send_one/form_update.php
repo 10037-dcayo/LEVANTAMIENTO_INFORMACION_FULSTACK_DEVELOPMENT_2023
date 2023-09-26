@@ -67,7 +67,7 @@ $comenario_estudiante = $_SESSION['coment'];
         </div>
         <div class="first">
           <label for="txtuserarchivo" class="label">Archivo</label>
-          <input type="file" class="update-file" id="archivo" name="archivo" accept="application/pdf">
+          <input type="file" class="update-file" id="archivo" name="archivo" accept=".pdf, .doc, .docx">
         </div>
 
 

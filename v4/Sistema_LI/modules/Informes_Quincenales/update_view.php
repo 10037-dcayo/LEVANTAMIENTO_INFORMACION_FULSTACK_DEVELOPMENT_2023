@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql_update = "UPDATE infoq SET message_student = '" . trim($_POST['comentario']) . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
 
         if (mysqli_query($conexion, $sql_update)) {
-            Info('Comentario del estudainte actualizado.');
+            Info('Comentario del estudiante actualizado.');
         } else {
             Error('Error al actualizar.');
         }

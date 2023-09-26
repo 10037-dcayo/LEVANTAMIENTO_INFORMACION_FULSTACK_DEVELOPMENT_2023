@@ -99,7 +99,7 @@ $url_archivo_pdf = '/modules/edit_send_one/sendonepdf/' . $id . '/' . $nombre_de
             rows="10"><?php echo $comenario_estudiante; ?></textarea>
         </div>
         <div>
-          <input type="file" class="update-file" id="archivo" name="archivo" accept="application/pdf">
+          <input type="file" class="update-file" id="archivo" name="archivo" accept=".pdf, .doc, .docx">
         </div>
       </div>
 
