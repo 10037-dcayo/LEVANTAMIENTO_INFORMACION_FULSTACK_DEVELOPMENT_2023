@@ -4,15 +4,16 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 $name = $_POST['txtname'];
 $id = $_POST['txtuserid'];
 
-$sql = "SELECT students.*, careers.name AS career_name
+$sql = "SELECT students.*, careers.name AS career_name, users.image AS user_image
         FROM students
         INNER JOIN careers ON students.career = careers.career
+        INNER JOIN users ON students.user = users.user
         WHERE students.user = '" . $_POST['txtuserid'] . "'";
-
 
 if ($result = $conexion->query($sql)) {
   if ($row = mysqli_fetch_array($result)) {
     $_SESSION['user_email'] = $row['email'];
+    $_SESSION['user_foto'] = $row['user_image'];
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['user_cedula'] = $row['cedula'];
     $_SESSION['user_carrera'] = $row['career_name'];
@@ -21,6 +22,7 @@ if ($result = $conexion->query($sql)) {
     $_SESSION['user_telefono'] = $row['phone'];
   }
 }
+
 ?>
 
 <div class="content-aside">
@@ -35,12 +37,20 @@ if ($result = $conexion->query($sql)) {
       <?php
       echo '<h2 class="information_student"> ' . $_POST['txtname'] . ' </h2>';
       ?>
+      <div class="info-student">
+        <div class="user">
+        <a href="/images/users/<?php echo $_SESSION['user_foto']; ?>" download title="Haz clic para descargar la imagen">
+            <img class="image_user" src="/images/users/<?php echo $_SESSION['user_foto']; ?>" />
+          </a>
+        </div>
+      </div>
       <h2 class="information_student">Id: <?php echo $_SESSION['user_id']; ?></h2> 
-      <h2 class="information_student">Cedula: <?php echo $_SESSION['user_cedula']; ?></h2>
+      <h2 class="information_student">Cédula: <?php echo $_SESSION['user_cedula']; ?></h2>
       <h2 class="information_student">Carrera: <?php echo $_SESSION['user_carrera']; ?></h2>
       <h2 class="information_student">Sede: <?php echo $_SESSION['user_sede']; ?></h2>
       <h2 class="information_student">Departamento: <?php echo $_SESSION['user_departamento']; ?></h2>
-      <h2 class="information_student">Telefono: <?php echo $_SESSION['user_telefono']; ?></h2>
+      <h2 class="information_student">Teléfono: <?php echo $_SESSION['user_telefono']; ?></h2>
+      
   </div>
 </div>
 <div class="form-gridview">
@@ -80,4 +90,5 @@ if ($result = $conexion->query($sql)) {
         </form>
       </div>
     </div>
+  </table>  
 </div>
