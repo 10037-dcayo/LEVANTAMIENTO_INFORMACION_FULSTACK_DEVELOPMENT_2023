@@ -31,7 +31,7 @@ $nombrePDF=$_SESSION['infoq_archivo'];
 	$date = date('Y-m-d H:i:s');
 
 	
-	$sql = "INSERT INTO send_one (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date')";
+	$sql = "INSERT INTO justificaciones (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date')";
 	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];
     echo "Mi id es: " . $id;
