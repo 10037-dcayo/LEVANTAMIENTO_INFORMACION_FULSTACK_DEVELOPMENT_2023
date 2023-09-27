@@ -29,6 +29,29 @@ if (mysqli_query($conexion, $sql_delete)) {
 $nombreArchivo = $_POST['txtuserid'];
 
 
+
+
+// Obtén el nombre del archivo de evidencia desde la base de datos
+$sql_select = "SELECT evidencepdf from send_one WHERE user = '" . $_POST['txtuserid'] . "'";
+// $result_select = mysqli_query($conexion, $sql_select);
+// if (!$result_select) {
+//     Error('Error al seleccionar el archivo.');
+//     header('Location: /modules/send_one');
+//     exit();
+// }
+
+// $row = mysqli_fetch_assoc($result_select);
+// $nombreArchivoEvidencia = $row['evidencepdf'];
+
+if ($result = $conexion->query($sql_select)) {
+    if ($row = mysqli_fetch_array($result)) {
+      $_SESSION['nombreArchivoEvidencia'] = $row['evidencepdf'];
+    }
+  }
+
+
+
+
 // Elimina la entrada de la base de datos
 $sql_delete = "DELETE FROM send_one WHERE archivopdf = '" . $nombreArchivo . "'";
 if (mysqli_query($conexion, $sql_delete)) {
@@ -43,28 +66,22 @@ if (file_exists($rutaArchivo) && unlink($rutaArchivo)) {
 } else {
     Error('No se pudo eliminar el archivo del usuario.');
 }
-// Vacía la carpeta del usuario.
-$rutaCarpetaUsuario = '../edit_send_one/sendonepdf/' . $_SESSION["user"] . '/';
-if (is_dir($rutaCarpetaUsuario)) {
-    // Obtiene una lista de archivos en la carpeta
-    $archivosUsuario = glob($rutaCarpetaUsuario . '*');
-    
-    if ($archivosUsuario) {
-        foreach ($archivosUsuario as $archivo) {
-            if (is_file($archivo) && unlink($archivo)) {
-                Info('Archivo del usuario eliminado. ' );
-            } else {
-                Error('No se pudo eliminar el archivo del usuario. ' );
-            }
-        }
+// Elimina el archivo de evidencia del editor
+$rutaArchivoEvidencia = '../edit_send_one/sendonepdf/' . $_SESSION["user"] . '/' . $nombreArchivoEvidencia;
+echo "Ruta del archivo de evidencia: " . $rutaArchivoEvidencia; // Agrega esta línea para depuración
+
+
+if (file_exists($rutaArchivoEvidencia)) {
+    if (unlink($rutaArchivoEvidencia)) {
+        Info('Archivo de evidencia eliminado.');
     } else {
-        Info('No se encontraron archivos en la carpeta del usuario.');
+        Error('No se pudo eliminar el archivo de evidencia en la ruta: ' . $rutaArchivoEvidencia);
     }
 } else {
-    Info('La carpeta del usuario no existe.');
+    Error('El archivo de evidencia no existe en la ruta: ' . $rutaArchivoEvidencia);
 }
-
 
 header('Location: /modules/send_one');
 exit();
 ?>
+
