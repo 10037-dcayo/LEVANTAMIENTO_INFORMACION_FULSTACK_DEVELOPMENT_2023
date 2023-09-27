@@ -2913,14 +2913,14 @@ ul li a.student-list {
 ::-webkit-file-upload-button:hover {
   background: #569188;
 }
- /*informacion estudiante*/
- .contenedor-info {
+/*informacion estudiante*/
+.contenedor-info {
   padding: 10px;
   margin-bottom: 15px;
- }
+}
 .information_student {
   color: white;
-  font-size: 1em;
+  font-size: 0.9em;
   padding-left: 4%;
   font-weight: 500;
 }
@@ -2928,4 +2928,17 @@ ul li a.student-list {
   padding-left: 5%;
   color: #ffffff;
   margin-top: 15px;
+}
+
+/*Foto del estudiante en la info de admin*/
+.info-student .user img.image_user{
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 1% 4%;
+  background-color: #6272a4;
+  box-shadow: 0 0 6px rgba(142, 136, 192, 0.2);
+  border: 3px solid #6272a4;
+  border-radius: 10em;
+  pointer-events: none;
 }

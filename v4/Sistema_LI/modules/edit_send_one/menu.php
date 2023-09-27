@@ -79,5 +79,5 @@ if ($result = $conexion->query($sql)) {
           <button class="btn-menu-editor" id="btnSave" value="form_sendtwo" name="btn" type="submit">Ver</button>
         </form>
       </div>
-    </div </table>
+    </div>
 </div>
