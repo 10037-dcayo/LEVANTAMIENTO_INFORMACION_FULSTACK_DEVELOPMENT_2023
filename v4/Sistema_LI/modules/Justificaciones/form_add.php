@@ -24,24 +24,26 @@ $id_generate = 'Q-' . unique_id(5);
     </div>
     <div class="body">
         <form  action="insert.php" method="post" autocomplete="off" autocapitalize="on" enctype="multipart/form-data">
-            <div class="wrap">
-                <div class="first">
-                    <label for="txtuserid" class="label">Usuario</label>
-                    <input id="txtuserid" style="display: none;" type="text" name="userid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
-                    <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
-                    <label for="txtinfoqdescription" class="label">Descripción</label>
-                    <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10" readonly>Justificación Adjuntada</textarea>
+                <div class="wrap">
+                    <div class="first">
+                        <label for="txtuserid" class="label">Usuario</label>
+                        <input id="txtuserid" style="display: none;" type="text" name="userid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
+                        <input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
                     </div>
                     <div class="first">
-                    <label for="txtusernum" class="label">N°PDF</label>
-                    <input id="txtusernum" class="text" style=" display: none;" type="text" name="num" value="<?php echo $id_generate; ?>" maxlength="50" required />
-                    <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />     
+                        <label for="txtusernum" class="label">N°PDF</label>
+                        <input id="txtusernum" class="text" style=" display: none;" type="text" name="num" value="<?php echo $id_generate; ?>" maxlength="50" required />
+                        <input class="text" type="text" name="txt" value="<?php echo $id_generate; ?>" required disabled />     
                     </div>
-                    <div class="first">
-                    <label for="txtuserarchivo" class="label">Archivo</label>
-                    <input type="file" class="text" id="archivo" name="archivo" accept=".pdf, .doc, .docx" required>
+                    <div class="description">
+                        <label for="txtinfoqdescription" class="label">Descripción</label>
+                        <textarea name="descripcion" id="descripcion" class="textarea" cols="30" rows="10" readonly>Justificación Adjuntada</textarea>
                     </div>
+                    <div>
+                        <label for="txtuserarchivo" class="label">Archivo</label>
+                        <input type="file" class="update-file" id="archivo" name="archivo" accept=".pdf, .doc, .docx" required>
                     </div>
+                </div>
             
             <button class="btn icon" type="submit">save</button>
         </form>
