@@ -6,7 +6,7 @@ include_once '../notif_info_msgbox.php';
 
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
-if (empty($_POST['txtuserid'])) {
+if (empty($_POST['txtuserid']) || empty($_POST['txtevidencefile'])) {
     header('Location: /');
     exit();
 }
@@ -27,6 +27,7 @@ if (mysqli_query($conexion, $sql_delete)) {
 }
 
 $nombreArchivo = $_POST['txtuserid'];
+$nombreArchivoEvidencia = $_POST['txtevidencefile'];
 
 // Elimina la entrada de la base de datos
 $sql_delete = "DELETE FROM infoq WHERE archivopdf = '" . $nombreArchivo . "'";
@@ -39,28 +40,20 @@ if (mysqli_query($conexion, $sql_delete)) {
 $rutaArchivo = 'informesquincenalespdf/' . $_SESSION["user"] . '/' . $nombreArchivo;
 if (file_exists($rutaArchivo) && unlink($rutaArchivo)) {
     Info('Archivo del usuario eliminado.');
-} else {
-    Error('No se pudo eliminar el archivo del usuario.');
-}
-// Vacía la carpeta del usuario.
-$rutaCarpetaUsuario = '../edit_send_one/informesquincenalespdf/' . $_SESSION["user"] . '/';
-if (is_dir($rutaCarpetaUsuario)) {
-    // Obtiene una lista de archivos en la carpeta
-    $archivosUsuario = glob($rutaCarpetaUsuario . '*');
-    
-    if ($archivosUsuario) {
-        foreach ($archivosUsuario as $archivo) {
-            if (is_file($archivo) && unlink($archivo)) {
-                Info('Archivo del usuario eliminado. ' );
-            } else {
-                Error('No se pudo eliminar el archivo del usuario. ' );
-            }
-        }
+
+// Verifica si el archivo de evidencia existe y elimínalo si es necesario.
+$rutaArchivoEvidencia = '../edit_send_one/informesquincenalespdf/' . $_SESSION["user"] . '/'. $nombreArchivoEvidencia;
+if (file_exists($rutaArchivoEvidencia)) {
+    if (unlink($rutaArchivoEvidencia)) {
+        Info('Archivo de evidencia eliminado.');
     } else {
-        Info('No se encontraron archivos en la carpeta del usuario.');
+        Error('No se pudo eliminar el archivo de evidencia en la ruta: ' . $rutaArchivoEvidencia);
     }
 } else {
-    Info('La carpeta del usuario no existe.');
+    Error('El archivo de evidencia no existe en la ruta: ' . $rutaArchivoEvidencia);
+}
+} else {
+Error('No se pudo eliminar el archivo del usuario.');
 }
 
 

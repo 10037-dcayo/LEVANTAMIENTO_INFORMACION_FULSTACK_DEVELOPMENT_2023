@@ -71,8 +71,8 @@ $url_archivo_pdf = '/modules/edit_send_one/sendtwopdf/' . $id . '/' . $nombre_de
         </div>
         <div class="first">
           <label for="txtname" class="label">Evidencia</label>
-          <input id="txtname" class="text" style="display: none;" type="text" name="name"
-            value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" />
+          <input id="txtname" class="text" style="display: none;" type="text" name="txtevidencefile"
+            value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" readonly/>
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" readonly/>
         </div>
 
