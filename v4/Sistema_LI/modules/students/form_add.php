@@ -117,6 +117,7 @@ $id_generate = 'stdt-' . unique_id(5);
 
                     <label for="txtuseraddress" class="label">Domicilio</label>
                     <input id="txtuseraddress" class="text" type="text" name="txtaddress" value="" placeholder="Domicilio" maxlength="200" required />
+                    
                     <label for="selectusercareers" class="label">Carrera</label>
                     <select id="selectusercareers" class="select" name="selectCareer" required>
                         <option value="">Seleccione</option>
@@ -133,9 +134,12 @@ $id_generate = 'stdt-' . unique_id(5);
                         }
                         ?>
                     </select>
+                    
                     <label for="dateuseradmission" class="label">Fecha de admisión</label>
                     <input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo date('Y-m-d'); ?>" required />
                     
+                    <label for="dateuserout" class="label">Fecha de salida</label>
+                    <input id="dateuserout" class="date" type="date" name="datefinish" value="<?php echo date('Y-m-d'); ?>" required />
                 </div>
                 <div class="last">
   <label class="label" for="txthours">
