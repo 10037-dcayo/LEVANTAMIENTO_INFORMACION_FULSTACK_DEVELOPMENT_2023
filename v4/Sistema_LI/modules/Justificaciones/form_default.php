@@ -2,7 +2,7 @@
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
 
-$sql = "SELECT descripcion FROM send_one";
+$sql = "SELECT descripcion FROM justificaciones";
 if ($resultado = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($resultado)) {
 		$_SESSION['send_description'] = $row['descripcion'];
@@ -31,7 +31,7 @@ if ($resultado = $conexion->query($sql)) {
 					</tr>
 			';
 		}	
-			$path = 'sendonepdf/' . $_SESSION["user"];
+			$path = 'justificacionespdf/' . $_SESSION["user"];
                 if(file_exists($path)){
                     $directorio= opendir($path);
                     while($archivo=readdir($directorio)){
@@ -48,12 +48,14 @@ if ($resultado = $conexion->query($sql)) {
 														<td>
 															<form action="" method="POST">
 																<input style="display:none;" type="text" name="txtuserid" value="'.$archivo.'"/>
+																<input style="display:none;" type="text" name="txtevidencefile" value="' . $_SESSION['evidencia'] . '"/>
 																<button class="btnedit" name="btn" value="form_view" type="submit"></button>
 															</form>
 														</td>
 														<td>
 														<form action="" method="POST">
 															<input style="display:none;" type="text" name="txtuserid" value="' . $archivo . '"/>
+															<input style="display:none;" type="text" name="txtevidencefile" value="' . $_SESSION['evidencia'] . '"/>
 															<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
 														</form>
 													</td>
