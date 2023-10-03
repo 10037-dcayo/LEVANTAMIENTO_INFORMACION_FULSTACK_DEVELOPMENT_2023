@@ -25,7 +25,7 @@ $comenario_estudiante = $_SESSION['coment'];
 // Obtén el nombre del archivo desde la base de datos o alguna otra fuente
 $nombre_del_archivo = $_SESSION['evidencia'];
 // Construye la URL completa al archivo PDF
-$url_archivo_pdf = '/modules/edit_send_one/justificacionpdf/' . $id . '/' . $nombre_del_archivo;
+$url_archivo_pdf = '/modules/edit_send_one/justificacionespdf/' . $id . '/' . $nombre_del_archivo;
 
 
 
@@ -33,7 +33,7 @@ $url_archivo_pdf = '/modules/edit_send_one/justificacionpdf/' . $id . '/' . $nom
 
 <div class="form-data">
   <div class="head">
-    <h1 class="titulo">Formulario de envío 1</h1>
+    <h1 class="titulo">Formulario de Justificación</h1>
   </div>
   <div class="body">
 
@@ -76,7 +76,7 @@ $url_archivo_pdf = '/modules/edit_send_one/justificacionpdf/' . $id . '/' . $nom
         </div>
         <div class="first">
           <label for="txtname" class="label">Evidencia</label>
-          <input id="txtname" class="text" style="display: none;" type="text" name="name"
+          <input id="txtname" class="text" style="display: none;" type="text" name="txtevidencefile"
             value="<?php echo $_SESSION['evidencia']; ?>" maxlength="50" readonly />
           <input class="text" type="text" name="txt" value="<?php echo $_SESSION['evidencia']; ?>" readonly />
         </div>
