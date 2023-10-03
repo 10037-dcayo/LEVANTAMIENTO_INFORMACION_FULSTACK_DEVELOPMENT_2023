@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$ruta_temporal = $_FILES["archivo"]["tmp_name"];
 
 		// Define la carpeta donde deseas guardar el archivo
-		$carpeta_destino = 'justificacionpdf/'. $id . '/';
+		$carpeta_destino = 'justificacionespdf/'. $id . '/';
 
 
 		// Verifica si la carpeta de destino existe y créala si no
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Info("Archivo cargado con éxito.");
             
             // Actualiza la base de datos con el nombre del archivo
-            $sql_update = "UPDATE send_one SET archivopdf = '" . $nombre_archivo . "', message_student = '" . trim($_POST['comentario']) . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
+            $sql_update = "UPDATE justificaciones SET archivopdf = '" . $nombre_archivo . "', message_student = '" . trim($_POST['comentario']) . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
 
             if (mysqli_query($conexion, $sql_update)) {
                 Info('Información actualizada.');
@@ -57,15 +57,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         // No se cargó un archivo, solo actualiza la base de datos sin cambiar el archivo
-        $sql_update = "UPDATE send_one SET message_student = '" . trim($_POST['comentario']) . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
+        $sql_update = "UPDATE justificaciones SET message_student = '" . trim($_POST['comentario']) . "' WHERE num = '" . trim($_POST['txtnum']) . "'";
 
         if (mysqli_query($conexion, $sql_update)) {
-            Info('Comentario del estudainte actualizado.');
+            Info('Comentario del estudiante actualizado.');
         } else {
             Error('Error al actualizar.');
         }
     }
 }																		
-header('Location: /modules/send_one');
+header('Location: /modules/Justificaciones');
 exit();
 ?>
