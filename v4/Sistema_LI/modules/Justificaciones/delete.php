@@ -24,7 +24,7 @@ if (!empty($_POST['txtuserid'])) {
 
     //Verifica si el archivo existe y borra 
     if (file_exists($rutaArchivo) && unlink($rutaArchivo)) {
-        Info('Archivo del usuario eliminado.');
+        Info('Registro eliminado.');
     } else {
         Error('No se pudo eliminar el archivo de evidencia en la ruta: ' . $rutaArchivo);
     }
