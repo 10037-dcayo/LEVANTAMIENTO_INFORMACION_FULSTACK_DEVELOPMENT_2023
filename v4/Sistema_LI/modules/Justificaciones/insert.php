@@ -6,19 +6,21 @@ include_once '../notif_info_msgbox.php';
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
 $sql = "SELECT * FROM users WHERE user = '" . $_SESSION['user'] . "'";
-
 if ($result = $conexion->query($sql)) {
     if ($row = mysqli_fetch_array($result)) {
         $_SESSION['user_id'] = $row['user'];
+				$_SESSION['name_user'] = $row['name'];
     }
 }
+
+
 $archivopdf = $_FILES["archivo"]["name"]; 
 $sql = "SELECT archivopdf FROM justificaciones";
 $resultado = $conexion->query($sql); 
 $row = mysqli_fetch_array($result);
-$_SESSION['infoq_archivo']=$row['archivopdf'];
+$_SESSION['send_archivo']=$row['archivopdf'];
 
-$nombrePDF=$_SESSION['infoq_archivo'];
+$nombrePDF=$_SESSION['send_archivo'];
     if ($nombrePDF==$archivopdf) {
         Info('Ya existe un archivo con el nombre.');
         header('Location: /modules/Justificaciones');
@@ -29,9 +31,20 @@ $nombrePDF=$_SESSION['infoq_archivo'];
 	$numeroDePDF = $_POST['num'];
 	$descripcion = $_POST['descripcion'];
 	$date = date('Y-m-d H:i:s');
+	$status="En revisión";
+	$mensaje="Sin comentarios";
+	$evidencia="";
+	$name_not=$_SESSION['name_user'];
+	$status_not="revisar";
+	$mensaje_not="ha subido a Envió 1 el documento: ";
+	$mensage_estudiante="Sin comentarios";
 
-	
-	$sql = "INSERT INTO justificaciones (user, num, archivopdf, descripcion, created_at, updated_at) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date')";
+
+
+	$sql_not="INSERT INTO notify (user, name, mensaje, nombrepdf, estado) VALUES ('$usuario','$name_not','$mensaje_not','$archivopdf','$status_not')";
+	$result_not = $conexion->query($sql_not);
+
+	$sql = "INSERT INTO justificaciones (user, num, archivopdf, descripcion, created_at, updated_at,estado,message,evidencepdf,message_student ) VALUES ('$usuario', '$numeroDePDF', '$archivopdf', '$descripcion', '$date', '$date', '$status', '$mensaje','$evidencia','$mensage_estudiante')";
 	$resultado = $conexion->query($sql);
     $id = $_SESSION["user_id"];
     echo "Mi id es: " . $id;
@@ -67,6 +80,7 @@ $nombrePDF=$_SESSION['infoq_archivo'];
 		}
 	}
 
+       
         
         header('Location: /modules/Justificaciones');
         exit();
