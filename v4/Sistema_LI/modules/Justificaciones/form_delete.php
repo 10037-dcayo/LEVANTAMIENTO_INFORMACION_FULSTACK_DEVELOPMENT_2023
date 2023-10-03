@@ -6,11 +6,12 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
         <h1 class="titulo">Atención</h1>
     </div>
     <div class="delete">
-        <h1>¿Estas seguro?</h1>
+        <h1>¿Estás seguro?</h1>
         <h2>¡Se borrará de forma permanente!</h2>
         <form name="form-delete-teachers" action="delete.php" method="POST">
-            <input style="display: none;" type="text" name="txtnum" value="<?php echo $_POST['txtnum']; ?>" />
-            <button id="btnYesDelete" class="btn-si" type="submit" autofocus>¡Si, bórralo!</button>
+            <input style="display: none;" type="text" name="txtuserid" value="<?php echo $_POST['txtuserid']; ?>" />
+            <input style="display: none;" type="text" name="txtevidencefile" value="<?php echo $_POST['txtevidencefile']; ?>" />
+            <button id="btnYesDelete" class="btn-si" type="submit" autofocus>¡Sí, bórralo!</button>
         </form>
         <form action="" method="POST">
             <button id="btnNoDelete" class="btn-no" name="btn" value="form_default" type="submit">Cancelar</button>
@@ -20,3 +21,15 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 <div class="content-aside">
     <?php include_once "../sections/options-disabled.php"; ?>
 </div>
+
+<?php
+
+# ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
+
+// Todos los derechos reservados © Quito - Ecuador || Estudiantes TIC's en línea || Levantamiento de Información || ESPE 2022-2023
+
+// Ricardo Alejandro Jaramillo Salgado, Michael Andres Espinosa Carrera, Steven Cardenas, Luis LLumiquinga
+
+# ⚠⚠⚠ DO NOT DELETE ⚠⚠⚠
+
+?>
