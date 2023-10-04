@@ -1,4 +1,3 @@
-
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 include_once '../conexion.php';
@@ -7,11 +6,11 @@ $sql = "SELECT * FROM justificaciones";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
-		$_SESSION['justificaciones_estado'] = $row['estado'];	
-	  	$_SESSION['justificaciones_creado'] = $row['created_at'];
-	  	$_SESSION['justificaciones_actualizado'] = $row['updated_at'];
+		$_SESSION['justificaciones_estado'] = $row['estado'];
+		$_SESSION['justificaciones_creado'] = $row['created_at'];
+		$_SESSION['justificaciones_actualizado'] = $row['updated_at'];
 	}
-  }
+}
 // Debes definir el valor de $max antes de usarlo en el cálculo de $tpages
 $max = 10; // Aquí debes proporcionar el valor apropiado
 
@@ -58,7 +57,7 @@ if (!empty($_POST['search'])) {
 
 	$i = 0;
 
-	$sql = "SELECT * FROM justificaciones WHERE user='".$_POST['txtuserid']."'ORDER BY num LIMIT $inicio, $max";
+	$sql = "SELECT * FROM justificaciones WHERE user='" . $_POST['txtuserid'] . "'ORDER BY num LIMIT $inicio, $max";
 
 	if ($result = $conexion->query($sql)) {
 		while ($row = mysqli_fetch_array($result)) {
@@ -75,10 +74,10 @@ if (!empty($_POST['search'])) {
 
 <div class="form-gridview">
 	<table class="default">
-	<h2 class="titlecenter"> Justificaciones </h2>
-  <?php 
-			echo '<h2 class="textList"> ' .$_POST['txtname'].' </h2>'
-		?>
+		<h2 class="titlecenter"> Justificaciones </h2>
+		<?php
+		echo '<h2 class="textList"> ' . $_POST['txtname'] . ' </h2>'
+			?>
 		<?php
 		if ($_SESSION['total_justificaciones'] != 0) {
 			echo '
@@ -87,7 +86,9 @@ if (!empty($_POST['search'])) {
 						<th class="center" style="width: 300px">Estado</th>
 						<th class="center" style="width: 300px">Creado</th>
 						<th class="center" style="width: 300px">Actualizado</th>
-				        <th class="center"><a class="icon">visibility</a></th>
+				        
+						<th class="center"><a class="icon">download</a></th>
+						<th class="center"><a class="icon">edit</a></th>
 						
 			';
 			if ($_SESSION['permissions'] != 'editor') {
@@ -98,27 +99,35 @@ if (!empty($_POST['search'])) {
 			';
 		}
 
-			
-			$path = '../Justificaciones/justificacionespdf/' . $_POST["txtuserid"];
-                if(file_exists($path)){
-                    $directorio= opendir($path);
-                    while($archivo=readdir($directorio)){
-                        if(!is_dir($archivo)){
-                            
-                            echo "
-                            	<tr>
-                            		<td>$archivo</td>
-									<td> " . $_SESSION['justificaciones_estado'] . "</td>
-									<td> " . $_SESSION['justificaciones_creado'] . "</td>
-									<td> " . $_SESSION['justificaciones_actualizado'] . "</td>	
-                            		<td> 
-                            			<div data='" . $path . "/" . $archivo . "'><a href='" . $path . "/" . $archivo . "'
-                                    title='Ver archivo adjunto' class='btnview' target='_blank'><button class='btnview' name='btn' value='form_consult' type='submit'></button></td>
-                                </tr>";
-                               
-                        }
-                    }
-                }
+		$path = '../Justificaciones/justificacionespdf/' . $_POST["txtuserid"];
+		if (file_exists($path)) {
+			$directorio = opendir($path);
+			while ($archivo = readdir($directorio)) {
+				if (!is_dir($archivo)) {
+					echo '
+                <tr>
+                    <td>' . $archivo . '</td>
+                    <td>' . $_SESSION['justificaciones_estado'] . '</td>
+                    <td>' . $_SESSION['justificaciones_creado'] . '</td>
+                    <td>' . $_SESSION['justificaciones_actualizado'] . '</td>
+                    <td>
+                        <div data="' . $path . '/' . $archivo . '">
+                            <a href="' . $path . '/' . $archivo . '" title="Ver archivo adjunto" class="btnview" target="_blank">
+                                <button class="btnview" name="btn" value="form_consult" type="submit"></button>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <form action="" method="POST">
+                            <input style="display:none;" type="text" name="txtuserid" value="' . $archivo . '"/>
+                            <button class="btnedit" name="btn" value="form_updatetwo" type="submit"></button>
+                        </form>
+                    </td>
+                </tr>';
+				}
+			}
+		}
+
 
 		?>
 	</table>
