@@ -25,7 +25,7 @@ $comenario_estudiante = $_SESSION['coment'];
 // Obtén el nombre del archivo desde la base de datos o alguna otra fuente
 $nombre_del_archivo = $_SESSION['evidencia'];
 // Construye la URL completa al archivo PDF
-$url_archivo_pdf = '/modules/edit_send_one/justificacionespdf/' . $id . '/' . $nombre_del_archivo;
+$url_archivo_pdf = '/modules/edit_send_one/editjustificacion/' . $id . '/' . $nombre_del_archivo;
 
 
 
