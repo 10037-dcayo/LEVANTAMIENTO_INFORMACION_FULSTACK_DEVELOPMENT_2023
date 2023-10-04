@@ -8,6 +8,15 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 $nombreArchivo = $_POST['txtuserid'];
 $nombreArchivoEvidencia = $_POST['txtevidencefile'];
+if(empty($nombreArchivoEvidencia)){
+    $sql= "SELECT evidencepdf FROM justificaciones WHERE archivopdf = '" . $nombreArchivo . "'";
+    $result = $conexion->query($sql);
+    if($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        $nombreArchivoEvidencia = $row["evidencepdf"];
+    }
+}
+
 
 if (!empty($_POST['txtuserid'])) {
 
@@ -31,7 +40,7 @@ if (!empty($_POST['txtuserid'])) {
 }
 
     //Borra archivo y rgistro del editor
-    if (!empty($_POST['txtevidencefile'])) {
+    if (!empty($nombreArchivoEvidencia)) {
         //Contruye la ruta del repo del usuario editor
         $rutaArchivoEvidencia = '../edit_send_one/editjustificacion/' . $_SESSION["user"] . '/' . $nombreArchivoEvidencia;
         if (file_exists($rutaArchivoEvidencia) && unlink($rutaArchivoEvidencia)) {
