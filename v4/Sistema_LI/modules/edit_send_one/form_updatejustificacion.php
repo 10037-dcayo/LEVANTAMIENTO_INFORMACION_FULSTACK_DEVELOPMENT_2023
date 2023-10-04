@@ -19,7 +19,7 @@ $comenario_estudiante = $_SESSION['coment'];
 ?>
 <div class="form-data">
   <div class="head">
-    <h1 class="titulo">Actualizar</h1>
+    <h1 class="titulo">Actualizar Justificación</h1>
   </div>
   <div class="body">
 
