@@ -8,6 +8,14 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 
 $nombreArchivo = $_POST['txtuserid'];
 $nombreArchivoEvidencia = $_POST['txtevidencefile'];
+if(empty($nombreArchivoEvidencia)){
+    $sql= "SELECT evidencepdf FROM send_one WHERE archivopdf = '" . $nombreArchivo . "'";
+    $result = $conexion->query($sql);
+    if($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        $nombreArchivoEvidencia = $row["evidencepdf"];
+    }
+}
 
 if (!empty($_POST['txtuserid'])) {
 
