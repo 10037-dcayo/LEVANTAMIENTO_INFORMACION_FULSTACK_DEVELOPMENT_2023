@@ -39,7 +39,7 @@ if (!empty($_POST['txtuserid'])) {
     }
 }
 
-    //Borra archivo y rgistro del editor
+    //Borra archivo y registro del editor
     if (!empty($nombreArchivoEvidencia)) {
         //Contruye la ruta del repo del usuario editor
         $rutaArchivoEvidencia = '../edit_send_one/editjustificacion/' . $_SESSION["user"] . '/' . $nombreArchivoEvidencia;

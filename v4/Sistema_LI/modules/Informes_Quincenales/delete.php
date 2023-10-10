@@ -55,7 +55,7 @@ if (!empty($_POST['txtuserid'])) {
 }
 
     //Borra archivo y rgistro del editor
-    if (!empty($_POST['txtevidencefile'])) {
+    if (!empty($nombreArchivoEvidencia)) {
         //Contruye la ruta del repo del usuario editor
         $rutaArchivoEvidencia = '../edit_send_one/informesquincenalespdf/' . $_SESSION["user"] . '/' . $nombreArchivoEvidencia;
         if (file_exists($rutaArchivoEvidencia) && unlink($rutaArchivoEvidencia)) {

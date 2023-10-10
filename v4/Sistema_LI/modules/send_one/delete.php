@@ -38,8 +38,8 @@ if (!empty($_POST['txtuserid'])) {
     }
 }
 
-    //Borra archivo y rgistro del editor
-    if (!empty($_POST['txtevidencefile'])) {
+    //Borra archivo y registro del editor
+    if (!empty($nombreArchivoEvidencia)) {
         //Contruye la ruta del repo del usuario editor
         $rutaArchivoEvidencia = '../edit_send_one/sendonepdf/' . $_SESSION["user"] . '/' . $nombreArchivoEvidencia;
         if (file_exists($rutaArchivoEvidencia) && unlink($rutaArchivoEvidencia)) {
