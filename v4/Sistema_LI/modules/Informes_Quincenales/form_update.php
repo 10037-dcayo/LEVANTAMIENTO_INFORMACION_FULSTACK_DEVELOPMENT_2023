@@ -19,7 +19,7 @@ if ($result = $conexion->query($sql)) {
 	<div class="body">
 		<form name="form-update-students" action="update.php" method="POST" autocomplete="off" autocapitalize="on">
 			<div class="wrap">	
-                   <div class="first">
+                <div class="first">
                     <label for="txtuserid" class="label">Usuario</label>
 					<input id="txtuserid" style="display: none;" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">
 					<input class="text" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50" disabled />
@@ -32,8 +32,7 @@ if ($result = $conexion->query($sql)) {
                     <div class="first">
                     <label for="txtuserarchivo" class="label">Actualizar Archivo</label>
                     <input id="txtuserarchivo" class="text" type="file" name="pdf_archivo" value="<?php echo $_SESSION['infoq_archivo']; ?>" accept="application/pdf" />
-                   
-                    </div>                  
+                </div>                  
 
 			</div>
 			
