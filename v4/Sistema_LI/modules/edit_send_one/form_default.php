@@ -98,6 +98,8 @@ de ver detalles de un estudiante y cerrar notificaciones no deseadas. -->
 		include_once "../sections/options.php";
 	?>
 </div>
+
+<!-- Muestra Notificaciones -->
 <div class="content-aside">
     <?php
 		for ($i = 0; $i < $_SESSION['total_not']; $i++) {
