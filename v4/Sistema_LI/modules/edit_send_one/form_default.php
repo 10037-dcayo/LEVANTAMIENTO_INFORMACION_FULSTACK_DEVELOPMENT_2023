@@ -67,30 +67,48 @@ de ver detalles de un estudiante y cerrar notificaciones no deseadas. -->
 			}
 	?>
 		</table>
-	<?php
-		if ($_SESSION['total_users'] == 0) {
-			echo '
-					<img src="/images/404.svg" class="data-not-found" alt="404">
-			';
-		}
-		if ($_SESSION['total_users'] != 0) {
-			echo '
-					<div class="pages">
-						<ul>
-			';
-			for ($n = 1; $n <= $tpages; $n++) {
-				if ($page == $n) {
-					echo '<li class="active"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
-				} else {
-					echo '<li><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
-				}
-			}
-			echo '
-						</ul>
-					</div>
-			';
-		}
-	?>
+		<?php
+if ($_SESSION['total_users'] == 0) {
+    echo '
+        <img src="/images/404.svg" class="data-not-found" alt="404">
+    ';
+}
+
+if ($_SESSION['total_users'] != 0) {
+    echo '
+        <div class="pages">
+            <ul>
+    ';
+    
+    // Botón de flecha izquierda
+    if ($page > 1) {
+        echo '<li class="arrow-button"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . ($page - 1) . '">&larr;</button></form></li>';
+    }
+
+    // Botones para las páginas
+    for ($n = 1; $n <= $tpages; $n++) {
+        if ($page == $n) {
+            echo '<li class="active"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
+        } else {
+            echo '<li><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
+        }
+    }
+    
+    // Botón de flecha derecha
+    if ($page < $tpages) {
+        echo '<li class="arrow-button"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . ($page + 1) . '">&rarr;</button></form></li>';
+    }
+    
+    echo '
+            </ul>
+        </div>
+    ';
+}
+?>
+
+	
+
+	
 </div>
 <div class="content-aside">
 	<?php

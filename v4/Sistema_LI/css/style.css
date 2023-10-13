@@ -980,9 +980,10 @@ body.login {
 
 .pages {
   display: block;
-  text-align: center;
-  margin: 2.8% 0 2.8% 3.8%;
-  user-select: none;
+  /*text-align: center;*/
+  margin: 20px 0;
+  /*user-select: none;*/
+  overflow: auto;
 }
 
 .pages:after {
@@ -991,15 +992,24 @@ body.login {
   clear: both;
 }
 
-.pages ul li {
+.pages ul {
   list-style: none;
+  text-align: center;
+  white-space: nowrap; 
+  padding: 0;
+}
+
+.pages ul li {
+  /*list-style: none;*/
+  display: inline-block;
+  margin-right: 5px; 
 }
 
 .pages ul li button {
-  margin: 0 10px 0 0;
+  /*margin: 0 10px 0 0;
   width: 5%;
   height: 22px;
-  background: #7e8aac;
+  /*background: #7e8aac;
   box-shadow: 0 1px 6px rgba(142, 136, 192, 0.2);
   border: none;
   border-radius: 0.6em;
@@ -1007,7 +1017,13 @@ body.login {
   line-height: 23px;
   font-size: 0.625em;
   font-weight: 600;
-  transition: all 300ms ease-out;
+  transition: all 300ms ease-out;*/
+  display: inline-block;
+  padding: 10px 20px;
+  color: #eef4ff;
+	background: #7e8aac;
+	text-decoration: none;
+  border-radius: 0.6em;
 }
 
 .pages ul li button:hover,
@@ -1027,6 +1043,8 @@ body.login {
   cursor: pointer;
   transition: all 200ms ease-in;
 }
+
+
 
 /*-------------------------------------------
   Formulario | Add / Update
