@@ -64,14 +64,14 @@ if (strpos($url_actual, 'modules')) {
                         } ?>" href="/home"><span class="icon">dashboard</span>Dashboard</a></li>
         <li><a class="<?php if ($output[1] == 'students') {
                             echo 'active';
-                        } ?>" href="/modules/students"><span class="icon">recent_actors</span>Alumnos</a></li>
-        <li><a class="<?php if ($output[1] == 'careers') {
+                        } ?>" href="/modules/teacher_infoq"><span class="icon">recent_actors</span>Documentación</a></li>
+        <!-- <li><a class="<?php if ($output[1] == 'careers') {
                             echo 'active';
                         } ?>" href="/modules/careers"><span class="icon">school</span>Carreras</a></li>
         <li><a class="<?php if ($output[1] == 'subjects') {
                             echo 'active';
                         } ?>" href="/modules/subjects"><span class="icon">library_books</span>Asignaturas</a></li>
-        
+         -->
 </div>
 <div class="menu-mobile">
     <header>
@@ -83,7 +83,7 @@ if (strpos($url_actual, 'modules')) {
                                     echo 'active';
                                 } ?>" href="/home" title="Dashboard"><span class="icon">dashboard</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a class="<?php if ($output[1] == 'students') {
                                     echo 'active';
                                 } ?>" href="/modules/students" title="Alumnos"><span class="icon">recent_actors</span></a>
@@ -97,7 +97,7 @@ if (strpos($url_actual, 'modules')) {
                     <a class="<?php if ($output[1] == 'subjects') {
                                     echo 'active';
                                 } ?>" href="/modules/subjects" title="Asignaturas"><span class="icon">library_books</span></a>
-                </li>
+                </li> -->
                 
             </ul>
         </nav>
