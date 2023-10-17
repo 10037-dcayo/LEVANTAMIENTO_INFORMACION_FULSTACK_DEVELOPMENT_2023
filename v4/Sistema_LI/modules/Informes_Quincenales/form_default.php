@@ -33,7 +33,7 @@ if ($resultado = $conexion->query($sql)) {
                     echo '
                     <tr>
                         <td>' . $archivo . '</td>
-                        <td>' . $_SESSION["send_description"] . '</td>    
+                        <td>' . $_SESSION["infoq_description"] . '</td>    
                         <td> 
                             <div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $archivo . '"
                             title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" 
