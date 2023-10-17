@@ -100,6 +100,10 @@ if (strpos($url_actual, 'modules')) {
             echo 'active';
         } ?>" href="/modules/careers"><span class="icon">school</span>Carreras</a>
         </li>
+        <li><a class="<?php if ($output[1] == 'department') {
+            echo 'active';
+        } ?>" href="/modules/department"><span class="icon">school</span>Departamentos</a>
+        </li>
         <li><a class="<?php if ($output[1] == 'subjects') {
             echo 'active';
         } ?>" href="/modules/subjects"><span class="icon">library_books</span>Asignaturas</a>
@@ -160,6 +164,12 @@ if (strpos($url_actual, 'modules')) {
                         echo 'active-menu';
                     } ?>" href="/modules/careers"><span class="icon">school</span><span
                             class="text">Carreras</span></a>
+                </li>
+                <li>
+                    <a class="<?php if ($output[1] == 'department') {
+                        echo 'active-menu';
+                    } ?>" href="/modules/department"><span class="icon">school</span><span
+                            class="text">Departamentos</span></a>
                 </li>
                 <li>
                     <a class="<?php if ($output[1] == 'subjects') {
