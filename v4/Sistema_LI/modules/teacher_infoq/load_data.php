@@ -26,6 +26,8 @@ if (!empty($_POST['search'])) {
 			$_SESSION['userinfoq_name'][$i] = $row['name'];
 			$_SESSION['userinfoq_surname'][$i] = $row['surnames'];
 			$_SESSION['idinfoq_teache'][$i] = $row['teacher'];
+			$_SESSION['idinfoq_estudents'][$i] = $row['user'];
+			$_SESSION['infoq_estudent_pdf'][$i] = $row['archivopdf'];
 
 			$i += 1;
 		}
@@ -45,6 +47,8 @@ if (!empty($_POST['search'])) {
 			$_SESSION['userinfoq_name'][$i] = $row['name'];
 			$_SESSION['userinfoq_surname'][$i] = $row['surnames'];
 			$_SESSION['idinfoq_teache'][$i] = $row['teacher'];
+			$_SESSION['idinfoq_estudents'][$i] = $row['user'];
+			$_SESSION['infoq_estudent_pdf'][$i] = $row['archivopdf'];
 
 			$i += 1;
 		}

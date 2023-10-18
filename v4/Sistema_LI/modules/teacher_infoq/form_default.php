@@ -1,5 +1,6 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
+
 ?>
 <div class="form-gridview">
 	<table class="default">
@@ -21,36 +22,33 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 			';
 		}
 		for ($i = 0; $i < $_SESSION['total_infoq']; $i++) {
-			echo '
-		    		<tr>
-		    			<td>' . $_SESSION["id_infoq"][$i] . '</td>
-						<td>' . $_SESSION["userinfoq_name"][$i] . '</td>
-						<td>' . $_SESSION["userinfoq_surname"][$i] . '</td>
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtcareer" value="' . $_SESSION["id_infoq"][$i] . '"/>
-								<button class="btnview" name="btn" value="form_consult" type="submit"></button>
-							</form>
-						</td>
-						<td>
-							<form action="" method="POST">
-								<input style="display:none;" type="text" name="txtcareer" value="' . $_SESSION["id_infoq"][$i] . '"/>
-								<button class="btnedit" name="btn" value="form_update" type="submit"></button>
-							</form>
-						</td>';
-			if ($_SESSION['permissions'] != 'editor') {
-				echo '
-								<td>
-									<form action="" method="POST">
-										<input style="display:none;" type="text" name="txtcareer" value="' . $_SESSION["total_infoq"][$i] . '"/>
-										<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
-									</form>
-								</td>
+			$path = '../Informes_Quincenales/informesquincenalespdf/' . $_SESSION['idinfoq_estudents'][$i] ;
+			if(file_exists($path)){
+				$directorio= opendir($path);
+				while($archivo=readdir($directorio)){
+					if(!is_dir($archivo)){
+						echo '
+								<tr>
+									<td>' . $_SESSION["id_infoq"][$i] . '</td>
+									<td>' . $_SESSION["userinfoq_name"][$i] . '</td>
+									<td>' . $_SESSION["userinfoq_surname"][$i] . '</td>
+									<td>
+										<div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $archivo . '"
+										title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" 
+										name="btn" value="form_consult" type="submit"></button></td>
+									</td>
+									<td>
+										<form action="" method="POST">
+											<input style="display:none;" type="text" name="txtidteacher" value="' . $_SESSION["id_infoq"][$i] . '"/>
+											<button class="btnedit" name="btn" value="form_update" type="submit"></button>
+										</form>
+									</td>';
+						echo '
+								</tr>
 							';
+					}
+				}
 			}
-			echo '
-					</tr>
-				';
 		}
 		?>
 	</table>
