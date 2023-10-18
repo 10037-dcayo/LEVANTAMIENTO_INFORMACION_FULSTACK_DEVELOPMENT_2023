@@ -70,29 +70,48 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 		?>
 	</table>
 	<?php
-	if ($_SESSION['total_users'] == 0) {
-		echo '
+		if ($_SESSION['total_users'] == 0) {
+			echo '
 				<img src="/images/404.svg" class="data-not-found" alt="404">
-		';
-	}
-	if ($_SESSION['total_users'] != 0) {
-		echo '
+			';
+		}
+
+		if ($_SESSION['total_users'] != 0) {
+			echo '
 				<div class="pages">
 					<ul>
-		';
-		for ($n = 1; $n <= $tpages; $n++) {
-			if ($page == $n) {
-				echo '<li class="active"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
-			} else {
-				echo '<li><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
+			';
+			
+			// Botón de flecha izquierda si no está en la primera página
+			if ($page > 1) {
+				echo '<li class="arrow-button"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . ($page - 1) . '">&larr;</button></form></li>';
 			}
-		}
-		echo '
+
+			// Limita la cantidad de páginas visibles a la vez
+			$maxVisiblePages = 5;
+			$startPage = max(1, $page - floor($maxVisiblePages / 2));
+			$endPage = min($startPage + $maxVisiblePages - 1, $tpages);
+
+			// Crea botones para las páginas dentro del rango visible
+			for ($n = $startPage; $n <= $endPage; $n++) {
+				if ($page == $n) {
+					echo '<li class="active"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
+				} else {
+					echo '<li><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . $n . '">' . $n . '</button></form></li>';
+				}
+			}
+			
+			// Botón de flecha derecha si no está en la última página
+			if ($page < $tpages) {
+				echo '<li class="arrow-button"><form name="form-pages" action="" method="POST"><button type="submit" name="page" value="' . ($page + 1) . '">&rarr;</button></form></li>';
+			}
+			
+			echo '
 					</ul>
 				</div>
-		';
-	}
-	?>
+			';
+		}
+		?>
 </div>
 <div class="content-aside">
 	<?php
