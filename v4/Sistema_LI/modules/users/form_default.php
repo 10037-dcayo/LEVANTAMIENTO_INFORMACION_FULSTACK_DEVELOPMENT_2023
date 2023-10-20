@@ -8,8 +8,8 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 			echo '
 					<tr>
 						<th>Usuario</th>
-						<th>Name</th>
-						<th>Surname</th>						
+						<th>Nombre</th>
+						<th>Apellido</th>						
 						<th>Correo</th>						
 						<th>Permisos</th>
 						<th>Rol</th>						
