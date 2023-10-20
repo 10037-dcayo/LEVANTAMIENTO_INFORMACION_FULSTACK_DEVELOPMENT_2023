@@ -191,8 +191,7 @@ if ($result = $conexion->query($sql)) {
 						<option value="PREINCUBACIÓN">PREINCUBACIÓN</option>
 						<option value="PROWESS VENTAS">PROWESS VENTAS</option>
 					</select>
-
-				</div>
+					</div>
 				<div class="last">
 					<label for="txtusercedula" class="label">Cédula</label>
 					<input id="txtusercedula" class="text" type="text" name="txtcedula"
@@ -360,12 +359,6 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>
-
-
-
-
-
-
 					<label for="selectuserjornada" class="label">Jornada</label>
 					<select id="selectuserjornada" class="select" name="selectJornada" required>
 						<?php
@@ -440,10 +433,10 @@ if ($result = $conexion->query($sql)) {
 					<input id="dateuser" class="date" type="date" name="datefinish"
 						value="<?php echo $_SESSION['student_finish']; ?>" />
 				</div>
-				<div class="last">
+				<div>
 					<label class="label" for="txthours">
 						<label for="txttotalhours_hidden" class="label" placeholder="Suma de las horas">Horas de
-							Vinculación</label>
+							Vinculación Requeridas</label>
 						<input class="text" type="text" name="txttotalhours_hidden" id="txttotalhours_hidden"
 							style="height: 50px; width: 40px; font-size: 16px;" readonly wrap="soft"
 							value="<?php echo $_SESSION['student_horas']; ?>">
@@ -471,7 +464,7 @@ if ($result = $conexion->query($sql)) {
 					</label>
 				</div>
 
-				<div class="first">
+				<div class>
 					<label for="txtuserhours" class="label">Horarios Establecidos</label>
 					<input id="txtuserhours" class="text" type="text" name="txtuserhours"
 						placeholder="Seleccione el horario" maxlength="20000"
@@ -490,8 +483,7 @@ if ($result = $conexion->query($sql)) {
 					<br>
 					<ul id="hourList"></ul>
 				</div>
-
-				<div class="description">
+		<div class="description">
 					<br>
 					<label for="txtuserdates" class="label">Asistencia</label>
 					<input id="txtuserdates" class="textarea" type="text" name="txtuserdates"
@@ -508,9 +500,11 @@ if ($result = $conexion->query($sql)) {
 		</form>
 	</div>
 </div>
-<div class="content-aside">
+	<div class="content-aside">
 	<?php include_once "../sections/options-disabled.php"; ?>
-</div>
+	</div>
+
+
 <script>
 	$(document).ready(function () {
 		$("#txtuserdates").datepicker({

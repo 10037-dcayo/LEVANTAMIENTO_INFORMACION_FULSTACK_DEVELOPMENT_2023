@@ -146,16 +146,14 @@ $id_generate = 'stdt-' . unique_id(5);
                         }
                         ?>
                     </select>
+                </div>
 
                     <?php
 // Función para calcular la fecha de salida
-function calcularFechaSalida($fechaAdmision)
+function calcularFechaSalida($fechaAdmision, $horasRequeridas)
 {
     // Convertir la fecha de admisión en un objeto DateTime
     $fecha = new DateTime($fechaAdmision);
-
-    // Definir el número total de horas requeridas (96 horas)
-    $horasRequeridas = 96;
 
     // Inicializar un contador de horas y días
     $horasAcumuladas = 0;
@@ -187,26 +185,32 @@ function calcularFechaSalida($fechaAdmision)
 }
 
 $fechaAdmision = ''; // Inicializa la fecha de admisión
+$horasRequeridas = 0; // Inicializa las horas requeridas
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dateadmission'])) {
-    // Verifica si el formulario se ha enviado y si se proporcionó la fecha de admisión
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dateadmission']) && isset($_POST['txthreq'])) {
+    // Verifica si el formulario se ha enviado y si se proporcionó la fecha de admisión y las horas requeridas
     $fechaAdmision = $_POST['dateadmission'];
+    $horasRequeridas = $_POST['txthreq'];
 
     // Calcular la fecha de salida
-    $fechaSalida = calcularFechaSalida($fechaAdmision);
+    $fechaSalida = calcularFechaSalida($fechaAdmision, $horasRequeridas);
 }
 
 ?>
+<div>
 <label for="dateuseradmission" class="label">Fecha de admisión</label>
 <input id="dateuseradmission" class="date" type="date" name="dateadmission" value="<?php echo date('Y-m-d'); ?>" required />
+<label for="txthreq" class="label">Horas Requeridas</label>
+<input id="txthreq" type="text" name="txthreq" value="0" min="0" required />
 
 <label for="dateuserout" class="label">Fecha estimada de salida</label>
 <input id="dateuserout" class="date" type="date" name="datefinish" value="" readonly required />
 
 
 
-                </div>
-                <div class="last">
+</div>
+                 <!--
+                    <div class="last">
                     <label class="label" for="txthours">
                         <label for="txttotalhours_hidden" class="label" placeholder="Suma de las horas">Horas de
                             Vinculación</label>
@@ -234,24 +238,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dateadmission'])) {
                     </label>
 
                 </div>
+                  -->
+                <div>
                 <div class="description">
-                    <label for="txtuserhours" class="label">Seleccione sus Horarios</label>
-                    <input id="txtuserhours" class="text" type="hidden" name="txtuserhours" value=""
+                        <label for="txtuserhours" class="label">Seleccione sus Horarios</label>
+                        <input id="txtuserhours" class="text" type="hidden" name="txtuserhours" value=""
                         placeholder="Seleccione el horario" maxlength="20000" data-expandable />
-                    <div class="hour-picker">
-                        <label for="txtuserhours_start" class="text">Hora de entrada:</label>
-                        <input id="txtuserhours_start" class="hour-input" type="time" name="txtuserhours_start">
-                        <label for="txtuserhours_end" class="text">Hora de salida:</label>
-                        <input id="txtuserhours_end" class="hour-input" type="time" name="txtuserhours_end">
-                        <button id="addHourBtn" class="btn icon"><i
-                                class="fas fa-plus-circle fa-lg fa-spin"></i></button>
+                        <div class="hour-picker">
+                            <div>
+                                <label for="txtuserhours_start" class="text">Hora de entrada:</label>
+                                <input id="txtuserhours_start" class="hour-input" type="time" name="txtuserhours_start">
+                            </div>
+                            <div>
+                              <label for="txtuserhours_end" class="text">Hora de salida:</label>
+                              <input id="txtuserhours_end" class="hour-input" type="time" name="txtuserhours_end">
+                            <!-- <button id="addHourBtn" class="btn icon"><i
+                                class="fas fa-plus-circle fa-lg fa-spin"></i></button> -->
+                            </div>
+                            </div>
+
                     </div>
 
-                </div>
-
-                <div class="label" id="hourListContainer">
-                    <br>
-                    <ul id="hourList"></ul>
+                    <div class="label" id="hourListContainer">
+                        <br>
+                        <ul id="hourList"></ul>
+                    </div>
                 </div>
 
 
@@ -385,7 +396,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dateadmission'])) {
     // Función para calcular la fecha de salida
     function calcularFechaSalida() {
         var fechaAdmision = new Date(document.getElementById("dateuseradmission").value);
-        var horasRequeridas = 96;
+        var horasRequeridas = parseInt(document.getElementById("txthreq").value); // Obtiene las horas requeridas
         
         // Bucle para sumar horas laborables hasta alcanzar el requisito
         while (horasRequeridas > 0) {
@@ -408,7 +419,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dateadmission'])) {
     }
     
     // Escuchar cambios en la fecha de admisión
-    document.getElementById("dateuseradmission").addEventListener("input", calcularFechaSalida);
+    document.getElementById("txthreq").addEventListener("input", calcularFechaSalida);
 </script>
 
 
