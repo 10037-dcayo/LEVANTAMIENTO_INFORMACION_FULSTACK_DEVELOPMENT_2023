@@ -74,7 +74,7 @@ if (strpos($url_actual, 'modules')) {
         </li>
         <li><a class="<?php if ($output[1] == 'users') {
             echo 'active';
-        } ?>" href="/modules/users"><span class="icon">manage_accounts</span>Usuarios</a>
+        } ?>" href="/modules/users"><span class="icon">manage_accounts</span>Editores</a>
         </li>
         <li><a class="<?php if ($output[1] == 'administratives') {
             echo 'active';
@@ -102,7 +102,7 @@ if (strpos($url_actual, 'modules')) {
         </li>
         <li><a class="<?php if ($output[1] == 'department') {
             echo 'active';
-        } ?>" href="/modules/department"><span class="icon">school</span>Departamentos</a>
+        } ?>" href="/modules/department"><span class="icon">location_city</span>Departamentos</a>
         </li>
         <li><a class="<?php if ($output[1] == 'subjects') {
             echo 'active';
@@ -131,7 +131,7 @@ if (strpos($url_actual, 'modules')) {
                     <a class="<?php if ($output[1] == 'users') {
                         echo 'active-menu';
                     } ?>" href="/modules/users"><span class="icon">manage_accounts</span><span
-                            class="text">Usuarios</span></a>
+                            class="text">Editores</span></a>
                 </li>
                 <li>
                     <a class="<?php if ($output[1] == 'administratives') {
