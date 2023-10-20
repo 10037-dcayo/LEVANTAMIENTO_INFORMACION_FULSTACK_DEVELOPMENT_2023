@@ -25,7 +25,9 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 			$path = '../Informes_Quincenales/informesquincenalespdf/' . $_SESSION['idinfoq_estudents'][$i] ;
 			if(file_exists($path)){
 				$directorio= opendir($path);
-				while($archivo=readdir($directorio)){
+				$a=0;
+				while($archivo=readdir($directorio) && $a<1){
+					$a=1;
 					if(!is_dir($archivo)){
 						echo '
 								<tr>
@@ -33,7 +35,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 									<td>' . $_SESSION["userinfoq_name"][$i] . '</td>
 									<td>' . $_SESSION["userinfoq_surname"][$i] . '</td>
 									<td>
-										<div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $archivo . '"
+										<div data="' . $path . '/' . $archivo . '"><a href="' . $path . '/' . $_SESSION["infoq_estudent_pdf"][$i] . '"
 										title="Ver archivo adjunto" class="btnview" target="_blank"><button class="btnview" 
 										name="btn" value="form_consult" type="submit"></button></td>
 									</td>
