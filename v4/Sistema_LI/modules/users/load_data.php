@@ -1,7 +1,7 @@
 <?php
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 
-$sql = "SELECT COUNT(user) AS total FROM users";
+$sql = "SELECT COUNT(user) AS total FROM users WHERE permissions = 'editor' && rol = 'editor'";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
@@ -50,7 +50,7 @@ if (!empty($_POST['search'])) {
 
 	$i = 0;
 
-	$sql = "SELECT * FROM users ORDER BY user LIMIT $inicio, $max";
+	$sql = "SELECT * FROM users WHERE permissions = 'editor' && rol = 'editor' ORDER BY user LIMIT $inicio, $max";
 
 	if ($result = $conexion->query($sql)) {
 		while ($row = mysqli_fetch_array($result)) {
