@@ -4,11 +4,12 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php
 $name = $_POST['txtname'];
 $id = $_POST['txtuserid'];
 
-$sql = "SELECT students.*, careers.name AS career_name, users.image AS user_image
-        FROM students
-        INNER JOIN careers ON students.career = careers.career
-        INNER JOIN users ON students.user = users.user
-        WHERE students.user = '" . $_POST['txtuserid'] . "'";
+$sql = "SELECT students.*, careers.name AS career_name, users.image AS user_image , department.name AS user_department
+FROM students
+INNER JOIN careers ON students.career = careers.career
+INNER JOIN users ON students.user = users.user
+INNER JOIN department ON department.id_department = students.departamento 
+WHERE students.user ='" . $_POST['txtuserid'] . "'";
 
 if ($result = $conexion->query($sql)) {
   if ($row = mysqli_fetch_array($result)) {
@@ -18,8 +19,11 @@ if ($result = $conexion->query($sql)) {
     $_SESSION['user_cedula'] = $row['cedula'];
     $_SESSION['user_carrera'] = $row['career_name'];
     $_SESSION['user_sede'] = $row['sede'];
-    $_SESSION['user_departamento'] = $row['departamento'];
+    $_SESSION['user_departamento'] = $row['user_department'];
     $_SESSION['user_telefono'] = $row['phone'];
+    $_SESSION['user_jerarquia'] = $row['jerarquia'];
+    $_SESSION['user_ingreso'] = $row['admission_date'];
+    $_SESSION['user_salida'] = $row['finish_date'];
   }
 }
 
@@ -44,12 +48,15 @@ if ($result = $conexion->query($sql)) {
           </a>
         </div>
       </div>
+      <h2 class="information_student">Jerarquía: <?php echo $_SESSION['user_jerarquia']; ?></h2>
+      <h2 class="information_student">Departamento: <?php echo $_SESSION['user_departamento']; ?></h2>
       <h2 class="information_student">Id: <?php echo $_SESSION['user_id']; ?></h2> 
       <h2 class="information_student">Cédula: <?php echo $_SESSION['user_cedula']; ?></h2>
       <h2 class="information_student">Carrera: <?php echo $_SESSION['user_carrera']; ?></h2>
       <h2 class="information_student">Sede: <?php echo $_SESSION['user_sede']; ?></h2>
-      <h2 class="information_student">Departamento: <?php echo $_SESSION['user_departamento']; ?></h2>
       <h2 class="information_student">Teléfono: <?php echo $_SESSION['user_telefono']; ?></h2>
+      <h2 class="information_student">Fecha de ingreso: <?php echo $_SESSION['user_ingreso']; ?></h2>
+      <h2 class="information_student">Fecha tentativa de salida: <?php echo $_SESSION['user_salida']; ?></h2>
       
   </div>
 </div>
