@@ -62,12 +62,12 @@ if (strpos($url_actual, 'modules')) {
         <li><a class="<?php if ($output[1] == 'home') {
                             echo 'active';
                         } ?>" href="/home"><span class="icon">dashboard</span>Dashboard</a></li>        
-        <li><a class="<?php if ($output[1] == 'careers') {
+        <!-- <li><a class="<?php if ($output[1] == 'careers') {
                             echo 'active';
                         } ?>" href="/modules/careers"><span class="icon">school</span>Carreras</a></li>
         <li><a class="<?php if ($output[1] == 'subjects') {
                             echo 'active';
-                        } ?>" href="/modules/subjects"><span class="icon">library_books</span>Asignaturas</a></li>
+                        } ?>" href="/modules/subjects"><span class="icon">library_books</span>Asignaturas</a></li> -->
           <li><a class="<?php if ($output[1] == 'edit_send_one') {
                             echo 'active';
                         } ?>" href="/modules/edit_send_one"><span class="icon">library_books</span>Documentación</a></li>  
