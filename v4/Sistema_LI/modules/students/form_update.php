@@ -162,35 +162,23 @@ if ($result = $conexion->query($sql)) {
 
 						?>
 					</select>
+                    </select>
+                    <label for="selectUserDepartment" class="label">Departamento</label>
+                    <select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
+                        <option value="">Seleccione</option>
+                        <?php
+                        $sql = "SELECT id_department, name FROM department";
 
-					<label for="selectuserdepartamento" class="label">Departamento</label>
-					<select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
-						<option value="<?php echo $_SESSION['student_departamento']; ?>">
-							<?php echo $_SESSION['student_departamento']; ?>
-						</option>
-						<option value="SOFTWARE - PROWESS EC PÁGINA WEB VENTAS">SOFTWARE - PROWESS EC PÁGINA WEB VENTAS
-						</option>
-						<option value="CONTABILIDAD Y AUDITORIA MAÑANA">CONTABILIDAD Y AUDITORIA MAÑANA</option>
-						<option value="INVESTIGACIÓN">DEPARTAMENTO DE INVESTIGACIÓN</option>
-						<option value="DOCUMENTACIÓN">DEPARTAMENTO DE DOCUMENTACIÓN</option>
-						<option value="ADMINISTRACIÓN DE EMPRESAS - TALLER">ADMINISTRACIÓN DE EMPRESAS - TALLER</option>
-						<option value="MARKETING">MARKETING</option>
-						<option value="CREACIÓN DE CONTENIDO">DEPARTAMENTO DE CONTENIDO</option>
-						<option value="MENTORIAS MATUTINO">MENTORIAS MATUTINO </option>
-						<option value="SOFTWARE - PROWESS BIKE">SOFTWARE - PROWESS BIKE</option>
-						<option value="CONTABILIDAD Y AUDITORÍA/ TARDE">FINAZAS Y CONTABILIDAD/ TARDE</option>
-						<option value="SOFTWARE - DESARROLLO PÁGINA WEB PROWESS AGRÍCOLA">SOFTWARE - DESARROLLO PÁGINA
-							WEB PROWESS AGRÍCOLA</option>
-						<option value="SOFTWARE - PROWESS APP AGRÍCOLA">SOFTWARE - PROWESS APP AGRÍCOLA</option>
-						<option value="MODULO CURSOS MOCC">MODULO CURSOS MOCC</option>
-						<option value="MENTORIAS VESPERTINO">MENTORIAS VESPERTINO</option>
-						<option value="LEVANTAMIENTO DE INFORMACIÓN">LEVANTAMIENTO DE INFORMACIÓN</option>
-						<option value="ELABORACIÓN DE MATERIALES DE APOYO">ELABORACIÓN DE MATERIALES DE APOYO</option>
-						<option value="ADMINISTRACION II">ADMINISTRACIÓN II</option>
-						<option value="ADMINISTRACION I">ADMINISTRACIÓN I</option>
-						<option value="PREINCUBACIÓN">PREINCUBACIÓN</option>
-						<option value="PROWESS VENTAS">PROWESS VENTAS</option>
-					</select>
+                        if ($result = $conexion->query($sql)) {
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo
+                                '
+										<option value="' . $row['id_department'] . '">' . $row['name'] . '</option>
+								';
+                            }
+                        }
+                        ?>
+                    </select>
 					</div>
 				<div class="last">
 					<label for="txtusercedula" class="label">Cédula</label>
@@ -431,7 +419,7 @@ if ($result = $conexion->query($sql)) {
 						value="<?php echo $_SESSION['student_admission_date']; ?>" required />
 					<label for="dateuser" class="label">Fecha de salida</label>
 					<input id="dateuser" class="date" type="date" name="datefinish"
-						value="<?php echo $_SESSION['student_finish']; ?>" />
+						value="<?php echo $_SESSION['student_finish']; ?>" style="display: none; />
 				</div>
 				<div>
 					<label class="label" for="txthours">
