@@ -14,6 +14,7 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 						<th>Permisos</th>
 						<th>Rol</th>						
 						<th class="center"><a class="icon">edit</a></th>
+						<th class="center"><a class="icon">delete</a></th>
 					</tr>
 		';
 		}
@@ -31,6 +32,13 @@ require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 								<input style="display:none;" type="text" name="id" value="' . $_SESSION["user_id"][$i] . '"/>
 								<button class="btnedit" name="btn" value="form_update" type="submit"></button>
 							</form>
+							
+						<td>
+						<form action="" method="POST">
+							<input style="display:none;" type="text" name="txtuserid" value="' . $_SESSION["user_id"][$i] . '"/>
+							<button class="btndelete" name="btn" value="form_delete" type="submit"></button>
+						</form>
+					</td>
 						</td>
 					</tr>
 				';
