@@ -9,7 +9,7 @@ FROM students
 INNER JOIN careers ON students.career = careers.career
 INNER JOIN users ON students.user = users.user
 INNER JOIN department ON department.id_department = students.departamento 
-WHERE students.user ='" . $_POST['txtuserid'] . "'";
+WHERE students.user ='" . $id. "'";
 
 if ($result = $conexion->query($sql)) {
   if ($row = mysqli_fetch_array($result)) {
