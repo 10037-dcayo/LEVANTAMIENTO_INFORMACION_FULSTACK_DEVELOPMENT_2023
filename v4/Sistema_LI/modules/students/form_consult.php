@@ -156,7 +156,7 @@ if ($result = $conexion->query($sql)) {
 
 
 					<label class="label">Departamento</label>
-					<input class="text" type="text" name="txtdepartamento" value="<?php echo $_SESSION['student_departamento']; ?>" disabled />
+					<input class="text" type="text" id="selectDepartamento" name="txtdepartamento" value="<?php echo $_SESSION['student_departamento']; ?>" disabled />
 				</div>
 				<div class="last">
 					<label class="label">Cédula</label>
