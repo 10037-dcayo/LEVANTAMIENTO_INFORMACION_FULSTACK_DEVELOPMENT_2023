@@ -12,7 +12,6 @@ if ($result = $conexion->query($sql)) {
 		$_SESSION['teacher_gender'] = $row['gender'];
 		$_SESSION['teacher_cedula'] = $row['cedula'];
 		$_SESSION['teacher_id'] = $row['id'];
-		$_SESSION['teacher_pass'] = $row['pass'];
 		$_SESSION['teacher_phone'] = $row['phone'];
 		$_SESSION['teacher_address'] = $row['address'];
 		$_SESSION['teacher_level_studies'] = $row['level_studies'];
@@ -124,30 +123,26 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['teacher_cedula']; ?>" disabled />
 					<label class="label">ID</label>
 					<input class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" disabled />
-					<label class="label">Contraseña</label>
-					<input class="text" type="text" name="txtpass" value="<?php echo $_SESSION['teacher_pass']; ?>" disabled />
 					<label class="label">Número de teléfono</label>
 					<input class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" disabled />
 					<label class="label">Domicilio</label>
 					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['teacher_address']; ?>" disabled />
 					<label class="label">Correo</label>
 					<input class="text" type="email" name="txtemail" value="<?php echo $_SESSION['teacher_email']; ?>" disabled />
-				</div>
-				<div class="last">
 					<label for="selectusercareers" class="label">Carrera</label>
 					<select id="selectusercareers" class="select" name="selectCareer" disabled>
 						<?php
 						$career = $_SESSION['teacher_career'];
-
+	
 						if ($career == '') {
 							echo
 							'
 								<option value="">Seleccione</option>
 							';
 						}
-
+	
 						$sql = "SELECT career, name FROM careers";
-
+	
 						if ($result = $conexion->query($sql)) {
 							while ($row = mysqli_fetch_array($result)) {
 								if ($row['career'] == $career) {
