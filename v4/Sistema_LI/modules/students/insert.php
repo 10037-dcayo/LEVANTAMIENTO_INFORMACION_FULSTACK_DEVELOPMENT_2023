@@ -6,6 +6,7 @@ include_once '../notif_info_msgbox.php';
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin-editor.php');
 
 $_POST['txtuserid'] = trim($_POST['txtuserid']);
+$passhash = hash("SHA256",(trim($_POST['txtpass'])));
 
 if (empty($_POST['txtuserid'])) {
 	header('Location: /');
@@ -28,10 +29,10 @@ if ($result = $conexion->query($sql)) {
 		$date = date('Y-m-d H:i:s');
 		$birth =  date('Y-m-d');
 
-		$sql_insert_user = "INSERT INTO users(user, name, surnames, email, pass, permissions, rol, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "','" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtuseremail']) . "', '" . trim($_POST['txtpass']) . "', 'editor', 'student', 'user.png','" . $date . "')";
+		$sql_insert_user = "INSERT INTO users(user, name, surnames, email, pass, permissions, rol, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "','" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtuseremail']) . "', '" . $passhash . "', 'editor', 'student', 'user.png','" . $date . "')";
 
 		if (mysqli_query($conexion, $sql_insert_user)) {
-			$sql_insert_teacher = "INSERT INTO students(user, name, surnames, email, cedula, pass, id, sede, date_of_birth, phone, address, career, horas, asistencia, horario, documentation, estado, departamento, jerarquia, jornada, created_at, admission_date, finish_date) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "','" . trim($_POST['txtuseremail']). "', '" . trim($_POST['txtcedula']) . "', '" . trim($_POST['txtpass']) . "', '" . trim($_POST['txtid']) . "','" . trim($_POST['selectSede']) . "', '" . $birth . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "', '" . trim($_POST['selectCareer']) . "', '" . trim($_POST['txttotalhours_hidden']) . "','" . trim($_POST['txtuserdates']) . "', '" . trim($_POST['txtuserhours']) . "', '" . trim($_POST['selectDocumentation']) . "','" . trim($_POST['selectEstado']) . "','" . trim($_POST['selectDepartamento']) . "','" . trim($_POST['selectJerarquia']) . "','" . trim($_POST['selectJornada']) . "','" . $date . "', '" . trim($_POST['dateadmission']) . "',  '" . trim($_POST['datefinish']) . "')";
+			$sql_insert_teacher = "INSERT INTO students(user, name, surnames, email, cedula, pass, id, sede, date_of_birth, phone, address, career, horas, asistencia, horario, documentation, estado, departamento, jerarquia, jornada, created_at, admission_date, finish_date) VALUES('" . trim($_POST['txtuserid']) . "', '" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "','" . trim($_POST['txtuseremail']). "', '" . trim($_POST['txtcedula']) . "', '" . $passhash . "', '" . trim($_POST['txtid']) . "','" . trim($_POST['selectSede']) . "', '" . $birth . "', '" . trim($_POST['txtphone']) . "', '" . trim($_POST['txtaddress']) . "', '" . trim($_POST['selectCareer']) . "', '" . trim($_POST['txttotalhours_hidden']) . "','" . trim($_POST['txtuserdates']) . "', '" . trim($_POST['txtuserhours']) . "', '" . trim($_POST['selectDocumentation']) . "','" . trim($_POST['selectEstado']) . "','" . trim($_POST['selectDepartamento']) . "','" . trim($_POST['selectJerarquia']) . "','" . trim($_POST['selectJornada']) . "','" . $date . "', '" . trim($_POST['dateadmission']) . "',  '" . trim($_POST['datefinish']) . "')";
 
 			if (mysqli_query($conexion, $sql_insert_teacher)) {
 				Info('Alumno agregado.');
