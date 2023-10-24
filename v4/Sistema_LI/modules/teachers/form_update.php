@@ -89,7 +89,7 @@ if ($result = $conexion->query($sql)) {
 					<label for="txtuserid" class="label">ID</label>
 					<input id="txtuserid" class="text" type="text" name="txtid" value="<?php echo $_SESSION['teacher_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
 					<label for="txtuserpass" class="label">Contraseña</label>
-                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="<?php echo $_SESSION['teacher_pass']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
+                    <input id="txtuserpass" class="text" type="password" name="txtpass" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8"/>
 					<label for="txtuserphone" class="label">Número de teléfono</label>
 					<input id="txtuserphone" class="text" type="text" name="txtphone" value="<?php echo $_SESSION['teacher_phone']; ?>" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." placeholder="09999XXXXX" maxlength="10" required />
 					<label for="txtuseraddress" class="label">Domicilio</label>
