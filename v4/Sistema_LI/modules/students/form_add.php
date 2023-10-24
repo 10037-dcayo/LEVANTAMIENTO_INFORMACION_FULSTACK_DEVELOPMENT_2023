@@ -54,20 +54,17 @@ $id_generate = 'stdt-' . unique_id(5);
                         <option value="en_proceso">En proceso</option>
                         <option value="finalizado">Finalizado</option>
                     </select>
-
                     <label for="selectuserdepartamento" class="label">Departamento</label>
-                    </select>
-                    <label for="selectUserDepartment" class="label">Departamento</label>
                     <select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
                         <option value="">Seleccione</option>
                         <?php
-                        $sql = "SELECT id_department, name FROM department";
+                        $resp = "SELECT id_department, name FROM department";
 
-                        if ($result = $conexion->query($sql)) {
-                            while ($row = mysqli_fetch_array($result)) {
+                        if ($resultado = $conexion->query($resp)) {
+                            while ($row = mysqli_fetch_array($resultado)) {
                                 echo
                                 '
-										<option value="' . $row['id_department'] . '">' . $row['name'] . '</option>
+                                    <option value="' . $row['id_department'] . '">' . $row['name'] . '</option>
 								';
                             }
                         }
@@ -80,7 +77,7 @@ $id_generate = 'stdt-' . unique_id(5);
                     <input id="txtusercedula" class="text" type="text" name="txtcedula" value=""
                         placeholder="Cédula de Identidad" pattern="[0-9]{10}" maxlength="10" required />
                     <label for="txtuserpass" class="label">Contraseña</label>
-                    <input id="txtuserpass" class="text" type="text" name="txtpass" value="" placeholder="XXXXXXXXX"
+                    <input id="txtuserpass" class="text" type="password" name="txtpass" value="" placeholder="XXXXXXXXX"
                         pattern="[A-Za-z0-9]{8}" maxlength="8" required />
                     <label for="txtuserid" class="label">ID</label>
                     <input id="txtuserid" class="text" type="text" name="txtid" value="" placeholder="L00XXXXXXX"
@@ -259,7 +256,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dateadmission']) && i
                     <button id="addBtn" class="btn icon"><i class="fas fa-plus-circle fa-lg fa-spin"></i></button>
                 </div>
                 <div class="label" id="dateListContainer">
-                    <br>
                     <ul id="dateList"></ul>
                 </div>
             </div>
