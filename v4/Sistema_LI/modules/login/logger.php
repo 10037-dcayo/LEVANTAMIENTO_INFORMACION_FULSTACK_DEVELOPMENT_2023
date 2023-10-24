@@ -4,7 +4,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
     $_POST['txtuser'] = trim($_POST['txtuser']);
     //Limpiar String
     $user = mysqli_real_escape_string($conexion, $_POST['txtuser']);
-    $pass = mysqli_real_escape_string($conexion, $_POST['txtpass']);
+    $pass = hash("SHA256",$_POST['txtpass']);
 
     //Buscar Usuario
     $sql = "SELECT user, permissions, rol, image FROM users WHERE BINARY user = '$user' and BINARY pass = '$pass' or BINARY email = '$user' and BINARY pass = '$pass' LIMIT 1";
@@ -43,17 +43,17 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
 
     if ($result = $conexion->query($sql)) {
         if ($row = mysqli_fetch_array($result)) {
-        $name = $row['name'];
-        $surnames = $row['surnames'];
+            $name = $row['name'];
+            $surnames = $row['surnames'];
 
-        if (!empty($_POST['remember_session'])) {
-            $_SESSION["section-$section"] = setcookie("section-$section", "section-$section-$user", time() + 365 * 24 * 60 * 60);
+            if (!empty($_POST['remember_session'])) {
+                $_SESSION["section-$section"] = setcookie("section-$section", "section-$section-$user", time() + 365 * 24 * 60 * 60);
+            } else {
+                $_SESSION["section-$section"] = "section-$section-$user";
+            }
         } else {
-            $_SESSION["section-$section"] = "section-$section-$user";
+            goto error_user;
         }
-    } else {
-          goto error_user;
-    }
 }
 
     
@@ -87,7 +87,7 @@ if (!empty($_POST['txtuser']) and !empty($_POST['txtpass'])) {
         } else {
             error_user:
             echo '
-                    <label class="label error">usuario y/o contraseña incorrectos</label>
+                    <label class="label error">usuario y/o contraseña incorrectos.</label>
                     <input type="text" class="text" name="txtuser" placeholder="Usuario o Correo" autofocus required />
                     <input type="password" class="textcontrasena" name="txtpass" placeholder="Contraseña" maxlength="8" autocomplete="off" required />
                     <div class="forgot-pass">
