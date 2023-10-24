@@ -22,14 +22,19 @@ if ($_POST['txtuserid'] == '') {
 $sql_student = "SELECT * FROM students WHERE user = '" . $_POST['txtuserid'] . "'";
 $sql_user = "SELECT * FROM users WHERE user = '" . $_POST['txtuserid'] . "'";
 
+
 mysqli_begin_transaction($conexion);
 try {
-    // Actualizar tabla students
+    // Actualizar tabla studentshttp://localhost/home
     if ($result = $conexion->query($sql_student)) {
         if ($row = mysqli_fetch_array($result)) {
             $date = date('Y-m-d H:i:s');
-
-            $sql_update_student = "UPDATE students SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) ."', email = '" . trim($_POST['txtemailupdate']). "', cedula = '" . trim($_POST['txtcedula']) . "', pass = '" . trim($_POST['txtpass']) . "', id = '" . trim($_POST['txtid']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "', sede = '" . trim($_POST['selectSede']) . "', phone = '" . trim($_POST['txtphone']) ."', jerarquia = '" . trim($_POST['selectJerarquia']) . "', jornada = '" . trim($_POST['selectJornada']) ."', address = '" . trim($_POST['txtaddress']) . "', career = '" . trim($_POST['selectCareer']) . "',horas = '" . trim($_POST['txttotalhours_hidden']) . "',horario = '" . trim($_POST['txtuserhours']) . "',asistencia = '" . trim($_POST['txtuserdates']) . "', documentation = '" . trim($_POST['selectDocumentation']) ."', estado = '" . trim($_POST['selectEstado']) . "', departamento = '" . trim($_POST['selectDepartamento']) . "', admission_date = '" . trim($_POST['dateadmission']) . "', updated_at = '" . $date . "', finish_date = '" . trim($_POST['datefinish']) . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+            if (empty($_POST['txtpass'])) {
+                $sql_update_student = "UPDATE students SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) ."', email = '" . trim($_POST['txtemailupdate']). "', cedula = '" . trim($_POST['txtcedula']) . "', id = '" . trim($_POST['txtid']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "', sede = '" . trim($_POST['selectSede']) . "', phone = '" . trim($_POST['txtphone']) ."', jerarquia = '" . trim($_POST['selectJerarquia']) . "', jornada = '" . trim($_POST['selectJornada']) ."', address = '" . trim($_POST['txtaddress']) . "', career = '" . trim($_POST['selectCareer']) . "',horas = '" . trim($_POST['txttotalhours_hidden']) . "',horario = '" . trim($_POST['txtuserhours']) . "',asistencia = '" . trim($_POST['txtuserdates']) . "', documentation = '" . trim($_POST['selectDocumentation']) ."', estado = '" . trim($_POST['selectEstado']) . "', departamento = '" . trim($_POST['selectDepartamento']) . "', admission_date = '" . trim($_POST['dateadmission']) . "', updated_at = '" . $date . "', finish_date = '" . trim($_POST['datefinish']) . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+            }else {
+                $passhash = hash("SHA256",(trim($_POST['txtpass'])));
+                $sql_update_student = "UPDATE students SET name = '" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) ."', email = '" . trim($_POST['txtemailupdate']). "', cedula = '" . trim($_POST['txtcedula']) . "', pass = '" . $passhash . "', id = '" . trim($_POST['txtid']) . "', date_of_birth = '" . trim($_POST['dateofbirth']) . "', sede = '" . trim($_POST['selectSede']) . "', phone = '" . trim($_POST['txtphone']) ."', jerarquia = '" . trim($_POST['selectJerarquia']) . "', jornada = '" . trim($_POST['selectJornada']) ."', address = '" . trim($_POST['txtaddress']) . "', career = '" . trim($_POST['selectCareer']) . "',horas = '" . trim($_POST['txttotalhours_hidden']) . "',horario = '" . trim($_POST['txtuserhours']) . "',asistencia = '" . trim($_POST['txtuserdates']) . "', documentation = '" . trim($_POST['selectDocumentation']) ."', estado = '" . trim($_POST['selectEstado']) . "', departamento = '" . trim($_POST['selectDepartamento']) . "', admission_date = '" . trim($_POST['dateadmission']) . "', updated_at = '" . $date . "', finish_date = '" . trim($_POST['datefinish']) . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+            }
 
             if (mysqli_query($conexion, $sql_update_student)) {
                 Info('Alumno actualizado.');
@@ -45,7 +50,13 @@ try {
     if ($result = $conexion->query($sql_user)) {
         if ($row = mysqli_fetch_array($result)) {
             $date = date('Y-m-d H:i:s');
-            $sql_update_user = "UPDATE users SET name ='" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) ."', email = '" . trim($_POST['txtemailupdate']). "', pass = '" . trim($_POST['txtpass']) . "', permissions = 'editor', rol = 'student', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+            if (empty($_POST['txtpass'])) {
+                $sql_update_user = "UPDATE users SET name ='" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) ."', email = '" . trim($_POST['txtemailupdate']). "', permissions = 'editor', rol = 'student', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+            } else {
+                $passhash = hash("SHA256",(trim($_POST['txtpass'])));
+                $sql_update_user = "UPDATE users SET name ='" . trim($_POST['txtname']) . "', surnames = '" . trim($_POST['txtsurnames']) ."', email = '" . trim($_POST['txtemailupdate']). "', pass = '" . $passhash . "', permissions = 'editor', rol = 'student', updated_at = '" . $date . "' WHERE user = '" . trim($_POST['txtuserid']) . "'";
+            }
+            
 
             if (mysqli_query($conexion, $sql_update_user)) {
                 Info('Usuario actualizado.');
