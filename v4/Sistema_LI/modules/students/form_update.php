@@ -163,21 +163,37 @@ if ($result = $conexion->query($sql)) {
 						?>
 					</select>
                     </select>
-                    <label for="selectUserDepartment" class="label">Departamento</label>
-                    <select id="selectuserdepartamento" class="select" name="selectDepartamento" required>
+                    <label for="selectuserdepartamento" class="label">Departamento</label>
+                    <select id="selectuserdepartamento" class="select" name="txtdepartamento" required>
                         <option value="">Seleccione</option>
                         <?php
-                        $sql = "SELECT id_department, name FROM department";
+						$depart = $_SESSION['student_departamento'];
 
-                        if ($result = $conexion->query($sql)) {
-                            while ($row = mysqli_fetch_array($result)) {
-                                echo
-                                '
+						if ($depart == '') {
+							echo
+								'
+								<option value="">Seleccione</option>
+							';
+						}
+
+						$sql = "SELECT id_department, name FROM department";
+
+						if ($result = $conexion->query($sql)) {
+							while ($row = mysqli_fetch_array($result)) {
+								if ($row['id_department'] == $depart) {
+									echo
+										'
+										<option value="' . $row['id_department'] . '" selected>' . $row['name'] . '</option>
+									';
+								} else {
+									echo
+										'
 										<option value="' . $row['id_department'] . '">' . $row['name'] . '</option>
-								';
-                            }
-                        }
-                        ?>
+									';
+								}
+							}
+						}
+						?>
                     </select>
 					</div>
 				<div class="last">
@@ -187,8 +203,8 @@ if ($result = $conexion->query($sql)) {
 						pattern="[0-9]{10}" maxlength="10" required />
 					<label for="txtuserpass" class="label">Contraseña</label>
 					<input id="txtuserpass" class="text" type="text" name="txtpass"
-						value="<?php echo $_SESSION['student_pass']; ?>" placeholder="XXXXXXXXX"
-						pattern="[A-Za-z0-9]{8}" maxlength="8" required />
+						placeholder="XXXXXXXXX"
+						pattern="[A-Za-z0-9]{8}" maxlength="8" />
 					<label for="txtuserid" class="label">ID</label>
 					<input id="txtuserid" class="text" type="text" name="txtid"
 						value="<?php echo $_SESSION['student_id']; ?>" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}"
@@ -471,8 +487,7 @@ if ($result = $conexion->query($sql)) {
 					<br>
 					<ul id="hourList"></ul>
 				</div>
-		<div class="description">
-					<br>
+				<div class="description">
 					<label for="txtuserdates" class="label">Asistencia</label>
 					<input id="txtuserdates" class="textarea" type="text" name="txtuserdates"
 						value="<?php echo $_SESSION['student_asistencia']; ?>" placeholder="Seleccione fechas"
