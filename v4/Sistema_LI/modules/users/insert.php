@@ -6,7 +6,7 @@ include_once '../notif_info_msgbox.php';
 require_once($_SESSION['raiz'] . '/modules/sections/role-access-admin.php');
 
 $_POST['txtuserid'] = trim($_POST['txtuserid']);
-
+$passhash = hash("SHA256",(trim($_POST['txtpass'])));
 if (empty($_POST['txtuserid'])) {
 	header('Location: /');
 	exit();
@@ -26,7 +26,7 @@ if ($result = $conexion->query($sql)) {
 		exit();
 	} else {
 		$date = date('Y-m-d H:i:s');
-			$sql_insert_user = "INSERT INTO users(user, name, surnames, email, pass, permissions, rol, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "','" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtemail']) . "', '" . trim($_POST['txtpass']) . "', 'editor', 'editor', 'user.png','" . $date . "')";
+			$sql_insert_user = "INSERT INTO users(user, name, surnames, email, pass, permissions, rol, image, created_at) VALUES('" . trim($_POST['txtuserid']) . "','" . trim($_POST['txtname']) . "', '" . trim($_POST['txtsurnames']) . "', '" . trim($_POST['txtemail']) . "', '" . $passhash . "', 'editor', 'editor', 'user.png','" . $date . "')";
 			if (mysqli_query($conexion, $sql_insert_user)) {
 				Info('Editor agregado correctamente.');
 			} else {
