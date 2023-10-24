@@ -90,7 +90,7 @@ echo '
 					<label for="txtuseremail" class="label">Email</label>
 					<input id="txtuseremail" class="text" type="email" name="txtemailupdate" value="' . $_SESSION['email'] . '" placeholder="example@email.com" maxlength="200" autofocus disabled/>
 					<label for="txtuserpass" class="label">Password</label>
-					<input id="txtuseremail" class="text" type="text" name="txtpassupdate" value="' . $_SESSION['user_pass'] . '" placeholder="********" maxlength="200" autofocus disabled/>
+					<input id="txtuseremail" class="text" type="password" name="txtpassupdate" value="' . $_SESSION['user_pass'] . '" placeholder="********" maxlength="200" autofocus disabled/>
 
 				</div>
 				<div class="last">
