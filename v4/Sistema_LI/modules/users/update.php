@@ -13,7 +13,15 @@ function UpdateUserDB($conex, $user, $email, $pass, $permissions)
 		$sql_update = "UPDATE users SET e
 		 = null, permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
 	} else {
-		$sql_update = "UPDATE users SET email = '" . $email . "', pass = '" . $pass . "', permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
+		if (empty($pass)) {
+			$sql_update = "UPDATE users SET email = '" . $email . "', permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
+			
+		} else {
+			$passhash = hash("SHA256",(trim($_POST['txtpass'])));
+			$sql_update = "UPDATE users SET email = '" . $email . "', pass = '" . $pass . "', permissions = '" . $permissions . "', updated_at = '" . $date . "' WHERE user = '" . $user . "'";
+
+		}
+		
 	}
 
 	if (mysqli_query($conex, $sql_update)) {
