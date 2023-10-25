@@ -146,7 +146,7 @@ if ($result = $conexion->query($sql)) {
 							echo'
 							<option value="finalizado">Finalizado</option>
 							<option value="activo">Activo</option>
-							<option value="en_proceso">En proceso</option>
+							<option value="en_proceso">En proceso</option>http://localhost/home
 							';
 						}
 
@@ -155,14 +155,42 @@ if ($result = $conexion->query($sql)) {
 
 
 
-					<label class="label">Departamento</label>
-					<input class="text" type="text" id="selectDepartamento" name="txtdepartamento" value="<?php echo $_SESSION['student_departamento']; ?>" disabled />
+					<label for="selectuserdepartamento" class="label">Departamento</label>
+					<select id="selectuserdepartamento" class="select" name="txtdepartamento" disabled>
+                        <option value="">Seleccione</option>
+                        <?php
+						$depart = $_SESSION['student_departamento'];
+
+						if ($depart == '') {
+							echo
+								'
+								<option value="">Seleccione '.$depart.'</option>
+							';
+						}
+
+						$sql = "SELECT id_department, name FROM department";
+
+						if ($result = $conexion->query($sql)) {
+							while ($row = mysqli_fetch_array($result)) {
+								if ($row['id_department'] == $depart) {
+									echo
+										'
+										<option value="' . $row['id_department'] . '" selected>' . $row['name'] . '</option>
+									';
+								} else {
+									echo
+										'
+										<option value="' . $row['id_department'] . '">' . $row['name'] . '</option>
+									';
+								}
+							}
+						}
+						?>
+                    </select>
 				</div>
 				<div class="last">
 					<label class="label">Cédula</label>
 					<input class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['student_cedula']; ?>" disabled />
-					<label class="label">Contraseña</label>
-					<input class="text" type="text" name="txtpass" value="<?php echo $_SESSION['student_pass']; ?>" disabled />
 					<label class="label">ID</label>
 					<input class="text" type="text" name="txtid" value="<?php echo $_SESSION['student_id']; ?>" disabled />
 					<label class="label">Número de teléfono</label>
@@ -358,6 +386,7 @@ if ($result = $conexion->query($sql)) {
 
 					<label class="label">Domicilio</label>
 					<input class="text" type="text" name="txtaddress" value="<?php echo $_SESSION['student_address']; ?>" disabled />
+					
 					<label for="selectusercareers" class="label">Carrera</label>
 					<select id="selectusercareers" class="select" name="selectCareer" disabled>
 						<?php
@@ -396,19 +425,14 @@ if ($result = $conexion->query($sql)) {
 
 					</div>
 					<div class="last">
-  <label class="label" for="txthours">
-    <label for="txttotalhours_hidden" class="label" placeholder="Suma de las horas">Horas de Vinculación</label>
-    <input class="text" type="text" name="txttotalhours_hidden" id="txttotalhours_hidden" style="height: 50px; width: 40px; font-size: 16px;" readonly wrap="soft"  value="<?php echo $_SESSION['student_horas']; ?>"disabled>
-</div>
-				
-<div class="first">
-    <label for="txtuserhours" class="label">Horarios Establecidos</label>
-    <input id="txtuserhours" class="text" type="text" name="txtuserhours" placeholder="Seleccione el horario" maxlength="20000" style="height: 50px; width: 200px; font-size: 16px;" readonly wrap="soft" value="<?php echo $_SESSION['student_horario']; ?>" data-expandable disabled/>    
-</div>
-				<div class="last">
-                    <label for="txtuserdates" class="label">Asistencia</label>
-					<textarea id="txtuserdates" class="textarea" name="txtuserdates" placeholder="Seleccione fechas" style="height: 200px; width: 500px; font-size: 16px;" readonly wrap="soft" disabled><?php echo $_SESSION['student_asistencia']; ?></textarea>			
-				</div>
+						<label class="label" for="txthours">
+						<label for="txttotalhours_hidden" class="label" placeholder="Suma de las horas">Horas de Vinculación</label>
+						<input class="text" type="text" name="txttotalhours_hidden" id="txttotalhours_hidden" style="height: 50px; width: 40px; font-size: 16px;" readonly wrap="soft"  value="<?php echo $_SESSION['student_horas']; ?>"disabled>
+					</div>
+					<div class="comentari">
+						<label for="txtuserdates" class="label">Asistencia</label>
+						<textarea id="txtuserdates" class="textarea" name="txtuserdates" placeholder="Seleccione fechas" style="height: 200px; width: 500px; font-size: 16px;" readonly wrap="soft" disabled><?php echo $_SESSION['student_asistencia']; ?></textarea>			
+					</div>
 			</div>
 			<button id="btnSave" class="btn icon" type="submit" autofocus>done</button>
 		</form>
