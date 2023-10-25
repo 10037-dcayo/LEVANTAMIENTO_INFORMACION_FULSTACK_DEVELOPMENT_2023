@@ -31,7 +31,7 @@ if ($result = $conexion->query($sql)) {
 					<input id="txtuserid" style="display: none;" type="text" name="txtuserid" value="<?php echo $_SESSION['user_id']; ?>" maxlength="50">				
 					<input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" disabled />
 					<label for="txtuserpass" class="label">Contraseña</label>
-					<input id="txtuserpass" class="text" type="text" name="txtpass" value="<?php echo $_SESSION['empre_pass']; ?>" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
+					<input id="txtuserpass" class="text" type="text" name="txtpass" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
 					<label for="txtusername" class="label">Nombre</label>
 					<input id="txtusername" class="text" type="text" name="txtname" value="<?php echo $_SESSION['empre_name']; ?>" placeholder="Nombre" autofocus maxlength="30" required />
 					<label for="txtusersurnames" class="label">Apellidos</label>
