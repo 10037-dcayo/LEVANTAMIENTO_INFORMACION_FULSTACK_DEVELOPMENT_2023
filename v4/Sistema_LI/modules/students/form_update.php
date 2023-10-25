@@ -444,8 +444,6 @@ if ($result = $conexion->query($sql)) {
 						<input class="text" type="text" name="txttotalhours_hidden" id="txttotalhours_hidden"
 							style="height: 50px; width: 40px; font-size: 16px;" readonly wrap="soft"
 							value="<?php echo $_SESSION['student_horas']; ?>">
-						<br>
-						Horas
 						<span>
 							<input id="txthours" type="text" name="txthours" value="0" min="0">
 							<button id="addHoursBtn" class="btn"
