@@ -29,8 +29,6 @@ if ($result = $conexion->query($sql)) {
 					<label class="label">Usuario</label>
 					<input style="display: none;" type="text" name="btn" value="form_default" />
 					<input class="text" type="text" name="txt" value="<?php echo $_SESSION['user_id']; ?>" disabled />
-					<label class="label">Contraseña</label>
-					<input class="text" type="text" name="txtpass" value="<?php echo $_SESSION['empre_pass']; ?>" disabled />
 					<label class="label">Nombre</label>
 					<input class="text" type="text" name="txtname" value="<?php echo $_SESSION['empre_name']; ?>" disabled />
 					<label class="label">Apellidos</label>
