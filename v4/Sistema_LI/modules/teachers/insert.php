@@ -18,11 +18,11 @@ if ($_POST['txtuserid'] == '') {
 	exit();
 }
 
-$sql = "SELECT * FROM teachers WHERE user = '" . $_POST['txtuserid'] . "'";
+$sql = "SELECT * FROM teachers WHERE user = '" . $_POST['txtuserid'] . "'|| cedula = '". $_POST['txtcedula'] ."'";
 
 if ($result = $conexion->query($sql)) {
 	if ($row = mysqli_fetch_array($result)) {
-		Error('Este ID ya está en uso. Elige otro.');
+		Error('Este Usuario ya existe, favor validar con su numero de cédula.');
 		header('Location: /modules/teachers');
 		exit();
 	} else {
