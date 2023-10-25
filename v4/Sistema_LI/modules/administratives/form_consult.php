@@ -44,8 +44,6 @@ if ($result = $conexion->query($sql)) {
 					<input class="text" type="text" name="txtcedula" value="<?php echo $_SESSION['administratives_cedula']; ?>" disabled />
 					<label class="label">Celular</label>
 					<input class="text" type="text" name="txtcelular" value="<?php echo $_SESSION['administratives_celular']; ?>" disabled />
-					<label class="label">Contraseña</label>
-					<input class="text" type="text" name="txtpass" value="<?php echo $_SESSION['administratives_pass']; ?>" disabled />
 					<label for="dateofbirth" class="label">Fecha de nacimiento</label>
 					<input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['administratives_date_of_birth']; ?>" disabled />
 					<label for="selectusercareers" class="label">Carrera</label>
@@ -79,8 +77,6 @@ if ($result = $conexion->query($sql)) {
 						}
 						?>
 					</select>			
-				</div>
-				<div class="first">
 					<label class="label">Email</label>
 					<input class="text" type="text" name="txtemail" value="<?php echo $_SESSION['administratives_email']; ?>" disabled />						
 				</div>
