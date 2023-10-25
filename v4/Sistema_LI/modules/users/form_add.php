@@ -23,24 +23,24 @@ $id_generate = 'edit-' . unique_id(5);
                     <input id="txtusername" class="text" type="text" name="txtname" value="" placeholder="Nombre" maxlength="30" required autofocus />
                     <label for="txtusersurnames" class="label">Apellidos</label>
                     <input id="txtusersurnames" class="text" type="text" name="txtsurnames" placeholder="Apellidos" value="" maxlength="60" required />
-                    <label for="txtuserid" class="label">ID</label>
-                    <input id="txtuserid" class="text" type="text" name="txtid" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
-                   <label for="selectsede" class="label">Sede</label>
+                    <!-- <label for="selectsede" class="label">Sede</label>
                     <select id="selectsede" class="select" name="selectSede" required>     
                         <option value="">Seleccione</option>
                         <option value="matriz">Matriz</option>
                         <option value="latacunga">Latacunga</option>
                         <option value="stodomingo">Sto. Domingo</option>
-                    </select>                  
+                    </select>                   -->
                 </div>
                 <div class="last">
-                    <label for="txtcedula" class="label">Cédula</label>
+                    <label for="txtuserid" class="label">ID</label>
+                    <input id="txtuserid" class="text" type="text" name="txtid" value="" placeholder="L00XXXXXXX" pattern="[A-Za-z0-9]{9}" maxlength="9" onkeyup="this.value = this.value.toUpperCase()" required />
+                    <!-- <label for="txtcedula" class="label">Cédula</label>
                     <input id="txtcedula" class="text" type="text" name="txtcedula" value="" placeholder="XXXXXXXXXX" pattern="[0-9]{10}" maxlength="10" onkeyup="this.value = this.value.toUpperCase()" required />
                     <label for="txtcelular" class="label">Celular</label>
-                    <input id="txtcelular" class="text" type="text" name="txtcelular" value="" placeholder="XXXXXXXXXX" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
+                    <input id="txtcelular" class="text" type="text" name="txtcelular" value="" placeholder="XXXXXXXXXX" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required /> -->
                     <label for="txtuserpass" class="label">Contraseña</label>
                     <input id="txtuserpass" class="text" type="password" name="txtpass" value="" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
-                    <label for="dateofbirth" class="label">Fecha de nacimiento</label>
+                    <!-- <label for="dateofbirth" class="label">Fecha de nacimiento</label>
                     <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="" placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
                     <label for="selectusercareers" class="label">Carrera</label>
                     <select id="selectusercareers" class="select" name="selectCareer" required>
@@ -57,11 +57,10 @@ $id_generate = 'edit-' . unique_id(5);
                             }
                         }
                         ?>
-                    </select>
-                </div>
-                <div class="last">
+                    </select> -->
                     <label for="txtemail" class="label">Email</label>
                     <input id="txtemail" class="text" type="text" name="txtemail" value="" placeholder="Correo electrónico" maxlength="60" required />
+                    
                 </div>
             </div>
             <button id="btnSave" class="btn icon" type="submit">save</button>
