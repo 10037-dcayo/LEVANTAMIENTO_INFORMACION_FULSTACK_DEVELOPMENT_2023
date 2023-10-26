@@ -10,7 +10,7 @@ $id_generate = 'admin-' . unique_id(5);
 ?>
 <div class="form-data">
     <div class="head">
-        <h1 class="titulo">Agregar</h1>
+        <h1 class="titulo">Agregar---</h1>
     </div>
     <div class="body">
         <form name="form-add-administratives" action="insert.php" method="POST" autocomplete="off" autocapitalize="on">
