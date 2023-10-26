@@ -77,7 +77,7 @@ if ($result = $conexion->query($sql)) {
                     <label for="txtcelular" class="label">Celular</label>
                     <input id="txtcelular" class="text" type="text" name="txtcelular" value="<?php echo $_SESSION['administratives_celular']; ?>" placeholder="0979304658" pattern="[0-9]{10}" title="Ingresa un número de teléfono válido." maxlength="10" required />
                     <label for="txtuserpass" class="label">Contraseña</label>
-                    <input id="txtuserpass" class="text" type="text" name="txtpass" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" required />
+                    <input id="txtuserpass" class="text" type="password" name="txtpass" placeholder="XXXXXXXXX" pattern="[A-Za-z0-9]{8}" maxlength="8" />
                     <label for="dateofbirth" class="label">Fecha de nacimiento</label>
                     <input id="dateofbirth" class="date" type="text" name="dateofbirth" value="<?php echo $_SESSION['administratives_date_of_birth']; ?>"  placeholder="aaaa-mm-dd" pattern="\d{4}-\d{2}-\d{2}" maxlength="10" required />
                     <label for="selectusercareers" class="label">Carrera</label>
