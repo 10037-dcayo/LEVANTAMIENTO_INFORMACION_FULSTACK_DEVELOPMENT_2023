@@ -24,6 +24,8 @@ de ver detalles de un estudiante y cerrar notificaciones no deseadas. -->
 				$i += 1;
 			}
 		}
+		
+	
 ?>
 
 <div class="form-gridview">
@@ -45,7 +47,7 @@ de ver detalles de un estudiante y cerrar notificaciones no deseadas. -->
 				';
 			
 			}
-			for ($i = 0; $i < $_SESSION['total_users']; $i++) {
+			for ($i = 0; $i < min(8, $_SESSION['total_users']); $i++) {
 				echo '
 						<tr>
 							
@@ -126,35 +128,36 @@ de ver detalles de un estudiante y cerrar notificaciones no deseadas. -->
 <!-- Muestra Notificaciones -->
 <div class="content-aside">
     <?php
-		for ($i = 0; $i < $_SESSION['total_not']; $i++) {
-			mysqli_data_seek($result, $i);
-			$row = mysqli_fetch_array($result);
-			echo '<div class=" box-notification-doc">
-				<div class="btn-modal">
-				<form  action="" method="post">
-						<input type="hidden" name="notification_id" value="' . $row["nombrepdf"] . '">
-						<button class="close-button" type="submit" name="close_notification">X</button>
-					</form>
-								</div> 
-					<p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p>
-				
-				</div>';
-					
-			}
-			if (isset($_POST['close_notification'])) {
-				// Obtén el ID de la notificación desde el formulario
-				$notification_id = $_POST['notification_id'];
+        $start_index = max(0, $_SESSION['total_not'] - 8); // Comienza desde el índice que mostrará las últimas 5 notificaciones
+        for ($i = $start_index; $i < $_SESSION['total_not']; $i++) {
+            mysqli_data_seek($result, $i);
+            $row = mysqli_fetch_array($result);
+            echo '<div class="box-notification-doc">
+                <div class="btn-modal">
+                    <form action="" method="post">
+                        <input type="hidden" name="notification_id" value="' . $row["nombrepdf"] . '">
+                        <button class="close-button" type="submit" name="close_notification">X</button>
+                    </form>
+                </div> 
+                <p>' . $row["name"] . ', ' . $row["mensaje"] . ' ' . $row["nombrepdf"] . '</p>
+            </div>';
+        }
 
-				// Ejecuta la consulta SQL para actualizar el estado de la notificación a lo que necesites
-				$sql_update = "Delete from notify  WHERE nombrepdf = '$notification_id'";
-				
-				// Ejecuta la consulta de actualización
-				if ($conexion->query($sql_update)) {
-					$sql_update = "Delete from notify  WHERE nombrepdf = '$notification_id'";
-				}
-			}
+        if (isset($_POST['close_notification'])) {
+            // Obtén el ID de la notificación desde el formulario
+            $notification_id = $_POST['notification_id'];
+
+            // Ejecuta la consulta SQL para actualizar el estado de la notificación a lo que necesites
+            $sql_update = "DELETE FROM notify WHERE nombrepdf = '$notification_id'";
+
+            // Ejecuta la consulta de actualización
+            if ($conexion->query($sql_update)) {
+                $sql_update = "DELETE FROM notify WHERE nombrepdf = '$notification_id'";
+            }
+        }
     ?>
 </div>
+
 
 
 
